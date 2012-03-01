@@ -14,12 +14,16 @@
 		5A59DB2C15000D7300CE4FC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A59DB2B15000D7300CE4FC6 /* main.m */; };
 		5A59DB3015000D7300CE4FC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */; };
 		5A59DB3315000D7300CE4FC6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */; };
-		5A59DB3615000D7300CE4FC6 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A59DB3515000D7300CE4FC6 /* FirstViewController.m */; };
-		5A59DB3815000D7300CE4FC6 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A59DB3715000D7300CE4FC6 /* first.png */; };
-		5A59DB3A15000D7300CE4FC6 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A59DB3915000D7300CE4FC6 /* first@2x.png */; };
-		5A59DB3D15000D7300CE4FC6 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A59DB3C15000D7300CE4FC6 /* SecondViewController.m */; };
-		5A59DB3F15000D7300CE4FC6 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A59DB3E15000D7300CE4FC6 /* second.png */; };
-		5A59DB4115000D7300CE4FC6 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A59DB4015000D7300CE4FC6 /* second@2x.png */; };
+		C562FD08150035A700ADA1C8 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD07150035A700ADA1C8 /* MapViewController.m */; };
+		C562FD0B150036BE00ADA1C8 /* SubjectPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD0A150036BE00ADA1C8 /* SubjectPickerViewController.m */; };
+		C562FD0E1500373300ADA1C8 /* ClassPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD0D1500373300ADA1C8 /* ClassPickerViewController.m */; };
+		C562FD101500388F00ADA1C8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C562FD0F1500388F00ADA1C8 /* MapKit.framework */; };
+		C562FD121500389B00ADA1C8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C562FD111500389B00ADA1C8 /* CoreLocation.framework */; };
+		C562FD1515003B1900ADA1C8 /* CourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1415003B1800ADA1C8 /* CourseListViewController.m */; };
+		C562FD1815003C3300ADA1C8 /* CourseDetailVewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1715003C3300ADA1C8 /* CourseDetailVewController.m */; };
+		C562FD1B15003DAB00ADA1C8 /* BuildingPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1A15003DAB00ADA1C8 /* BuildingPickerViewController.m */; };
+		C562FD1E15003F3D00ADA1C8 /* BoredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */; };
+		C562FD2115003FF800ADA1C8 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD2015003FF700ADA1C8 /* PhotoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,14 +38,24 @@
 		5A59DB2E15000D7300CE4FC6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5A59DB3215000D7300CE4FC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		5A59DB3415000D7300CE4FC6 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		5A59DB3515000D7300CE4FC6 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		5A59DB3715000D7300CE4FC6 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		5A59DB3915000D7300CE4FC6 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		5A59DB3B15000D7300CE4FC6 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		5A59DB3C15000D7300CE4FC6 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		5A59DB3E15000D7300CE4FC6 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		5A59DB4015000D7300CE4FC6 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		C562FD06150035A700ADA1C8 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		C562FD07150035A700ADA1C8 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		C562FD09150036BE00ADA1C8 /* SubjectPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectPickerViewController.h; sourceTree = "<group>"; };
+		C562FD0A150036BE00ADA1C8 /* SubjectPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectPickerViewController.m; sourceTree = "<group>"; };
+		C562FD0C1500373300ADA1C8 /* ClassPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassPickerViewController.h; sourceTree = "<group>"; };
+		C562FD0D1500373300ADA1C8 /* ClassPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassPickerViewController.m; sourceTree = "<group>"; };
+		C562FD0F1500388F00ADA1C8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C562FD111500389B00ADA1C8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C562FD1315003B1800ADA1C8 /* CourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListViewController.h; sourceTree = "<group>"; };
+		C562FD1415003B1800ADA1C8 /* CourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListViewController.m; sourceTree = "<group>"; };
+		C562FD1615003C3300ADA1C8 /* CourseDetailVewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetailVewController.h; sourceTree = "<group>"; };
+		C562FD1715003C3300ADA1C8 /* CourseDetailVewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetailVewController.m; sourceTree = "<group>"; };
+		C562FD1915003DAB00ADA1C8 /* BuildingPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingPickerViewController.h; sourceTree = "<group>"; };
+		C562FD1A15003DAB00ADA1C8 /* BuildingPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingPickerViewController.m; sourceTree = "<group>"; };
+		C562FD1C15003F3D00ADA1C8 /* BoredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoredViewController.h; sourceTree = "<group>"; };
+		C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoredViewController.m; sourceTree = "<group>"; };
+		C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		C562FD2015003FF700ADA1C8 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C562FD121500389B00ADA1C8 /* CoreLocation.framework in Frameworks */,
+				C562FD101500388F00ADA1C8 /* MapKit.framework in Frameworks */,
 				5A59DB2015000D7300CE4FC6 /* UIKit.framework in Frameworks */,
 				5A59DB2215000D7300CE4FC6 /* Foundation.framework in Frameworks */,
 				5A59DB2415000D7300CE4FC6 /* CoreGraphics.framework in Frameworks */,
@@ -61,6 +77,8 @@
 		5A59DB1015000D7300CE4FC6 = {
 			isa = PBXGroup;
 			children = (
+				C562FD111500389B00ADA1C8 /* CoreLocation.framework */,
+				C562FD0F1500388F00ADA1C8 /* MapKit.framework */,
 				5A59DB2515000D7300CE4FC6 /* GrizSpace */,
 				5A59DB1E15000D7300CE4FC6 /* Frameworks */,
 				5A59DB1C15000D7300CE4FC6 /* Products */,
@@ -88,17 +106,25 @@
 		5A59DB2515000D7300CE4FC6 /* GrizSpace */ = {
 			isa = PBXGroup;
 			children = (
+				C562FD1615003C3300ADA1C8 /* CourseDetailVewController.h */,
+				C562FD1715003C3300ADA1C8 /* CourseDetailVewController.m */,
 				5A59DB2E15000D7300CE4FC6 /* AppDelegate.h */,
 				5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */,
 				5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */,
-				5A59DB3415000D7300CE4FC6 /* FirstViewController.h */,
-				5A59DB3515000D7300CE4FC6 /* FirstViewController.m */,
-				5A59DB3715000D7300CE4FC6 /* first.png */,
-				5A59DB3915000D7300CE4FC6 /* first@2x.png */,
-				5A59DB3B15000D7300CE4FC6 /* SecondViewController.h */,
-				5A59DB3C15000D7300CE4FC6 /* SecondViewController.m */,
-				5A59DB3E15000D7300CE4FC6 /* second.png */,
-				5A59DB4015000D7300CE4FC6 /* second@2x.png */,
+				C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */,
+				C562FD2015003FF700ADA1C8 /* PhotoViewController.m */,
+				C562FD1C15003F3D00ADA1C8 /* BoredViewController.h */,
+				C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */,
+				C562FD1915003DAB00ADA1C8 /* BuildingPickerViewController.h */,
+				C562FD1A15003DAB00ADA1C8 /* BuildingPickerViewController.m */,
+				C562FD1315003B1800ADA1C8 /* CourseListViewController.h */,
+				C562FD1415003B1800ADA1C8 /* CourseListViewController.m */,
+				C562FD0C1500373300ADA1C8 /* ClassPickerViewController.h */,
+				C562FD0D1500373300ADA1C8 /* ClassPickerViewController.m */,
+				C562FD09150036BE00ADA1C8 /* SubjectPickerViewController.h */,
+				C562FD0A150036BE00ADA1C8 /* SubjectPickerViewController.m */,
+				C562FD06150035A700ADA1C8 /* MapViewController.h */,
+				C562FD07150035A700ADA1C8 /* MapViewController.m */,
 				5A59DB2615000D7300CE4FC6 /* Supporting Files */,
 			);
 			path = GrizSpace;
@@ -167,10 +193,6 @@
 			files = (
 				5A59DB2A15000D7300CE4FC6 /* InfoPlist.strings in Resources */,
 				5A59DB3315000D7300CE4FC6 /* MainStoryboard.storyboard in Resources */,
-				5A59DB3815000D7300CE4FC6 /* first.png in Resources */,
-				5A59DB3A15000D7300CE4FC6 /* first@2x.png in Resources */,
-				5A59DB3F15000D7300CE4FC6 /* second.png in Resources */,
-				5A59DB4115000D7300CE4FC6 /* second@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,8 +205,14 @@
 			files = (
 				5A59DB2C15000D7300CE4FC6 /* main.m in Sources */,
 				5A59DB3015000D7300CE4FC6 /* AppDelegate.m in Sources */,
-				5A59DB3615000D7300CE4FC6 /* FirstViewController.m in Sources */,
-				5A59DB3D15000D7300CE4FC6 /* SecondViewController.m in Sources */,
+				C562FD08150035A700ADA1C8 /* MapViewController.m in Sources */,
+				C562FD0B150036BE00ADA1C8 /* SubjectPickerViewController.m in Sources */,
+				C562FD0E1500373300ADA1C8 /* ClassPickerViewController.m in Sources */,
+				C562FD1515003B1900ADA1C8 /* CourseListViewController.m in Sources */,
+				C562FD1815003C3300ADA1C8 /* CourseDetailVewController.m in Sources */,
+				C562FD1B15003DAB00ADA1C8 /* BuildingPickerViewController.m in Sources */,
+				C562FD1E15003F3D00ADA1C8 /* BoredViewController.m in Sources */,
+				C562FD2115003FF800ADA1C8 /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +324,7 @@
 				5A59DB4615000D7300CE4FC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
