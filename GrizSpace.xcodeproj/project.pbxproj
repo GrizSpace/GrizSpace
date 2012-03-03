@@ -77,8 +77,6 @@
 		5A59DB1015000D7300CE4FC6 = {
 			isa = PBXGroup;
 			children = (
-				C562FD111500389B00ADA1C8 /* CoreLocation.framework */,
-				C562FD0F1500388F00ADA1C8 /* MapKit.framework */,
 				5A59DB2515000D7300CE4FC6 /* GrizSpace */,
 				5A59DB1E15000D7300CE4FC6 /* Frameworks */,
 				5A59DB1C15000D7300CE4FC6 /* Products */,
@@ -96,6 +94,8 @@
 		5A59DB1E15000D7300CE4FC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C562FD111500389B00ADA1C8 /* CoreLocation.framework */,
+				C562FD0F1500388F00ADA1C8 /* MapKit.framework */,
 				5A59DB1F15000D7300CE4FC6 /* UIKit.framework */,
 				5A59DB2115000D7300CE4FC6 /* Foundation.framework */,
 				5A59DB2315000D7300CE4FC6 /* CoreGraphics.framework */,
