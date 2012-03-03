@@ -10,4 +10,5 @@
 
 @interface SubjectPickerViewController : UITableViewController
 
+@property (nonatomic, strong) NSArray *subjects;
 @end

@@ -24,6 +24,7 @@
 		C562FD1B15003DAB00ADA1C8 /* BuildingPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1A15003DAB00ADA1C8 /* BuildingPickerViewController.m */; };
 		C562FD1E15003F3D00ADA1C8 /* BoredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */; };
 		C562FD2115003FF800ADA1C8 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD2015003FF700ADA1C8 /* PhotoViewController.m */; };
+		C5DE90B31502891C00F56442 /* GrizSpaceTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5DE90B21502891C00F56442 /* GrizSpaceTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoredViewController.m; sourceTree = "<group>"; };
 		C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		C562FD2015003FF700ADA1C8 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		C5DE90B11502891C00F56442 /* GrizSpaceTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrizSpaceTabBarController.h; sourceTree = "<group>"; };
+		C5DE90B21502891C00F56442 /* GrizSpaceTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrizSpaceTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 				5A59DB2E15000D7300CE4FC6 /* AppDelegate.h */,
 				5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */,
 				5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */,
+				C5DE90B11502891C00F56442 /* GrizSpaceTabBarController.h */,
+				C5DE90B21502891C00F56442 /* GrizSpaceTabBarController.m */,
 				C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */,
 				C562FD2015003FF700ADA1C8 /* PhotoViewController.m */,
 				C562FD1C15003F3D00ADA1C8 /* BoredViewController.h */,
@@ -213,6 +218,7 @@
 				C562FD1B15003DAB00ADA1C8 /* BuildingPickerViewController.m in Sources */,
 				C562FD1E15003F3D00ADA1C8 /* BoredViewController.m in Sources */,
 				C562FD2115003FF800ADA1C8 /* PhotoViewController.m in Sources */,
+				C5DE90B31502891C00F56442 /* GrizSpaceTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

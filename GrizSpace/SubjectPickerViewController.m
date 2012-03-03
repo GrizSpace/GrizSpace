@@ -13,6 +13,12 @@
 @end
 
 @implementation SubjectPickerViewController
+@synthesize subjects = _subjects;
+
+-(void) setSubjects:(NSArray *)subjects
+{
+    _subjects = subjects;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -20,6 +26,7 @@
     if (self) {
         // Custom initialization
     }
+  //  NSLog(@"Init with style!!!!!");
     return self;
 }
 
@@ -27,6 +34,9 @@
 {
     [super viewDidLoad];
 
+    NSArray *myArray = [NSArray arrayWithObjects:@"Anthropology", @"Art", @"Biology", @"Business Administration", @"Chemistry", @"Economics", @"Financial Managment", @"Geology", @"History", @"Journalism", @"Liberal Studies", @"Managment", @"Physics", nil];
+    [self setSubjects:myArray];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -48,27 +58,28 @@
 
 #pragma mark - Table view data source
 
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
 }
-
+*/
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.subjects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Subject";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    
+    cell.textLabel.text = [self.subjects objectAtIndex:indexPath.row];
     return cell;
 }
 
