@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface SubjectPickerViewController : UITableViewController
+{
+ //   UISearchBar* searchBar;
+}
 
 @property (nonatomic, strong) NSArray *subjects;
+//@property (nonatomic, strong) UISearchBar *searchBar;
 @end

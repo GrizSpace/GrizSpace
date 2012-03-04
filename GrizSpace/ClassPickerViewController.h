@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ClassPickerViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIPickerView *coursePicker;
 
 @end

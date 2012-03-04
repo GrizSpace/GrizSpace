@@ -9,11 +9,14 @@
 #import "SubjectPickerViewController.h"
 
 @interface SubjectPickerViewController ()
+//@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
 @implementation SubjectPickerViewController
+//@synthesize searchBar = _searchBar;
 @synthesize subjects = _subjects;
+//@synthesize searchBar;//  = _searchBar;
 
 -(void) setSubjects:(NSArray *)subjects
 {
@@ -33,10 +36,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+ // self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
+    
+ //   self.tableView.tableHeaderView = self.searchBar;
 
     NSArray *myArray = [NSArray arrayWithObjects:@"Anthropology", @"Art", @"Biology", @"Business Administration", @"Chemistry", @"Economics", @"Financial Managment", @"Geology", @"History", @"Journalism", @"Liberal Studies", @"Managment", @"Physics", nil];
     [self setSubjects:myArray];
     
+        
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -46,6 +53,7 @@
 
 - (void)viewDidUnload
 {
+   // [self setSearchBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
