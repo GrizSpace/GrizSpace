@@ -36,7 +36,6 @@
     NSArray *myArray = [NSArray arrayWithObjects:@"Main Hall", nil];//@"Aber Hall", @"Adams Center", @"Art Annex", @"Chemistry Building", @"Corbin Hall", @"Craig Hall", @"Davidson Honors College", @"Duniway Hall", @"Forestry", @"Grizzly Pool", @"Hoyt Athletic Complex", @"Jesse Hall", @"Liberal Arts", @"Main Hall", @"Music", nil];
     [self setBuildings:myArray];
 
-   
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
