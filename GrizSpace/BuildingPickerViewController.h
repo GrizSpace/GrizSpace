@@ -10,4 +10,6 @@
 
 @interface BuildingPickerViewController : UITableViewController
 
+@property (nonatomic, strong) NSArray *buildings;
+
 @end

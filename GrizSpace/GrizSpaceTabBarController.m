@@ -1,22 +1,18 @@
 //
-//  ClassPickerViewController.m
+//  GrizSpaceTabBarController.m
 //  GrizSpace
 //
-//  Created by William Lyon on 3/1/12.
+//  Created by William Lyon on 3/3/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "ClassPickerViewController.h"
+#import "GrizSpaceTabBarController.h"
 
-@interface ClassPickerViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *tf2;
+@interface GrizSpaceTabBarController ()
 
 @end
 
-@implementation ClassPickerViewController
-@synthesize tf2;
-@synthesize coursePicker;
-
+@implementation GrizSpaceTabBarController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +22,7 @@
     }
     return self;
 }
+
 /*
 - (void)loadView
 {
@@ -33,25 +30,15 @@
     // If you use Interface Builder to create your views, then you must NOT override this method.
 }
 */
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-  //  UIView *purpleView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 120.0f)]; 
-    
- //   coursePicker = [UIPickerView initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 120.0f)];
-//    purpleView.backgroundColor = [UIColor whiteColor]; // Assign the input view 
-    
-    tf2.inputView = coursePicker;
-    
-    
 }
 
 - (void)viewDidUnload
 {
-    [self setCoursePicker:nil];
-    [self setTf2:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

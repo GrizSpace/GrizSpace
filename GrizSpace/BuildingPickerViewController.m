@@ -13,6 +13,12 @@
 @end
 
 @implementation BuildingPickerViewController
+@synthesize buildings = _buildings;
+
+-(void) setBuildings:(NSArray *)buildings
+{
+    _buildings = buildings;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSArray *myArray = [NSArray arrayWithObjects:@"Aber Hall", @"Adams Center", @"Art Annex", @"Chemistry Building", @"Corbin Hall", @"Craig Hall", @"Davidson Honors College", @"Duniway Hall", @"Forestry", @"Grizzly Pool", @"Hoyt Athletic Complex", @"Jesse Hall", @"Liberal Arts", @"Main Hall", @"Music", nil];
+    [self setBuildings:myArray];
 
    
     // Uncomment the following line to preserve selection between presentations.
@@ -49,27 +58,29 @@
 
 #pragma mark - Table view data source
 
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
 }
+*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.buildings count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Building";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    
+    cell.textLabel.text = [self.buildings objectAtIndex:indexPath.row];
     return cell;
 }
 

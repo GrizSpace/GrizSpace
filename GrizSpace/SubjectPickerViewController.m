@@ -9,10 +9,19 @@
 #import "SubjectPickerViewController.h"
 
 @interface SubjectPickerViewController ()
+//@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
 @implementation SubjectPickerViewController
+//@synthesize searchBar = _searchBar;
+@synthesize subjects = _subjects;
+//@synthesize searchBar;//  = _searchBar;
+
+-(void) setSubjects:(NSArray *)subjects
+{
+    _subjects = subjects;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -20,13 +29,21 @@
     if (self) {
         // Custom initialization
     }
+  //  NSLog(@"Init with style!!!!!");
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+ // self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
+    
+ //   self.tableView.tableHeaderView = self.searchBar;
 
+    NSArray *myArray = [NSArray arrayWithObjects:@"Anthropology", @"Art", @"Biology", @"Business Administration", @"Chemistry", @"Economics", @"Financial Managment", @"Geology", @"History", @"Journalism", @"Liberal Studies", @"Managment", @"Physics", nil];
+    [self setSubjects:myArray];
+    
+        
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -36,6 +53,7 @@
 
 - (void)viewDidUnload
 {
+   // [self setSearchBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -48,27 +66,28 @@
 
 #pragma mark - Table view data source
 
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
 }
-
+*/
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.subjects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Subject";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    
+    cell.textLabel.text = [self.subjects objectAtIndex:indexPath.row];
     return cell;
 }
 

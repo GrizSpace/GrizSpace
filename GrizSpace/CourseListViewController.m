@@ -13,6 +13,18 @@
 @end
 
 @implementation CourseListViewController
+@synthesize courses = _courses;
+@synthesize dayTimes = _dayTimes;
+
+-(void) setCourses:(NSArray *)courses
+{
+    _courses = courses;
+}
+
+-(void) setDayTimes:(NSArray *)dayTimes
+{
+    _dayTimes = dayTimes;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,6 +39,12 @@
 {
     [super viewDidLoad];
 
+    NSArray *myCourses = [NSArray arrayWithObjects:@"CSCI 491", @"CSCI 576", @"CSCI 511", @"ECON 591", @"ECON 221", nil];
+    
+    NSArray *myDayTimes = [NSArray arrayWithObjects:@"MWF   8:10-9:00     SS 362", @"MWF  9:10-10:00   SS 355", @"TTh  8:30-10     GBB 121", @"TTh     12:40-2:00      LA 411", @"MWF  3:10-4:00   SS 341",nil];
+    
+    [self setCourses:myCourses];
+    [self setDayTimes:myDayTimes];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -48,27 +66,30 @@
 
 #pragma mark - Table view data source
 
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
 }
-
+*/
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.courses count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Course";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     
+    cell.textLabel.text = [self.courses objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text = [self.dayTimes objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -81,19 +102,19 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+      //  [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
