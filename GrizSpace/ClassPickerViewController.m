@@ -15,7 +15,7 @@
 
 @implementation ClassPickerViewController
 @synthesize tf2;
-@synthesize coursePicker;
+@synthesize coursePicker=_coursePicker;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -25,6 +25,11 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)setCoursePicker:(UIPickerView *)coursePicker
+{
+    _coursePicker = coursePicker;
 }
 /*
 - (void)loadView
@@ -38,12 +43,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-  //  UIView *purpleView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 120.0f)]; 
+    //UIView *purpleView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 120.0f)]; 
     
- //   coursePicker = [UIPickerView initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 120.0f)];
+   // purpleView.backgroundColor = [UIColor whiteColor];
+    
+   // [self setCoursePicker:[[UIPickerView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 120.0f)]];
+      
+    //  UIPickerView *newPick = [[UIPickerView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 120.0f)];
 //    purpleView.backgroundColor = [UIColor whiteColor]; // Assign the input view 
     
-    tf2.inputView = coursePicker;
+    
+  //  tf2.inputView = coursePicker;
     
     
 }
