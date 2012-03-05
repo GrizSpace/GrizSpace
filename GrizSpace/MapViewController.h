@@ -8,7 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate> 
+{
+    __weak IBOutlet MKMapView *mapView;
+
+    CLLocationManager *myLocationManager; //used for updating the movment of my ocation
+    CLLocationCoordinate2D myLocationCoordinate; //used for storing 2d location cordinates.
+    
+    
+}
+@property (weak, nonatomic) IBOutlet UISegmentedControl *myMapViewTypeSegmentControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *myMapAnnotationSegmentControl;
+
+@property (nonatomic, retain) CLLocationManager *myLocationManager; 
+@property (nonatomic, readonly) CLLocationCoordinate2D myLocationCoordinate; 
 
 @end

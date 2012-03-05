@@ -1,24 +1,18 @@
 //
-//  BuildingPickerViewController.m
+//  BoredViewController.m
 //  GrizSpace
 //
 //  Created by William Lyon on 3/1/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "BuildingPickerViewController.h"
+#import "BoredViewController.h"
 
-@interface BuildingPickerViewController ()
+@interface BoredViewController ()
 
 @end
 
-@implementation BuildingPickerViewController
-@synthesize buildings = _buildings;
-
--(void) setBuildings:(NSArray *)buildings
-{
-    _buildings = buildings;
-}
+@implementation BoredViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,11 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSArray *myArray = [NSArray arrayWithObjects:@"Main Hall", nil];//@"Aber Hall", @"Adams Center", @"Art Annex", @"Chemistry Building", @"Corbin Hall", @"Craig Hall", @"Davidson Honors College", @"Duniway Hall", @"Forestry", @"Grizzly Pool", @"Hoyt Athletic Complex", @"Jesse Hall", @"Liberal Arts", @"Main Hall", @"Music", nil];
-    [self setBuildings:myArray];
 
-   
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -58,29 +48,27 @@
 
 #pragma mark - Table view data source
 
-/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
 }
-*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.buildings count];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Building";
+    static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    cell.textLabel.text = [self.buildings objectAtIndex:indexPath.row];
+    
     return cell;
 }
 
