@@ -1,18 +1,18 @@
 //
-//  BuildingPickerViewController.m
+//  BoredViewController.m
 //  GrizSpace
 //
 //  Created by William Lyon on 3/1/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "BuildingPickerViewController.h"
+#import "BoredViewController.h"
 
-@interface BuildingPickerViewController ()
+@interface BoredViewController ()
 
 @end
 
-@implementation BuildingPickerViewController
+@implementation BoredViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,7 +27,6 @@
 {
     [super viewDidLoad];
 
-   
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
