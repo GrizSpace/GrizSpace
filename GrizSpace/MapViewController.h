@@ -24,5 +24,6 @@
 
 @property (nonatomic, retain) CLLocationManager *myLocationManager; 
 @property (nonatomic, readonly) CLLocationCoordinate2D myLocationCoordinate; 
+@property (weak, nonatomic) IBOutlet UIImageView *DirectionCompas;
 
 @end

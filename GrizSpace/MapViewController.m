@@ -24,6 +24,7 @@
 @synthesize myMapViewTypeSegmentControl;
 @synthesize myMapAnnotationSegmentControl;
 @synthesize myLocationCoordinate;
+@synthesize DirectionCompas;
 @synthesize myLocationManager;
 
 
@@ -73,7 +74,8 @@
     myMapViewTypeSegmentControl.selectedSegmentIndex = 1;
     
     //clear map segment set by default
-    myMapAnnotationSegmentControl.selectedSegmentIndex = 2;
+    [myMapAnnotationSegmentControl setSelectedSegmentIndex: UISegmentedControlNoSegment];
+    //myMapAnnotationSegmentControl.selectedSegmentIndex = 2;
     
     
     //location manager setup
@@ -115,6 +117,7 @@
     myLocationManager = nil;
     myMapViewTypeSegmentControl = nil;
     myMapAnnotationSegmentControl = nil;
+    [self setDirectionCompas:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -229,16 +232,51 @@
         NSLog(@"Annotation set %@ Lon: %f Lat: %f",tmpNextClass.className, theCoordinate1.latitude, theCoordinate1.longitude);
         
         //clear then selection so next class can be pushed again.
-        myMapAnnotationSegmentControl.selectedSegmentIndex = 2;        
+        //myMapAnnotationSegmentControl.selectedSegmentIndex = 2;        
     }
+    //ensures that no segment is selected.
+    [myMapAnnotationSegmentControl setSelectedSegmentIndex: UISegmentedControlNoSegment];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading
+
+#define degreesToRadians(x) (M_PI * ((x) / 180.0))
+
+
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"New magnetic heading: %f", newHeading.magneticHeading);
-    NSLog(@"New true heading: %f", newHeading.trueHeading);
+    
+    
+    //float dy = newLocation.coordinate.latitude - oldLocation.coordinate.latitude;
+    //float dx = newLocation.coordinate.longitude - oldLocation.coordinate.longitude;
+    
+    float dy = oldLocation.coordinate.latitude - newLocation.coordinate.latitude;
+    
+    dy = dy * -1;  
+    
+    
+    float dx = oldLocation.coordinate.longitude - newLocation.coordinate.longitude;
+    
+    
+    float angle = atan2f(dy, dx);
+    DirectionCompas.transform = CGAffineTransformMakeRotation(angle);    
+    NSLog(@"Direction: %f", angle);
+    //NSLog(@"New Location: %@", newLocation);
+    //NSLog(@"New Heading: %@", [myLocationManager heading]);
 }
 
+
+
+//simulates distance berring and speed based on location.gpx file
+- (void) simulateDBS
+{
+    //CLHeading* tmpHeading = [[CLHeading alloc] init];
+    
+    //CLHeading* tmpHeading = [myLocationManager heading];
+    //[tmpHeading set
+    
+
+}
 
 
 

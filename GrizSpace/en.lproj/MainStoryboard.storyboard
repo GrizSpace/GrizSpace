@@ -53,7 +53,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="wUt-tu-AOu">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="wUt-tu-AOu">
                                 <rect key="frame" x="0.0" y="25" width="320" height="314"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
@@ -69,7 +69,7 @@
                                     <action selector="SegmentMapViewSelect:" destination="ZEc-nW-1Ux" eventType="valueChanged" id="VE5-NL-trF"/>
                                 </connections>
                             </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ct6-VK-9q2">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" id="ct6-VK-9q2">
                                 <rect key="frame" x="0.0" y="338" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
@@ -81,11 +81,16 @@
                                     <action selector="SegmentAnnotationSelect:" destination="ZEc-nW-1Ux" eventType="valueChanged" id="791-Kq-fKM"/>
                                 </connections>
                             </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Direction_Arrow.png" id="jRp-n3-pbM">
+                                <rect key="frame" x="279" y="285" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Map" id="YHH-sP-36h"/>
                     <connections>
+                        <outlet property="DirectionCompas" destination="jRp-n3-pbM" id="9rZ-2Y-hOy"/>
                         <outlet property="mapView" destination="wUt-tu-AOu" id="oXE-Va-XXb"/>
                         <outlet property="myMapAnnotationSegmentControl" destination="ct6-VK-9q2" id="9yq-D0-1Ax"/>
                         <outlet property="myMapViewTypeSegmentControl" destination="KeH-Q1-XXv" id="MpE-Cx-iIo"/>
@@ -507,6 +512,9 @@
             <point key="canvasLocation" x="1448" y="991"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Direction_Arrow.png" width="425" height="425"/>
+    </resources>
     <classes>
         <class className="BoredViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BoredViewController.h"/>
@@ -533,6 +541,7 @@
         <class className="MapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="DirectionCompas" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="myMapAnnotationSegmentControl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="myMapViewTypeSegmentControl" candidateClass="UISegmentedControl"/>

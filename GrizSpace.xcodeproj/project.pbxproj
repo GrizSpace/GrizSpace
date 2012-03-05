@@ -29,6 +29,8 @@
 		D8341F2A15029C1300FA0CD2 /* ClassData.m in Sources */ = {isa = PBXBuildFile; fileRef = D8341F2915029C1300FA0CD2 /* ClassData.m */; };
 		D83ADDE61502A1F1003733BE /* ClassTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D83ADDE51502A1F1003733BE /* ClassTable.m */; };
 		D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D83ADE0F15031F76003733BE /* MapAnnotation.m */; };
+		D860ADD415052C5700EB030A /* GrizSpaceTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */; };
+		D8FE67A215048EE600D09F31 /* Direction_Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D8FE67A115048EE600D09F31 /* Direction_Arrow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,7 @@
 		C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoredViewController.m; sourceTree = "<group>"; };
 		C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		C562FD2015003FF700ADA1C8 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		D80AE651150521D4004EA055 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		D8341F221502979700FA0CD2 /* AppDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDataObject.h; sourceTree = "<group>"; };
 		D8341F231502979700FA0CD2 /* AppDataObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDataObject.m; sourceTree = "<group>"; };
 		D8341F251502982D00FA0CD2 /* GrizSpaceDataObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrizSpaceDataObjects.h; sourceTree = "<group>"; };
@@ -72,6 +75,9 @@
 		D83ADDF31502DEE3003733BE /* AppDelegateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegateProtocol.h; sourceTree = "<group>"; };
 		D83ADE0E15031F76003733BE /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		D83ADE0F15031F76003733BE /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
+		D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrizSpaceTabBarController.h; sourceTree = "<group>"; };
+		D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrizSpaceTabBarController.m; sourceTree = "<group>"; };
+		D8FE67A115048EE600D09F31 /* Direction_Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Direction_Arrow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,13 +128,14 @@
 		5A59DB2515000D7300CE4FC6 /* GrizSpace */ = {
 			isa = PBXGroup;
 			children = (
+				D809A686150571CC007236B4 /* MapSpace */,
+				D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */,
+				D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */,
 				C562FD1615003C3300ADA1C8 /* CourseDetailVewController.h */,
 				C562FD1715003C3300ADA1C8 /* CourseDetailVewController.m */,
 				5A59DB2E15000D7300CE4FC6 /* AppDelegate.h */,
 				5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */,
 				5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */,
-				C5DE90B11502891C00F56442 /* GrizSpaceTabBarController.h */,
-				C5DE90B21502891C00F56442 /* GrizSpaceTabBarController.m */,
 				C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */,
 				C562FD2015003FF700ADA1C8 /* PhotoViewController.m */,
 				C562FD1C15003F3D00ADA1C8 /* BoredViewController.h */,
@@ -144,6 +151,26 @@
 				C562FD06150035A700ADA1C8 /* MapViewController.h */,
 				C562FD07150035A700ADA1C8 /* MapViewController.m */,
 				5A59DB2615000D7300CE4FC6 /* Supporting Files */,
+			);
+			path = GrizSpace;
+			sourceTree = "<group>";
+		};
+		5A59DB2615000D7300CE4FC6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8FE67A115048EE600D09F31 /* Direction_Arrow.png */,
+				5A59DB2715000D7300CE4FC6 /* GrizSpace-Info.plist */,
+				5A59DB2815000D7300CE4FC6 /* InfoPlist.strings */,
+				5A59DB2B15000D7300CE4FC6 /* main.m */,
+				5A59DB2D15000D7300CE4FC6 /* GrizSpace-Prefix.pch */,
+				D80AE651150521D4004EA055 /* Location.gpx */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D809A686150571CC007236B4 /* MapSpace */ = {
+			isa = PBXGroup;
+			children = (
 				D8341F221502979700FA0CD2 /* AppDataObject.h */,
 				D8341F231502979700FA0CD2 /* AppDataObject.m */,
 				D8341F251502982D00FA0CD2 /* GrizSpaceDataObjects.h */,
@@ -156,18 +183,7 @@
 				D83ADE0E15031F76003733BE /* MapAnnotation.h */,
 				D83ADE0F15031F76003733BE /* MapAnnotation.m */,
 			);
-			path = GrizSpace;
-			sourceTree = "<group>";
-		};
-		5A59DB2615000D7300CE4FC6 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5A59DB2715000D7300CE4FC6 /* GrizSpace-Info.plist */,
-				5A59DB2815000D7300CE4FC6 /* InfoPlist.strings */,
-				5A59DB2B15000D7300CE4FC6 /* main.m */,
-				5A59DB2D15000D7300CE4FC6 /* GrizSpace-Prefix.pch */,
-			);
-			name = "Supporting Files";
+			name = MapSpace;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +238,7 @@
 			files = (
 				5A59DB2A15000D7300CE4FC6 /* InfoPlist.strings in Resources */,
 				5A59DB3315000D7300CE4FC6 /* MainStoryboard.storyboard in Resources */,
+				D8FE67A215048EE600D09F31 /* Direction_Arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +264,7 @@
 				D8341F2A15029C1300FA0CD2 /* ClassData.m in Sources */,
 				D83ADDE61502A1F1003733BE /* ClassTable.m in Sources */,
 				D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */,
+				D860ADD415052C5700EB030A /* GrizSpaceTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
