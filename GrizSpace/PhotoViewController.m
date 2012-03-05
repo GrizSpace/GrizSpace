@@ -7,22 +7,12 @@
 //
 
 #import "PhotoViewController.h"
-#import <MapKit/MapKit.h>
 
 @interface PhotoViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *photoTableView;
-@property (weak, nonatomic) IBOutlet MKMapView *photomap;
 
 @end
 
 @implementation PhotoViewController
-@synthesize photoTableView;
-@synthesize photomap;
-
-- (IBAction)refresh:(id)sender 
-
-{
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,13 +22,13 @@
     }
     return self;
 }
-/*
+
 - (void)loadView
 {
     // If you create your views manually, you MUST override this method and use it to create your views.
     // If you use Interface Builder to create your views, then you must NOT override this method.
 }
-*/
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -47,8 +37,6 @@
 
 - (void)viewDidUnload
 {
-    [self setPhotoTableView:nil];
-    [self setPhotomap:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
