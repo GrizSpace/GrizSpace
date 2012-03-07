@@ -7,11 +7,6 @@
 //
 
 #import "MapViewController.h"
-#import "GrizSpaceDataObjects.h"
-#import "AppDelegateProtocol.h"
-#import "ClassData.h"
-#import "ClassTable.h"
-#import "MapAnnotation.h"
 
 @interface MapViewController ()
 

@@ -13,6 +13,10 @@
 @end
 
 @implementation BoredViewController
+- (IBAction)settings:(id)sender 
+
+{
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
