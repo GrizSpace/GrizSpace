@@ -30,6 +30,7 @@
 		D83ADDE61502A1F1003733BE /* ClassTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D83ADDE51502A1F1003733BE /* ClassTable.m */; };
 		D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D83ADE0F15031F76003733BE /* MapAnnotation.m */; };
 		D860ADD415052C5700EB030A /* GrizSpaceTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */; };
+		D8E53BC81505BC3400D59A52 /* Location2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D8E53BC71505BC3400D59A52 /* Location2.gpx */; };
 		D8FE67A215048EE600D09F31 /* Direction_Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D8FE67A115048EE600D09F31 /* Direction_Arrow.png */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,8 @@
 		D83ADE0F15031F76003733BE /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrizSpaceTabBarController.h; sourceTree = "<group>"; };
 		D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrizSpaceTabBarController.m; sourceTree = "<group>"; };
+		D8DCED431506CFB100E111DC /* Location3.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location3.gpx; sourceTree = "<group>"; };
+		D8E53BC71505BC3400D59A52 /* Location2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location2.gpx; sourceTree = "<group>"; };
 		D8FE67A115048EE600D09F31 /* Direction_Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Direction_Arrow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +167,8 @@
 				5A59DB2B15000D7300CE4FC6 /* main.m */,
 				5A59DB2D15000D7300CE4FC6 /* GrizSpace-Prefix.pch */,
 				D80AE651150521D4004EA055 /* Location.gpx */,
+				D8E53BC71505BC3400D59A52 /* Location2.gpx */,
+				D8DCED431506CFB100E111DC /* Location3.gpx */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				5A59DB2A15000D7300CE4FC6 /* InfoPlist.strings in Resources */,
 				5A59DB3315000D7300CE4FC6 /* MainStoryboard.storyboard in Resources */,
 				D8FE67A215048EE600D09F31 /* Direction_Arrow.png in Resources */,
+				D8E53BC81505BC3400D59A52 /* Location2.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
