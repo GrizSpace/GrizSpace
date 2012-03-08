@@ -14,7 +14,6 @@
 		5A59DB2C15000D7300CE4FC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A59DB2B15000D7300CE4FC6 /* main.m */; };
 		5A59DB3015000D7300CE4FC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */; };
 		5A59DB3315000D7300CE4FC6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */; };
-		C517B4C6150451D400F29EB6 /* BoredSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C517B4C5150451D400F29EB6 /* BoredSettingsTableViewController.m */; };
 		C562FD08150035A700ADA1C8 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD07150035A700ADA1C8 /* MapViewController.m */; };
 		C562FD0B150036BE00ADA1C8 /* SubjectPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD0A150036BE00ADA1C8 /* SubjectPickerViewController.m */; };
 		C562FD0E1500373300ADA1C8 /* ClassPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD0D1500373300ADA1C8 /* ClassPickerViewController.m */; };
@@ -105,8 +104,6 @@
 		5A59DB1015000D7300CE4FC6 = {
 			isa = PBXGroup;
 			children = (
-				C562FD111500389B00ADA1C8 /* CoreLocation.framework */,
-				C562FD0F1500388F00ADA1C8 /* MapKit.framework */,
 				5A59DB2515000D7300CE4FC6 /* GrizSpace */,
 				5A59DB1E15000D7300CE4FC6 /* Frameworks */,
 				5A59DB1C15000D7300CE4FC6 /* Products */,
@@ -124,6 +121,8 @@
 		5A59DB1E15000D7300CE4FC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C562FD111500389B00ADA1C8 /* CoreLocation.framework */,
+				C562FD0F1500388F00ADA1C8 /* MapKit.framework */,
 				5A59DB1F15000D7300CE4FC6 /* UIKit.framework */,
 				5A59DB2115000D7300CE4FC6 /* Foundation.framework */,
 				5A59DB2315000D7300CE4FC6 /* CoreGraphics.framework */,
@@ -144,8 +143,6 @@
 				5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */,
 				C517B4C4150451D400F29EB6 /* BoredSettingsTableViewController.h */,
 				C517B4C5150451D400F29EB6 /* BoredSettingsTableViewController.m */,
-				C5DE90B11502891C00F56442 /* GrizSpaceTabBarController.h */,
-				C5DE90B21502891C00F56442 /* GrizSpaceTabBarController.m */,
 				C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */,
 				C562FD2015003FF700ADA1C8 /* PhotoViewController.m */,
 				C562FD1C15003F3D00ADA1C8 /* BoredViewController.h */,
