@@ -26,7 +26,7 @@ NSMutableArray* myClassItems;
     
     [myClassItems addObject: [[ClassData alloc] initWithClassDataID:2 Name:@"CSCI 101" Number:@"101" Title:@"Intro to Java" Prefix:@"CS101" Lat:46.861748 Lon:-113.985212]];
     
-    [myClassItems addObject: [[ClassData alloc] initWithClassDataID:3 Name:@"English 152" Number:@"152" Title:@"Intro to English" Prefix:@"ENG152" Lat:46.861779 Lon:-113.986333]];
+    [myClassItems addObject: [[ClassData alloc] initWithClassDataID:3 Name:@"Main Hall" Number:@"" Title:@"Main Hall" Prefix:@"MH" Lat:46.860097 Lon:-113.983785]];
     	
     
     [myClassItems addObject: [[ClassData alloc] initWithClassDataID:4 Name:@"Art 135" Number:@"135" Title:@"Intro to Art" Prefix:@"ART135" Lat:46.860917 Lon:-113.985968]];
@@ -34,7 +34,7 @@ NSMutableArray* myClassItems;
     [myClassItems addObject: [[ClassData alloc] initWithClassDataID:5 Name:@"FOR 147" Number:@"147" Title:@"Intro to Forestry" Prefix:@"CS147" Lat:46.858891 Lon:-113.983798]];
     
     
-    [myClassItems addObject: [[ClassData alloc] initWithClassDataID:6 Name:@"Math 178" Number:@"178" Title:@"Intro to Geometry" Prefix:@"CS178" Lat:46.859325 Lon:-113.98566]];
+    [myClassItems addObject: [[ClassData alloc] initWithClassDataID:6 Name:@"Rock Climbing Wall" Number:@"1" Title:@"Adams Center" Prefix:@"AC" Lat:46.863815 Lon:-113.983442]];
     
     
     return self;

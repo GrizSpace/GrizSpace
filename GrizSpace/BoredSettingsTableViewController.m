@@ -1,18 +1,18 @@
 //
-//  BoredViewController.m
+//  BoredSettingsTableViewController.m
 //  GrizSpace
 //
-//  Created by William Lyon on 3/1/12.
+//  Created by William Lyon on 3/4/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "BoredViewController.h"
+#import "BoredSettingsTableViewController.h"
 
-@interface BoredViewController ()
+@interface BoredSettingsTableViewController ()
 
 @end
 
-@implementation BoredViewController
+@implementation BoredSettingsTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

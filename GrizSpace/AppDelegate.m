@@ -7,16 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "AppDelegateProtocol.h"
-#import "GrizSpaceDataObjects.h"
-
 
 @implementation AppDelegate
 
 @synthesize window = _window;
-
-
-@synthesize theAppDataObject;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

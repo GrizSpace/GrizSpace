@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import <CoreLocation/CoreLocation.h>
 
-@interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate> 
-{
-    __weak IBOutlet MKMapView *mapView;
+@interface MapViewController : UIViewController
 
     CLLocationManager *myLocationManager; //used for updating the movment of my ocation
     CLLocationCoordinate2D myLocationCoordinate; //used for storing 2d location cordinates.

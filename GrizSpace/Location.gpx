@@ -5,35 +5,35 @@
          <name>Missoula, MT</name>
 	</wpt>
     
-    <wpt lat="46.860850" lon="-113.985188">
+    <wpt lat="46.860800" lon="-113.985188">
         <name>Loc 1</name>
 	</wpt>    
     
-    <wpt lat="46.860800" lon="-113.985188">
+    <wpt lat="46.860700" lon="-113.985188">
         <name>Loc 2</name>
 	</wpt>  
     
-    <wpt lat="46.860750" lon="-113.985188">
+    <wpt lat="46.860600" lon="-113.985188">
         <name>Loc 3</name>
 	</wpt>    
     
-    <wpt lat="46.860700" lon="-113.985188">
+    <wpt lat="46.860500" lon="-113.985188">
         <name>Loc 4</name>
 	</wpt> 
     
-    <wpt lat="46.860650" lon="-113.985188">
+    <wpt lat="46.860380" lon="-113.985188">
         <name>Loc 5</name>
 	</wpt>    
     
-    <wpt lat="46.860600" lon="-113.985188">
+    <wpt lat="46.860250" lon="-113.985188">
         <name>Loc 6</name>
 	</wpt>  
     
-    <wpt lat="46.860550" lon="-113.986188">
+    <wpt lat="46.860100" lon="-113.984188">
         <name>Loc 7</name>
 	</wpt>    
     
-    <wpt lat="46.860500" lon="-113.987188">
+    <wpt lat="46.860050" lon="-113.984188">
         <name>Loc 8</name>
     </wpt>
 </gpx>
