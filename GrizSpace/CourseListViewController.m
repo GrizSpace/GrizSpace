@@ -7,6 +7,8 @@
 //
 
 #import "CourseListViewController.h"
+#import "GrizSpaceDataObjects.h"
+#import "AppDelegateProtocol.h"
 
 @interface CourseListViewController ()
 
@@ -15,6 +17,15 @@
 @implementation CourseListViewController
 @synthesize courses = _courses;
 @synthesize dayTimes = _dayTimes;
+
+
+- (GrizSpaceDataObjects*) theAppDataObject;
+{
+	id<AppDelegateProtocol> theDelegate = (id<AppDelegateProtocol>) [UIApplication sharedApplication].delegate;
+	GrizSpaceDataObjects* theDataObject;
+	theDataObject = (GrizSpaceDataObjects*) theDelegate.theAppDataObject;
+	return theDataObject;
+}
 
 -(void) setCourses:(NSArray *)courses
 {
@@ -31,7 +42,15 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        
+        GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
+        
+        //set reference to the course detail controler.
+        theDataObject.myCourseListViewController = self;
     }
+    
+    
+    
     return self;
 }
 
@@ -131,6 +150,39 @@
     return YES;
 }
 */
+-(void) SelectRowAtIndex: (int)rowIndex
+{
+
+    GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
+    //[self.navigationController pushViewController: theDataObject.courseDVC animated:YES];
+    
+    //[theDataObject.clvc.tableView cellForRowAtIndexPath:ip];
+    
+    
+    //[theDataObject.clvc.tableView selectRowAtIndexPath:ip animated:YES scrollPosition:UITableViewRowAnimationAutomatic];
+    
+    //NSIndexPath* ip = [NSIndexPath indexPathForRow:2 inSection:0];
+    //UITableViewCell* tmpTVC = [self.tableView cellForRowAtIndexPath:ip];
+    
+    //[tmpTVC 
+    
+    //[self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:0];
+    
+    /*
+    CourseDetailVewController *detailViewController = [[CourseDetailVewController alloc] initWithNibName:@"CourseDetailViewController" bundle:nil];
+    
+    UINavigationController* navBar = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+    [self.navigationController presentModalViewController:navBar animated:YES];
+    */
+    
+   // [self.navigationController pushViewController: animated:<#(BOOL)#>
+    //[self.navigationController pushViewController: theDataObject.clvc animated:YES]; 
+    // ...
+    // Pass the selected object to the new view controller.
+    //[self.navigationController pushViewController:detailViewController animated:YES];
+    
+    NSLog(@"in select row: %i", rowIndex);
+}
 
 #pragma mark - Table view delegate
 

@@ -7,12 +7,23 @@
 //
 
 #import "GrizSpaceTabBarController.h"
+#import "GrizSpaceDataObjects.h"
+#import "AppDelegateProtocol.h"
 
 @interface GrizSpaceTabBarController ()
 
 @end
 
 @implementation GrizSpaceTabBarController
+
+- (GrizSpaceDataObjects*) theAppDataObject;
+{
+	id<AppDelegateProtocol> theDelegate = (id<AppDelegateProtocol>) [UIApplication sharedApplication].delegate;
+	GrizSpaceDataObjects* theDataObject;
+	theDataObject = (GrizSpaceDataObjects*) theDelegate.theAppDataObject;
+	return theDataObject;
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +46,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    //get the app data from teh griz space data objects ref.
+    GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
+    
+    theDataObject.myGrizSpaceTabBarController = self;
 }
 
 - (void)viewDidUnload

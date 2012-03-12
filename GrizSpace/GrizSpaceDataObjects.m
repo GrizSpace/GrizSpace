@@ -8,27 +8,28 @@
 
 #import "GrizSpaceDataObjects.h"
 #import "ClassTable.h"
+#import "CourseDetailVewController.h"
+#import "GrizSpaceTabBarController.h"
+#import "CourseListViewController.h"
 
 @implementation GrizSpaceDataObjects
 
-ClassTable* myClassTable;
+@synthesize mapClassTable, myCourseDetailViewController, myGrizSpaceTabBarController, myCourseListViewController;
 //default constructor
 -(id) init {
     
     if (self = [super init])
     {
         //create instance of the class table.
-        myClassTable = [[ClassTable alloc ] init];
-        
+        mapClassTable = [[ClassTable alloc ] init];
+        myCourseDetailViewController = [[CourseDetailVewController alloc] init];
+        myGrizSpaceTabBarController = [[GrizSpaceTabBarController alloc] init];
+        myCourseListViewController = [[CourseListViewController alloc] init];
     }
     return self;
     
 }
 
-//returns the class table object from the space of stored data objects.
--(ClassTable*) GetClassTable
-{
-    return myClassTable;
-}
+
 
 @end

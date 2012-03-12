@@ -8,13 +8,23 @@
 
 #import "AppDataObject.h"
 #import "ClassTable.h"
+#import "CourseDetailVewController.h"
+#import "GrizSpaceTabBarController.h"
+#import "CourseListViewController.h"
 
 @interface GrizSpaceDataObjects : AppDataObject
+{
+    ClassTable* mapClassTable;
+    CourseDetailVewController* myCourseDetailViewController;
+    GrizSpaceTabBarController* myGrizSpaceTabBarController;
+    CourseListViewController* myCourseListViewController;
+}
 
 
 //procedure to get class data from the data objects.
--(ClassTable*) GetClassTable;
-
-
+@property (nonatomic, readwrite) ClassTable* mapClassTable;
+@property (nonatomic, readwrite) CourseDetailVewController* myCourseDetailViewController;
+@property (nonatomic, readwrite) GrizSpaceTabBarController* myGrizSpaceTabBarController;
+@property (nonatomic, readwrite) CourseListViewController* myCourseListViewController;
 
 @end

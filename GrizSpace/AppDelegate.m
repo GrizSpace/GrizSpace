@@ -24,6 +24,7 @@
     //instanciate the courseappdata object for getting data from objects.
     self.theAppDataObject = [[GrizSpaceDataObjects alloc] init];
 
+    
     // Override point for customization after application launch.
     return YES;
 }

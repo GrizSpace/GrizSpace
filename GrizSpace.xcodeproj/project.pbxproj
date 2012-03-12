@@ -128,13 +128,13 @@
 		5A59DB2515000D7300CE4FC6 /* GrizSpace */ = {
 			isa = PBXGroup;
 			children = (
+				5A59DB2E15000D7300CE4FC6 /* AppDelegate.h */,
+				5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */,
 				D809A686150571CC007236B4 /* MapSpace */,
 				D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */,
 				D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */,
 				C562FD1615003C3300ADA1C8 /* CourseDetailVewController.h */,
 				C562FD1715003C3300ADA1C8 /* CourseDetailVewController.m */,
-				5A59DB2E15000D7300CE4FC6 /* AppDelegate.h */,
-				5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */,
 				5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */,
 				C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */,
 				C562FD2015003FF700ADA1C8 /* PhotoViewController.m */,

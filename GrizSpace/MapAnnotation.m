@@ -12,6 +12,6 @@
 
 
 @implementation MapAnnotation
-@synthesize coordinate,title,subtitle;
+@synthesize coordinate,title,subtitle, keyVal;
 
 @end

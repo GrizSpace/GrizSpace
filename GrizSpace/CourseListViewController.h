@@ -11,4 +11,7 @@
 @interface CourseListViewController : UITableViewController
 @property (nonatomic, strong) NSArray *courses;
 @property (nonatomic, strong) NSArray *dayTimes;
+
+-(void) SelectRowAtIndex:(int)rowIndex;
+
 @end

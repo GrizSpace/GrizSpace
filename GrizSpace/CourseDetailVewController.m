@@ -7,6 +7,8 @@
 //
 
 #import "CourseDetailVewController.h"
+#import "GrizSpaceDataObjects.h"
+#import "AppDelegateProtocol.h"
 
 @interface CourseDetailVewController ()
 
@@ -14,12 +16,29 @@
 
 @implementation CourseDetailVewController
 
+
+- (GrizSpaceDataObjects*) theAppDataObject;
+{
+	id<AppDelegateProtocol> theDelegate = (id<AppDelegateProtocol>) [UIApplication sharedApplication].delegate;
+	GrizSpaceDataObjects* theDataObject;
+	theDataObject = (GrizSpaceDataObjects*) theDelegate.theAppDataObject;
+	return theDataObject;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        //get the app data from teh griz space data objects ref.
+        GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
+        
+        //set reference to the course detail controler.
+        theDataObject.myCourseDetailViewController = self;
     }
+    
+    
     return self;
 }
 /*
@@ -33,6 +52,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+
+    
 }
 
 - (void)viewDidUnload

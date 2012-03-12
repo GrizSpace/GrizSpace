@@ -12,6 +12,8 @@
 #import "ClassData.h"
 #import "ClassTable.h"
 #import "MapAnnotation.h"
+#import "CourseDetailVewController.h"
+#import "GrizSpaceTabBarController.h"
 
 @interface MapViewController ()
 
@@ -54,11 +56,33 @@
     // If you use Interface Builder to create your views, then you must NOT override this method.
 }
 */
+
+- (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer.state != UIGestureRecognizerStateEnded)
+        return;
+    
+    CGPoint touchPoint = [gestureRecognizer locationInView:mapView];
+    CLLocationCoordinate2D touchMapCoordinate = [mapView convertPoint:touchPoint    toCoordinateFromView:mapView];
+    
+    NSString* messageString = [NSString stringWithFormat:@"Click Location %f : %f", touchMapCoordinate.longitude, touchMapCoordinate.latitude];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Title" message:messageString
+												   delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Ok", nil];
+	[alert show];
+}
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]initWithTarget:self        action:@selector(handleGesture:)];   
+    tgr.numberOfTapsRequired = 2;
+    tgr.numberOfTouchesRequired = 1;
+    [mapView addGestureRecognizer:tgr];
     
     
     //mapview setup
@@ -161,7 +185,7 @@
     GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
     
     //get teh class table
-    ClassTable* tmpClassTable = [theDataObject GetClassTable];
+    ClassTable* tmpClassTable = [theDataObject mapClassTable];
     
     NSMutableArray* tmpClassDataArray = [tmpClassTable GetClassItems];
     
@@ -186,6 +210,7 @@
             MapAnnotation* ann = [[MapAnnotation alloc] init];
             ann.title = [tmpCD className];
             ann.coordinate = theCoordinate1;
+            ann.keyVal = [tmpCD classID];
             [mapView addAnnotation:ann];
             [mapView selectAnnotation:ann animated:YES];
             
@@ -226,10 +251,12 @@
         MapAnnotation* ann = [[MapAnnotation alloc] init];
         ann.title = [tmpNextClass className];
         ann.coordinate = theCoordinate1;
+        ann.keyVal = [tmpNextClass classID];
+        
         [mapView addAnnotation:ann];
         [mapView selectAnnotation:ann animated:YES];
         
-        NSLog(@"Annotation set %@ Lon: %f Lat: %f",tmpNextClass.className, theCoordinate1.latitude, theCoordinate1.longitude);
+        //NSLog(@"Annotation set %@ Lon: %f Lat: %f",tmpNextClass.className, theCoordinate1.latitude, theCoordinate1.longitude);
         
         //clear then selection so next class can be pushed again.
         //myMapAnnotationSegmentControl.selectedSegmentIndex = 2;        
@@ -260,7 +287,7 @@
     
     float angle = atan2f(dy, dx);
     DirectionCompas.transform = CGAffineTransformMakeRotation(angle);    
-    NSLog(@"Direction: %f", angle);
+    //NSLog(@"Direction: %f", angle);
     //NSLog(@"New Location: %@", newLocation);
     //NSLog(@"New Heading: %@", [myLocationManager heading]);
 }
@@ -277,6 +304,57 @@
     
 
 }
+
+- (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    if (annotation == mapView.userLocation) return nil;
+    
+    MKPinAnnotationView *pin = (MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier: @"asdf"];
+    
+    MapAnnotation* tmpAnn = (MapAnnotation*) annotation;
+    
+    
+    if (pin == nil)
+    {
+        pin = [[MKPinAnnotationView alloc] initWithAnnotation: tmpAnn reuseIdentifier: @"asdf"];
+    }
+    else
+    {
+        pin.annotation = annotation;
+    }
+    
+    UIButton *annotationButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    //[annotationButton : UIButtonTypeDetailDisclosure];
+    //UIButton *annotationButton = [[[UIButton buttonWithType:UIButtonTypeDetailDisclosure] alloc] init];
+    
+    [annotationButton setTag: tmpAnn.keyVal];
+    
+    [annotationButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    pin.rightCalloutAccessoryView = annotationButton;
+    
+    pin.pinColor = MKPinAnnotationColorRed;
+    pin.animatesDrop = YES;
+    [pin setEnabled:YES];
+    [pin setCanShowCallout:YES];
+    return pin;
+    
+}
+
+//action for annotation object click event.
+-(void) buttonClicked:(UIButton*) button
+{
+
+    NSLog(@"Button %ld clicked.", (long int)[button tag]);
+
+    
+    //get the app data from teh griz space data objects ref.
+    GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
+    
+    [self performSegueWithIdentifier:@"MapToCourseDetail" sender:self];
+
+}
+
 
 
 
