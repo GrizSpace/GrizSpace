@@ -150,39 +150,7 @@
     return YES;
 }
 */
--(void) SelectRowAtIndex: (int)rowIndex
-{
 
-    GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
-    //[self.navigationController pushViewController: theDataObject.courseDVC animated:YES];
-    
-    //[theDataObject.clvc.tableView cellForRowAtIndexPath:ip];
-    
-    
-    //[theDataObject.clvc.tableView selectRowAtIndexPath:ip animated:YES scrollPosition:UITableViewRowAnimationAutomatic];
-    
-    //NSIndexPath* ip = [NSIndexPath indexPathForRow:2 inSection:0];
-    //UITableViewCell* tmpTVC = [self.tableView cellForRowAtIndexPath:ip];
-    
-    //[tmpTVC 
-    
-    //[self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:0];
-    
-    /*
-    CourseDetailVewController *detailViewController = [[CourseDetailVewController alloc] initWithNibName:@"CourseDetailViewController" bundle:nil];
-    
-    UINavigationController* navBar = [[UINavigationController alloc] initWithRootViewController:detailViewController];
-    [self.navigationController presentModalViewController:navBar animated:YES];
-    */
-    
-   // [self.navigationController pushViewController: animated:<#(BOOL)#>
-    //[self.navigationController pushViewController: theDataObject.clvc animated:YES]; 
-    // ...
-    // Pass the selected object to the new view controller.
-    //[self.navigationController pushViewController:detailViewController animated:YES];
-    
-    NSLog(@"in select row: %i", rowIndex);
-}
 
 #pragma mark - Table view delegate
 
