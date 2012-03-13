@@ -349,7 +349,7 @@
 
     
     //get the app data from teh griz space data objects ref.
-    GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
+    //GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
     
     [self performSegueWithIdentifier:@"MapToCourseDetail" sender:self];
 
