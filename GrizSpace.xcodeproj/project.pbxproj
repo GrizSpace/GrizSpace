@@ -32,6 +32,8 @@
 		D860ADD415052C5700EB030A /* GrizSpaceTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */; };
 		D8E53BC81505BC3400D59A52 /* Location2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D8E53BC71505BC3400D59A52 /* Location2.gpx */; };
 		D8FE67A215048EE600D09F31 /* Direction_Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D8FE67A115048EE600D09F31 /* Direction_Arrow.png */; };
+		E6F0348F150ED5BE00BF0E0F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */; };
+		E6F03492150ED70A00BF0E0F /* GrizSpace.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E6F03491150ED70A00BF0E0F /* GrizSpace.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,8 @@
 		D8DCED431506CFB100E111DC /* Location3.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location3.gpx; sourceTree = "<group>"; };
 		D8E53BC71505BC3400D59A52 /* Location2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location2.gpx; sourceTree = "<group>"; };
 		D8FE67A115048EE600D09F31 /* Direction_Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Direction_Arrow.png; sourceTree = "<group>"; };
+		E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		E6F03491150ED70A00BF0E0F /* GrizSpace.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = GrizSpace.sqlite; path = ../../GrizSpace.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 				5A59DB2015000D7300CE4FC6 /* UIKit.framework in Frameworks */,
 				5A59DB2215000D7300CE4FC6 /* Foundation.framework in Frameworks */,
 				5A59DB2415000D7300CE4FC6 /* CoreGraphics.framework in Frameworks */,
+				E6F0348F150ED5BE00BF0E0F /* libsqlite3.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +126,7 @@
 		5A59DB1E15000D7300CE4FC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */,
 				C562FD111500389B00ADA1C8 /* CoreLocation.framework */,
 				C562FD0F1500388F00ADA1C8 /* MapKit.framework */,
 				5A59DB1F15000D7300CE4FC6 /* UIKit.framework */,
@@ -133,6 +139,7 @@
 		5A59DB2515000D7300CE4FC6 /* GrizSpace */ = {
 			isa = PBXGroup;
 			children = (
+				E6F03491150ED70A00BF0E0F /* GrizSpace.sqlite */,
 				5A59DB2E15000D7300CE4FC6 /* AppDelegate.h */,
 				5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */,
 				D809A686150571CC007236B4 /* MapSpace */,
@@ -249,6 +256,7 @@
 				5A59DB3315000D7300CE4FC6 /* MainStoryboard.storyboard in Resources */,
 				D8FE67A215048EE600D09F31 /* Direction_Arrow.png in Resources */,
 				D8E53BC81505BC3400D59A52 /* Location2.gpx in Resources */,
+				E6F03492150ED70A00BF0E0F /* GrizSpace.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
