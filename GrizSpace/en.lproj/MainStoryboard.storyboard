@@ -45,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="336" y="-300"/>
         </scene>
-        <!--Map View Controller - Map-->
+        <!--Map View Controller-->
         <scene sceneID="sPG-ZT-7Hu">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQ2-Kp-huJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -55,21 +55,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="wUt-tu-AOu">
-                                <rect key="frame" x="0.0" y="27" width="320" height="314"/>
+                                <rect key="frame" x="0.0" y="-1" width="320" height="341"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="KeH-Q1-XXv">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Map"/>
-                                    <segment title="Satellite"/>
-                                    <segment title="Hybrid"/>
-                                </segments>
-                                <connections>
-                                    <action selector="SegmentMapViewSelect:" destination="ZEc-nW-1Ux" eventType="valueChanged" id="VE5-NL-trF"/>
-                                </connections>
-                            </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" id="ct6-VK-9q2">
                                 <rect key="frame" x="0.0" y="338" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -83,11 +71,11 @@
                                 </connections>
                             </segmentedControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Direction_Arrow.png" id="jRp-n3-pbM">
-                                <rect key="frame" x="249" y="278" width="35" height="35"/>
+                                <rect key="frame" x="249" y="269" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="North West 45 Feet" placeholder="North West 45 Feet" textAlignment="center" minimumFontSize="10" id="CMg-sR-QWB">
-                                <rect key="frame" x="223" y="321" width="97" height="18"/>
+                                <rect key="frame" x="223" y="312" width="97" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -96,9 +84,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Map" id="YHH-sP-36h"/>
+                    <navigationItem key="navigationItem" id="YHH-sP-36h">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Fvd-O8-7no">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="KeH-Q1-XXv">
+                                <rect key="frame" x="5" y="7" width="310" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Map"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="SegmentMapViewSelect:" destination="ZEc-nW-1Ux" eventType="valueChanged" id="VE5-NL-trF"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="DirectionCompas" destination="jRp-n3-pbM" id="9rZ-2Y-hOy"/>
+                        <outlet property="distanceText" destination="CMg-sR-QWB" id="ahd-6P-2KG"/>
                         <outlet property="mapView" destination="wUt-tu-AOu" id="oXE-Va-XXb"/>
                         <outlet property="myMapAnnotationSegmentControl" destination="ct6-VK-9q2" id="9yq-D0-1Ax"/>
                         <outlet property="myMapViewTypeSegmentControl" destination="KeH-Q1-XXv" id="MpE-Cx-iIo"/>
@@ -1523,6 +1528,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="DirectionCompas" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="distanceText" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="myMapAnnotationSegmentControl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="myMapViewTypeSegmentControl" candidateClass="UISegmentedControl"/>
@@ -1545,10 +1551,5 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="K62-WQ-gCS"/>
-        <segue reference="1Tx-cZ-WSU"/>
-        <segue reference="j0Q-Kb-Ig5"/>
-        <segue reference="cdk-8W-ett"/>
-        <segue reference="1I1-9C-4lJ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 
 #import <MapKit/MKAnnotation.h>
-@interface MapAnnotation : NSObject  <MKAnnotation> {
-    
-    CLLocationCoordinate2D coordinate;
-    NSString *title;
-    NSString *subtitle;
-    int keyVal;
-}
-@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *subtitle;
-@property (nonatomic, assign) int keyVal;
+@interface MapAnnotation : NSObject  <MKAnnotation> 
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate; //cordinate of annotation
+@property (nonatomic, copy) NSString* title; //title of annotation
+@property (nonatomic, copy) NSString* subtitle; //subtitle of annotation
+@property (nonatomic, assign) int keyVal; //id of the annotation object type being displayed
+@property (nonatomic, assign) NSString* annotationType; //tells the type of annotation building or class
+@property (nonatomic, readwrite) int radius; //the radius of the object identified
+
+//overloaded constructor.
+- (id) initWithAnnotationDataKeyID: (int) newKeyID annotationType: (NSString*) newAnnotationType coordinate: (CLLocationCoordinate2D) newCoordinate title: (NSString*) newTitle subtitle: (NSString*) newSubtitle radius: (int) newRadius;
+
 @end
