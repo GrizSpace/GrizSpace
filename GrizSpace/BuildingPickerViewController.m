@@ -14,8 +14,9 @@
 
 @implementation BuildingPickerViewController
 @synthesize buildings = _buildings;
+//@synthesize database;
 
--(void) setBuildings:(NSArray *)buildings
+-(void) setBuildings:(NSMutableArray *)buildings
 {
     _buildings = buildings;
 }
@@ -33,8 +34,15 @@
 {
     [super viewDidLoad];
     
-    NSArray *myArray = [NSArray arrayWithObjects:@"Main Hall", nil];//@"Aber Hall", @"Adams Center", @"Art Annex", @"Chemistry Building", @"Corbin Hall", @"Craig Hall", @"Davidson Honors College", @"Duniway Hall", @"Forestry", @"Grizzly Pool", @"Hoyt Athletic Complex", @"Jesse Hall", @"Liberal Arts", @"Main Hall", @"Music", nil];
-    [self setBuildings:myArray];
+   // NSArray *myArray = [NSArray arrayWithObjects:@"Main Hall", nil];//@"Aber Hall", @"Adams Center", @"Art Annex", @"Chemistry Building", @"Corbin Hall", @"Craig Hall", @"Davidson Honors College", @"Duniway Hall", @"Forestry", @"Grizzly Pool", @"Hoyt Athletic Complex", @"Jesse Hall", @"Liberal Arts", @"Main Hall", @"Music", nil];
+   // [self setBuildings:myArray];
+  //  [self setBuildings:[database getAllBuildings]];
+    
+    DBAccess *dbAccess = [[DBAccess alloc] init];
+    
+    self.buildings = [dbAccess getAllBuildings];
+    
+    [dbAccess closeDatabase];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -70,7 +78,11 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
+    NSLog(@"Number of buildings: %d", [self.buildings count]);
+    
+    
     return [self.buildings count];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,7 +91,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    cell.textLabel.text = [self.buildings objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[self.buildings objectAtIndex:indexPath.row] getName];
+    
+    cell.detailTextLabel.text = [[self.buildings objectAtIndex:indexPath.row] getID];
     return cell;
 }
 

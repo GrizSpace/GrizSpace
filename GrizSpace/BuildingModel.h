@@ -13,14 +13,16 @@
 @interface BuildingModel : NSObject{
     //create properties for each column in the building table
     NSString *idBuilding;
-    NSString *Name;
+    NSString *name;
     NSInteger fk_idGPS;
     
 
 }
+-(NSString*)getName;
+-(NSString*)getID;
 
 @property (nonatomic, retain)NSString *idBuilding;
-@property (nonatomic, retain)NSString *Name;
+@property (nonatomic, retain)NSString *name;
 @property (nonatomic, assign)NSInteger fk_idGPS;
 
 

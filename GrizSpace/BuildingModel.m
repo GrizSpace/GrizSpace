@@ -11,11 +11,19 @@
 
 
 @implementation BuildingModel
+
 @synthesize idBuilding;
-@synthesize Name;
+@synthesize name = _name;
 @synthesize fk_idGPS;
 
+-(NSString*)getName
+{
+    return _name;
+}
 
-
+-(NSString*)getID
+{
+    return idBuilding;
+}
 
 @end
