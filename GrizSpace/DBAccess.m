@@ -32,7 +32,7 @@ sqlite3* database;
 - (void)initializeDatabase {
     
     // Get the database from the application bundle. 
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"GrizSpace" 
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"GrizSpaceDB" 
                                                      ofType:@"sqlite"];
     
     // Open the database. 
@@ -66,16 +66,8 @@ sqlite3* database;
     NSMutableArray *buildings = [[NSMutableArray alloc] init];
     
     //  The SQL statement that we plan on executing against the database
-    /*const char *sql = "SELECT product.ID,product.Name, \
-    Manufacturer.name,product.details,product.price,\
-    product.quantityonhand, country.country, \
-    product.image FROM Product,Manufacturer, \
-    Country where manufacturer.manufacturerid=product.manufacturerid \
-    and product.countryoforiginid=country.countryid";
-    */
     
-    //*const char *sql = "SELECT building.name FROM building WHERE idBuilding = 'DPAN' ";
-    const char *sql = "SELECT * FROM building;";
+       const char *sql = "SELECT * FROM building;";
     
     //  The SQLite statement object that will hold our result set
     sqlite3_stmt *statement;
