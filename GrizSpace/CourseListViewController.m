@@ -8,8 +8,6 @@
 
 
 #import "CourseListViewController.h"
-#import "GrizSpaceDataObjects.h"
-#import "AppDelegateProtocol.h"
 
 @interface CourseListViewController ()
 
@@ -19,14 +17,6 @@
 @synthesize courses = _courses;
 @synthesize dayTimes = _dayTimes;
 
-
-- (GrizSpaceDataObjects*) theAppDataObject;
-{
-	id<AppDelegateProtocol> theDelegate = (id<AppDelegateProtocol>) [UIApplication sharedApplication].delegate;
-	GrizSpaceDataObjects* theDataObject;
-	theDataObject = (GrizSpaceDataObjects*) theDelegate.theAppDataObject;
-	return theDataObject;
-}
 
 -(void) setCourses:(NSArray *)courses
 {
@@ -43,11 +33,6 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        
-        GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
-        
-        //set reference to the course detail controler.
-        theDataObject.myCourseListViewController = self;
     }
     
     

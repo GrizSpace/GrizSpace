@@ -103,6 +103,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="DirectionCompas" destination="jRp-n3-pbM" id="9rZ-2Y-hOy"/>
+                        <outlet property="distanceText" destination="CMg-sR-QWB" id="ahd-6P-2KG"/>
                         <outlet property="mapView" destination="wUt-tu-AOu" id="oXE-Va-XXb"/>
                         <outlet property="myMapAnnotationSegmentControl" destination="ct6-VK-9q2" id="9yq-D0-1Ax"/>
                         <outlet property="myMapViewTypeSegmentControl" destination="KeH-Q1-XXv" id="MpE-Cx-iIo"/>
@@ -555,6 +556,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="DirectionCompas" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="distanceText" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="myMapAnnotationSegmentControl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="myMapViewTypeSegmentControl" candidateClass="UISegmentedControl"/>
