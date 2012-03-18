@@ -968,7 +968,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0rl-kL-VQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="TBf-LV-LzM" customClass="CourseDetailVewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="emY-ff-r1w">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ECON 511" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2JS-0n-O2r">
@@ -1559,6 +1559,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="btd-TR-BaS"/>
+        <segue reference="e13-RZ-dFB"/>
         <segue reference="K62-WQ-gCS"/>
     </inferredMetricsTieBreakers>
 </document>
