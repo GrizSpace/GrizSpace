@@ -31,6 +31,11 @@
 		D8B123B81513022A00F40A42 /* MapAnnotationList.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B123B71513022A00F40A42 /* MapAnnotationList.m */; };
 		D8E53BC81505BC3400D59A52 /* Location2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D8E53BC71505BC3400D59A52 /* Location2.gpx */; };
 		D8FE67A215048EE600D09F31 /* Direction_Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D8FE67A115048EE600D09F31 /* Direction_Arrow.png */; };
+		E637A2A71515131C001E0E2D /* BuildingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2A41515131C001E0E2D /* BuildingModel.m */; };
+		E637A2A81515131C001E0E2D /* DBAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2A61515131C001E0E2D /* DBAccess.m */; };
+		E637A2AC1515132E001E0E2D /* GPSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2AB1515132E001E0E2D /* GPSModel.m */; };
+		E637A2B315154F14001E0E2D /* SubjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2B215154F14001E0E2D /* SubjectModel.m */; };
+		E637A2B515154FCE001E0E2D /* GrizSpaceDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E637A2B415154FCE001E0E2D /* GrizSpaceDB.sqlite */; };
 		E6B2D048150EEB72005E2D0F /* GrizSpace.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E6B2D047150EEB72005E2D0F /* GrizSpace.sqlite */; };
 		E6F0348F150ED5BE00BF0E0F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
@@ -82,9 +87,17 @@
 		D8DCED431506CFB100E111DC /* Location3.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location3.gpx; sourceTree = "<group>"; };
 		D8E53BC71505BC3400D59A52 /* Location2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location2.gpx; sourceTree = "<group>"; };
 		D8FE67A115048EE600D09F31 /* Direction_Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Direction_Arrow.png; sourceTree = "<group>"; };
+		E637A2A31515131C001E0E2D /* BuildingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingModel.h; sourceTree = "<group>"; };
+		E637A2A41515131C001E0E2D /* BuildingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingModel.m; sourceTree = "<group>"; };
+		E637A2A51515131C001E0E2D /* DBAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBAccess.h; sourceTree = "<group>"; };
+		E637A2A61515131C001E0E2D /* DBAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBAccess.m; sourceTree = "<group>"; };
+		E637A2AA1515132E001E0E2D /* GPSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSModel.h; sourceTree = "<group>"; };
+		E637A2AB1515132E001E0E2D /* GPSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSModel.m; sourceTree = "<group>"; };
+		E637A2B115154F14001E0E2D /* SubjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectModel.h; sourceTree = "<group>"; };
+		E637A2B215154F14001E0E2D /* SubjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectModel.m; sourceTree = "<group>"; };
+		E637A2B415154FCE001E0E2D /* GrizSpaceDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = GrizSpaceDB.sqlite; sourceTree = "<group>"; };
 		E6B2D047150EEB72005E2D0F /* GrizSpace.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = GrizSpace.sqlite; sourceTree = "<group>"; };
 		E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		E6F03491150ED70A00BF0E0F /* GrizSpace.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = GrizSpace.sqlite; path = GrizSpace/GrizSpace.sqlite; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +150,13 @@
 		5A59DB2515000D7300CE4FC6 /* GrizSpace */ = {
 			isa = PBXGroup;
 			children = (
+				E637A2B415154FCE001E0E2D /* GrizSpaceDB.sqlite */,
+				E637A2AA1515132E001E0E2D /* GPSModel.h */,
+				E637A2AB1515132E001E0E2D /* GPSModel.m */,
+				E637A2A31515131C001E0E2D /* BuildingModel.h */,
+				E637A2A41515131C001E0E2D /* BuildingModel.m */,
+				E637A2A51515131C001E0E2D /* DBAccess.h */,
+				E637A2A61515131C001E0E2D /* DBAccess.m */,
 				E6B2D047150EEB72005E2D0F /* GrizSpace.sqlite */,
 				5A59DB2E15000D7300CE4FC6 /* AppDelegate.h */,
 				5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */,
@@ -163,6 +183,8 @@
 				C562FD06150035A700ADA1C8 /* MapViewController.h */,
 				C562FD07150035A700ADA1C8 /* MapViewController.m */,
 				5A59DB2615000D7300CE4FC6 /* Supporting Files */,
+				E637A2B115154F14001E0E2D /* SubjectModel.h */,
+				E637A2B215154F14001E0E2D /* SubjectModel.m */,
 			);
 			path = GrizSpace;
 			sourceTree = "<group>";
@@ -253,6 +275,7 @@
 				D8FE67A215048EE600D09F31 /* Direction_Arrow.png in Resources */,
 				D8E53BC81505BC3400D59A52 /* Location2.gpx in Resources */,
 				E6B2D048150EEB72005E2D0F /* GrizSpace.sqlite in Resources */,
+				E637A2B515154FCE001E0E2D /* GrizSpaceDB.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +301,10 @@
 				D8B123B81513022A00F40A42 /* MapAnnotationList.m in Sources */,
 				D811D2DC151417C6006416A7 /* GrizSpaceDataObjects.m in Sources */,
 				D811D2E01514183D006416A7 /* AppDataObject.m in Sources */,
+				E637A2A71515131C001E0E2D /* BuildingModel.m in Sources */,
+				E637A2A81515131C001E0E2D /* DBAccess.m in Sources */,
+				E637A2AC1515132E001E0E2D /* GPSModel.m in Sources */,
+				E637A2B315154F14001E0E2D /* SubjectModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
