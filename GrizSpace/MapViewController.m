@@ -100,10 +100,7 @@
     
     //set the mapview segment selected index.
     myMapViewTypeSegmentControl.selectedSegmentIndex = 1;
-    
-    //clear map segment set by default
-    [myMapAnnotationSegmentControl setSelectedSegmentIndex: UISegmentedControlNoSegment];
-    
+ 
     
     //location manager setup
     self.myLocationManager = [[CLLocationManager alloc] init];
@@ -132,7 +129,10 @@
     myRegion.center = myLocationCoordinate;
     [mapView setRegion:myRegion animated:true];  
     
-    
+    //sets the default annotation selected to the next class.
+    myMapAnnotationSegmentControl.selectedSegmentIndex = 1;
+    [self SegmentAnnotationSelect: nil];
+
 }
 
 - (void)viewDidUnload
