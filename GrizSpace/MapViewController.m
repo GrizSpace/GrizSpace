@@ -411,6 +411,9 @@
     
     //erform action for annotation.
     [self performSegueWithIdentifier:@"MapToCourseDetail" sender:self];
+    
+    //override prepare for segway function.  Use segway identifier.
+    //-(void)prepareForSegue:(UStoryboardSeque)
 }
 
 

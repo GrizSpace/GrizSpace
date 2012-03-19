@@ -207,17 +207,25 @@
 		D809A686150571CC007236B4 /* MapSpace */ = {
 			isa = PBXGroup;
 			children = (
-				D811D2DE1514183D006416A7 /* AppDataObject.h */,
-				D811D2DF1514183D006416A7 /* AppDataObject.m */,
-				D811D2DD15141802006416A7 /* AppDelegateProtocol.h */,
-				D811D2DA151417C6006416A7 /* GrizSpaceDataObjects.h */,
-				D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */,
+				D8DB7B3715169CAC008EF626 /* GrizSpace_Objects */,
 				D8B123B61513022900F40A42 /* MapAnnotationList.h */,
 				D8B123B71513022A00F40A42 /* MapAnnotationList.m */,
 				D83ADE0E15031F76003733BE /* MapAnnotation.h */,
 				D83ADE0F15031F76003733BE /* MapAnnotation.m */,
 			);
 			name = MapSpace;
+			sourceTree = "<group>";
+		};
+		D8DB7B3715169CAC008EF626 /* GrizSpace_Objects */ = {
+			isa = PBXGroup;
+			children = (
+				D811D2DE1514183D006416A7 /* AppDataObject.h */,
+				D811D2DF1514183D006416A7 /* AppDataObject.m */,
+				D811D2DD15141802006416A7 /* AppDelegateProtocol.h */,
+				D811D2DA151417C6006416A7 /* GrizSpaceDataObjects.h */,
+				D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */,
+			);
+			name = GrizSpace_Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

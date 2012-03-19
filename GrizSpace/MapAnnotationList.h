@@ -12,8 +12,8 @@
 @interface MapAnnotationList : NSObject
 {
     int currentAnnotationIndex; //the currently selected annotation index
-    bool currentAnnotationIndexSet; //tells if a current annotation is set
-    NSMutableArray* myAnnotationItems; //the array of annotation objects.
+    //bool currentAnnotationIndexSet; //tells if a current annotation is set
+    //NSMutableArray* myAnnotationItems; //the array of annotation objects.
     
 }
 
