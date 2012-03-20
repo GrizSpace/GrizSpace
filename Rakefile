@@ -52,16 +52,15 @@ task :import do
     end
 
     subjstr = row['SUBJ']
-    subj_id = dbh[:Subject].filter(:idSubject => subjstr).first
+    subj_id = dbh[:Subject].filter(:abbr => subjstr).first
+    subj_id &&= subj_id[:id]
     if !subj_id
-      dbh[:Subject].insert(:idSubject => subjstr)
-      subj_id = dbh[:Subject].filter(:idSubject => subjstr).first
+      subj_id = dbh[:Subject].insert(:abbr => subjstr)
     end
-    subj_id = subj_id[:idSubject]
 
-    course = dbh[:Course].filter(:CourseNumber => row['CRSE #'])
+    course = dbh[:Course].filter(:number => row['CRSE #']).first
     unless course
-      dbh[:Course].insert(:CourseNumber => row['CRSE #'], :fk_idSubject => subj_id)
+      dbh[:Course].insert(:number => row['CRSE #'], :subject_id => subj_id)
     end
   end
 
