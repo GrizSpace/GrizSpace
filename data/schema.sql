@@ -28,8 +28,8 @@ CREATE TABLE `Building` (
   CONSTRAINT `fk_idGPS`
     FOREIGN KEY (`fk_idGPS` )
     REFERENCES `GPS` (`idGPS` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 CREATE TABLE `Classroom` (
   `idClassroom` INT NOT NULL ,
   `fk_idBuilding` INT NULL ,
@@ -39,8 +39,8 @@ CREATE TABLE `Classroom` (
   CONSTRAINT `fk_idBuilding`
     FOREIGN KEY (`fk_idBuilding` )
     REFERENCES `Building` (`idBuilding` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 CREATE TABLE `Course` (
   `id` INTEGER PRIMARY KEY,
   `number` VARCHAR(5) NOT NULL ,
@@ -66,18 +66,18 @@ CREATE TABLE `CourseSection` (
   CONSTRAINT `fk_idCourse`
     FOREIGN KEY (`fk_idCourse` )
     REFERENCES `Course` (`idCourse` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_idClassroom`
     FOREIGN KEY (`fk_idClassRoom` )
     REFERENCES `Classroom` (`idClassroom` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADe
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_idSemester`
     FOREIGN KEY (`fk_idSemester` )
     REFERENCES `Semester` (`idSemester` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 CREATE TABLE `GPS` (
   `idGPS` INT NOT NULL ,
   `Latitude` DECIMAL(9,6) NULL ,
@@ -104,8 +104,8 @@ CREATE TABLE `StudyBuddy` (
   CONSTRAINT `fk_idCRN`
     FOREIGN KEY (`fk_idCRN` )
     REFERENCES `CourseSection` (`idCRN` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 CREATE TABLE `Subject` (
   id INTEGER PRIMARY KEY,
   abbr VARCHAR(5) NOT NULL ,
