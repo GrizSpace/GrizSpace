@@ -35,23 +35,22 @@ CREATE TABLE `Classroom` (
   `fk_idBuilding` INT NULL ,
   `RoomNumber` VARCHAR(20) NULL ,
   PRIMARY KEY (`idClassroom`) ,
-  
+
   CONSTRAINT `fk_idBuilding`
     FOREIGN KEY (`fk_idBuilding` )
     REFERENCES `Building` (`idBuilding` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 CREATE TABLE `Course` (
-  `idCourse` INT NOT NULL  ,
-  `CourseNumber` VARCHAR(5) NULL ,
-  `CourseTitle` VARCHAR(45) NULL ,
-  `fk_idSubject` VARCHAR(5) NULL ,
-  PRIMARY KEY (`idCourse`) ,
-  CONSTRAINT `fk_idSubject`
-    FOREIGN KEY (`fk_idSubject` )
-    REFERENCES `Subject` (`idSubject` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+  `id` INTEGER PRIMARY KEY,
+  `number` VARCHAR(5) NOT NULL ,
+  `title` VARCHAR(45) NULL ,
+  `subject_id` INTEGER NOT NULL ,
+  CONSTRAINT `subject_id`
+    FOREIGN KEY (`subject_id` )
+    REFERENCES `Subject` (`id` )
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 CREATE TABLE `CourseSection` (
   `idCRN` INT NOT NULL ,
   `fk_idSemester` INT NULL ,
@@ -108,5 +107,7 @@ CREATE TABLE `StudyBuddy` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 CREATE TABLE `Subject` (
-  `idSubject` VARCHAR(5) NOT NULL ,
-  PRIMARY KEY (`idSubject`) );
+  id INTEGER PRIMARY KEY,
+  abbr VARCHAR(5) NOT NULL ,
+  title VARCHAR(100) NULL
+);
