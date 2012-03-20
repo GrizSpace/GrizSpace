@@ -26,7 +26,7 @@
 @synthesize myMapAnnotationSegmentControl;
 @synthesize myLocationCoordinate;
 @synthesize DirectionCompas;
-@synthesize distanceText;
+@synthesize distanceLabel;
 @synthesize myLocationManager;
 
 
@@ -80,6 +80,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    distanceLabel.hidden = true;
+    
     //define the action for the double tap process on the map.
     UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]initWithTarget:self        action:@selector(handleGesture:)];
     tgr.numberOfTapsRequired = 2;
@@ -97,11 +99,8 @@
     mapView.mapType = MKMapTypeSatellite;
     
     //set the mapview segment selected index.
-    myMapViewTypeSegmentControl.selectedSegmentIndex = 1;
-    
-    //clear map segment set by default
-    [myMapAnnotationSegmentControl setSelectedSegmentIndex: UISegmentedControlNoSegment];
-    
+    myMapViewTypeSegmentControl.selectedSegmentIndex = 1; 
+ 
     
     //location manager setup
     self.myLocationManager = [[CLLocationManager alloc] init];
@@ -130,7 +129,10 @@
     myRegion.center = myLocationCoordinate;
     [mapView setRegion:myRegion animated:true];  
     
-    
+    //sets the default annotation selected to the next class.
+    myMapAnnotationSegmentControl.selectedSegmentIndex = 1;
+    [self SegmentAnnotationSelect: nil];
+
 }
 
 - (void)viewDidUnload
@@ -140,7 +142,7 @@
     myMapViewTypeSegmentControl = nil;
     myMapAnnotationSegmentControl = nil;
     [self setDirectionCompas:nil];
-    [self setDistanceText:nil];
+    [self setDistanceLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -179,6 +181,8 @@
     
     //get the app data from teh griz space data objects ref.
     GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
+    
+    distanceLabel.hidden = true;
     
     //we can auto call option 2 to remove annotations befor another needs to be drawn.
     [mapView removeAnnotations:mapView.annotations];
@@ -247,6 +251,7 @@
         
         mapView.visibleMapRect = flyTo;
         
+        distanceLabel.hidden = false;
         
     }
     
@@ -289,7 +294,7 @@
         }        
     }
     
-    distanceText.text = [NSString stringWithFormat:@"Distance %.1lf ft", d];
+    distanceLabel.text = [NSString stringWithFormat:@"Distance %.1lf ft", d];
     
     
     

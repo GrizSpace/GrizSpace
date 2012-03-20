@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -51,11 +51,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQ2-Kp-huJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ZEc-nW-1Ux" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u4J-xM-NQ5">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="wUt-tu-AOu">
-                                <rect key="frame" x="0.0" y="-1" width="320" height="341"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="341"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" id="ct6-VK-9q2">
@@ -74,13 +74,14 @@
                                 <rect key="frame" x="249" y="269" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="North West 45 Feet" placeholder="North West 45 Feet" textAlignment="center" minimumFontSize="10" id="CMg-sR-QWB">
-                                <rect key="frame" x="223" y="312" width="97" height="18"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="M5W-CN-evQ">
+                                <rect key="frame" x="224" y="309" width="96" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -103,7 +104,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="DirectionCompas" destination="jRp-n3-pbM" id="9rZ-2Y-hOy"/>
-                        <outlet property="distanceText" destination="CMg-sR-QWB" id="ahd-6P-2KG"/>
+                        <outlet property="distanceLabel" destination="M5W-CN-evQ" id="vk5-M8-EzE"/>
                         <outlet property="mapView" destination="wUt-tu-AOu" id="oXE-Va-XXb"/>
                         <outlet property="myMapAnnotationSegmentControl" destination="ct6-VK-9q2" id="9yq-D0-1Ax"/>
                         <outlet property="myMapViewTypeSegmentControl" destination="KeH-Q1-XXv" id="MpE-Cx-iIo"/>
@@ -170,7 +171,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1760" y="230"/>
+            <point key="canvasLocation" x="1616" y="1102"/>
         </scene>
         <!--Class Picker View Controller - Select Course-->
         <scene sceneID="nSR-hL-a71">
@@ -181,6 +182,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="y17-We-atS">
+                                <rect key="frame" x="119" y="29" width="181" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="I9x-SI-Dwt">
                                 <rect key="frame" x="119" y="68" width="181" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -290,7 +297,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2160" y="242"/>
+            <point key="canvasLocation" x="2216" y="378"/>
         </scene>
         <!--Select Course Table View Controller - SelectCourseTableViewController-->
         <scene sceneID="y3M-6p-1E7">
@@ -1016,7 +1023,7 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="938" y="982"/>
+            <point key="canvasLocation" x="938" y="1088"/>
         </scene>
         <!--Course Detail Vew Controller - Course Detail-->
         <scene sceneID="QbO-Ax-gZa">
@@ -1104,7 +1111,7 @@
                     <navigationItem key="navigationItem" title="Course Detail" id="04t-tT-ryo"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1448" y="991"/>
+            <point key="canvasLocation" x="2520" y="1115"/>
         </scene>
         <!--Table View Controller - I'm Bored-->
         <scene sceneID="Zd8-JQ-hHr">
@@ -1597,7 +1604,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="DirectionCompas" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="distanceText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="myMapAnnotationSegmentControl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="myMapViewTypeSegmentControl" candidateClass="UISegmentedControl"/>

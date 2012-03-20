@@ -11,6 +11,7 @@
 
 //p.38
 #import "BuildingModel.h"
+#import "SubjectModel.h"
 
 
 @interface DBAccess : NSObject

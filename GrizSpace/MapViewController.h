@@ -37,7 +37,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *DirectionCompas;
 
 //text used for updating the distance displayed on map.
-@property (weak, nonatomic) IBOutlet UITextField *distanceText;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 
 //function used to calculate distance between annotation points.
 //-(double) CalculateDistance:(double) lon1 Lat1:(double) lat1 Lon2:(double) lon2 Lat2:(double) lat2;
