@@ -94,4 +94,7 @@ merges. Here's how you do it from shell:
 3. `git branch -d my-new-branch-with-descriptive-name` will delete your
    topic branch.
 
+# Dumping DB
 
+Run `rake dump` from the command line to dump an SQL file to the `data`
+directory.
