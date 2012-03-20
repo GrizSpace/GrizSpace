@@ -9,13 +9,14 @@
 #import "AppDataObject.h"
 #import "MapAnnotationList.h"
 #import "CourseDetailVewController.h"
+#import "MapViewController.h"
 
 @interface GrizSpaceDataObjects : AppDataObject
 
 //procedure to get class data from the data objects.
 @property (nonatomic, readwrite) MapAnnotationList* myMapAnnotationList;
 @property (nonatomic, readwrite) CourseDetailVewController* myCourseDetailViewController;
-
+@property (nonatomic, readwrite) MapViewController* myMapViewController; 
 
 
 @end

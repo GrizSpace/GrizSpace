@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CourseListViewController : UITableViewController
+
+@protocol MapViewControllerDelegate; //protocal to set the map annotations on the map.
+@interface CourseListViewController : UITableViewController 
 @property (nonatomic, strong) NSArray *courses;
 @property (nonatomic, strong) NSArray *dayTimes;
-
+@property (nonatomic, weak) id<MapViewControllerDelegate> delegate; //delegate used to call mapview function for setting annotations.
 -(void) SelectRowAtIndex:(int)rowIndex;
 
 @end

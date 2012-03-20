@@ -8,6 +8,7 @@
 
 
 #import "CourseListViewController.h"
+#import "MapViewController.h"
 
 @interface CourseListViewController ()
 
@@ -16,7 +17,7 @@
 @implementation CourseListViewController
 @synthesize courses = _courses;
 @synthesize dayTimes = _dayTimes;
-
+@synthesize delegate;
 
 -(void) setCourses:(NSArray *)courses
 {
@@ -44,6 +45,8 @@
 {
     [super viewDidLoad];
 
+    
+    
     NSArray *myCourses = [NSArray arrayWithObjects:@"CSCI 491", @"CSCI 576", @"ECON 511", @"ECON 591", @"ECON 221", nil];
     
     NSArray *myDayTimes = [NSArray arrayWithObjects:@"MWF   8:10-9:00     SS 362", @"MWF  9:10-10:00   SS 355", @"MWF  3:10-4:00     GBB 121", @"TTh     12:40-2:00      LA 411", @"TTh  3:10-4:30   SS 341",nil];
@@ -81,7 +84,6 @@
 */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [self.courses count];
 }
@@ -137,9 +139,28 @@
 }
 */
 
+//button action for viewing all the classes on the map.
+- (IBAction)ViewAllClassesOnMap:(id)sender {
+
+    //sets the correct tab index
+    [self.tabBarController setSelectedIndex:0];
+
+    //get handle for nav controller
+    UINavigationController *tmpNC = [self.tabBarController.viewControllers objectAtIndex:0];
+    
+    //get handle for map view controller
+    MapViewController *mView = [tmpNC.viewControllers objectAtIndex:0];
+    
+    //set the appropriate delegate for the action
+    self.delegate = mView;
+    
+    //call delegate action
+    [delegate setAnnotationsSegmentIndex:0];
+}
+
+
 
 #pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
