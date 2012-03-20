@@ -35,7 +35,6 @@
 		E637A2A81515131C001E0E2D /* DBAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2A61515131C001E0E2D /* DBAccess.m */; };
 		E637A2AC1515132E001E0E2D /* GPSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2AB1515132E001E0E2D /* GPSModel.m */; };
 		E637A2B315154F14001E0E2D /* SubjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2B215154F14001E0E2D /* SubjectModel.m */; };
-		E637A2B515154FCE001E0E2D /* GrizSpaceDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E637A2B415154FCE001E0E2D /* GrizSpaceDB.sqlite */; };
 		E6F0348F150ED5BE00BF0E0F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
@@ -94,7 +93,6 @@
 		E637A2AB1515132E001E0E2D /* GPSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSModel.m; sourceTree = "<group>"; };
 		E637A2B115154F14001E0E2D /* SubjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectModel.h; sourceTree = "<group>"; };
 		E637A2B215154F14001E0E2D /* SubjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectModel.m; sourceTree = "<group>"; };
-		E637A2B415154FCE001E0E2D /* GrizSpaceDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = GrizSpaceDB.sqlite; sourceTree = "<group>"; };
 		E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -148,7 +146,6 @@
 		5A59DB2515000D7300CE4FC6 /* GrizSpace */ = {
 			isa = PBXGroup;
 			children = (
-				E637A2B415154FCE001E0E2D /* GrizSpaceDB.sqlite */,
 				E637A2AA1515132E001E0E2D /* GPSModel.h */,
 				E637A2AB1515132E001E0E2D /* GPSModel.m */,
 				E637A2A31515131C001E0E2D /* BuildingModel.h */,
@@ -279,7 +276,6 @@
 				5A59DB3315000D7300CE4FC6 /* MainStoryboard.storyboard in Resources */,
 				D8FE67A215048EE600D09F31 /* Direction_Arrow.png in Resources */,
 				D8E53BC81505BC3400D59A52 /* Location2.gpx in Resources */,
-				E637A2B515154FCE001E0E2D /* GrizSpaceDB.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
