@@ -13,7 +13,6 @@
 @implementation GrizSpaceDataObjects
 
 @synthesize myMapAnnotationList, myCourseDetailViewController;
-//@synthesize myCourseDetailViewController;
 
 //default constructor
 -(id) init {

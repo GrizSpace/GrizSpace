@@ -16,4 +16,6 @@
 @property (nonatomic, readwrite) MapAnnotationList* myMapAnnotationList;
 @property (nonatomic, readwrite) CourseDetailVewController* myCourseDetailViewController;
 
+
+
 @end
