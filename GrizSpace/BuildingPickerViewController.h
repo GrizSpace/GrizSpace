@@ -11,8 +11,13 @@
 #import "BuildingModel.h"
 
 @interface BuildingPickerViewController : UITableViewController
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@property (strong, nonatomic) UISearchDisplayController* searchController;
 
 @property (nonatomic, strong) NSMutableArray *buildings;
+
+@property (nonatomic, strong) NSArray* filteredBuildings;
 
 //@property (nonatomic, strong) DBAccess* database;
 @end

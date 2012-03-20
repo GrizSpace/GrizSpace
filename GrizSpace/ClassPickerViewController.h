@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SelectCourseTableViewController.h"
 
 @interface ClassPickerViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIPickerView *coursePicker;
+@property (strong, nonatomic) IBOutlet UIButton *selectCourseButton;
 
+-(IBAction)showCoursesToSelect:(id)sender;
 @end
