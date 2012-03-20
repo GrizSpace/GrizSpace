@@ -107,7 +107,7 @@
     mapView.mapType = MKMapTypeSatellite;
     
     //set the mapview segment selected index.
-    myMapViewTypeSegmentControl.selectedSegmentIndex = 1; 
+    myMapViewTypeSegmentControl.selectedSegmentIndex = 1;
  
     
     //location manager setup
