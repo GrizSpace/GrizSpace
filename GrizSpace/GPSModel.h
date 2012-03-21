@@ -17,8 +17,10 @@
 }
 
 @property (nonatomic, assign)NSInteger idGPS;
-@property (nonatomic, assign)NSDecimal *Latitude;
-@property (nonatomic, assign)NSDecimal *Longitude;
+@property (nonatomic, assign)double Latitude;
+@property (nonatomic, assign)double Longitude;
 @property (nonatomic, assign)NSInteger Radius;
 
+
++ (GPSModel*) FindGPSModelFromList: (NSMutableArray*) tmpGPSModelList idGPS: (NSInteger) searchIdGPS;
 @end

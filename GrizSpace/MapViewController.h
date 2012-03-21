@@ -13,10 +13,11 @@
 
 
 //used for accing and setting the map properties
+//used for accing and setting the map properties
 @protocol MapViewControllerDelegate
 
 -(void)setAnnotationsSegmentIndex: (int) newSegmentIndex; //sets map annotation segment index
-
+-(void)showBuildingAnnotation:(int) newBuildingIndex; //sets the map annotation to the building index
 @end
 
 @interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UITabBarControllerDelegate, MapViewControllerDelegate> 
