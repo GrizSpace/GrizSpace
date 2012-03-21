@@ -13,7 +13,7 @@
     NSInteger idGPS;
     NSDecimal *Latitude;
     NSDecimal *Longitude;
-    NSInteger Radius;
+    NSInteger Radius; 
 }
 
 @property (nonatomic, assign)NSInteger idGPS;
