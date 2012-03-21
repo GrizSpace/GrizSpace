@@ -18,8 +18,8 @@
 @property (nonatomic, readwrite) MapAnnotationList* myMapAnnotationList;
 
 @property (nonatomic, strong) NSMutableArray *buildings;
-@property (nonatomic, strong) NSMutableArray *gpsPoints;
+//@property (nonatomic, strong) NSMutableArray *gpsPoints;
 
--(GPSModel*) GetGPSModelFromGPSPointsID: (NSInteger) tmpPointID;
+//-(GPSModel*) GetGPSModelFromGPSPointsID: (NSInteger) tmpPointID;
 
 @end

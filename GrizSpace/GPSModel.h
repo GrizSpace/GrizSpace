@@ -11,9 +11,9 @@
 @interface GPSModel : NSObject{
     
     NSInteger idGPS;
-    NSDecimal *Latitude;
-    NSDecimal *Longitude;
-    NSInteger Radius; 
+    //NSDecimal *Latitude;
+    //NSDecimal *Longitude;
+    NSInteger Radius;
 }
 
 @property (nonatomic, assign)NSInteger idGPS;
