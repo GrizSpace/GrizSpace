@@ -164,7 +164,7 @@
     self.delegate = mView;
     
     //call delegate action
-    [delegate setAnnotationsSegmentIndex:0];    
+    [delegate showBuildingAnnotation:1];    
     
     
 }

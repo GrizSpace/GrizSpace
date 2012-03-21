@@ -12,16 +12,14 @@
 
 @implementation GrizSpaceDataObjects
 
-@synthesize myMapAnnotationList; 
-//@synthesize myCourseDetailViewController;
-//@synthesize myMapViewController;
+@synthesize myMapAnnotationList, buildings, gpsPoints;
 
 //default constructor
 -(id) init {
     self = [super init];
     myMapAnnotationList = [[MapAnnotationList alloc] init];
-    //myCourseDetailViewController = [[CourseDetailVewController alloc] init];
-    //myMapViewController = [[MapViewController alloc] init];
+    buildings = [[NSMutableArray alloc] init];
+    gpsPoints = [[NSMutableArray alloc] init];
     return self;
 }
 

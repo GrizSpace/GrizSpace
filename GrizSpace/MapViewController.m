@@ -448,6 +448,13 @@
     [self SegmentAnnotationSelect: nil];
 }
 
+//function used to show all annotations on the map.
+-(void)showBuildingAnnotation:(int) newBuildingIndex
+{
+    myMapAnnotationSegmentControl.selectedSegmentIndex = newBuildingIndex;
+    [self SegmentAnnotationSelect: nil];
+}
+
 
 
 

@@ -15,8 +15,8 @@
 
 //procedure to get class data from the data objects.
 @property (nonatomic, readwrite) MapAnnotationList* myMapAnnotationList;
-//@property (nonatomic, readwrite) CourseDetailVewController* myCourseDetailViewController;
-//@property (nonatomic, readwrite) MapViewController* myMapViewController; 
 
+@property (nonatomic, strong) NSMutableArray *buildings;
+@property (nonatomic, strong) NSMutableArray *gpsPoints;
 
 @end
