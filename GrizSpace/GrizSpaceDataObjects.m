@@ -7,8 +7,8 @@
 //
 
 #import "GrizSpaceDataObjects.h"
-//#import "MapAnnotationList.h"
-//#import "CourseDetailVewController.h"
+#import "DBAccess.h"
+
 
 @implementation GrizSpaceDataObjects
 
@@ -20,6 +20,16 @@
     myMapAnnotationList = [[MapAnnotationList alloc] init];
     buildings = [[NSMutableArray alloc] init];
     gpsPoints = [[NSMutableArray alloc] init];
+    
+    
+     //sets up the buildings for reference.
+     DBAccess *dbAccess = [[DBAccess alloc] init];
+     self.buildings = [dbAccess.getAllBuildings mutableCopy];
+     self.gpsPoints = [dbAccess.getAllGPSLocations mutableCopy];
+     [dbAccess closeDatabase];
+     
+    
+    
     return self;
 }
 
