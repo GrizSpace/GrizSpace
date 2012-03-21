@@ -2,6 +2,12 @@
 
 ...where's my code?
 
+# Setup
+
+1. `git clone ...`
+2. `cd GrizSpace`
+3. `rake db:setup`
+
 # Git
 
 Please see the [Pro Git](http://progit.org/book/) (free) for an overview, or
@@ -94,4 +100,13 @@ merges. Here's how you do it from shell:
 3. `git branch -d my-new-branch-with-descriptive-name` will delete your
    topic branch.
 
+# Database
 
+We are storing just the text SQL in `data/*.sql` instead of the binary
+`.sqlite` file. This allows us to do text-diffs between schema and data, and
+as a result, we have more control.
+
+- `rake db:schema` if you want to commit schema changes
+- `rake db:data` if you want to commit data changes
+- `rake db:dump` for both schema and data
+- `rake db:setup` to load the schema and data
