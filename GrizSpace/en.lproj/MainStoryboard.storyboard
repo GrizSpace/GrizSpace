@@ -359,9 +359,6 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <connections>
-                                    <segue destination="ZEc-nW-1Ux" kind="push" identifier="findBuildingToMap" id="btd-TR-BaS"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1559,10 +1556,10 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="btd-TR-BaS"/>
         <segue reference="K62-WQ-gCS"/>
         <segue reference="1Tx-cZ-WSU"/>
         <segue reference="a5s-b5-aTh"/>
         <segue reference="cdk-8W-ett"/>
+        <segue reference="Vm2-kh-gvc"/>
     </inferredMetricsTieBreakers>
 </document>

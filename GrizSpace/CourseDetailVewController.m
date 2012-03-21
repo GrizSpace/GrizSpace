@@ -32,10 +32,10 @@
         // Custom initialization
         
         //get the app data from teh griz space data objects ref.
-        GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
+        //GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
         
         //set reference to the course detail controler.
-        theDataObject.myCourseDetailViewController = self;
+        //theDataObject.myCourseDetailViewController = self;
     }
     
     

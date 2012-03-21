@@ -7,13 +7,16 @@
 //
 
 #import "BuildingPickerViewController.h"
-
+#import "MapViewController.h"
 @interface BuildingPickerViewController ()
 
 @end
 
 @implementation BuildingPickerViewController
 @synthesize buildings = _buildings;
+
+@synthesize delegate;
+
 //@synthesize database;
 
 -(void) setBuildings:(NSMutableArray *)buildings
@@ -147,6 +150,23 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    //sets the correct tab index
+    [self.tabBarController setSelectedIndex:0];
+    
+    //get handle for nav controller
+    UINavigationController *tmpNC = [self.tabBarController.viewControllers objectAtIndex:0];
+    
+    //get handle for map view controller
+    MapViewController *mView = [tmpNC.viewControllers objectAtIndex:0];
+    
+    //set the appropriate delegate for the action
+    self.delegate = mView;
+    
+    //call delegate action
+    [delegate setAnnotationsSegmentIndex:0];    
+    
+    
 }
 
 @end
