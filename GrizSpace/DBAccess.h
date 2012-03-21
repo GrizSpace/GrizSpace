@@ -17,6 +17,8 @@
 @interface DBAccess : NSObject
 
 - (NSMutableArray*) getAllBuildings;
+- (NSMutableArray*) getAllSubjects;
+
 - (void) closeDatabase;
 - (void) initializeDatabase;
 
