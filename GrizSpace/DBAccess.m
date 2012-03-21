@@ -7,7 +7,7 @@
 //
 
 #import "DBAccess.h"
-
+#import "GPSModel.h"
 @implementation DBAccess
 
 //Reference to the SQLite database
@@ -166,6 +166,60 @@ sqlite3* database;
 }
  
 
+//-----------------------------------------------------
+//              getAllGPSLocations
+//-----------------------------------------------------
+- (NSMutableArray*) getAllGPSLocations
+{
+    //  The array of buildings that we will create
+    NSMutableArray *gpsLoc = [[NSMutableArray alloc] init];
+    
+    //  The SQL statement that we plan on executing against the database
+    
+    const char *sql = "SELECT idGPS, Latitude, Longitude, Radius FROM GPS;";
+    
+    //  The SQLite statement object that will hold our result set
+    sqlite3_stmt *statement;
+    
+    // Prepare the statement to compile the SQL query into byte-code 
+    int sqlResult = sqlite3_prepare_v2(database, sql, -1, &statement, NULL);
+	
+    if ( sqlResult== SQLITE_OK) {
+        // Step through the results - once for each row.
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            //  allocate a Product object to add to products array
+            
+            GPSModel  *gps = [[GPSModel alloc] init];
+            
+            // The second parameter is the column index (0 based) in 
+            // the result set.
+            //[NSString strin
+            NSInteger idGPS = (NSInteger)sqlite3_column_text(statement, 0);
+            double longitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 1)] doubleValue];
+            double latitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 2)]  doubleValue];            
+            NSInteger radius = (NSInteger)sqlite3_column_text(statement, 3);            
+            
+            //  Set all the attributes of the building
+            
+            gps.idGPS = idGPS;
+            gps.Longitude = longitude;
+            gps.Latitude = latitude;
+            gps.Radius = radius;
+            
+            [gpsLoc addObject:gps];
+        }
+        
+        // finalize the statement to release its resources
+        sqlite3_finalize(statement);
+    }
+    else {
+        NSLog(@"Problem with the database:");
+        NSLog(@"%d",sqlResult);
+    }   
+    
+    return gpsLoc;
+    
+}
 
 
 

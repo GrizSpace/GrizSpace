@@ -10,6 +10,7 @@
 #import "MapAnnotationList.h"
 #import "CourseDetailVewController.h"
 #import "MapViewController.h"
+#import "GPSModel.h"
 
 @interface GrizSpaceDataObjects : AppDataObject
 
@@ -18,5 +19,7 @@
 
 @property (nonatomic, strong) NSMutableArray *buildings;
 @property (nonatomic, strong) NSMutableArray *gpsPoints;
+
+-(GPSModel*) GetGPSModelFromGPSPointsID: (NSInteger) tmpPointID;
 
 @end

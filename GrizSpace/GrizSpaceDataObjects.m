@@ -23,4 +23,12 @@
     return self;
 }
 
+
+//gets a gps cordinate from the list of points
+-(GPSModel*) GetGPSModelFromGPSPointsID: (NSInteger) tmpPointID
+{
+    return [GPSModel FindGPSModelFromList:gpsPoints idGPS:tmpPointID];
+    
+}
+
 @end

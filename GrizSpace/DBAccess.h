@@ -17,6 +17,9 @@
 @interface DBAccess : NSObject
 
 - (NSMutableArray*) getAllBuildings;
+- (NSMutableArray*) getAllGPSLocations;
+
+
 - (void) closeDatabase;
 - (void) initializeDatabase;
 
