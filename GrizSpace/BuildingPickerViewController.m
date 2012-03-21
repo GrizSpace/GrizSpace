@@ -48,9 +48,9 @@
     
     [dbAccess closeDatabase];
     
-    self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
-    self.searchController.searchResultsDataSource = self;
-    self.searchController.searchResultsDelegate = self;
+ //   self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
+//    self.searchController.searchResultsDataSource = self;
+//    self.searchController.searchResultsDelegate = self;
     
 
     // Uncomment the following line to preserve selection between presentations.
@@ -103,13 +103,13 @@
             [flattenedArray addObject:[theArray objectAtIndex:i]];
         }
     }
-    
+    /*
 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name beginswith[c] %@", self.searchBar.text];
 self.filteredBuildings = [flattenedArray filteredArrayUsingPredicate:predicate];
 return self.filteredBuildings.count;
 
 
-
+*/
     
 }
 
@@ -125,13 +125,14 @@ return self.filteredBuildings.count;
     return cell;
     }
     
+/*
     cell.textLabel.text = [[self.filteredBuildings objectAtIndex:indexPath.row] getName];
     
     cell.detailTextLabel.text = [[self.filteredBuildings objectAtIndex:indexPath.row] getID];
     
     return cell;
 }
-
+*/
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

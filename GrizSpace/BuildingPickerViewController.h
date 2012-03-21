@@ -14,7 +14,7 @@
 @interface BuildingPickerViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
-@property (strong, nonatomic) UISearchDisplayController* searchController;
+//@property (strong, nonatomic) UISearchDisplayController* searchController;
 
 @property (nonatomic, strong) NSMutableArray *buildings;
 
