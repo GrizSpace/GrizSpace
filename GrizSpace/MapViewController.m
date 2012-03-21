@@ -13,6 +13,8 @@
 #import "MapAnnotation.h"
 #import "CourseDetailVewController.h"
 #import "GrizSpaceTabBarController.h"
+#import "MapViewController.h"
+#import "CourseListViewController.h"
 
 @interface MapViewController ()
 
@@ -29,11 +31,10 @@
 @synthesize distanceLabel;
 @synthesize myLocationManager;
 
-
 //calculation used to transfer degree measurnments to radians.
 #define degreesToRadians(x) (M_PI * ((x) / 180.0))
 
-
+//used to store global information.
 - (GrizSpaceDataObjects*) theAppDataObject
 {
 	id<AppDelegateProtocol> theDelegate = (id<AppDelegateProtocol>) [UIApplication sharedApplication].delegate;
@@ -48,11 +49,18 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        //reference the data objects in the class
 
     }
     return self;
 }
+
+/*
+- (id) init
+{
+    annotationIndexSelected = 1;
+    return self;
+}
+*/
 
 //this handle gesture is the function call that gets called when double clicking on the map.
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
@@ -79,7 +87,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+
     distanceLabel.hidden = true;
     
     //define the action for the double tap process on the map.
@@ -99,7 +107,7 @@
     mapView.mapType = MKMapTypeSatellite;
     
     //set the mapview segment selected index.
-    myMapViewTypeSegmentControl.selectedSegmentIndex = 1; 
+    myMapViewTypeSegmentControl.selectedSegmentIndex = 1;
  
     
     //location manager setup
@@ -129,10 +137,8 @@
     myRegion.center = myLocationCoordinate;
     [mapView setRegion:myRegion animated:true];  
     
-    //sets the default annotation selected to the next class.
-    myMapAnnotationSegmentControl.selectedSegmentIndex = 1;
+    //segment annotation select action
     [self SegmentAnnotationSelect: nil];
-
 }
 
 - (void)viewDidUnload
@@ -198,11 +204,19 @@
         //not viewing a single class so don't update heading to a specific class
         theDataObject.myMapAnnotationList.currentAnnotationIndexSet = false;
         
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(myLocationCoordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+        if (MKMapRectIsNull(flyTo)) {
+            flyTo = pointRect;
+        } else {
+            flyTo = MKMapRectUnion(flyTo, pointRect);
+        }
+        
         //annotate all the classes on the map.
         for (MapAnnotation* tmpMapAnn in tmpAnnotationDataArray) {
 
-            MKMapPoint annotationPoint = MKMapPointForCoordinate(tmpMapAnn.coordinate);
-            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+            annotationPoint = MKMapPointForCoordinate(tmpMapAnn.coordinate);
+            pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
             
             //sets up the map annotation
             [mapView addAnnotation: tmpMapAnn];
@@ -278,8 +292,6 @@
     GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
     
     float d = 0;
-    
-     
       
     if(theDataObject.myMapAnnotationList.currentAnnotationIndexSet == true){
         
@@ -295,11 +307,7 @@
     }
     
     distanceLabel.text = [NSString stringWithFormat:@"Distance %.1lf ft", d];
-    
-    
-    
     return d;
-     
 }
 
 
@@ -405,15 +413,47 @@
 {
 
     NSLog(@"Button %ld clicked.", (long int)[button tag]);
+    annotationButtonActionTag = (long int)[button tag];
     
     //get the app data from teh griz space data objects ref.
     //GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
     
     //erform action for annotation.
     [self performSegueWithIdentifier:@"MapToCourseDetail" sender:self];
+    
+    //override prepare for segway function.  Use segway identifier.
+    //-(void)prepareForSegue:(UStoryboardSeque)
 }
 
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    /*
+    if ([[segue identifier] isEqualToString:@"MapToCourseDetail"])
+    {
+        // Get reference to the destination view controller
+        //CourseDetailVewController *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        //[vc setMyObjectHere:object];
+    }
+     */
+}
+
+//function used to show all annotations on the map.
+-(void)setAnnotationsSegmentIndex: (int) newSegmentIndex
+{
+    myMapAnnotationSegmentControl.selectedSegmentIndex = newSegmentIndex;
+    [self SegmentAnnotationSelect: nil];
+}
+
+//function used to show all annotations on the map.
+-(void)showBuildingAnnotation:(int) newBuildingIndex
+{
+    myMapAnnotationSegmentControl.selectedSegmentIndex = newBuildingIndex;
+    [self SegmentAnnotationSelect: nil];
+}
 
 
 

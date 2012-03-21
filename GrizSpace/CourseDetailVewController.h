@@ -10,4 +10,7 @@
 
 @interface CourseDetailVewController : UIViewController
 
+
+-(void) LoadCourseDetails: (int) courseID;
+
 @end

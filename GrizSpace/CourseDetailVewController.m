@@ -17,7 +17,7 @@
 @implementation CourseDetailVewController
 
 
-- (GrizSpaceDataObjects*) theAppDataObject;
+- (GrizSpaceDataObjects*) theAppDataObject
 {
 	id<AppDelegateProtocol> theDelegate = (id<AppDelegateProtocol>) [UIApplication sharedApplication].delegate;
 	GrizSpaceDataObjects* theDataObject;
@@ -35,12 +35,13 @@
         GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
         
         //set reference to the course detail controler.
-        theDataObject.myCourseDetailViewController = self;
+        //theDataObject.myCourseDetailViewController = self;
     }
     
     
     return self;
 }
+
 /*
 - (void)loadView
 {
@@ -67,5 +68,15 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+
+-(void) LoadCourseDetails: (int) courseID
+{
+        
+
+
+}
+
+
 
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GrizSpaceTabBarController : UITabBarController
+@interface GrizSpaceTabBarController : UITabBarController 
 
 @end

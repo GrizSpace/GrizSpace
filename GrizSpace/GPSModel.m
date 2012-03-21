@@ -15,4 +15,18 @@
 @synthesize Longitude;
 @synthesize Radius;
 
+
+
+//finds a GPS model from the list.
++ (GPSModel*) FindGPSModelFromList: (NSMutableArray*) tmpGPSModelList idGPS: (NSInteger) searchIdGPS;
+{
+    for (GPSModel* tmpModel in tmpGPSModelList) {
+        if(tmpModel.idGPS == searchIdGPS)
+        {
+            return tmpModel;
+        }
+    }
+    return nil;
+}
+
 @end

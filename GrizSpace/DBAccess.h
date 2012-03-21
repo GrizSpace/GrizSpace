@@ -19,6 +19,9 @@
 - (NSMutableArray*) getAllBuildings;
 - (NSMutableArray*) getAllSubjects;
 
+- (NSMutableArray*) getAllGPSLocations;
+
+
 - (void) closeDatabase;
 - (void) initializeDatabase;
 

@@ -9,11 +9,17 @@
 #import "AppDataObject.h"
 #import "MapAnnotationList.h"
 #import "CourseDetailVewController.h"
+#import "MapViewController.h"
+#import "GPSModel.h"
 
 @interface GrizSpaceDataObjects : AppDataObject
 
 //procedure to get class data from the data objects.
 @property (nonatomic, readwrite) MapAnnotationList* myMapAnnotationList;
-@property (nonatomic, readwrite) CourseDetailVewController* myCourseDetailViewController;
+
+@property (nonatomic, strong) NSMutableArray *buildings;
+//@property (nonatomic, strong) NSMutableArray *gpsPoints;
+
+//-(GPSModel*) GetGPSModelFromGPSPointsID: (NSInteger) tmpPointID;
 
 @end

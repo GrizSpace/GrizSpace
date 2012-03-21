@@ -9,17 +9,26 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-//#import "GrizSpaceDataObjects.h"
 
-@interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate> 
+
+
+//used for accing and setting the map properties
+//used for accing and setting the map properties
+@protocol MapViewControllerDelegate
+
+-(void)setAnnotationsSegmentIndex: (int) newSegmentIndex; //sets map annotation segment index
+-(void)showBuildingAnnotation:(int) newBuildingIndex; //sets the map annotation to the building index
+@end
+
+@interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UITabBarControllerDelegate, MapViewControllerDelegate> 
 {
-    __weak IBOutlet MKMapView *mapView;
+    __weak IBOutlet MKMapView *mapView; //reference to the private mapview
 
-    CLLocationManager *myLocationManager; //used for updating and tracking the movment of my location
-    CLLocationCoordinate2D myLocationCoordinate; //used for storing 2d location cordinates.
-    //GrizSpaceDataObjects* theDataObject; //objects reference to data 
-    
+    long int annotationButtonActionTag; //the action tag associated with the page button annotation action.
 }
+
+
+//@property (nonatomic, weak) id<ModalViewDelegate> delegate;
 
 //used for switching between the different segments for map, hybrid, and satalite
 @property (weak, nonatomic) IBOutlet UISegmentedControl *myMapViewTypeSegmentControl;
@@ -39,6 +48,7 @@
 //text used for updating the distance displayed on map.
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 
-//function used to calculate distance between annotation points.
-//-(double) CalculateDistance:(double) lon1 Lat1:(double) lat1 Lon2:(double) lon2 Lat2:(double) lat2;
+
+
+
 @end

@@ -12,20 +12,19 @@
 
 @interface BuildingModel : NSObject{
     //create properties for each column in the building table
-    NSString *idBuilding;
-    NSString *name;
-    NSInteger fk_idGPS;
+    //NSString *idBuilding;
+    //NSString *name;
+    //NSInteger fk_idGPS;
     
-
 }
--(NSString*)getName;
--(NSString*)getID;
+//-(NSString*)getName;
+//-(NSString*)getID;
 
 @property (nonatomic, retain)NSString *idBuilding;
 @property (nonatomic, retain)NSString *name;
-@property (nonatomic, assign)NSInteger fk_idGPS;
-
-
+@property (nonatomic, assign)double Latitude;
+@property (nonatomic, assign)double Longitude;
+@property (nonatomic, assign)NSInteger Radius;
 
 @end
 

@@ -27,6 +27,7 @@
 		C5915B2015155A2E00D489CD /* SelectCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */; };
 		D811D2DC151417C6006416A7 /* GrizSpaceDataObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */; };
 		D811D2E01514183D006416A7 /* AppDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DF1514183D006416A7 /* AppDataObject.m */; };
+		D8160AF8151A7D14009D366E /* bear_2 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = D8160AF7151A7D14009D366E /* bear_2 (1).png */; };
 		D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D83ADE0F15031F76003733BE /* MapAnnotation.m */; };
 		D860ADD415052C5700EB030A /* GrizSpaceTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */; };
 		D8B123B81513022A00F40A42 /* MapAnnotationList.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B123B71513022A00F40A42 /* MapAnnotationList.m */; };
@@ -36,7 +37,6 @@
 		E637A2A81515131C001E0E2D /* DBAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2A61515131C001E0E2D /* DBAccess.m */; };
 		E637A2AC1515132E001E0E2D /* GPSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2AB1515132E001E0E2D /* GPSModel.m */; };
 		E637A2B315154F14001E0E2D /* SubjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2B215154F14001E0E2D /* SubjectModel.m */; };
-		E637A2B515154FCE001E0E2D /* GrizSpaceDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E637A2B415154FCE001E0E2D /* GrizSpaceDB.sqlite */; };
 		E6F0348F150ED5BE00BF0E0F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +80,7 @@
 		D811D2DD15141802006416A7 /* AppDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegateProtocol.h; sourceTree = "<group>"; };
 		D811D2DE1514183D006416A7 /* AppDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDataObject.h; sourceTree = "<group>"; };
 		D811D2DF1514183D006416A7 /* AppDataObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDataObject.m; sourceTree = "<group>"; };
+		D8160AF7151A7D14009D366E /* bear_2 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bear_2 (1).png"; sourceTree = "<group>"; };
 		D83ADE0E15031F76003733BE /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		D83ADE0F15031F76003733BE /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrizSpaceTabBarController.h; sourceTree = "<group>"; };
@@ -97,7 +98,6 @@
 		E637A2AB1515132E001E0E2D /* GPSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSModel.m; sourceTree = "<group>"; };
 		E637A2B115154F14001E0E2D /* SubjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectModel.h; sourceTree = "<group>"; };
 		E637A2B215154F14001E0E2D /* SubjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectModel.m; sourceTree = "<group>"; };
-		E637A2B415154FCE001E0E2D /* GrizSpaceDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = GrizSpaceDB.sqlite; sourceTree = "<group>"; };
 		E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -151,7 +151,6 @@
 		5A59DB2515000D7300CE4FC6 /* GrizSpace */ = {
 			isa = PBXGroup;
 			children = (
-				E637A2B415154FCE001E0E2D /* GrizSpaceDB.sqlite */,
 				E637A2AA1515132E001E0E2D /* GPSModel.h */,
 				E637A2AB1515132E001E0E2D /* GPSModel.m */,
 				E637A2A31515131C001E0E2D /* BuildingModel.h */,
@@ -161,6 +160,12 @@
 				5A59DB2E15000D7300CE4FC6 /* AppDelegate.h */,
 				5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */,
 				D809A686150571CC007236B4 /* MapSpace */,
+				C562FD1915003DAB00ADA1C8 /* BuildingPickerViewController.h */,
+				C562FD1A15003DAB00ADA1C8 /* BuildingPickerViewController.m */,
+				C562FD06150035A700ADA1C8 /* MapViewController.h */,
+				C562FD07150035A700ADA1C8 /* MapViewController.m */,
+				C562FD1315003B1800ADA1C8 /* CourseListViewController.h */,
+				C562FD1415003B1800ADA1C8 /* CourseListViewController.m */,
 				D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */,
 				D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */,
 				C562FD1615003C3300ADA1C8 /* CourseDetailVewController.h */,
@@ -174,16 +179,10 @@
 				C562FD2015003FF700ADA1C8 /* PhotoViewController.m */,
 				C562FD1C15003F3D00ADA1C8 /* BoredViewController.h */,
 				C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */,
-				C562FD1915003DAB00ADA1C8 /* BuildingPickerViewController.h */,
-				C562FD1A15003DAB00ADA1C8 /* BuildingPickerViewController.m */,
-				C562FD1315003B1800ADA1C8 /* CourseListViewController.h */,
-				C562FD1415003B1800ADA1C8 /* CourseListViewController.m */,
 				C562FD0C1500373300ADA1C8 /* ClassPickerViewController.h */,
 				C562FD0D1500373300ADA1C8 /* ClassPickerViewController.m */,
 				C562FD09150036BE00ADA1C8 /* SubjectPickerViewController.h */,
 				C562FD0A150036BE00ADA1C8 /* SubjectPickerViewController.m */,
-				C562FD06150035A700ADA1C8 /* MapViewController.h */,
-				C562FD07150035A700ADA1C8 /* MapViewController.m */,
 				5A59DB2615000D7300CE4FC6 /* Supporting Files */,
 				E637A2B115154F14001E0E2D /* SubjectModel.h */,
 				E637A2B215154F14001E0E2D /* SubjectModel.m */,
@@ -194,6 +193,7 @@
 		5A59DB2615000D7300CE4FC6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D8160AF7151A7D14009D366E /* bear_2 (1).png */,
 				D8FE67A115048EE600D09F31 /* Direction_Arrow.png */,
 				5A59DB2715000D7300CE4FC6 /* GrizSpace-Info.plist */,
 				5A59DB2815000D7300CE4FC6 /* InfoPlist.strings */,
@@ -209,17 +209,25 @@
 		D809A686150571CC007236B4 /* MapSpace */ = {
 			isa = PBXGroup;
 			children = (
+				D8B123B61513022900F40A42 /* MapAnnotationList.h */,
+				D8B123B71513022A00F40A42 /* MapAnnotationList.m */,
+				D83ADE0E15031F76003733BE /* MapAnnotation.h */,
+				D83ADE0F15031F76003733BE /* MapAnnotation.m */,
+				D8DB7B3715169CAC008EF626 /* GrizSpace_Objects */,
+			);
+			name = MapSpace;
+			sourceTree = "<group>";
+		};
+		D8DB7B3715169CAC008EF626 /* GrizSpace_Objects */ = {
+			isa = PBXGroup;
+			children = (
 				D811D2DE1514183D006416A7 /* AppDataObject.h */,
 				D811D2DF1514183D006416A7 /* AppDataObject.m */,
 				D811D2DD15141802006416A7 /* AppDelegateProtocol.h */,
 				D811D2DA151417C6006416A7 /* GrizSpaceDataObjects.h */,
 				D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */,
-				D8B123B61513022900F40A42 /* MapAnnotationList.h */,
-				D8B123B71513022A00F40A42 /* MapAnnotationList.m */,
-				D83ADE0E15031F76003733BE /* MapAnnotation.h */,
-				D83ADE0F15031F76003733BE /* MapAnnotation.m */,
 			);
-			name = MapSpace;
+			name = GrizSpace_Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +284,6 @@
 				5A59DB3315000D7300CE4FC6 /* MainStoryboard.storyboard in Resources */,
 				D8FE67A215048EE600D09F31 /* Direction_Arrow.png in Resources */,
 				D8E53BC81505BC3400D59A52 /* Location2.gpx in Resources */,
-				E637A2B515154FCE001E0E2D /* GrizSpaceDB.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

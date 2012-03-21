@@ -7,7 +7,7 @@
 //
 
 #import "BuildingPickerViewController.h"
-
+#import "MapViewController.h"
 @interface BuildingPickerViewController ()
 
 @end
@@ -15,10 +15,8 @@
 @implementation BuildingPickerViewController
 @synthesize searchBar = _searchBar;
 @synthesize buildings = _buildings;
-@synthesize searchController;
-@synthesize filteredBuildings = _filteredBuildings;
 
-
+@synthesize delegate;
 
 //@synthesize database;
 
@@ -121,12 +119,9 @@ return self.filteredBuildings.count;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    if (tableView == self.tableView)
-    {
+    cell.textLabel.text = [[self.buildings objectAtIndex:indexPath.row] name];
     
-    cell.textLabel.text = [[self.buildings objectAtIndex:indexPath.row] getName];
-    
-    cell.detailTextLabel.text = [[self.buildings objectAtIndex:indexPath.row] getID];
+    cell.detailTextLabel.text = [[self.buildings objectAtIndex:indexPath.row] idBuilding];
     return cell;
     }
     
@@ -187,6 +182,23 @@ return self.filteredBuildings.count;
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    //sets the correct tab index
+    [self.tabBarController setSelectedIndex:0];
+    
+    //get handle for nav controller
+    UINavigationController *tmpNC = [self.tabBarController.viewControllers objectAtIndex:0];
+    
+    //get handle for map view controller
+    MapViewController *mView = [tmpNC.viewControllers objectAtIndex:0];
+    
+    //set the appropriate delegate for the action
+    self.delegate = mView;
+    
+    //call delegate action
+    [delegate showBuildingAnnotation:1];    
+    
+    
 }
 
 @end
