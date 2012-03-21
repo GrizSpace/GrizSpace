@@ -13,17 +13,21 @@
 @implementation BuildingModel
 
 @synthesize idBuilding;
-@synthesize name = _name;
-@synthesize fk_idGPS;
+@synthesize name;
+@synthesize Latitude;
+@synthesize Longitude;
+@synthesize Radius;
 
--(NSString*)getName
-{
-    return _name;
-}
-
--(NSString*)getID
-{
-    return idBuilding;
-}
+/*
+ -(NSString*)getName
+ {
+ return _name;
+ }
+ 
+ -(NSString*)getID
+ {
+ return idBuilding;
+ }
+ */
 
 @end

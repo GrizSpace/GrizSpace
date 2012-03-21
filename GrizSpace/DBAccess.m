@@ -58,10 +58,12 @@ sqlite3* database;
                   sqlite3_errmsg(database));
     }
 }
+
+
+
 //-----------------------------------------------------
 //              getAllBuildings
 //-----------------------------------------------------
-
 - (NSMutableArray*) getAllBuildings
 {
     //  The array of buildings that we will create
@@ -69,7 +71,7 @@ sqlite3* database;
     
     //  The SQL statement that we plan on executing against the database
     
-       const char *sql = "SELECT * FROM building;";
+    const char *sql = "SELECT idBuilding, Name, Latitude, Longitude, Radius FROM building inner join GPS on building.fk_idGPS = GPS.idGPS order by idBuilding;";
     
     //  The SQLite statement object that will hold our result set
     sqlite3_stmt *statement;
@@ -80,7 +82,7 @@ sqlite3* database;
     if ( sqlResult== SQLITE_OK) {
         // Step through the results - once for each row.
         while (sqlite3_step(statement) == SQLITE_ROW) {
-            //  allocate a BuildingModel object to add to buildings array
+            //  allocate a Product object to add to products array
             
             BuildingModel  *building = [[BuildingModel alloc] init];
             
@@ -90,17 +92,23 @@ sqlite3* database;
             char *name = (char *)sqlite3_column_text(statement, 1);
             //char *fk_idGPS = (char *)sqlite3_column_text(statement, 2);
             
+            double longitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 2)] doubleValue];
+            double latitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 3)]  doubleValue];            
+            NSInteger radius = (NSInteger)sqlite3_column_text(statement, 4);            
+            
             
             //  Set all the attributes of the building
             
             building.idBuilding = (idBuilding) ? [NSString stringWithUTF8String:idBuilding] : @"";
             building.name = (name) ? [NSString 
-                              stringWithUTF8String:name] : @"";
+                                      stringWithUTF8String:name] : @"";
             //building.fk_idGPS = sqlite3_column_text(statement, 2);
-                        
+            building.Longitude = longitude;
+            building.Latitude = latitude;
+            building.Radius = radius;            
             
             [buildings addObject:building];
-            
+            //[building release];
         }
         
         // finalize the statement to release its resources

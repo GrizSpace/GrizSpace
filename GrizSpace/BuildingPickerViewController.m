@@ -94,9 +94,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    cell.textLabel.text = [[self.buildings objectAtIndex:indexPath.row] getName];
+    cell.textLabel.text = [[self.buildings objectAtIndex:indexPath.row] name];
     
-    cell.detailTextLabel.text = [[self.buildings objectAtIndex:indexPath.row] getID];
+    cell.detailTextLabel.text = [[self.buildings objectAtIndex:indexPath.row] idBuilding];
     return cell;
 }
 
