@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import <MapKit/MKAnnotation.h>
+#import "BuildingModel.h"
+#import "GPSModel.h"
+
 @interface MapAnnotation : NSObject  <MKAnnotation> 
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate; //cordinate of annotation
 @property (nonatomic, copy) NSString* title; //title of annotation
@@ -19,5 +21,8 @@
 
 //overloaded constructor.
 - (id) initWithAnnotationDataKeyID: (int) newKeyID annotationType: (NSString*) newAnnotationType coordinate: (CLLocationCoordinate2D) newCoordinate title: (NSString*) newTitle subtitle: (NSString*) newSubtitle radius: (int) newRadius;
+
+
+- (id) initWithBuildingModel: (BuildingModel*) tmpBM;
 
 @end

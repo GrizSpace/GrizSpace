@@ -48,7 +48,10 @@
     return self;
 }
 
-
+/*
+***************
+ Jester Regognition could be future functionality aka double tap map
+ **************
 //this handle gesture is the function call that gets called when double clicking on the map.
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
 {
@@ -64,6 +67,7 @@
 												   delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Ok", nil];
 	[alert show];
 }
+*/
 
 - (void)viewDidLoad
 {
@@ -72,11 +76,17 @@
 
     distanceLabel.hidden = true;
     
+    
     //define the action for the double tap process on the map.
+    /*
+     ***************
+     Jester Regognition could be future functionality aka double tap map
+     **************
     UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]initWithTarget:self        action:@selector(handleGesture:)];
     tgr.numberOfTapsRequired = 2;
     tgr.numberOfTouchesRequired = 1;
     [mapView addGestureRecognizer:tgr];
+    */
     
     
     //mapview setup
@@ -443,10 +453,55 @@
 }
 
 //function used to show all annotations on the map.
--(void)showBuildingAnnotation:(int) newBuildingIndex
+-(void)showBuildingAnnotation: (int) newBuildingIndex
 {
-    myMapAnnotationSegmentControl.selectedSegmentIndex = newBuildingIndex;
-    [self SegmentAnnotationSelect: nil];
+    //myMapAnnotationSegmentControl.selectedSegmentIndex = newBuildingIndex;
+    //[self SegmentAnnotationSelect: nil];
+    //[self viewDidLoad];
+    BuildingModel* newBuilding = [[self theAppDataObject].buildings objectAtIndex:newBuildingIndex];
+    
+    //we can auto call option 2 to remove annotations befor another needs to be drawn.
+    [mapView removeAnnotations:mapView.annotations];
+    
+    tmpAnn = [[MapAnnotation alloc] initWithBuildingModel:newBuilding];
+    
+    //add the current location to the map fly to area.
+    MKMapRect flyTo = MKMapRectNull; //map bounding rectangle for classes.
+    MKMapPoint annotationPoint = MKMapPointForCoordinate(myLocationCoordinate);
+    MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+    if (MKMapRectIsNull(flyTo)) {
+        flyTo = pointRect;
+    } else {
+        flyTo = MKMapRectUnion(flyTo, pointRect);
+    }
+    
+    //define anotation point for map.
+    annotationPoint = MKMapPointForCoordinate(tmpAnn.coordinate);
+    
+    //place the annotation on the map.
+    [mapView addAnnotation:tmpAnn];
+    [mapView selectAnnotation:tmpAnn animated:YES];
+    
+    
+    //[mapView viewForAnnotation:tmpAnn];
+    
+    
+    NSLog(@"Showing building annotation lon: %f lat: %f", tmpAnn.coordinate.longitude, tmpAnn.coordinate.latitude);
+    
+    //define the bounding rectangle and set visible area to include annotation point.
+    pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+    if (MKMapRectIsNull(flyTo)) {
+        flyTo = pointRect;
+    } else {
+        flyTo = MKMapRectUnion(flyTo, pointRect);
+    }
+    
+    
+    //set visible rectngle
+    mapView.visibleMapRect = flyTo;
+    
+    //show the distance label
+    distanceLabel.hidden = false;
 }
 
 

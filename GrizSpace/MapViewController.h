@@ -9,19 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-
+#import "BuildingModel.h"
+#import "MapAnnotation.h"
 
 //used for accing and setting the map properties
 @protocol MapViewControllerDelegate
-
 -(void)setAnnotationsSegmentIndex: (int) newSegmentIndex; //sets map annotation segment index
--(void)showBuildingAnnotation:(int) newBuildingIndex; //sets the map annotation to the building index
+-(void)showBuildingAnnotation: (int) newBuildingIndex; //sets the map annotation to the building input
 @end
 
 @interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UITabBarControllerDelegate, MapViewControllerDelegate> 
 {
     __weak IBOutlet MKMapView *mapView; //reference to the private mapview
-
+    MapAnnotation* tmpAnn;
     long int annotationButtonActionTag; //the action tag associated with the page button annotation action.
 }
 

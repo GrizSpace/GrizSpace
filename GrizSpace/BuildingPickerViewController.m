@@ -145,6 +145,7 @@ return self.filteredBuildings.count;
     cell.textLabel.text = [[buildings objectAtIndex:indexPath.row] name];
     
     cell.detailTextLabel.text = [[buildings objectAtIndex:indexPath.row] idBuilding];
+    cell.tag = [[buildings objectAtIndex:indexPath.row] buildingIndex];
     return cell;
     }
     
@@ -196,17 +197,14 @@ return self.filteredBuildings.count;
 */
 
 #pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-    
+    //get reference to the cell that was clicked.
+    UITableViewCell* returnCellData = [tableView cellForRowAtIndexPath:indexPath];
+
+    //sets the building index based on the cell tag.
+    int indexBuilding = (int)[returnCellData tag];
+
     //sets the correct tab index
     [self.tabBarController setSelectedIndex:0];
     
@@ -219,10 +217,8 @@ return self.filteredBuildings.count;
     //set the appropriate delegate for the action
     self.delegate = mView;
     
-    //call delegate action
-    [delegate showBuildingAnnotation:1];    
-    
-    
+    //call delegate action to display the building index
+    [delegate showBuildingAnnotation: indexBuilding];    
 }
 
 @end
