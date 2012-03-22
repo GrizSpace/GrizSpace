@@ -167,7 +167,57 @@ sqlite3* database;
     return subjects;
     
 }
- 
+
+//-----------------------------------------------------
+//              getAllInterests
+//-----------------------------------------------------
+- (NSMutableArray*) getAllInterests
+{
+    //  The array of subjects that we will create
+    NSMutableArray *interests = [[NSMutableArray alloc] init];
+    
+    //  The SQL statement that we plan on executing against the database
+    
+    const char *sql = "SELECT InterestName FROM BoredInterest;";
+    
+    //  The SQLite statement object that will hold our result set
+    sqlite3_stmt *statement;
+    
+    // Prepare the statement to compile the SQL query into byte-code 
+    int sqlResult = sqlite3_prepare_v2(database, sql, -1, &statement, NULL);
+	
+    if ( sqlResult== SQLITE_OK) {
+        // Step through the results - once for each row.
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            //  allocate a Product object to add to products array
+            
+            InterestsModel  *interest = [[InterestsModel alloc] init];
+            
+            // The second parameter is the column index (0 based) in 
+            // the result set.
+            char *InterestName = (char *)sqlite3_column_text(statement, 0);
+            
+            //  Set all the attributes of the building
+            
+            interest.InterestName = (InterestName) ? [NSString stringWithUTF8String:InterestName] : @"";
+            
+            
+            [interests addObject:interest];
+            
+        }
+        
+        // finalize the statement to release its resources
+        sqlite3_finalize(statement);
+    }
+    else {
+        NSLog(@"Problem with the database:");
+        NSLog(@"%d",sqlResult);
+    }   
+    
+    return interests;
+    
+}
+
 
 
 

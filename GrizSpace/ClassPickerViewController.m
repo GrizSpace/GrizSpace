@@ -16,8 +16,18 @@
 @implementation ClassPickerViewController
 @synthesize tf2;
 @synthesize coursePicker;
+@synthesize selectCourseButton;
 
 
+-(IBAction)showCoursesToSelect:(id)sender
+{
+    SelectCourseTableViewController *selectView = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectCourseTableViewController"];
+    
+    [selectView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    [self.navigationController presentModalViewController:selectView animated:YES];
+    //[self presentModalViewController:selectView animated:YES];
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -52,6 +62,7 @@
 {
     [self setCoursePicker:nil];
     [self setTf2:nil];
+    [self setSelectCourseButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

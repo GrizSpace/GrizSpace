@@ -12,11 +12,14 @@
 //p.38
 #import "BuildingModel.h"
 #import "SubjectModel.h"
+#import "InterestsModel.h"
 
 
 @interface DBAccess : NSObject
 
 - (NSMutableArray*) getAllBuildings;
+- (NSMutableArray*) getAllSubjects;
+
 - (NSMutableArray*) getAllGPSLocations;
 
 
