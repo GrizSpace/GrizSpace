@@ -11,13 +11,10 @@
 
 @interface MapAnnotationList : NSObject
 {
-    int currentAnnotationIndex; //the currently selected annotation index
-    //bool currentAnnotationIndexSet; //tells if a current annotation is set
-    //NSMutableArray* myAnnotationItems; //the array of annotation objects.
-    
+    //int currentAnnotationIndex; //the currently selected annotation index
 }
 
-@property (nonatomic, readwrite) bool currentAnnotationIndexSet; //used to determin if the current annotation index is set.
+//@property (nonatomic, readwrite) bool currentAnnotationIndexSet; //used to determin if the current annotation index is set.
 @property (nonatomic, readwrite) NSMutableArray* myAnnotationItems; //gets the list of annotation items
 
 -(MapAnnotation*) GetNextAnnotation; //gets the next annotation item
