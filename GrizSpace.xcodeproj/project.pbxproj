@@ -27,7 +27,6 @@
 		C5915B2015155A2E00D489CD /* SelectCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */; };
 		D811D2DC151417C6006416A7 /* GrizSpaceDataObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */; };
 		D811D2E01514183D006416A7 /* AppDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DF1514183D006416A7 /* AppDataObject.m */; };
-		D8160AF8151A7D14009D366E /* bear_2 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = D8160AF7151A7D14009D366E /* bear_2 (1).png */; };
 		D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D83ADE0F15031F76003733BE /* MapAnnotation.m */; };
 		D860ADD415052C5700EB030A /* GrizSpaceTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */; };
 		D8B123B81513022A00F40A42 /* MapAnnotationList.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B123B71513022A00F40A42 /* MapAnnotationList.m */; };
@@ -37,6 +36,7 @@
 		E637A2A81515131C001E0E2D /* DBAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2A61515131C001E0E2D /* DBAccess.m */; };
 		E637A2AC1515132E001E0E2D /* GPSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2AB1515132E001E0E2D /* GPSModel.m */; };
 		E637A2B315154F14001E0E2D /* SubjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2B215154F14001E0E2D /* SubjectModel.m */; };
+		E6CCD11B151A9B5F0060CAEA /* InterestsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */; };
 		E6F0348F150ED5BE00BF0E0F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +98,8 @@
 		E637A2AB1515132E001E0E2D /* GPSModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSModel.m; sourceTree = "<group>"; };
 		E637A2B115154F14001E0E2D /* SubjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectModel.h; sourceTree = "<group>"; };
 		E637A2B215154F14001E0E2D /* SubjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectModel.m; sourceTree = "<group>"; };
+		E6CCD119151A9B5F0060CAEA /* InterestsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestsModel.h; sourceTree = "<group>"; };
+		E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestsModel.m; sourceTree = "<group>"; };
 		E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -186,6 +188,8 @@
 				5A59DB2615000D7300CE4FC6 /* Supporting Files */,
 				E637A2B115154F14001E0E2D /* SubjectModel.h */,
 				E637A2B215154F14001E0E2D /* SubjectModel.m */,
+				E6CCD119151A9B5F0060CAEA /* InterestsModel.h */,
+				E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */,
 			);
 			path = GrizSpace;
 			sourceTree = "<group>";
@@ -314,6 +318,7 @@
 				E637A2AC1515132E001E0E2D /* GPSModel.m in Sources */,
 				E637A2B315154F14001E0E2D /* SubjectModel.m in Sources */,
 				C5915B2015155A2E00D489CD /* SelectCourseTableViewController.m in Sources */,
+				E6CCD11B151A9B5F0060CAEA /* InterestsModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
