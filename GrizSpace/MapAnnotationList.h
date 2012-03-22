@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MapAnnotation.h"
 
-@interface MapAnnotationList : NSObject
+@interface MapAnnotationList : NSObject 
 {
     //int currentAnnotationIndex; //the currently selected annotation index
 }
