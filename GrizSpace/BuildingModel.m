@@ -18,16 +18,5 @@
 @synthesize Longitude;
 @synthesize Radius;
 
-/*
- -(NSString*)getName
- {
- return _name;
- }
- 
- -(NSString*)getID
- {
- return idBuilding;
- }
- */
 
 @end

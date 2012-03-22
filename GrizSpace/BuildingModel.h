@@ -10,15 +10,7 @@
 
 
 
-@interface BuildingModel : NSObject{
-    //create properties for each column in the building table
-    //NSString *idBuilding;
-    //NSString *name;
-    //NSInteger fk_idGPS;
-    
-}
-//-(NSString*)getName;
-//-(NSString*)getID;
+@interface BuildingModel : NSObject
 
 @property (nonatomic, retain)NSString *idBuilding;
 @property (nonatomic, retain)NSString *name;

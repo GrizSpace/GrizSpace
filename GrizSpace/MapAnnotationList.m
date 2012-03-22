@@ -12,15 +12,16 @@
 
 @implementation MapAnnotationList
 
-@synthesize myAnnotationItems, currentAnnotationIndexSet;
+@synthesize myAnnotationItems;
+//@synthesize currentAnnotationIndexSet;
 
 -(id) init {
     self = [super init];  
     
     //setup default vars
-    currentAnnotationIndexSet = false;
+    //currentAnnotationIndexSet = false;
     myAnnotationItems = [[NSMutableArray alloc] init];
-    currentAnnotationIndex = 0; 
+    //currentAnnotationIndex = 0; 
 
     //create testing annotations
     [myAnnotationItems addObject: [[MapAnnotation alloc] initWithAnnotationDataKeyID:1 annotationType:@"Class" coordinate:CLLocationCoordinate2DMake(46.860917, -113.985968) title:@"Advanced Micro Economics 511" subtitle:@"LA 402" radius:100]];
@@ -41,6 +42,7 @@
 //gets the next class from the class list.
 -(MapAnnotation*) GetNextAnnotation
 {
+    /*
     if(currentAnnotationIndex == ([myAnnotationItems count] - 1))
     {
         currentAnnotationIndex = 0;
@@ -49,13 +51,14 @@
     {
         currentAnnotationIndex = currentAnnotationIndex + 1;
     }
+     */
     return self.GetCurrentAnnotation;
 }
 
 //gets the current annotation item.
 -(MapAnnotation*) GetCurrentAnnotation
 {
-    return [myAnnotationItems objectAtIndex: currentAnnotationIndex];
+    return [myAnnotationItems objectAtIndex: 0];//currentAnnotationIndex];
 }
 
 
