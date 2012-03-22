@@ -17,7 +17,6 @@
 #import "CourseListViewController.h"
 
 @interface MapViewController ()
-
 @end
 
 @implementation MapViewController
@@ -54,23 +53,13 @@
     return self;
 }
 
-/*
-- (id) init
-{
-    annotationIndexSelected = 1;
-    return self;
-}
-*/
 
 //this handle gesture is the function call that gets called when double clicking on the map.
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
 {
     if (gestureRecognizer.state != UIGestureRecognizerStateEnded)
         return;
-    
-    //id<AppDelegateProtocol> theDelegate = (id<AppDelegateProtocol>) [UIApplication sharedApplication].delegate;
-    //theDataObject = (GrizSpaceDataObjects*) theDelegate.theAppDataObject;
-    
+
     CGPoint touchPoint = [gestureRecognizer locationInView:mapView];
     CLLocationCoordinate2D touchMapCoordinate = [mapView convertPoint:touchPoint    toCoordinateFromView:mapView];
     
@@ -80,8 +69,6 @@
 												   delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Ok", nil];
 	[alert show];
 }
-
-
 
 - (void)viewDidLoad
 {
@@ -274,11 +261,8 @@
         theDataObject.myMapAnnotationList.currentAnnotationIndexSet = false;
     }
     
-    
     //ensures that no segment is selected.
     [myMapAnnotationSegmentControl setSelectedSegmentIndex: UISegmentedControlNoSegment];
-     
-     
 }
 
 
