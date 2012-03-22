@@ -13,6 +13,7 @@
 #import "BuildingModel.h"
 #import "SubjectModel.h"
 #import "InterestsModel.h"
+#import "CourseModel.h"
 
 
 @interface DBAccess : NSObject
@@ -21,6 +22,12 @@
 - (NSMutableArray*) getAllSubjects;
 
 - (NSMutableArray*) getAllGPSLocations;
+
+-(NSMutableArray*) getAllInterests;
+
+- (NSMutableArray*) getAllCoursesGivenSubject;
+
+- (NSMutableArray*) getAllCourses; // adding so I can get at some CourseModel objects for testing
 
 
 - (void) closeDatabase;

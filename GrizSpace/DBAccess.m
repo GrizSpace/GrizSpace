@@ -132,7 +132,7 @@ sqlite3* database;
     
     //  The SQL statement that we plan on executing against the database
     
-    const char *sql = "SELECT * FROM Subject;";
+    const char *sql = "SELECT abbr FROM Subject;";
     
     //  The SQLite statement object that will hold our result set
     sqlite3_stmt *statement;
@@ -149,11 +149,13 @@ sqlite3* database;
             
             // The second parameter is the column index (0 based) in 
             // the result set.
-            char *idSubject = (char *)sqlite3_column_text(statement, 0);
+            char *abbr = (char *)sqlite3_column_text(statement, 0);  // changed column to zero since current select statement is only querying for abbr
           
-            //  Set all the attributes of the building
+            //  Set all the attributes of the subject
             
-            subject.idSubject = (idSubject) ? [NSString stringWithUTF8String:idSubject] : @"";
+            subject.abbr = (abbr) ? [NSString stringWithUTF8String:abbr] : @"";
+            
+            NSLog(subject.abbr);
                         
             
             [subjects addObject:subject];
@@ -221,7 +223,100 @@ sqlite3* database;
     return interests;
     
 }
+//-----------------------------------------------------
+//              getAllCoursesGivenSubject
+//-----------------------------------------------------
+- (NSMutableArray*) getAllCoursesGivenSubject
+{
+    //  The array of CourseGivenSubject that we will create
+    NSMutableArray *coursesGivenSubject = [[NSMutableArray alloc] init];
+    
+    //  The SQL statement that we plan on executing against the database
+    
+    const char *sql = "SELECT id, number FROM Course order by number;";
+    
+    //  The SQLite statement object that will hold our result set
+    sqlite3_stmt *statement;
+    
+    // Prepare the statement to compile the SQL query into byte-code 
+    int sqlResult = sqlite3_prepare_v2(database, sql, -1, &statement, NULL);
+	
+    if ( sqlResult== SQLITE_OK) {
+        // Step through the results - once for each row.
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            //  allocate a CourseModel object to add to buildings array
+            
+            CourseModel  *course = [[CourseModel alloc] init];
+            
+            // The second parameter is the column index (0 based) in 
+            // the result set.
+            char *id = (char *)sqlite3_column_text(statement, 0);
+            char *number = (char *)sqlite3_column_text(statement, 1);
+            
+            
+            //  Set all the attributes of the course
+            
+            course.id= id;
+            //below doesn't work.  fix it?  not sure how tonight 3/21
+            //course.id = (id) ? [NSInteger stringWithUTF8String:id] : @"";
+            course.number = (number) ? [NSString 
+                                      stringWithUTF8String:number] : @"";         
+            
+            [coursesGivenSubject addObject:course];
+            
+        }
+        
+        // finalize the statement to release its resources
+        sqlite3_finalize(statement);
+    }
+    else {
+        NSLog(@"Problem with the database:");
+        NSLog(@"%d",sqlResult);
+    }   
+    
+    return coursesGivenSubject;
+    
+}
 
+// adding getAllCourses so I can get at some CourseModel objects for testing
+//-----------------------------
+//  getAllCourses
+//----------------------------
+-(NSMutableArray*) getAllCourses
+{
+    NSMutableArray *courses = [[NSMutableArray alloc] init];
+    
+   
+    const char *sql = "SELECT Course.id, number, subject_id, abbr FROM Course inner join Subject on Course.subject_id = Subject.id;";
+   
+    sqlite3_stmt *statement;
+    int sqlResult = sqlite3_prepare_v2(database, sql, -1, &statement, NULL);
+    
+    if (sqlResult == SQLITE_OK)
+    {
+        while (sqlite3_step(statement) == SQLITE_ROW)
+        {
+            CourseModel *course = [[CourseModel alloc] init];
+            
+          //  char *id = (char *)sqlite3_column_text(statement, 0);
+            char *number = (char *)sqlite3_column_text(statement, 1);
+            
+            char *abbr = (char *)sqlite3_column_text(statement, 3);
+            
+            course.number = (number) ? [NSString stringWithUTF8String:number] : @"";
+             course.subject = (abbr) ? [NSString stringWithUTF8String:abbr] : @"";
+            NSLog(@"Adding course subject: %@", course.subject);
+            [courses addObject:course];
+            
+        }
+        sqlite3_finalize(statement);
+    }
+    else {
+        NSLog(@"Problem with DB: ");
+        NSLog(@"%d", sqlResult);
+    }
+    return courses;
+}
 
 
 

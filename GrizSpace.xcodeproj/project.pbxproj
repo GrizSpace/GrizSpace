@@ -14,6 +14,7 @@
 		5A59DB2C15000D7300CE4FC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A59DB2B15000D7300CE4FC6 /* main.m */; };
 		5A59DB3015000D7300CE4FC6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */; };
 		5A59DB3315000D7300CE4FC6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */; };
+		C55AE7B2151AD09A00679059 /* BoredInterestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C55AE7B1151AD09900679059 /* BoredInterestsTableViewController.m */; };
 		C562FD08150035A700ADA1C8 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD07150035A700ADA1C8 /* MapViewController.m */; };
 		C562FD0B150036BE00ADA1C8 /* SubjectPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD0A150036BE00ADA1C8 /* SubjectPickerViewController.m */; };
 		C562FD0E1500373300ADA1C8 /* ClassPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD0D1500373300ADA1C8 /* ClassPickerViewController.m */; };
@@ -37,6 +38,7 @@
 		E637A2AC1515132E001E0E2D /* GPSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2AB1515132E001E0E2D /* GPSModel.m */; };
 		E637A2B315154F14001E0E2D /* SubjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2B215154F14001E0E2D /* SubjectModel.m */; };
 		E6CCD11B151A9B5F0060CAEA /* InterestsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */; };
+		E6CCD157151ACE720060CAEA /* CourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCD156151ACE720060CAEA /* CourseModel.m */; };
 		E6F0348F150ED5BE00BF0E0F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
@@ -52,8 +54,8 @@
 		5A59DB2E15000D7300CE4FC6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5A59DB3215000D7300CE4FC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		C517B4C4150451D400F29EB6 /* BoredSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoredSettingsTableViewController.h; sourceTree = "<group>"; };
-		C517B4C5150451D400F29EB6 /* BoredSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoredSettingsTableViewController.m; sourceTree = "<group>"; };
+		C55AE7B0151AD09900679059 /* BoredInterestsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoredInterestsTableViewController.h; sourceTree = "<group>"; };
+		C55AE7B1151AD09900679059 /* BoredInterestsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoredInterestsTableViewController.m; sourceTree = "<group>"; };
 		C562FD06150035A700ADA1C8 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		C562FD07150035A700ADA1C8 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		C562FD09150036BE00ADA1C8 /* SubjectPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectPickerViewController.h; sourceTree = "<group>"; };
@@ -100,6 +102,8 @@
 		E637A2B215154F14001E0E2D /* SubjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectModel.m; sourceTree = "<group>"; };
 		E6CCD119151A9B5F0060CAEA /* InterestsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestsModel.h; sourceTree = "<group>"; };
 		E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestsModel.m; sourceTree = "<group>"; };
+		E6CCD155151ACE720060CAEA /* CourseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseModel.h; sourceTree = "<group>"; };
+		E6CCD156151ACE720060CAEA /* CourseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseModel.m; sourceTree = "<group>"; };
 		E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -173,6 +177,8 @@
 				C562FD1615003C3300ADA1C8 /* CourseDetailVewController.h */,
 				C562FD1715003C3300ADA1C8 /* CourseDetailVewController.m */,
 				5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */,
+				C55AE7B0151AD09900679059 /* BoredInterestsTableViewController.h */,
+				C55AE7B1151AD09900679059 /* BoredInterestsTableViewController.m */,
 				C5915B1E15155A2E00D489CD /* SelectCourseTableViewController.h */,
 				C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */,
 				C517B4C4150451D400F29EB6 /* BoredSettingsTableViewController.h */,
@@ -190,6 +196,8 @@
 				E637A2B215154F14001E0E2D /* SubjectModel.m */,
 				E6CCD119151A9B5F0060CAEA /* InterestsModel.h */,
 				E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */,
+				E6CCD155151ACE720060CAEA /* CourseModel.h */,
+				E6CCD156151ACE720060CAEA /* CourseModel.m */,
 			);
 			path = GrizSpace;
 			sourceTree = "<group>";
@@ -319,6 +327,8 @@
 				E637A2B315154F14001E0E2D /* SubjectModel.m in Sources */,
 				C5915B2015155A2E00D489CD /* SelectCourseTableViewController.m in Sources */,
 				E6CCD11B151A9B5F0060CAEA /* InterestsModel.m in Sources */,
+				C55AE7B2151AD09A00679059 /* BoredInterestsTableViewController.m in Sources */,
+				E6CCD157151ACE720060CAEA /* CourseModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

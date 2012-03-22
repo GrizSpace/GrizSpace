@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DBAccess.h"
+#import "ClassPickerViewController.h"
+
 
 @interface SubjectPickerViewController : UITableViewController
 {

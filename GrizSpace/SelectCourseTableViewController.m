@@ -1,3 +1,5 @@
+
+
 //
 //  SelectCourseTableViewController.m
 //  GrizSpace
@@ -14,6 +16,14 @@
 
 @implementation SelectCourseTableViewController
 @synthesize cancelButton;
+@synthesize courses = _courses;
+
+-(void)setCourses:(NSMutableArray *)courses
+{
+    _courses = courses;
+}
+
+
 
 -(IBAction)cancelButtonClicked:(id)sender
 {
@@ -32,6 +42,13 @@
 {
     [super viewDidLoad];
 
+    DBAccess* db = [[DBAccess alloc] init];
+    
+    self.courses = db.getAllCourses;
+    NSLog(@"Number of courses: %d", [self.courses count]);
+    
+    [db closeDatabase];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -54,27 +71,33 @@
 
 #pragma mark - Table view data source
 
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
 }
+*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.courses count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Course";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     
+    cell.textLabel.text = [[self.courses objectAtIndex:indexPath.row] subject];
+  //  NSLog([[self.courses objectAtIndex:indexPath.row] subject]);
+          
+    cell.detailTextLabel.text = [[self.courses objectAtIndex:indexPath.row] number];
     return cell;
 }
 
@@ -129,5 +152,7 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+
 
 @end
