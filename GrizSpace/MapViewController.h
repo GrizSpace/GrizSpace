@@ -11,8 +11,6 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-
-//used for accing and setting the map properties
 //used for accing and setting the map properties
 @protocol MapViewControllerDelegate
 
@@ -26,9 +24,6 @@
 
     long int annotationButtonActionTag; //the action tag associated with the page button annotation action.
 }
-
-
-//@property (nonatomic, weak) id<ModalViewDelegate> delegate;
 
 //used for switching between the different segments for map, hybrid, and satalite
 @property (weak, nonatomic) IBOutlet UISegmentedControl *myMapViewTypeSegmentControl;

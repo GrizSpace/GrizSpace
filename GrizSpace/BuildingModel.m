@@ -12,22 +12,12 @@
 
 @implementation BuildingModel
 
+@synthesize buildingIndex;
 @synthesize idBuilding; 
 @synthesize name;
 @synthesize Latitude;
 @synthesize Longitude;
 @synthesize Radius;
 
-/*
- -(NSString*)getName
- {
- return _name;
- }
- 
- -(NSString*)getID
- {
- return idBuilding;
- }
- */
 
 @end

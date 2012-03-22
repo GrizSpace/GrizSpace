@@ -38,6 +38,7 @@
 		E637A2AC1515132E001E0E2D /* GPSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2AB1515132E001E0E2D /* GPSModel.m */; };
 		E637A2B315154F14001E0E2D /* SubjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2B215154F14001E0E2D /* SubjectModel.m */; };
 		E6CCD11B151A9B5F0060CAEA /* InterestsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */; };
+		E6CCD157151ACE720060CAEA /* CourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCD156151ACE720060CAEA /* CourseModel.m */; };
 		E6F0348F150ED5BE00BF0E0F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,8 @@
 		E637A2B215154F14001E0E2D /* SubjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectModel.m; sourceTree = "<group>"; };
 		E6CCD119151A9B5F0060CAEA /* InterestsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestsModel.h; sourceTree = "<group>"; };
 		E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestsModel.m; sourceTree = "<group>"; };
+		E6CCD155151ACE720060CAEA /* CourseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseModel.h; sourceTree = "<group>"; };
+		E6CCD156151ACE720060CAEA /* CourseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseModel.m; sourceTree = "<group>"; };
 		E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -168,6 +171,7 @@
 				C562FD06150035A700ADA1C8 /* MapViewController.h */,
 				C562FD07150035A700ADA1C8 /* MapViewController.m */,
 				C562FD1315003B1800ADA1C8 /* CourseListViewController.h */,
+				C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */,
 				C562FD1415003B1800ADA1C8 /* CourseListViewController.m */,
 				D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */,
 				D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */,
@@ -178,6 +182,8 @@
 				C55AE7B1151AD09900679059 /* BoredInterestsTableViewController.m */,
 				C5915B1E15155A2E00D489CD /* SelectCourseTableViewController.h */,
 				C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */,
+				C517B4C4150451D400F29EB6 /* BoredSettingsTableViewController.h */,
+				C517B4C5150451D400F29EB6 /* BoredSettingsTableViewController.m */,
 				C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */,
 				C562FD2015003FF700ADA1C8 /* PhotoViewController.m */,
 				C562FD1C15003F3D00ADA1C8 /* BoredViewController.h */,
@@ -191,6 +197,8 @@
 				E637A2B215154F14001E0E2D /* SubjectModel.m */,
 				E6CCD119151A9B5F0060CAEA /* InterestsModel.h */,
 				E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */,
+				E6CCD155151ACE720060CAEA /* CourseModel.h */,
+				E6CCD156151ACE720060CAEA /* CourseModel.m */,
 			);
 			path = GrizSpace;
 			sourceTree = "<group>";
@@ -321,6 +329,7 @@
 				C5915B2015155A2E00D489CD /* SelectCourseTableViewController.m in Sources */,
 				E6CCD11B151A9B5F0060CAEA /* InterestsModel.m in Sources */,
 				C55AE7B2151AD09A00679059 /* BoredInterestsTableViewController.m in Sources */,
+				E6CCD157151ACE720060CAEA /* CourseModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

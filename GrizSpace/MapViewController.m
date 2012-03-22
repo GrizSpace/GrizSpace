@@ -6,18 +6,12 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+
 #import "MapViewController.h"
 #import "GrizSpaceDataObjects.h"
 #import "AppDelegateProtocol.h"
-#import "MapAnnotationList.h"
-#import "MapAnnotation.h"
-#import "CourseDetailVewController.h"
-#import "GrizSpaceTabBarController.h"
-#import "MapViewController.h"
-#import "CourseListViewController.h"
 
 @interface MapViewController ()
-
 @end
 
 @implementation MapViewController
@@ -54,23 +48,13 @@
     return self;
 }
 
-/*
-- (id) init
-{
-    annotationIndexSelected = 1;
-    return self;
-}
-*/
 
 //this handle gesture is the function call that gets called when double clicking on the map.
 - (void)handleGesture:(UIGestureRecognizer *)gestureRecognizer
 {
     if (gestureRecognizer.state != UIGestureRecognizerStateEnded)
         return;
-    
-    //id<AppDelegateProtocol> theDelegate = (id<AppDelegateProtocol>) [UIApplication sharedApplication].delegate;
-    //theDataObject = (GrizSpaceDataObjects*) theDelegate.theAppDataObject;
-    
+
     CGPoint touchPoint = [gestureRecognizer locationInView:mapView];
     CLLocationCoordinate2D touchMapCoordinate = [mapView convertPoint:touchPoint    toCoordinateFromView:mapView];
     
@@ -80,8 +64,6 @@
 												   delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Ok", nil];
 	[alert show];
 }
-
-
 
 - (void)viewDidLoad
 {
@@ -126,8 +108,7 @@
     
     //location updated so center to that location.
     MKCoordinateRegion myRegion;
-    //only set the default location one time.
-    
+
     
     //set how zoomed in we are.
     MKCoordinateSpan mySpan;
@@ -193,24 +174,26 @@
     //we can auto call option 2 to remove annotations befor another needs to be drawn.
     [mapView removeAnnotations:mapView.annotations];
     
+    //add the current location to the map fly to area.
     MKMapRect flyTo = MKMapRectNull; //map bounding rectangle for classes.
+    MKMapPoint annotationPoint = MKMapPointForCoordinate(myLocationCoordinate);
+    MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+    if (MKMapRectIsNull(flyTo)) {
+        flyTo = pointRect;
+    } else {
+        flyTo = MKMapRectUnion(flyTo, pointRect);
+    }
+    
+    
+    
     
     //all classes
     if(myMapAnnotationSegmentControl.selectedSegmentIndex == 0){
 
         //get the annotation list 
         NSMutableArray* tmpAnnotationDataArray = theDataObject.myMapAnnotationList.myAnnotationItems;
-        
-        //not viewing a single class so don't update heading to a specific class
-        theDataObject.myMapAnnotationList.currentAnnotationIndexSet = false;
-        
-        MKMapPoint annotationPoint = MKMapPointForCoordinate(myLocationCoordinate);
-        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
-        if (MKMapRectIsNull(flyTo)) {
-            flyTo = pointRect;
-        } else {
-            flyTo = MKMapRectUnion(flyTo, pointRect);
-        }
+
+
         
         //annotate all the classes on the map.
         for (MapAnnotation* tmpMapAnn in tmpAnnotationDataArray) {
@@ -240,7 +223,7 @@
     //next class
     if(myMapAnnotationSegmentControl.selectedSegmentIndex == 1){
 
-        theDataObject.myMapAnnotationList.currentAnnotationIndexSet = true;
+        //theDataObject.myMapAnnotationList.currentAnnotationIndexSet = true;
         //gets the next class from the class data table.
         MapAnnotation* tmpNextAnnotation = [theDataObject.myMapAnnotationList GetNextAnnotation];
             
@@ -251,34 +234,29 @@
         [mapView addAnnotation:tmpNextAnnotation];
         [mapView selectAnnotation:tmpNextAnnotation animated:YES];
       
-        //define the bounding rectangle and set visible area.
+        //define the bounding rectangle and set visible area to include annotation point.
         MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
-        flyTo = pointRect;
-        
-        annotationPoint = MKMapPointForCoordinate(myLocationCoordinate);
-        pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
         if (MKMapRectIsNull(flyTo)) {
             flyTo = pointRect;
         } else {
             flyTo = MKMapRectUnion(flyTo, pointRect);
         }
         
-        mapView.visibleMapRect = flyTo;
-        
+        //show the distance label
         distanceLabel.hidden = false;
-        
     }
     
     //clear map button event
     if(myMapAnnotationSegmentControl.selectedSegmentIndex == 2){
-        theDataObject.myMapAnnotationList.currentAnnotationIndexSet = false;
+        //theDataObject.myMapAnnotationList.currentAnnotationIndexSet = false;
     }
-    
+    else {
+        //focus map to fly to area only if an annotation point is set.
+        mapView.visibleMapRect = flyTo;
+    }
     
     //ensures that no segment is selected.
     [myMapAnnotationSegmentControl setSelectedSegmentIndex: UISegmentedControlNoSegment];
-     
-     
 }
 
 
@@ -293,7 +271,7 @@
     
     float d = 0;
       
-    if(theDataObject.myMapAnnotationList.currentAnnotationIndexSet == true){
+    if(mapView.annotations.count == 2){
         
         MapAnnotation* tmpMapAnn = theDataObject.myMapAnnotationList.GetCurrentAnnotation;
         
@@ -328,7 +306,7 @@
     float dy = oldLocation.coordinate.latitude - newLocation.coordinate.latitude;
     
     //if navigating to class set heading to the class
-    if(theDataObject.myMapAnnotationList.currentAnnotationIndexSet == true){
+    if(mapView.annotations.count == 2){
         dy = newLocation.coordinate.latitude - tmpMapAnn.coordinate.latitude;
     }
     
@@ -338,16 +316,18 @@
     float dx = oldLocation.coordinate.longitude - newLocation.coordinate.longitude;
     
     //if navigating to class set heading to the class
-    if(theDataObject.myMapAnnotationList.currentAnnotationIndexSet == true){
+    if(mapView.annotations.count == 2){
         dx = newLocation.coordinate.longitude - tmpMapAnn.coordinate.longitude;
     }
     
     float angle = atan2f(dy, dx);
     DirectionCompas.transform = CGAffineTransformMakeRotation(angle);    
     
+    
     //if navigating to a class make sure both person and class are in map window.
-    if(theDataObject.myMapAnnotationList.currentAnnotationIndexSet == true){
+    if(mapView.annotations.count == 2){
         [self CalculateDistance:newLocation.coordinate.longitude Lat1:newLocation.coordinate.latitude];
+       
         
         //define the bounding rectangle and set visible area.
         MKMapPoint annotationPoint = MKMapPointForCoordinate(newLocation.coordinate);
@@ -359,10 +339,24 @@
         } else {
             flyTo = MKMapRectUnion(flyTo, pointRect);
         }
-        
         mapView.visibleMapRect = flyTo;
     }   
-     
+    
+    //only one annotation, center map here as this is usually the users location
+    if(mapView.annotations.count == 1)
+    {
+        //location updated so center to that location.
+        MKCoordinateRegion myRegion;
+        
+        
+        //set how zoomed in we are.
+        MKCoordinateSpan mySpan;
+        mySpan.latitudeDelta = 0.006;
+        mySpan.longitudeDelta = 0.006;
+        myRegion.span = mySpan;
+        myRegion.center = myLocationCoordinate;
+        [mapView setRegion:myRegion animated:true];  
+    } 
 }
 
 //creates the annotation display for the annoation that is being added to the map.
