@@ -148,7 +148,27 @@
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
+     SampleViewController *sampleView = [self.storyboard instantiateViewControllerWithIdentifier:@"SampleViewController"];
+     [self presentModalViewController:sampleView animated:YES];
+     
      */
+    
+    ClassPickerViewController *classPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"ClassPickerViewController"];
+    
+    [classPicker setSelectedSubject:[self.subjects objectAtIndex:indexPath.row]];
+    NSLog(@"You selected: %@", [[self.subjects objectAtIndex:indexPath.row] abbr]);
+    
+    [self.navigationController pushViewController:classPicker animated:YES];
 }
+
+/*
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"SubjectToClass"])
+    {
+        [segue.destinationViewController setSelectedSubject:self.diagnosis];
+    }
+}
+*/
 
 @end

@@ -10,14 +10,22 @@
 
 @interface ClassPickerViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *tf2;
+@property (strong, nonatomic) IBOutlet UILabel *subjectLabel;
 
 @end
 
 @implementation ClassPickerViewController
 @synthesize tf2;
+@synthesize subjectLabel;
 @synthesize coursePicker;
 @synthesize selectCourseButton;
+@synthesize selectedSubject = _selectedSubject;
 
+-(void) setSelectedSubject:(SubjectModel *)selectedSubject
+{
+    _selectedSubject = selectedSubject;
+  //  self.subjectLabel.text = self.selectedSubject.abbr;
+}
 
 -(IBAction)showCoursesToSelect:(id)sender
 {
@@ -46,6 +54,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.subjectLabel.text = self.selectedSubject.abbr;
+    
+    //subjectLabel.text = selectedSubject.abbr;
+    
 	// Do any additional setup after loading the view, typically from a nib.
     
   //  UIView *purpleView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 120.0f)]; 
@@ -63,6 +75,7 @@
     [self setCoursePicker:nil];
     [self setTf2:nil];
     [self setSelectCourseButton:nil];
+    [self setSubjectLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
