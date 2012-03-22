@@ -17,7 +17,6 @@
 
 //@property (strong, nonatomic) UISearchDisplayController* searchController;
 
-//@property (nonatomic, strong) NSMutableArray *buildings;
 @property (nonatomic, weak) id<MapViewControllerDelegate> delegate; //delegate used to call mapview 
 
 @end

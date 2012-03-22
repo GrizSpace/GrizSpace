@@ -91,8 +91,8 @@ sqlite3* database;
             char *name = (char *)sqlite3_column_text(statement, 1);
             //char *fk_idGPS = (char *)sqlite3_column_text(statement, 2);
             
-            double longitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 2)] doubleValue];
-            double latitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 3)]  doubleValue];            
+            double latitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 2)] doubleValue];
+            double longitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 3)]  doubleValue];            
             NSInteger radius = (NSInteger)sqlite3_column_text(statement, 4);            
             
             

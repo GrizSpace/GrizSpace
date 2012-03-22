@@ -38,4 +38,24 @@
 }
 
 
+//overload constructor init with building model
+- (id) initWithBuildingModel: (BuildingModel*) tmpBM
+{
+    if (self = [super init])
+    {
+        [self setKeyVal: tmpBM.buildingIndex];
+        [self setAnnotationType: [NSString stringWithFormat: @"Building"]];
+        
+        //should be Latitude then longitude.  Database data needs switched.
+        [self setCoordinate:CLLocationCoordinate2DMake(tmpBM.Latitude, tmpBM.Longitude)];
+        //[self setCoordinate:CLLocationCoordinate2DMake(tmpBM.Longitude, tmpBM.Latitude)];
+        [self setTitle: tmpBM.name];
+        [self setSubtitle: tmpBM.idBuilding];  
+        [self setRadius:tmpBM.Radius];
+    }
+    return self;
+}
+
+
+
 @end
