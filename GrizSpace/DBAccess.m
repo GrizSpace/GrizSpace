@@ -287,7 +287,7 @@ sqlite3* database;
     NSMutableArray *courses = [[NSMutableArray alloc] init];
     
    
-    const char *sql = "SELECT id, number, subject_id, abbr FROM Course inner join Subject on Course.subject_id = Subject.id;";
+    const char *sql = "SELECT Course.id, number, subject_id, abbr FROM Course inner join Subject on Course.subject_id = Subject.id;";
    
     sqlite3_stmt *statement;
     int sqlResult = sqlite3_prepare_v2(database, sql, -1, &statement, NULL);
@@ -305,7 +305,7 @@ sqlite3* database;
             
             course.number = (number) ? [NSString stringWithUTF8String:number] : @"";
              course.subject = (abbr) ? [NSString stringWithUTF8String:abbr] : @"";
-            
+            NSLog(@"Adding course subject: %@", course.subject);
             [courses addObject:course];
             
         }

@@ -17,5 +17,5 @@
 @property (nonatomic, retain)NSString *number;
 @property (nonatomic, assign)NSString *title;
 @property (nonatomic, assign)NSString *subject_id;
-@property (nonatomic, assign) NSString *subject;
+@property (nonatomic, retain) NSString *subject;
 @end
