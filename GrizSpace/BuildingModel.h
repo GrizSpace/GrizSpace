@@ -12,6 +12,7 @@
 
 @interface BuildingModel : NSObject
 
+@property (nonatomic, assign)NSInteger buildingIndex; 
 @property (nonatomic, retain)NSString *idBuilding;
 @property (nonatomic, retain)NSString *name;
 @property (nonatomic, assign)double Latitude;

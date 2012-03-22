@@ -8,22 +8,29 @@
 
 #import "BuildingPickerViewController.h"
 #import "MapViewController.h"
+#import "GrizSpaceDataObjects.h"
+#import "AppDelegateProtocol.h"
 @interface BuildingPickerViewController ()
 
 @end
 
 @implementation BuildingPickerViewController
-@synthesize searchBar = _searchBar;
-@synthesize buildings = _buildings;
+@synthesize searchBar;
+//@synthesize buildings;
 
 @synthesize delegate;
 
-//@synthesize database;
 
--(void) setBuildings:(NSMutableArray *)buildings
+
+//used to store global information.
+- (GrizSpaceDataObjects*) theAppDataObject
 {
-    _buildings = buildings;
+	id<AppDelegateProtocol> theDelegate = (id<AppDelegateProtocol>) [UIApplication sharedApplication].delegate;
+	GrizSpaceDataObjects* theDataObject;
+	theDataObject = (GrizSpaceDataObjects*) theDelegate.theAppDataObject;
+	return theDataObject;
 }
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,15 +45,26 @@
 {
     [super viewDidLoad];
     
+    //get the app data from teh griz space data objects ref.
+    //GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
+    
+    //self.buildings = [self theAppDataObject].buildings;
+    
+    
    // NSArray *myArray = [NSArray arrayWithObjects:@"Main Hall", nil];//@"Aber Hall", @"Adams Center", @"Art Annex", @"Chemistry Building", @"Corbin Hall", @"Craig Hall", @"Davidson Honors College", @"Duniway Hall", @"Forestry", @"Grizzly Pool", @"Hoyt Athletic Complex", @"Jesse Hall", @"Liberal Arts", @"Main Hall", @"Music", nil];
    // [self setBuildings:myArray];
   //  [self setBuildings:[database getAllBuildings]];
     
-    DBAccess *dbAccess = [[DBAccess alloc] init];
+    //DBAccess *dbAccess = [[DBAccess alloc] init];
     
-    self.buildings = [dbAccess getAllBuildings];
+    //self.buildings = [dbAccess getAllBuildings];
     
-    [dbAccess closeDatabase];
+    //[dbAccess closeDatabase];
+    
+    
+    
+    
+    
     
  //   self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
 //    self.searchController.searchResultsDataSource = self;
@@ -86,17 +104,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+    
+    NSMutableArray *buildings = [self theAppDataObject].buildings;
+    
     // Return the number of rows in the section.
-    NSLog(@"Number of buildings: %d", [self.buildings count]);
+    NSLog(@"Number of buildings: %d", [buildings count]);
     
     if (tableView == self.tableView)
     {
-        return [self.buildings count];
+        return [buildings count];
     }
     
     NSMutableArray *flattenedArray = [[NSMutableArray alloc] initWithCapacity:1];
-    for (NSMutableArray *theArray in self.buildings)
+    for (NSMutableArray *theArray in buildings)
     {
         for (int i=0; i<[theArray count]; i++)
         {
@@ -115,13 +135,16 @@ return self.filteredBuildings.count;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    NSMutableArray *buildings = [self theAppDataObject].buildings;
+    
     static NSString *CellIdentifier = @"Building";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    cell.textLabel.text = [[self.buildings objectAtIndex:indexPath.row] name];
+    cell.textLabel.text = [[buildings objectAtIndex:indexPath.row] name];
     
-    cell.detailTextLabel.text = [[self.buildings objectAtIndex:indexPath.row] idBuilding];
+    cell.detailTextLabel.text = [[buildings objectAtIndex:indexPath.row] idBuilding];
     return cell;
     }
     

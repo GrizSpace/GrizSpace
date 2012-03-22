@@ -12,6 +12,7 @@
 
 @implementation BuildingModel
 
+@synthesize buildingIndex;
 @synthesize idBuilding; 
 @synthesize name;
 @synthesize Latitude;

@@ -77,6 +77,7 @@ sqlite3* database;
     // Prepare the statement to compile the SQL query into byte-code 
     int sqlResult = sqlite3_prepare_v2(database, sql, -1, &statement, NULL);
 	
+    NSInteger itemCounter = 0;
     if ( sqlResult== SQLITE_OK) {
         // Step through the results - once for each row.
         while (sqlite3_step(statement) == SQLITE_ROW) {
@@ -96,6 +97,7 @@ sqlite3* database;
             
             
             //  Set all the attributes of the building
+            building.buildingIndex = itemCounter;
             building.idBuilding = (idBuilding) ? [NSString stringWithUTF8String:idBuilding] : @"";
             building.name = (name) ? [NSString 
                                       stringWithUTF8String:name] : @"";
@@ -103,6 +105,8 @@ sqlite3* database;
             building.Latitude = latitude;
             building.Radius = radius;            
             [buildings addObject:building];
+            
+            itemCounter++;
             
         }
         
