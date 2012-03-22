@@ -10,5 +10,9 @@
 
 @implementation SubjectModel
 
-@synthesize idSubject;
+@synthesize id;
+@synthesize abbr;
+@synthesize title;
+
+
 @end

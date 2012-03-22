@@ -13,6 +13,7 @@
 #import "BuildingModel.h"
 #import "SubjectModel.h"
 #import "InterestsModel.h"
+#import "CourseModel.h"
 
 
 @interface DBAccess : NSObject
@@ -21,6 +22,10 @@
 - (NSMutableArray*) getAllSubjects;
 
 - (NSMutableArray*) getAllGPSLocations;
+
+
+- (NSMutableArray*) getAllCoursesGivenSubject;
+
 
 
 - (void) closeDatabase;
