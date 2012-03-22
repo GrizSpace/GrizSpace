@@ -22,6 +22,7 @@
 
 - (NSMutableArray*) getAllGPSLocations;
 
+-(NSMutableArray*) getAllInterests;
 
 - (void) closeDatabase;
 - (void) initializeDatabase;

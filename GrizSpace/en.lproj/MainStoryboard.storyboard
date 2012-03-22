@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -1116,7 +1116,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mJJ-uA-0MC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="EOY-ca-zqd" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="eoj-iL-UF5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Kb-qS-5Ot">
@@ -1217,7 +1217,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="5H2-E0-rlj">
                             <connections>
                                 <action selector="settings:" destination="EOY-ca-zqd" id="eBh-sz-fTm"/>
-                                <segue destination="7iH-0i-aW3" kind="push" identifier="doneWithInterests" id="s0o-g8-z0z"/>
+                                <segue destination="EZj-Ns-0eP" kind="push" id="JDF-GK-xFv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1225,24 +1225,24 @@
             </objects>
             <point key="canvasLocation" x="961" y="2257"/>
         </scene>
-        <!--Bored Settings Table View Controller - Select Interests-->
-        <scene sceneID="NHL-fV-lEK">
+        <!--Bored Interests Table View Controller - Select Interests-->
+        <scene sceneID="33P-V1-eRX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RAq-ku-ad1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="7iH-0i-aW3" customClass="BoredSettingsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xDW-aS-u6v">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kwp-oe-RTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="EZj-Ns-0eP" customClass="BoredInterestsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kXb-vd-us7">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Interest" textLabel="mKI-vz-60z" style="IBUITableViewCellStyleDefault" id="GjI-KL-ikn">
+                            <tableViewCell multipleTouchEnabled="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Interest" editingAccessoryType="checkmark" textLabel="6L7-DH-9Kc" style="IBUITableViewCellStyleDefault" id="9HL-SZ-p7D">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" id="mKI-vz-60z">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6L7-DH-9Kc">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -1255,20 +1255,14 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="7iH-0i-aW3" id="v7l-cl-5Cq"/>
-                            <outlet property="delegate" destination="7iH-0i-aW3" id="hqh-jb-4BO"/>
+                            <outlet property="dataSource" destination="EZj-Ns-0eP" id="1RR-WJ-ZYK"/>
+                            <outlet property="delegate" destination="EZj-Ns-0eP" id="fZu-aO-J5a"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select Interests" id="J2Q-i9-lWb">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="ML9-OX-fmB">
-                            <connections>
-                                <segue destination="EOY-ca-zqd" kind="push" id="XOR-Vb-Uyq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Select Interests" id="3j3-Tq-1tH"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1398" y="2257"/>
+            <point key="canvasLocation" x="1447" y="2291"/>
         </scene>
         <!--Navigation Controller - Initial Setup-->
         <scene sceneID="rAO-ub-VUF">
@@ -1570,8 +1564,8 @@
         <image name="bear_2 (1).png" width="128" height="128"/>
     </resources>
     <classes>
-        <class className="BoredSettingsTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BoredSettingsTableViewController.h"/>
+        <class className="BoredInterestsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BoredInterestsTableViewController.h"/>
         </class>
         <class className="BuildingPickerViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BuildingPickerViewController.h"/>
