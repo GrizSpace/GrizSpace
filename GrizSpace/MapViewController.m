@@ -85,7 +85,7 @@
     mapView.delegate = self;
     mapView.zoomEnabled = true;
     mapView.scrollEnabled = true;
-    mapView.userInteractionEnabled = true;
+    mapView.userInteractionEnabled = true; 
     mapView.mapType = MKMapTypeSatellite;
     
     //set the mapview segment selected index.
