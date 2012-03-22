@@ -278,7 +278,45 @@ sqlite3* database;
     
 }
 
-
+// adding getAllCourses so I can get at some CourseModel objects for testing
+//-----------------------------
+//  getAllCourses
+//----------------------------
+-(NSMutableArray*) getAllCourses
+{
+    NSMutableArray *courses = [[NSMutableArray alloc] init];
+    
+   
+    const char *sql = "SELECT id, number, subject_id, abbr FROM Course inner join Subject on Course.subject_id = Subject.id;";
+   
+    sqlite3_stmt *statement;
+    int sqlResult = sqlite3_prepare_v2(database, sql, -1, &statement, NULL);
+    
+    if (sqlResult == SQLITE_OK)
+    {
+        while (sqlite3_step(statement) == SQLITE_ROW)
+        {
+            CourseModel *course = [[CourseModel alloc] init];
+            
+          //  char *id = (char *)sqlite3_column_text(statement, 0);
+            char *number = (char *)sqlite3_column_text(statement, 1);
+            
+            char *abbr = (char *)sqlite3_column_text(statement, 3);
+            
+            course.number = (number) ? [NSString stringWithUTF8String:number] : @"";
+             course.subject = (abbr) ? [NSString stringWithUTF8String:abbr] : @"";
+            
+            [courses addObject:course];
+            
+        }
+        sqlite3_finalize(statement);
+    }
+    else {
+        NSLog(@"Problem with DB: ");
+        NSLog(@"%d", sqlResult);
+    }
+    return courses;
+}
 
 
 

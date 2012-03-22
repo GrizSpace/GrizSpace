@@ -14,4 +14,5 @@
 @synthesize number;
 @synthesize title;
 @synthesize subject_id;
+@synthesize subject;
 @end

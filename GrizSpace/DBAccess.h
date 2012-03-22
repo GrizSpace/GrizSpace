@@ -27,6 +27,7 @@
 
 - (NSMutableArray*) getAllCoursesGivenSubject;
 
+- (NSMutableArray*) getAllCourses; // adding so I can get at some CourseModel objects for testing
 
 
 - (void) closeDatabase;
