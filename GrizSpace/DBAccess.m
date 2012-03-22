@@ -149,11 +149,13 @@ sqlite3* database;
             
             // The second parameter is the column index (0 based) in 
             // the result set.
-            char *abbr = (char *)sqlite3_column_text(statement, 1);
+            char *abbr = (char *)sqlite3_column_text(statement, 0);  // changed column to zero since current select statement is only querying for abbr
           
             //  Set all the attributes of the subject
             
             subject.abbr = (abbr) ? [NSString stringWithUTF8String:abbr] : @"";
+            
+            NSLog(subject.abbr);
                         
             
             [subjects addObject:subject];

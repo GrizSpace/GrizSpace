@@ -10,9 +10,9 @@
 
 @interface SubjectModel : NSObject{
     //create properties for each column in the subject table
-    NSInteger id;
-    NSString *abbr;
-    NSString *title;
+  //  NSInteger id;
+  //  NSString *abbr;
+  //  NSString *title;
     
 }
 

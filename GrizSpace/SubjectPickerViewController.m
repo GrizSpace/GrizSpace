@@ -21,6 +21,7 @@
 -(void) setSubjects:(NSArray *)subjects
 {
     _subjects = subjects;
+    NSLog(@"Number of subjects: %d", [subjects count]);
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -38,11 +39,17 @@
     [super viewDidLoad];
  // self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
     
+    DBAccess* db = [[DBAccess alloc] init];
+    
+    self.subjects = db.getAllSubjects;
+    
+    [db closeDatabase];
+    
  //   self.tableView.tableHeaderView = self.searchBar;
 
-    NSArray *myArray = [NSArray arrayWithObjects:@"Anthropology", @"Art", @"Biology", @"Business Administration", @"Chemistry", @"Economics", @"Financial Managment", @"Geology", @"History", @"Journalism", @"Liberal Studies", @"Managment", @"Physics", nil];
-    [self setSubjects:myArray];
-    
+  //  NSArray *myArray = [NSArray arrayWithObjects:@"Anthropology", @"Art", @"Biology", @"Business Administration", @"Chemistry", @"Economics", @"Financial Managment", @"Geology", @"History", @"Journalism", @"Liberal Studies", @"Managment", @"Physics", nil];
+ //   [self setSubjects:myArray];
+   
         
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -87,7 +94,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    cell.textLabel.text = [self.subjects objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[self.subjects objectAtIndex:indexPath.row] abbr];
+    NSLog([[self.subjects objectAtIndex:indexPath.row] abbr]);
     return cell;
 }
 
