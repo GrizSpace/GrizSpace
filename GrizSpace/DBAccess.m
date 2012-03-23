@@ -8,7 +8,7 @@
 
 #import "DBAccess.h"
 #import "GPSModel.h"
-@implementation DBAccess
+@implementation DBAccess 
 
 //Reference to the SQLite database
 
