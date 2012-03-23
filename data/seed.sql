@@ -39,7 +39,7 @@ INSERT INTO "Building" VALUES('CS','Chem Stores',10);
 INSERT INTO "Building" VALUES('CPC','Clinical Psychology',11);
 INSERT INTO "Building" VALUES('LEOI','Leopold Institute',12);
 INSERT INTO "Building" VALUES('USFS','U.S. Forest Services',13);
-INSERT INTO "Building" VALUES('CHCB','CLAPP Building',14);
+INSERT INTO "Building" VALUES('CHCB','Clapp Building',14);
 INSERT INTO "Building" VALUES('VE','Veterans Education',15);
 INSERT INTO "Building" VALUES('TS','Transition Services',16);
 INSERT INTO "Building" VALUES('BL','Biology Laboratory',17);
