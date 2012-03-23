@@ -193,10 +193,7 @@
     } else {
         flyTo = MKMapRectUnion(flyTo, pointRect);
     }
-    
-    
-    
-    
+ 
     //all classes
     if(myMapAnnotationSegmentControl.selectedSegmentIndex == 0){
 
@@ -382,15 +379,7 @@
             pin.annotation = annotation;
         }
     
-        //compare annoation type to see if its the correct type
-        NSString* annotationTypeStr = [[NSString alloc] initWithString:@""];
-        NSString* compString = [[NSString alloc] initWithString:@"Building"];
-
-        annotationTypeStr = [(MapAnnotation*)annotation annotationType];
-    
-    
-        NSLog(@"compare %@ with %@", annotationTypeStr, compString);
-    
+        //Only show button for Classes
         if(([(MapAnnotation*)annotation annotationType] == @"Class"))
         {
             //define the annotation button type to add to the annotation.
