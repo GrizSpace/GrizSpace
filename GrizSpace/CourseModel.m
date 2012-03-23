@@ -21,4 +21,9 @@
 @synthesize buildingAndRoom;
 @synthesize subjAbbr;
 
+@synthesize longitude;
+@synthesize latitude;
+@synthesize radius;
+@synthesize index;
+
 @end

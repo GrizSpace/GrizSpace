@@ -27,6 +27,12 @@
     
     NSArray* buildingAndRooms= [[NSArray alloc] initWithObjects:@"GBB L09", @"LA 311", @"SS 362", nil];
     
+    NSArray* longitudes = [[NSArray alloc] initWithObjects:[NSNumber numberWithDouble:-113.988385], [NSNumber numberWithDouble:-113.987379],[NSNumber numberWithDouble:-113.985247], nil];
+    
+    NSArray* latitudes = [[NSArray alloc] initWithObjects:[NSNumber numberWithDouble:46.8579], [NSNumber numberWithDouble:46.86078],[NSNumber numberWithDouble:46.862683], nil];
+    
+    NSArray* indexes = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:0],[NSNumber numberWithInt:1], [NSNumber numberWithInt:2], nil];
+    
     
     NSMutableArray* myCourses = [[NSMutableArray alloc] init ];
     CourseModel* tmpCourse = [[CourseModel alloc] init];
@@ -40,6 +46,14 @@
         [tmpCourse setTime:[times objectAtIndex:i]];
         [tmpCourse setBuildingAndRoom:[buildingAndRooms objectAtIndex:i]];
         
+        [tmpCourse setLatitude:[[latitudes objectAtIndex:i ] doubleValue]];
+         
+        [tmpCourse setLongitude:[[longitudes objectAtIndex:i ] doubleValue]];
+        
+        [tmpCourse setIndex:[[indexes objectAtIndex:i] integerValue]];
+        
+        
+         
         [myCourses addObject:tmpCourse];
         
         
