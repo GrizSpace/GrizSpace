@@ -234,11 +234,6 @@ sqlite3* database;
     NSMutableArray *coursesGivenSubject = [[NSMutableArray alloc] init];
     
     //  The SQL statement that we plan on executing against the database
-    
-  //  NSString *sql = @"SELECT course.id, course.number FROM Course INNER JOIN Subject WHERE course.id = %@", Subject_id;
-    
-   
-    
     NSString *sql = [NSString stringWithFormat:@"SELECT course.id, course.number FROM Course INNER JOIN Subject WHERE course.id = %@", Subject_id];
     
     
