@@ -228,7 +228,7 @@ sqlite3* database;
 //-----------------------------------------------------
 
 //declare method and pass in Subject.id
-/*
+
 - (NSMutableArray*) getAllCoursesGivenSubject:(NSInteger) Subject_id
 {
     //  The array of CoursesGivenSubject that we will create
@@ -236,7 +236,12 @@ sqlite3* database;
     
     //  The SQL statement that we plan on executing against the database
     
-    NSString *sql = @"SELECT course.id, course.number FROM Course INNER JOIN Subject WHERE course.id = %d",*Subject_id;
+  //  NSString *sql = @"SELECT course.id, course.number FROM Course INNER JOIN Subject WHERE course.id = %@", Subject_id;
+    
+   
+    
+    NSString *sql = [NSString stringWithFormat:@"SELECT course.id, course.number FROM Course INNER JOIN Subject WHERE course.id = %@", Subject_id];
+    
     
     const char *sqlstatement = [sql UTF8String];
     
@@ -244,7 +249,7 @@ sqlite3* database;
     sqlite3_stmt *statement;
     
     // Prepare the statement to compile the SQL query into byte-code 
-    int sqlResult = sqlite3_prepare_v2(database, sql, -1, &statement, NULL);
+    int sqlResult = sqlite3_prepare_v2(database, sqlstatement, -1, &statement, NULL);
 	
     if ( sqlResult== SQLITE_OK) {
         // Step through the results - once for each row.
@@ -282,7 +287,7 @@ sqlite3* database;
     return coursesGivenSubject;
     
 }
-*/
+
 // adding getAllCourses so I can get at some CourseModel objects for testing
 //-----------------------------
 //  getAllCourses
