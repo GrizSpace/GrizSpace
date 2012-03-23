@@ -11,6 +11,6 @@
 
 @interface CourseList : NSObject
 
--(NSMutableArray*) getCourseList;
+-(NSMutableArray*) getCourseList; // return array of CourseModel objects => current Course List
 
 @end
