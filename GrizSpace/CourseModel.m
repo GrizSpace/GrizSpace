@@ -15,4 +15,10 @@
 @synthesize title;
 @synthesize subject_id;
 @synthesize subject;
+@synthesize instructorName;
+@synthesize days;
+@synthesize time;
+@synthesize buildingAndRoom;
+@synthesize subjAbbr;
+
 @end
