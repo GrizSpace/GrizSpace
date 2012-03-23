@@ -131,7 +131,7 @@ sqlite3* database;
     
     //  The SQL statement that we plan on executing against the database
     
-    const char *sql = "SELECT abbr FROM Subject;";
+    const char *sql = "SELECT id, abbr FROM Subject;";  // addd id
     
     //  The SQLite statement object that will hold our result set
     sqlite3_stmt *statement;
@@ -148,12 +148,20 @@ sqlite3* database;
             
             // The second parameter is the column index (0 based) in 
             // the result set.
-            char *abbr = (char *)sqlite3_column_text(statement, 0);  // changed column to zero since current select statement is only querying for abbr
+            
+            //double latitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 2)] doubleValue];
+            
+            NSInteger subjectID = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 0)] intValue];
+                                    
+            char *abbr = (char *)sqlite3_column_text(statement, 1);  // changed column to zero since current select statement is only querying for abbr ==> changed SELECT statement so Will changed to 1
+            
+            
           
             //  Set all the attributes of the subject
             
             subject.abbr = (abbr) ? [NSString stringWithUTF8String:abbr] : @"";
             
+            subject.idSubject = subjectID;
             NSLog(@"%@", subject.abbr);
                         
             
@@ -234,7 +242,9 @@ sqlite3* database;
     NSMutableArray *coursesGivenSubject = [[NSMutableArray alloc] init];
     
     //  The SQL statement that we plan on executing against the database
-    NSString *sql = [NSString stringWithFormat:@"SELECT course.id, course.number FROM Course INNER JOIN Subject WHERE course.id = %@", idSubject];
+    
+    
+    NSString *sql = [NSString stringWithFormat:@"SELECT course.id, course.number FROM Course INNER JOIN Subject WHERE course.id = %d", idSubject];
     
     
     const char *sqlstatement = [sql UTF8String];

@@ -19,19 +19,21 @@
 @synthesize subjectLabel;
 @synthesize coursePicker;
 @synthesize selectCourseButton;
-@synthesize selectedSubject = _selectedSubject;
+@synthesize selectedSubject;
 
--(void) setSelectedSubject:(SubjectModel *)selectedSubject
-{
-    _selectedSubject = selectedSubject;
+//-(void) setSelectedSubject:(SubjectModel *)selectedSubject
+//{
+//    _selectedSubject = selectedSubject;
   //  self.subjectLabel.text = self.selectedSubject.abbr;
-}
+//}
 
 -(IBAction)showCoursesToSelect:(id)sender
 {
     SelectCourseTableViewController *selectView = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectCourseTableViewController"];
     
     [selectView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    [selectView setSelectedSubject:selectedSubject];
     
     [self.navigationController presentModalViewController:selectView animated:YES];
     //[self presentModalViewController:selectView animated:YES];
