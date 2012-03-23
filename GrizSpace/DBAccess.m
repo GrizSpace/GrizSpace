@@ -69,7 +69,7 @@ sqlite3* database;
     
     //  The SQL statement that we plan on executing against the database
     
-    const char *sql = "SELECT idBuilding, Name, Latitude, Longitude, Radius FROM building inner join GPS on building.fk_idGPS = GPS.idGPS order by idBuilding;";
+    const char *sql = "SELECT idBuilding, Name, Latitude, Longitude, Radius FROM building inner join GPS on building.fk_idGPS = GPS.idGPS order by Name;";
     
     //  The SQLite statement object that will hold our result set
     sqlite3_stmt *statement;
@@ -94,7 +94,6 @@ sqlite3* database;
             double latitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 2)] doubleValue];
             double longitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 3)]  doubleValue];            
             NSInteger radius = (NSInteger)sqlite3_column_text(statement, 4);            
-            
             
             //  Set all the attributes of the building
             building.buildingIndex = itemCounter;

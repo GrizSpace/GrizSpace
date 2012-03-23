@@ -238,7 +238,7 @@
         MapAnnotation* tmpNextAnnotation = [theDataObject.myMapAnnotationList GetNextAnnotation];
             
         //define anotation point for map.
-        MKMapPoint annotationPoint = MKMapPointForCoordinate(tmpNextAnnotation.coordinate);
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(tmpNextAnnotation.coordinate); 
 
         //place the annotation on the map.
         [mapView addAnnotation:tmpNextAnnotation];

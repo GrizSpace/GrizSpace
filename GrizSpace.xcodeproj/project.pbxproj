@@ -160,47 +160,11 @@
 		5A59DB2515000D7300CE4FC6 /* GrizSpace */ = {
 			isa = PBXGroup;
 			children = (
-				C58123CC151C0614008624B8 /* CourseList.h */,
-				C58123CD151C0614008624B8 /* CourseList.m */,
-				E637A2AA1515132E001E0E2D /* GPSModel.h */,
-				E637A2AB1515132E001E0E2D /* GPSModel.m */,
-				E637A2A31515131C001E0E2D /* BuildingModel.h */,
-				E637A2A41515131C001E0E2D /* BuildingModel.m */,
-				E637A2A51515131C001E0E2D /* DBAccess.h */,
-				E637A2A61515131C001E0E2D /* DBAccess.m */,
-				5A59DB2E15000D7300CE4FC6 /* AppDelegate.h */,
-				5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */,
+				D8DB7B3715169CAC008EF626 /* Global_Objects */,
 				D809A686150571CC007236B4 /* MapSpace */,
-				C562FD1915003DAB00ADA1C8 /* BuildingPickerViewController.h */,
-				C562FD1A15003DAB00ADA1C8 /* BuildingPickerViewController.m */,
-				C562FD06150035A700ADA1C8 /* MapViewController.h */,
-				C562FD07150035A700ADA1C8 /* MapViewController.m */,
-				C562FD1315003B1800ADA1C8 /* CourseListViewController.h */,
-				C562FD1415003B1800ADA1C8 /* CourseListViewController.m */,
-				D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */,
-				D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */,
-				C562FD1615003C3300ADA1C8 /* CourseDetailVewController.h */,
-				C562FD1715003C3300ADA1C8 /* CourseDetailVewController.m */,
-				5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */,
-				C55AE7B0151AD09900679059 /* BoredInterestsTableViewController.h */,
-				C55AE7B1151AD09900679059 /* BoredInterestsTableViewController.m */,
-				C5915B1E15155A2E00D489CD /* SelectCourseTableViewController.h */,
-				C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */,
-				C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */,
-				C562FD2015003FF700ADA1C8 /* PhotoViewController.m */,
-				C562FD1C15003F3D00ADA1C8 /* BoredViewController.h */,
-				C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */,
-				C562FD0C1500373300ADA1C8 /* ClassPickerViewController.h */,
-				C562FD0D1500373300ADA1C8 /* ClassPickerViewController.m */,
-				C562FD09150036BE00ADA1C8 /* SubjectPickerViewController.h */,
-				C562FD0A150036BE00ADA1C8 /* SubjectPickerViewController.m */,
+				D83F9725151C3AAB00BAA16E /* Models */,
 				5A59DB2615000D7300CE4FC6 /* Supporting Files */,
-				E637A2B115154F14001E0E2D /* SubjectModel.h */,
-				E637A2B215154F14001E0E2D /* SubjectModel.m */,
-				E6CCD119151A9B5F0060CAEA /* InterestsModel.h */,
-				E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */,
-				E6CCD155151ACE720060CAEA /* CourseModel.h */,
-				E6CCD156151ACE720060CAEA /* CourseModel.m */,
+				D83F9727151C3AF100BAA16E /* ViewControllers */,
 			);
 			path = GrizSpace;
 			sourceTree = "<group>";
@@ -211,12 +175,12 @@
 				D8160AF7151A7D14009D366E /* bear_2 (1).png */,
 				D8FE67A115048EE600D09F31 /* Direction_Arrow.png */,
 				5A59DB2715000D7300CE4FC6 /* GrizSpace-Info.plist */,
-				5A59DB2815000D7300CE4FC6 /* InfoPlist.strings */,
-				5A59DB2B15000D7300CE4FC6 /* main.m */,
 				5A59DB2D15000D7300CE4FC6 /* GrizSpace-Prefix.pch */,
+				5A59DB2815000D7300CE4FC6 /* InfoPlist.strings */,
 				D80AE651150521D4004EA055 /* Location.gpx */,
 				D8E53BC71505BC3400D59A52 /* Location2.gpx */,
 				D8DCED431506CFB100E111DC /* Location3.gpx */,
+				5A59DB2B15000D7300CE4FC6 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -228,21 +192,73 @@
 				D8B123B71513022A00F40A42 /* MapAnnotationList.m */,
 				D83ADE0E15031F76003733BE /* MapAnnotation.h */,
 				D83ADE0F15031F76003733BE /* MapAnnotation.m */,
-				D8DB7B3715169CAC008EF626 /* GrizSpace_Objects */,
 			);
 			name = MapSpace;
 			sourceTree = "<group>";
 		};
-		D8DB7B3715169CAC008EF626 /* GrizSpace_Objects */ = {
+		D83F9725151C3AAB00BAA16E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E637A2A31515131C001E0E2D /* BuildingModel.h */,
+				E637A2A41515131C001E0E2D /* BuildingModel.m */,
+				C58123CC151C0614008624B8 /* CourseList.h */,
+				C58123CD151C0614008624B8 /* CourseList.m */,
+				E6CCD155151ACE720060CAEA /* CourseModel.h */,
+				E6CCD156151ACE720060CAEA /* CourseModel.m */,
+				E637A2A51515131C001E0E2D /* DBAccess.h */,
+				E637A2A61515131C001E0E2D /* DBAccess.m */,
+				E637A2AA1515132E001E0E2D /* GPSModel.h */,
+				E637A2AB1515132E001E0E2D /* GPSModel.m */,
+				E6CCD119151A9B5F0060CAEA /* InterestsModel.h */,
+				E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */,
+				E637A2B115154F14001E0E2D /* SubjectModel.h */,
+				E637A2B215154F14001E0E2D /* SubjectModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D83F9727151C3AF100BAA16E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C55AE7B0151AD09900679059 /* BoredInterestsTableViewController.h */,
+				C55AE7B1151AD09900679059 /* BoredInterestsTableViewController.m */,
+				C562FD1C15003F3D00ADA1C8 /* BoredViewController.h */,
+				C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */,
+				C562FD1915003DAB00ADA1C8 /* BuildingPickerViewController.h */,
+				C562FD1A15003DAB00ADA1C8 /* BuildingPickerViewController.m */,
+				C562FD0C1500373300ADA1C8 /* ClassPickerViewController.h */,
+				C562FD0D1500373300ADA1C8 /* ClassPickerViewController.m */,
+				C562FD1615003C3300ADA1C8 /* CourseDetailVewController.h */,
+				C562FD1715003C3300ADA1C8 /* CourseDetailVewController.m */,
+				C562FD1315003B1800ADA1C8 /* CourseListViewController.h */,
+				C562FD1415003B1800ADA1C8 /* CourseListViewController.m */,
+				D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */,
+				D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */,
+				5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */,
+				C562FD06150035A700ADA1C8 /* MapViewController.h */,
+				C562FD07150035A700ADA1C8 /* MapViewController.m */,
+				C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */,
+				C562FD2015003FF700ADA1C8 /* PhotoViewController.m */,
+				C5915B1E15155A2E00D489CD /* SelectCourseTableViewController.h */,
+				C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */,
+				C562FD09150036BE00ADA1C8 /* SubjectPickerViewController.h */,
+				C562FD0A150036BE00ADA1C8 /* SubjectPickerViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D8DB7B3715169CAC008EF626 /* Global_Objects */ = {
 			isa = PBXGroup;
 			children = (
 				D811D2DE1514183D006416A7 /* AppDataObject.h */,
 				D811D2DF1514183D006416A7 /* AppDataObject.m */,
+				5A59DB2E15000D7300CE4FC6 /* AppDelegate.h */,
+				5A59DB2F15000D7300CE4FC6 /* AppDelegate.m */,
 				D811D2DD15141802006416A7 /* AppDelegateProtocol.h */,
 				D811D2DA151417C6006416A7 /* GrizSpaceDataObjects.h */,
 				D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */,
 			);
-			name = GrizSpace_Objects;
+			name = Global_Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

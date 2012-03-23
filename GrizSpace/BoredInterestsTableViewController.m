@@ -73,7 +73,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [self.interests count];
 }
@@ -86,7 +85,7 @@
     // Configure the cell...
     
     cell.textLabel.text = [[self.interests objectAtIndex:indexPath.row] InterestName];
-    NSLog([[self.interests objectAtIndex:indexPath.row] InterestName]);
+    NSLog(@"%@", [[self.interests objectAtIndex:indexPath.row] InterestName]);
     return cell;
 }
 
