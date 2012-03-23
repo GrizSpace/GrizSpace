@@ -95,7 +95,6 @@ sqlite3* database;
             double longitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 3)]  doubleValue];            
             NSInteger radius = (NSInteger)sqlite3_column_text(statement, 4);            
             
-            
             //  Set all the attributes of the building
             building.buildingIndex = itemCounter;
             building.idBuilding = (idBuilding) ? [NSString stringWithUTF8String:idBuilding] : @"";
