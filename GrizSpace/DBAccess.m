@@ -226,14 +226,19 @@ sqlite3* database;
 //-----------------------------------------------------
 //              getAllCoursesGivenSubject
 //-----------------------------------------------------
-- (NSMutableArray*) getAllCoursesGivenSubject
+
+//declare method and pass in Subject.id
+/*
+- (NSMutableArray*) getAllCoursesGivenSubject:(NSInteger) Subject_id
 {
-    //  The array of CourseGivenSubject that we will create
+    //  The array of CoursesGivenSubject that we will create
     NSMutableArray *coursesGivenSubject = [[NSMutableArray alloc] init];
     
     //  The SQL statement that we plan on executing against the database
     
-    const char *sql = "SELECT id, number FROM Course order by number;";
+    NSString *sql = @"SELECT course.id, course.number FROM Course INNER JOIN Subject WHERE course.id = %d",*Subject_id;
+    
+    const char *sqlstatement = [sql UTF8String];
     
     //  The SQLite statement object that will hold our result set
     sqlite3_stmt *statement;
@@ -277,7 +282,7 @@ sqlite3* database;
     return coursesGivenSubject;
     
 }
-
+*/
 // adding getAllCourses so I can get at some CourseModel objects for testing
 //-----------------------------
 //  getAllCourses
