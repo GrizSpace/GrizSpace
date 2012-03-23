@@ -376,40 +376,61 @@
     if (annotation == mapView.userLocation) return nil;
 
     //cast the annotation object to get more atributes about it.
-    MapAnnotation* tmpAnn = (MapAnnotation*) annotation;
+    //MapAnnotation* tmpAnn = (MapAnnotation*) annotation;
     
     
-    //define the annotation pin
-    MKPinAnnotationView *pin = (MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier: @"asdf"];
-    
-    //ensure the annotation pin is correctly defined.
-    if (pin == nil)
+    if ([annotation isKindOfClass:[MapAnnotation class]])
     {
-        pin = [[MKPinAnnotationView alloc] initWithAnnotation: tmpAnn reuseIdentifier: @"asdf"];
-    }
-    else
-    {
-        pin.annotation = annotation;
-    }
+        
+        //define the annotation pin
+        MKPinAnnotationView *pin = (MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier: @"mapPin"];
     
-    //define the annotation button type to add to the annotation.
-    UIButton *annotationButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        //ensure the annotation pin is correctly defined.
+        if (pin == nil)
+        {
+            pin = [[MKPinAnnotationView alloc] initWithAnnotation: annotation reuseIdentifier: @"mapPin"];
+        }
+        else
+        {
+            pin.annotation = annotation;
+        }
+    
+        //compare annoation type to see if its the correct type
+        NSString* annotationTypeStr = [[NSString alloc] initWithString:@""];
+        NSString* compString = [[NSString alloc] initWithString:@"Building"];
 
-    //set the identifying atribute to the annotation
-    [annotationButton setTag: tmpAnn.keyVal];
+        annotationTypeStr = [(MapAnnotation*)annotation annotationType];
     
-    //add an event to the button
-    [annotationButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     
-    //define the button on the pin annotation
-    pin.rightCalloutAccessoryView = annotationButton;
+        NSLog(@"compare %@ with %@", annotationTypeStr, compString);
     
-    //set pin atributes.
-    pin.pinColor = MKPinAnnotationColorRed;
-    pin.animatesDrop = YES;
-    [pin setEnabled:YES];
-    [pin setCanShowCallout:YES];
-    return pin;
+        if(([(MapAnnotation*)annotation annotationType] == @"Class"))
+        {
+            //define the annotation button type to add to the annotation.
+            UIButton *annotationButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+
+            //set the identifying atribute to the annotation
+            [annotationButton setTag: [(MapAnnotation*)annotation keyVal]];
+            
+            //add an event to the button
+            [annotationButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+            //define the button on the pin annotation
+            pin.rightCalloutAccessoryView = annotationButton;
+            
+        }
+        else {
+            pin.rightCalloutAccessoryView = nil;
+        }
+        //set pin atributes.
+        pin.pinColor = MKPinAnnotationColorRed;
+        pin.animatesDrop = YES;
+        [pin setEnabled:YES];
+        [pin setCanShowCallout:YES];
+        return pin;
+        
+    }
+    return nil;
 }
 
 //action for annotation object click event.
@@ -486,7 +507,7 @@
     //[mapView viewForAnnotation:tmpAnn];
     
     
-    NSLog(@"Showing building annotation lon: %f lat: %f", tmpAnn.coordinate.longitude, tmpAnn.coordinate.latitude);
+    //NSLog(@"Showing building annotation lon: %f lat: %f", tmpAnn.coordinate.longitude, tmpAnn.coordinate.latitude);
     
     //define the bounding rectangle and set visible area to include annotation point.
     pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);

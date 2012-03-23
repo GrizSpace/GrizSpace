@@ -44,7 +44,7 @@
     if (self = [super init])
     {
         [self setKeyVal: tmpBM.buildingIndex];
-        [self setAnnotationType: [NSString stringWithFormat: @"Building"]];
+        [self setAnnotationType: @"Building"];
         
         //should be Latitude then longitude.  Database data needs switched.
         [self setCoordinate:CLLocationCoordinate2DMake(tmpBM.Latitude, tmpBM.Longitude)];

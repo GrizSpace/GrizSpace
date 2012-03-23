@@ -19,10 +19,13 @@
 @property (nonatomic, assign) NSString* annotationType; //tells the type of annotation building or class
 @property (nonatomic, readwrite) int radius; //the radius of the object identified
 
+//@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+
 //overloaded constructor.
 - (id) initWithAnnotationDataKeyID: (int) newKeyID annotationType: (NSString*) newAnnotationType coordinate: (CLLocationCoordinate2D) newCoordinate title: (NSString*) newTitle subtitle: (NSString*) newSubtitle radius: (int) newRadius;
 
 
 - (id) initWithBuildingModel: (BuildingModel*) tmpBM;
+
 
 @end
