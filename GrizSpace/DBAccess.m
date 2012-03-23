@@ -228,13 +228,13 @@ sqlite3* database;
 
 //declare method and pass in Subject.id
 
-- (NSMutableArray*) getAllCoursesGivenSubject:(NSInteger) Subject_id
+- (NSMutableArray*) getAllCoursesGivenSubject:(NSInteger) idSubject
 {
     //  The array of CoursesGivenSubject that we will create
     NSMutableArray *coursesGivenSubject = [[NSMutableArray alloc] init];
     
     //  The SQL statement that we plan on executing against the database
-    NSString *sql = [NSString stringWithFormat:@"SELECT course.id, course.number FROM Course INNER JOIN Subject WHERE course.id = %@", Subject_id];
+    NSString *sql = [NSString stringWithFormat:@"SELECT course.id, course.number FROM Course INNER JOIN Subject WHERE course.id = %@", idSubject];
     
     
     const char *sqlstatement = [sql UTF8String];
@@ -260,7 +260,7 @@ sqlite3* database;
             
             
             //  Set all the attributes of the course
-            course.id = (NSInteger)sqlite3_column_text(statement, 0);  
+            course.idCourse = (NSInteger)sqlite3_column_text(statement, 0);  
             //course.id= id;
             //below doesn't work.  fix it?  not sure how tonight 3/21
             //course.id = (id) ? [NSInteger stringWithUTF8String:id] : @"";
