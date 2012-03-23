@@ -21,11 +21,9 @@
 - (NSMutableArray*) getAllBuildings;
 - (NSMutableArray*) getAllSubjects;
 
-- (NSMutableArray*) getAllGPSLocations;
-
 -(NSMutableArray*) getAllInterests;
 
-- (NSMutableArray*) getAllCoursesGivenSubject;
+- (NSMutableArray*) getAllCoursesGivenSubject:(NSInteger) Subject_id;
 
 - (NSMutableArray*) getAllCourses; // adding so I can get at some CourseModel objects for testing
 

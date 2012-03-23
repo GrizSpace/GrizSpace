@@ -123,11 +123,12 @@
             [flattenedArray addObject:[theArray objectAtIndex:i]];
         }
     }
+    return 0;
     /*
 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name beginswith[c] %@", self.searchBar.text];
 self.filteredBuildings = [flattenedArray filteredArrayUsingPredicate:predicate];
 return self.filteredBuildings.count;
-
+     
 
 */
     

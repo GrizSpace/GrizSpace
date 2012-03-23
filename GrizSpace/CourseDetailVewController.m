@@ -30,15 +30,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
-        //get the app data from teh griz space data objects ref.
-        GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
-        
-        //set reference to the course detail controler.
-        //theDataObject.myCourseDetailViewController = self;
-    }
-    
-    
+    }  
     return self;
 }
 

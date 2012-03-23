@@ -10,6 +10,10 @@
 
 @implementation CourseList
 
+-(NSMutableArray*) getCourseList
+{
+    return nil;
+}
 @end
 
 

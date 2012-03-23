@@ -14,6 +14,6 @@
 @property (nonatomic, strong) NSArray *courses;
 @property (nonatomic, strong) NSArray *dayTimes;
 @property (nonatomic, weak) id<MapViewControllerDelegate> delegate; //delegate used to call mapview function for setting annotations.
--(void) SelectRowAtIndex:(int)rowIndex;
+//-(void) SelectRowAtIndex:(int)rowIndex;
 
 @end

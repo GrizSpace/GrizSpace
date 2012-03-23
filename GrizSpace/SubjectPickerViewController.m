@@ -83,7 +83,6 @@
 */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [self.subjects count];
 }
@@ -95,7 +94,7 @@
     
     // Configure the cell...
     cell.textLabel.text = [[self.subjects objectAtIndex:indexPath.row] abbr];
-    NSLog([[self.subjects objectAtIndex:indexPath.row] abbr]);
+    NSLog(@"%@", [[self.subjects objectAtIndex:indexPath.row] abbr]);
     return cell;
 }
 

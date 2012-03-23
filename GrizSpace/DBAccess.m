@@ -155,7 +155,7 @@ sqlite3* database;
             
             subject.abbr = (abbr) ? [NSString stringWithUTF8String:abbr] : @"";
             
-            NSLog(subject.abbr);
+            NSLog(@"%@", subject.abbr);
                         
             
             [subjects addObject:subject];
@@ -260,13 +260,14 @@ sqlite3* database;
             
             // The second parameter is the column index (0 based) in 
             // the result set.
-            char *id = (char *)sqlite3_column_text(statement, 0);
+            
+            //char *id = (char *)sqlite3_column_text(statement, 0);
             char *number = (char *)sqlite3_column_text(statement, 1);
             
             
             //  Set all the attributes of the course
-            
-            course.id= id;
+            course.id = (NSInteger)sqlite3_column_text(statement, 0);  
+            //course.id= id;
             //below doesn't work.  fix it?  not sure how tonight 3/21
             //course.id = (id) ? [NSInteger stringWithUTF8String:id] : @"";
             course.number = (number) ? [NSString 
