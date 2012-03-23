@@ -160,9 +160,9 @@
 		5A59DB2515000D7300CE4FC6 /* GrizSpace */ = {
 			isa = PBXGroup;
 			children = (
-				D83F9727151C3AF100BAA16E /* ViewControllers */,
-				D83F9725151C3AAB00BAA16E /* Models */,
+				D8DB7B3715169CAC008EF626 /* Global_Objects */,
 				D809A686150571CC007236B4 /* MapSpace */,
+				D83F9725151C3AAB00BAA16E /* Models */,
 				5A59DB2615000D7300CE4FC6 /* Supporting Files */,
 			);
 			path = GrizSpace;
@@ -180,6 +180,7 @@
 				D80AE651150521D4004EA055 /* Location.gpx */,
 				D8E53BC71505BC3400D59A52 /* Location2.gpx */,
 				D8DCED431506CFB100E111DC /* Location3.gpx */,
+				D83F9727151C3AF100BAA16E /* ViewControllers */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -191,7 +192,6 @@
 				D8B123B71513022A00F40A42 /* MapAnnotationList.m */,
 				D83ADE0E15031F76003733BE /* MapAnnotation.h */,
 				D83ADE0F15031F76003733BE /* MapAnnotation.m */,
-				D8DB7B3715169CAC008EF626 /* Global_Objects */,
 			);
 			name = MapSpace;
 			sourceTree = "<group>";
