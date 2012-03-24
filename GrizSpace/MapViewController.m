@@ -193,10 +193,7 @@
     } else {
         flyTo = MKMapRectUnion(flyTo, pointRect);
     }
-    
-    
-    
-    
+ 
     //all classes
     if(myMapAnnotationSegmentControl.selectedSegmentIndex == 0){
 
@@ -233,12 +230,11 @@
     //next class
     if(myMapAnnotationSegmentControl.selectedSegmentIndex == 1){
 
-        //theDataObject.myMapAnnotationList.currentAnnotationIndexSet = true;
         //gets the next class from the class data table.
         MapAnnotation* tmpNextAnnotation = [theDataObject.myMapAnnotationList GetNextAnnotation];
             
         //define anotation point for map.
-        MKMapPoint annotationPoint = MKMapPointForCoordinate(tmpNextAnnotation.coordinate); 
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(tmpNextAnnotation.coordinate);
 
         //place the annotation on the map.
         [mapView addAnnotation:tmpNextAnnotation];
@@ -273,28 +269,20 @@
 
 
 //gets the distance from the current class location to the next annotation spot if a single annotation is selected.
--(double) CalculateDistance:(double) lon1 Lat1:(double) lat1
+-(double) CalculateDistance:(double) lon1 Lat1:(double) lat1 Lon2:(double) lon2 Lat2: (double) lat2
 {
-   
-    //get the app data from teh griz space data objects ref.
-    GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
-    
+
     float d = 0;
-      
-    if(mapView.annotations.count == 2){
-        
-        MapAnnotation* tmpMapAnn = theDataObject.myMapAnnotationList.GetCurrentAnnotation;
-        
-        //((miles * feet * great circle) great arc distance formula.
-        d = 3963.0 * 5280 * acos(sin(lat1/57.2958) * sin(tmpMapAnn.coordinate.latitude/57.2958) + cos(lat1/57.2958) * cos(tmpMapAnn.coordinate.latitude/57.2958) *  cos(tmpMapAnn.coordinate.longitude/57.2958 -lon1/57.2958));
-        //ensure positive distance is returned
-        if(d < 0)
-        {
-            d = d * -1;
-        }        
-    }
+
+    //((miles * feet * great circle) great arc distance formula.
+    d = 3963.0 * 5280 * acos(sin(lat1/57.2958) * sin(lat2/57.2958) + cos(lat1/57.2958) * cos(lat2/57.2958) *  cos(lon2/57.2958 -lon1/57.2958));
     
-    distanceLabel.text = [NSString stringWithFormat:@"Distance %.1lf ft", d];
+    //ensure positive distance is returned
+    if(d < 0)
+    {
+        d = d * -1;
+    }        
+
     return d;
 }
 
@@ -303,42 +291,59 @@
 //fires every time the locatioin manager is updated.
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    
-    //get the app data from teh griz space data objects ref.
-    GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
-    
-    MapAnnotation* tmpMapAnn = theDataObject.myMapAnnotationList.GetCurrentAnnotation;
-    
+
     myLocationCoordinate.latitude = newLocation.coordinate.latitude;
     myLocationCoordinate.longitude = newLocation.coordinate.longitude;
     MKMapRect flyTo = MKMapRectNull; //map bounding rectangle for classes.
     
-    float dy = oldLocation.coordinate.latitude - newLocation.coordinate.latitude;
     
-    //if navigating to class set heading to the class
-    if(mapView.annotations.count == 2){
-        dy = newLocation.coordinate.latitude - tmpMapAnn.coordinate.latitude;
+    //identify the destinate annotation.
+    CLLocation* destCord = newLocation;
+    CLLocation* startCord = oldLocation;
+    if(mapView.annotations.count == 2){    
+        for(id<MKAnnotation> annotation in mapView.annotations)
+        {
+            if(annotation != mapView.userLocation)
+            {
+                startCord = newLocation;
+                destCord = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
+                
+                //sets the distance label text.
+                double distance = [self CalculateDistance:startCord.coordinate.longitude Lat1:startCord.coordinate.latitude Lon2: destCord.coordinate.longitude Lat2:destCord.coordinate.latitude];
+                distanceLabel.text = [NSString stringWithFormat:@"Distance %.1lf ft", distance];
+        
+                //check if the user has arrived
+                if([(MapAnnotation*)annotation arrived] == false)
+                {
+                    if ([annotation isKindOfClass:[MapAnnotation class]])
+                    {
+                        if(distance <= [(MapAnnotation*)annotation radius])
+                        {
+                            [(MapAnnotation*)annotation setArrived:true];
+                            NSString* messageString = [[NSString alloc] initWithString:@"You have arrived at your at your location!  Now get to class :-)."];
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Destination Reached" message:messageString
+                                                                       delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                            [alert show];
+                            
+                        }
+                    }
+                }
+                
+            }
+            
+        }
     }
     
-    dy = dy * -1;  
-    
-    
-    float dx = oldLocation.coordinate.longitude - newLocation.coordinate.longitude;
-    
-    //if navigating to class set heading to the class
-    if(mapView.annotations.count == 2){
-        dx = newLocation.coordinate.longitude - tmpMapAnn.coordinate.longitude;
-    }
-    
+
+    float dy = startCord.coordinate.latitude - destCord.coordinate.latitude;    
+    float dx = startCord.coordinate.longitude - destCord.coordinate.longitude;
+    dy = dy * -1;
     float angle = atan2f(dy, dx);
     DirectionCompas.transform = CGAffineTransformMakeRotation(angle);    
     
     
     //if navigating to a class make sure both person and class are in map window.
     if(mapView.annotations.count == 2){
-        [self CalculateDistance:newLocation.coordinate.longitude Lat1:newLocation.coordinate.latitude];
-       
-        
         //define the bounding rectangle and set visible area.
         MKMapPoint annotationPoint = MKMapPointForCoordinate(newLocation.coordinate);
         MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
@@ -375,10 +380,6 @@
     //if the annotation is the users location than return nil
     if (annotation == mapView.userLocation) return nil;
 
-    //cast the annotation object to get more atributes about it.
-    //MapAnnotation* tmpAnn = (MapAnnotation*) annotation;
-    
-    
     if ([annotation isKindOfClass:[MapAnnotation class]])
     {
         
@@ -395,15 +396,7 @@
             pin.annotation = annotation;
         }
     
-        //compare annoation type to see if its the correct type
-        NSString* annotationTypeStr = [[NSString alloc] initWithString:@""];
-        NSString* compString = [[NSString alloc] initWithString:@"Building"];
-
-        annotationTypeStr = [(MapAnnotation*)annotation annotationType];
-    
-    
-        NSLog(@"compare %@ with %@", annotationTypeStr, compString);
-    
+        //Only show button for Classes
         if(([(MapAnnotation*)annotation annotationType] == @"Class"))
         {
             //define the annotation button type to add to the annotation.
@@ -476,9 +469,7 @@
 //function used to show all annotations on the map.
 -(void)showBuildingAnnotation: (int) newBuildingIndex
 {
-    //myMapAnnotationSegmentControl.selectedSegmentIndex = newBuildingIndex;
-    //[self SegmentAnnotationSelect: nil];
-    //[self viewDidLoad];
+
     BuildingModel* newBuilding = [[self theAppDataObject].buildings objectAtIndex:newBuildingIndex];
     
     //we can auto call option 2 to remove annotations befor another needs to be drawn.
@@ -502,13 +493,7 @@
     //place the annotation on the map.
     [mapView addAnnotation:tmpAnn];
     [mapView selectAnnotation:tmpAnn animated:YES];
-    
-    
-    //[mapView viewForAnnotation:tmpAnn];
-    
-    
-    //NSLog(@"Showing building annotation lon: %f lat: %f", tmpAnn.coordinate.longitude, tmpAnn.coordinate.latitude);
-    
+
     //define the bounding rectangle and set visible area to include annotation point.
     pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
     if (MKMapRectIsNull(flyTo)) {
