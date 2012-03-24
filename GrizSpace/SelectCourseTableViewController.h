@@ -14,5 +14,10 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 @property (strong, nonatomic) NSMutableArray* courses;
 
+@property (strong, nonatomic) SubjectModel* selectedSubject;
 -(IBAction)cancelButtonClicked:(id)sender;
+
+
+//+(id)initWithSubject:(SubjectModel*)subj;
+
 @end

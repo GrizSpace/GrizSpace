@@ -23,7 +23,7 @@
 
 -(NSMutableArray*) getAllInterests;
 
-- (NSMutableArray*) getAllCoursesGivenSubject:(NSInteger) Subject_id;
+- (NSMutableArray*) getAllCoursesGivenSubject:(NSInteger) idSubject;
 
 - (NSMutableArray*) getAllCourses; // adding so I can get at some CourseModel objects for testing
 

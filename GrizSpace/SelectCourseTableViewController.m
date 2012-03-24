@@ -17,6 +17,8 @@
 @implementation SelectCourseTableViewController
 @synthesize cancelButton;
 @synthesize courses = _courses;
+@synthesize selectedSubject;
+
 
 -(void)setCourses:(NSMutableArray *)courses
 {
@@ -44,7 +46,11 @@
 
     DBAccess* db = [[DBAccess alloc] init];
     
-    self.courses = db.getAllCourses;
+    NSLog(@"SelectedSubjectID: %d", selectedSubject.idSubject);
+    
+    self.courses = [db getAllCoursesGivenSubject:selectedSubject.idSubject];
+    
+    
     NSLog(@"Number of courses: %d", [self.courses count]);
     
     [db closeDatabase];

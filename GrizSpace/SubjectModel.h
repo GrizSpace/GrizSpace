@@ -16,7 +16,7 @@
     
 }
 
-@property (nonatomic, assign)NSInteger id;
+@property (nonatomic, assign)NSInteger idSubject;
 @property (nonatomic, retain)NSString *abbr;
 @property (nonatomic, retain)NSString *title;
 

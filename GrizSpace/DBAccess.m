@@ -131,7 +131,7 @@ sqlite3* database;
     
     //  The SQL statement that we plan on executing against the database
     
-    const char *sql = "SELECT abbr FROM Subject;";
+    const char *sql = "SELECT id, abbr FROM Subject order by abbr;";  // addd id
     
     //  The SQLite statement object that will hold our result set
     sqlite3_stmt *statement;
@@ -148,12 +148,20 @@ sqlite3* database;
             
             // The second parameter is the column index (0 based) in 
             // the result set.
-            char *abbr = (char *)sqlite3_column_text(statement, 0);  // changed column to zero since current select statement is only querying for abbr
+            
+            //double latitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 2)] doubleValue];
+            
+            NSInteger subjectID = [[NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 0)] intValue];
+                                    
+            char *abbr = (char *)sqlite3_column_text(statement, 1);  // changed column to zero since current select statement is only querying for abbr ==> changed SELECT statement so Will changed to 1
+            
+            
           
             //  Set all the attributes of the subject
             
             subject.abbr = (abbr) ? [NSString stringWithUTF8String:abbr] : @"";
             
+            subject.idSubject = subjectID;
             NSLog(@"%@", subject.abbr);
                         
             
@@ -228,13 +236,15 @@ sqlite3* database;
 
 //declare method and pass in Subject.id
 
-- (NSMutableArray*) getAllCoursesGivenSubject:(NSInteger) Subject_id
+- (NSMutableArray*) getAllCoursesGivenSubject:(NSInteger) idSubject
 {
     //  The array of CoursesGivenSubject that we will create
     NSMutableArray *coursesGivenSubject = [[NSMutableArray alloc] init];
     
     //  The SQL statement that we plan on executing against the database
-    NSString *sql = [NSString stringWithFormat:@"SELECT course.id, course.number FROM Course INNER JOIN Subject WHERE course.id = %@", Subject_id];
+    //"SELECT idBuilding, Name, Latitude, Longitude, Radius FROM building inner join GPS on building.fk_idGPS = GPS.idGPS order by Name;";
+    
+    NSString *sql = [NSString stringWithFormat:@"SELECT course.id, course.number, Subject.abbr FROM Course INNER JOIN Subject on course.subject_id=Subject.id WHERE Subject.id = %d order by course.number", idSubject];
     
     
     const char *sqlstatement = [sql UTF8String];
@@ -258,14 +268,18 @@ sqlite3* database;
             //char *id = (char *)sqlite3_column_text(statement, 0);
             char *number = (char *)sqlite3_column_text(statement, 1);
             
+            char *abbr = (char *)sqlite3_column_text(statement, 2);
+            
             
             //  Set all the attributes of the course
-            course.id = (NSInteger)sqlite3_column_text(statement, 0);  
+            course.idCourse = (NSInteger)sqlite3_column_text(statement, 0);  
             //course.id= id;
             //below doesn't work.  fix it?  not sure how tonight 3/21
             //course.id = (id) ? [NSInteger stringWithUTF8String:id] : @"";
             course.number = (number) ? [NSString 
-                                      stringWithUTF8String:number] : @"";         
+                                      stringWithUTF8String:number] : @"";
+            
+            course.subject = (abbr) ? [NSString stringWithUTF8String:abbr] : @"";
             
             [coursesGivenSubject addObject:course];
             

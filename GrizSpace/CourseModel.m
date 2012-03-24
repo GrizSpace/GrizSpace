@@ -10,7 +10,7 @@
 
 @implementation CourseModel
 
-@synthesize id;
+@synthesize idCourse;
 @synthesize number;
 @synthesize title;
 @synthesize subject_id;
