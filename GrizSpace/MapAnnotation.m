@@ -52,7 +52,7 @@
         [self setTitle: tmpBM.name];
         [self setSubtitle: tmpBM.idBuilding];  
         [self setRadius:tmpBM.Radius];
-//        [self setArrived:false];
+        [self setArrived:false];
     }
     return self;
 }
