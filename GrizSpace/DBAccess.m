@@ -131,7 +131,7 @@ sqlite3* database;
     
     //  The SQL statement that we plan on executing against the database
     
-    const char *sql = "SELECT id, abbr FROM Subject;";  // addd id
+    const char *sql = "SELECT id, abbr FROM Subject order by abbr;";  // addd id
     
     //  The SQLite statement object that will hold our result set
     sqlite3_stmt *statement;
