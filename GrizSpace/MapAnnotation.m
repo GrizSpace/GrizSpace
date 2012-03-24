@@ -27,6 +27,7 @@
         [self setTitle:newTitle];
         [self setSubtitle:newSubtitle];  
         [self setRadius:newRadius];
+        [self setArrived:false];
     }
     return self;
 }
@@ -48,10 +49,10 @@
         
         //should be Latitude then longitude.  Database data needs switched.
         [self setCoordinate:CLLocationCoordinate2DMake(tmpBM.Latitude, tmpBM.Longitude)];
-        //[self setCoordinate:CLLocationCoordinate2DMake(tmpBM.Longitude, tmpBM.Latitude)];
         [self setTitle: tmpBM.name];
         [self setSubtitle: tmpBM.idBuilding];  
         [self setRadius:tmpBM.Radius];
+        [self setArrived:false];
     }
     return self;
 }
