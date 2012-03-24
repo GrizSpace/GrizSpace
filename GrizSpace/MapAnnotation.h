@@ -18,7 +18,7 @@
 @property (nonatomic, assign) int keyVal; //id of the annotation object type being displayed
 @property (nonatomic, assign) NSString* annotationType; //tells the type of annotation building or class
 @property (nonatomic, readwrite) int radius; //the radius of the object identified
-@property (nonatomic, readwrite) bool arrived; //set to true when arrived at destination.
+//@property (nonatomic, readwrite) bool arrived; //set to true when arrived at destination.
 
 
 //@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
