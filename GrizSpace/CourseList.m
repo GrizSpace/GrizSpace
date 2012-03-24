@@ -10,6 +10,15 @@
 
 @implementation CourseList
 
+@synthesize myCourseItems;
+-(id) init
+{
+    myCourseItems = [self.getCourseList mutableCopy];
+    currentCourseIndex = 0; //default course is first one.
+    return self;
+}
+
+
 -(NSMutableArray*) getCourseList // populate and return an array of CourseModel objects
                                 // CURRENTLY JUST DUMMY VALUES, USED FOR TESTING, NOT PULLING FROM DB
 {
@@ -61,6 +70,29 @@
     
     return myCourses;
 }
+
+//gets the next class from the class list.
+-(CourseModel*) GetNextCourse
+{
+    
+     if(currentCourseIndex == ([myCourseItems count] - 1))
+     {
+        currentCourseIndex = 0;
+     }
+     else 
+     {
+         currentCourseIndex = currentCourseIndex + 1;
+     }
+     
+    return self.GetCurrentCourse;
+}
+
+//gets the current annotation item.
+-(CourseModel*) GetCurrentCourse
+{
+    return [myCourseItems objectAtIndex: currentCourseIndex];
+}
+
 @end
 
 
