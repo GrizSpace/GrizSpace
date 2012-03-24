@@ -8,11 +8,11 @@
 
 #import "GrizSpaceDataObjects.h"
 #import "DBAccess.h"
-
+#import "CourseList.h"
 
 @implementation GrizSpaceDataObjects
 
-@synthesize myMapAnnotationList, buildings;
+@synthesize myMapAnnotationList, buildings, userCourses, selectableCourses, selectableSubjects;
 
 //default constructor
 -(id) init {
@@ -26,6 +26,22 @@
      self.buildings = [dbAccess.getAllBuildings mutableCopy];
      [dbAccess closeDatabase];
      
+    //sets up the courses for reference.
+    CourseList* tmpCourseList = [[CourseList alloc] init];
+    self.userCourses = [tmpCourseList.getCourseList mutableCopy];
+    
+    //sets up the courses for reference.
+    [dbAccess initializeDatabase];
+    self.selectableCourses = [dbAccess.getAllCourses mutableCopy];
+    [dbAccess closeDatabase];
+    
+    //sets up the subjects for reference.
+    [dbAccess initializeDatabase];
+    self.selectableSubjects = [dbAccess.getAllSubjects mutableCopy];
+    [dbAccess closeDatabase];
+    
+    
+    
     
     
     return self;
