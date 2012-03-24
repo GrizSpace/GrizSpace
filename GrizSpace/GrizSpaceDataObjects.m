@@ -27,8 +27,7 @@
      [dbAccess closeDatabase];
      
     //sets up the courses for reference.
-    CourseList* tmpCourseList = [[CourseList alloc] init];
-    self.userCourses = [tmpCourseList.getCourseList mutableCopy];
+    self.userCourses = [[CourseList alloc] init];
     
     //sets up the courses for reference.
     [dbAccess initializeDatabase];

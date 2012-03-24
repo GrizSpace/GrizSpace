@@ -317,6 +317,7 @@
                 {
                     if ([annotation isKindOfClass:[MapAnnotation class]])
                     {
+                        //NSLog(@"distance is %f away from %i", distance, [(MapAnnotation*)annotation radius]);
                         if(distance <= [(MapAnnotation*)annotation radius])
                         {
                             [(MapAnnotation*)annotation setArrived:true];

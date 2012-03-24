@@ -10,7 +10,11 @@
 #import "CourseModel.h"
 
 @interface CourseList : NSObject
+{
+    int currentCourseIndex; //the currently selected course index
+}
 
--(NSMutableArray*) getCourseList; // return array of CourseModel objects => current Course List
+@property (nonatomic, readwrite) NSMutableArray* myCourseItems; //gets the list of annotation items
+-(CourseModel*) GetNextCourse; //gets the next course item
 
 @end

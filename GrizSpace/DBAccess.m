@@ -93,7 +93,7 @@ sqlite3* database;
             
             double latitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 2)] doubleValue];
             double longitude = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 3)]  doubleValue];            
-            NSInteger radius = (NSInteger)sqlite3_column_text(statement, 4);            
+            NSInteger radius = [[NSString stringWithUTF8String: (char *)sqlite3_column_text(statement, 4)]  intValue];             
             
             //  Set all the attributes of the building
             building.buildingIndex = itemCounter;
@@ -102,7 +102,8 @@ sqlite3* database;
                                       stringWithUTF8String:name] : @"";
             building.Longitude = longitude;
             building.Latitude = latitude;
-            building.Radius = radius;            
+            building.Radius = radius;  
+            //NSLog(@"Radius: %i", radius);
             [buildings addObject:building];
             
             itemCounter++;
