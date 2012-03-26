@@ -27,7 +27,7 @@
 - (id) initWithAnnotationDataKeyID: (int) newKeyID annotationType: (NSString*) newAnnotationType coordinate: (CLLocationCoordinate2D) newCoordinate title: (NSString*) newTitle subtitle: (NSString*) newSubtitle radius: (int) newRadius;
 
 
-- (id) initWithBuildingModel: (BuildingModel*) tmpBM;
+- (id) initWithBuildingModel: (BuildingModel*) tmpBM; 
 
 
 @end
