@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -55,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="wUt-tu-AOu" userLabel="MapViewControllerIdentity">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="434"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="432"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" id="ct6-VK-9q2">
@@ -1641,9 +1641,9 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="K62-WQ-gCS"/>
-        <segue reference="fx8-tT-JjN"/>
         <segue reference="Vm2-kh-gvc"/>
-        <segue reference="cdk-8W-ett"/>
+        <segue reference="fx8-tT-JjN"/>
         <segue reference="e13-RZ-dFB"/>
+        <segue reference="cdk-8W-ett"/>
     </inferredMetricsTieBreakers>
 </document>

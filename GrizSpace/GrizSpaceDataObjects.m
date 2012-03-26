@@ -12,7 +12,7 @@
 
 @implementation GrizSpaceDataObjects 
 
-@synthesize myMapAnnotationList, buildings, userCourses, selectableCourses, selectableSubjects;
+@synthesize myMapAnnotationList, buildings, myCourses, selectableCourses, selectableSubjects;
 
 //default constructor
 -(id) init {
@@ -27,7 +27,7 @@
      [dbAccess closeDatabase];
      
     //sets up the courses for reference.
-    self.userCourses = [[CourseList alloc] init];
+    self.myCourses = [[CourseList alloc] init];
     
     //sets up the courses for reference.
     [dbAccess initializeDatabase];

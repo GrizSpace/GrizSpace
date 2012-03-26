@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MKAnnotation.h>
 #import "BuildingModel.h"
+#import "CourseModel.h"
 #import "GPSModel.h"
 
 @interface MapAnnotation : NSObject  <MKAnnotation> 
@@ -27,7 +28,7 @@
 - (id) initWithAnnotationDataKeyID: (int) newKeyID annotationType: (NSString*) newAnnotationType coordinate: (CLLocationCoordinate2D) newCoordinate title: (NSString*) newTitle subtitle: (NSString*) newSubtitle radius: (int) newRadius;
 
 
-- (id) initWithBuildingModel: (BuildingModel*) tmpBM; 
+- (id) initWithBuildingModel: (BuildingModel*) tmpBM;
 
-
+-(id) initWithCourseModel: (CourseModel*) tmpCM;
 @end

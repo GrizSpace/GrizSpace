@@ -58,6 +58,23 @@
     return self;
 }
 
+-(id) initWithCourseModel: (CourseModel*) tmpCM
+{
+    if (self = [super init])
+    {
+        [self setKeyVal: tmpCM.index];
+        [self setAnnotationType: @"myCourse"];
+        
+        //should be Latitude then longitude.  Database data needs switched.
+        [self setCoordinate:CLLocationCoordinate2DMake(tmpCM.latitude, tmpCM.longitude)];
+        //[self setCoordinate:CLLocationCoordinate2DMake(tmpBM.Longitude, tmpBM.Latitude)];
+        [self setTitle: tmpCM.subject];
+        [self setSubtitle: tmpCM.buildingAndRoom];  
+        [self setRadius:tmpCM.radius];
+        [self setArrived:false];
+    }
+    return self;  
+}
 
 
 @end
