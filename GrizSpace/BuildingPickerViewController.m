@@ -183,7 +183,7 @@
     else {
         
         //Number of rows it should expect should be based on the section
-        return [[self theAppDataObject].buildings count];
+        return [[self theAppDataObject].buildings count]; 
     }
 }
 
