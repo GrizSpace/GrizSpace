@@ -47,9 +47,9 @@
 
     
     
-    NSArray *myCourses = [NSArray arrayWithObjects:@"CSCI 491", @"CSCI 576", @"ECON 511", @"ECON 591", @"ECON 221", nil];
+    NSArray *myCourses = [NSArray arrayWithObjects:@"ECON 513", @"ECON 511", @"CSCI 491", @"CSCI 576", @"ECON 591", @"ECON 221", nil];
     
-    NSArray *myDayTimes = [NSArray arrayWithObjects:@"MWF   8:10-9:00     SS 362", @"MWF  9:10-10:00   SS 355", @"MWF  3:10-4:00     GBB 121", @"TTh     12:40-2:00      LA 411", @"TTh  3:10-4:30   SS 341",nil];
+    NSArray *myDayTimes = [NSArray arrayWithObjects:@"MWF   10:10-11:00   LA 411", @"MWF   3:10-4:00   SS402", @"MWF   8:10-9:00     SS 362", @"MWF  9:10-10:00   SS 355", @"TTh     12:40-2:00      LA 411", @"TTh  3:10-4:30   SS 341",nil];
     
     [self setCourses:myCourses];
     [self setDayTimes:myDayTimes];

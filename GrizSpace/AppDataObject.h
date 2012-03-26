@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDataObject : NSObject
+@interface AppDataObject : NSObject 
 {
     
     
