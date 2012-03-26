@@ -407,6 +407,9 @@
                                 <string>Title</string>
                                 <string>Title</string>
                             </scopeButtonTitles>
+                            <connections>
+                                <outlet property="delegate" destination="kQ6-10-JPc" id="0sM-Xb-rlb"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Building" textLabel="1KG-2P-Jfx" detailTextLabel="dB9-Ch-yKh" style="IBUITableViewCellStyleSubtitle" id="FI3-Op-rPp">
@@ -442,7 +445,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Select Building" id="OTr-gx-mys"/>
                     <connections>
-                        <outlet property="searchBar" destination="6Qs-id-fQ8" id="BwB-sp-qqm"/>
+                        <outlet property="searchBar" destination="6Qs-id-fQ8" id="b0u-DW-qii"/>
                     </connections>
                 </tableViewController>
             </objects>
@@ -1577,63 +1580,6 @@
         <image name="Direction_Arrow.png" width="425" height="425"/>
         <image name="bear_2 (1).png" width="128" height="128"/>
     </resources>
-    <classes>
-        <class className="BoredInterestsTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BoredInterestsTableViewController.h"/>
-        </class>
-        <class className="BuildingPickerViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuildingPickerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-        <class className="ClassPickerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClassPickerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showCoursesToSelect:"/>
-                <relationship kind="outlet" name="coursePicker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="selectCourseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="subjectLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tf2" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="CourseDetailVewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CourseDetailVewController.h"/>
-        </class>
-        <class className="CourseListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CourseListViewController.h"/>
-        </class>
-        <class className="GrizSpaceTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GrizSpaceTabBarController.h"/>
-        </class>
-        <class className="MapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="DirectionCompas" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="myMapAnnotationSegmentControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="myMapViewTypeSegmentControl" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-        <class className="PhotoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="photoTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="photomap" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="SelectCourseTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectCourseTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButtonClicked:"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="SubjectPickerViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SubjectPickerViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -13,10 +13,15 @@
 @protocol MapViewControllerDelegate; //protocal to set the map annotations on the map.
 
 @interface BuildingPickerViewController : UITableViewController
-@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
-
-//@property (strong, nonatomic) UISearchDisplayController* searchController;
+{
+    NSMutableArray *copyListOfItems;
+    BOOL searching;
+    BOOL letUserSelectRow;
+    IBOutlet UISearchBar *searchBar;
+}
 
 @property (nonatomic, weak) id<MapViewControllerDelegate> delegate; //delegate used to call mapview 
+
+- (void) searchTableView;
 
 @end
