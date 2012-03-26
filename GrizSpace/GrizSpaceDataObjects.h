@@ -19,7 +19,7 @@
 @property (nonatomic, readwrite) MapAnnotationList* myMapAnnotationList;
 
 @property (nonatomic, strong) NSMutableArray *buildings; //building list to select from
-@property (nonatomic, strong) CourseList* userCourses; //the user courses in there list.
+@property (nonatomic, readwrite) CourseList* myCourses; //the user courses in there list.
 @property (nonatomic, strong) NSMutableArray *selectableCourses; //the selectable courses avaliable.
 @property (nonatomic, strong) NSMutableArray *selectableSubjects; //the selectable subjects avaliable.
 @end
