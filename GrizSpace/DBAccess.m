@@ -163,7 +163,7 @@ sqlite3* database;
             subject.abbr = (abbr) ? [NSString stringWithUTF8String:abbr] : @"";
             
             subject.idSubject = subjectID;
-            NSLog(@"%@", subject.abbr);
+            //NSLog(@"%@", subject.abbr);
                         
             
             [subjects addObject:subject];
@@ -325,7 +325,7 @@ sqlite3* database;
             
             course.number = (number) ? [NSString stringWithUTF8String:number] : @"";
              course.subject = (abbr) ? [NSString stringWithUTF8String:abbr] : @"";
-            NSLog(@"Adding course subject: %@", course.subject);
+            //NSLog(@"Adding course subject: %@", course.subject);
             [courses addObject:course];
             
         }

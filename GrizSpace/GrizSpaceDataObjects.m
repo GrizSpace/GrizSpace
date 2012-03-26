@@ -10,7 +10,7 @@
 #import "DBAccess.h"
 #import "CourseList.h"
 
-@implementation GrizSpaceDataObjects
+@implementation GrizSpaceDataObjects 
 
 @synthesize myMapAnnotationList, buildings, userCourses, selectableCourses, selectableSubjects;
 
