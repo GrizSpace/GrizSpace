@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MKAnnotation.h>
 #import "BuildingModel.h"
+#import "CourseModel.h"
 #import "GPSModel.h"
 
 @interface MapAnnotation : NSObject  <MKAnnotation> 
@@ -29,5 +30,5 @@
 
 - (id) initWithBuildingModel: (BuildingModel*) tmpBM;
 
-
+-(id) initWithCourseModel: (CourseModel*) tmpCM;
 @end

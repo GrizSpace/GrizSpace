@@ -44,9 +44,10 @@
     
     
     NSMutableArray* myCourses = [[NSMutableArray alloc] init ];
-    CourseModel* tmpCourse = [[CourseModel alloc] init];
+    
     for (int i=0;i<3;i++)
     {
+        CourseModel* tmpCourse = [[CourseModel alloc] init];
         [tmpCourse setSubject:[subjects objectAtIndex:i]];
         [tmpCourse setSubjAbbr:[subjAbbrs objectAtIndex:i]];
         [tmpCourse setNumber:[numbers objectAtIndex:i]];

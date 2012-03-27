@@ -188,6 +188,7 @@
     MKMapRect flyTo = MKMapRectNull; //map bounding rectangle for classes.
     MKMapPoint annotationPoint = MKMapPointForCoordinate(myLocationCoordinate);
     MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+
     if (MKMapRectIsNull(flyTo)) {
         flyTo = pointRect;
     } else {
@@ -196,15 +197,18 @@
  
     //all classes
     if(myMapAnnotationSegmentControl.selectedSegmentIndex == 0){
-
-        //get the annotation list 
-        NSMutableArray* tmpAnnotationDataArray = theDataObject.myMapAnnotationList.myAnnotationItems;
-
+        
+        //get the users class items
+        NSMutableArray* tmpMyClassArray = [theDataObject.myCourses myCourseItems];
+        
+         
 
         
         //annotate all the classes on the map.
-        for (MapAnnotation* tmpMapAnn in tmpAnnotationDataArray) {
+        for (CourseModel* tmpClass in tmpMyClassArray) {
 
+            MapAnnotation* tmpMapAnn = [[MapAnnotation alloc] initWithCourseModel:tmpClass];
+            
             annotationPoint = MKMapPointForCoordinate(tmpMapAnn.coordinate);
             pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
             
@@ -223,15 +227,17 @@
             
         }//end for
         
-        //set the bounding rectangle for the map so all classes are visible.
-        mapView.visibleMapRect = flyTo;   
     }
     
     //next class
     if(myMapAnnotationSegmentControl.selectedSegmentIndex == 1){
 
+        
         //gets the next class from the class data table.
-        MapAnnotation* tmpNextAnnotation = [theDataObject.myMapAnnotationList GetNextAnnotation];
+        CourseModel* tmpClass = theDataObject.myCourses.GetNextCourse;
+        
+        //get the next annotation for the class
+        MapAnnotation* tmpNextAnnotation = [[MapAnnotation alloc] initWithCourseModel:tmpClass];
             
         //define anotation point for map.
         MKMapPoint annotationPoint = MKMapPointForCoordinate(tmpNextAnnotation.coordinate);
@@ -257,12 +263,33 @@
         //theDataObject.myMapAnnotationList.currentAnnotationIndexSet = false;
     }
     else {
+        
         //focus map to fly to area only if an annotation point is set.
         mapView.visibleMapRect = flyTo;
+        
+        
+        if(myMapAnnotationSegmentControl.selectedSegmentIndex == 0){
+            
+            //expand fly to area a little if viewing all classes.
+            MKCoordinateRegion myRegion;
+            MKCoordinateSpan mySpan = mapView.region.span;
+            mySpan.latitudeDelta = mySpan.latitudeDelta + .0002;
+            mySpan.longitudeDelta = mySpan.longitudeDelta + .0002;
+            myRegion.span = mySpan;
+            myRegion.center = myLocationCoordinate;
+            [mapView setRegion:myRegion animated:true];  
+        }
+        
+
+        
     }
     
     //ensures that no segment is selected.
     [myMapAnnotationSegmentControl setSelectedSegmentIndex: UISegmentedControlNoSegment];
+    
+    
+    
+    
 }
 
 
@@ -398,7 +425,7 @@
         }
     
         //Only show button for Classes
-        if(([(MapAnnotation*)annotation annotationType] == @"Class"))
+        if(([(MapAnnotation*)annotation annotationType] == @"myCourse"))
         {
             //define the annotation button type to add to the annotation.
             UIButton *annotationButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
