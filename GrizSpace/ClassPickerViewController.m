@@ -20,6 +20,21 @@
 @synthesize coursePicker;
 @synthesize selectCourseButton;
 @synthesize selectedSubject;
+@synthesize selectedCourse = _selectedCourse;
+
+-(void) didReceiveCourse:(CourseModel *)selectedCourseFromPicker
+{
+    [self setSelectedCourse:selectedCourseFromPicker];
+    NSLog(@"Selecte course title: %@", self.selectedCourse.title);
+}
+
+-(void)setSelectedCourse:(CourseModel *)selectedCourse
+{
+    _selectedCourse = selectedCourse;
+    
+    selectCourseButton.titleLabel.text = selectedCourse.number;
+}
+
 
 //-(void) setSelectedSubject:(SubjectModel *)selectedSubject
 //{
@@ -33,7 +48,11 @@
     
     [selectView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     
+    selectView.delegate = self;
+    
+    
     [selectView setSelectedSubject:selectedSubject];
+//    [selectView setParentClassPicker:self];
     
     [self.navigationController presentModalViewController:selectView animated:YES];
     //[self presentModalViewController:selectView animated:YES];
