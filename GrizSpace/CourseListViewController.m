@@ -19,6 +19,8 @@
 @synthesize dayTimes = _dayTimes;
 @synthesize delegate;
 
+@synthesize myCourses;
+
 -(void) setCourses:(NSArray *)courses
 {
     _courses = courses;
@@ -47,12 +49,17 @@
 
     
     
-    NSArray *myCourses = [NSArray arrayWithObjects:@"ECON 513", @"ECON 511", @"CSCI 491", @"CSCI 576", @"ECON 591", @"ECON 221", nil];
+   // NSArray *myCourses = [NSArray arrayWithObjects:@"ECON 513", @"ECON 511", @"CSCI 491", @"CSCI 576", @"ECON 591", @"ECON 221", nil];
     
-    NSArray *myDayTimes = [NSArray arrayWithObjects:@"MWF   10:10-11:00   LA 411", @"MWF   3:10-4:00   SS402", @"MWF   8:10-9:00     SS 362", @"MWF  9:10-10:00   SS 355", @"TTh     12:40-2:00      LA 411", @"TTh  3:10-4:30   SS 341",nil];
+   // NSArray *myDayTimes = [NSArray arrayWithObjects:@"MWF   10:10-11:00   LA 411", @"MWF   3:10-4:00   SS402", @"MWF   8:10-9:00     SS 362", @"MWF  9:10-10:00   SS 355", @"TTh     12:40-2:00      LA 411", @"TTh  3:10-4:30   SS 341",nil];
     
-    [self setCourses:myCourses];
-    [self setDayTimes:myDayTimes];
+    CourseList* myCourseListObject = [[CourseList alloc] init];
+    
+    
+    [self setMyCourses:[myCourseListObject getCourseList]];
+     
+     
+    //[self setDayTimes:myDayTimes];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -85,7 +92,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.courses count];
+    NSLog(@"Size of myCourses array: %d", [self.myCourses count]);
+    
+    return [self.myCourses count];
+    
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,8 +106,10 @@
     
     // Configure the cell...
     
-    cell.textLabel.text = [self.courses objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [self.dayTimes objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[self.myCourses objectAtIndex:indexPath.row] getTitle];
+    
+    
+    cell.detailTextLabel.text = [[self.myCourses objectAtIndex:indexPath.row] getNumber];
     return cell;
 }
 

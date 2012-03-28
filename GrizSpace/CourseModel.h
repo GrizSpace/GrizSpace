@@ -38,5 +38,8 @@
 @property (assign, nonatomic) NSInteger index;
 
 
+-(NSString*) getTitle;
+-(NSString*) getNumber;
+
 
 @end

@@ -26,4 +26,17 @@
 @synthesize radius;
 @synthesize index;
 
+
+
+-(NSString*) getTitle
+{
+
+return title;
+}
+
+-(NSString*) getNumber
+{
+    return number;
+}
 @end
+

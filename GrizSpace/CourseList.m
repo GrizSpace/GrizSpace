@@ -72,6 +72,12 @@
     return myCourses;
 }
 
++(NSMutableArray*) getMyCourseList
+{
+    return [[NSMutableArray alloc] init];
+}
+
+
 //gets the next class from the class list.
 -(CourseModel*) GetNextCourse
 {
