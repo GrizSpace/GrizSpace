@@ -7,4 +7,5 @@ build/
 *.perspectivev3
 .xcodeproj/!*.xcodeproj/project.pbxproj 
 xcuserdata
+*xcuserdata*
 *.sqlite*
