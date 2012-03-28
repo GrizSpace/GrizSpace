@@ -21,6 +21,7 @@
 @synthesize selectCourseButton;
 @synthesize selectedSubject;
 @synthesize selectedCourse = _selectedCourse;
+@synthesize addButton;
 
 -(void) didReceiveCourse:(CourseModel *)selectedCourseFromPicker
 {
@@ -33,6 +34,16 @@
     _selectedCourse = selectedCourse;
     
     selectCourseButton.titleLabel.text = selectedCourse.number;
+}
+- (IBAction)addToCourseList:(id)sender 
+{
+
+    PFObject *courseToBeAdded = [PFObject objectWithClassName:@"CourseModel"];
+    [courseToBeAdded setObject:[self.selectedCourse getNumber] forKey:@"number"];
+    [courseToBeAdded setObject:[self.selectedSubject getAbbr] forKey:@"subject"];
+    
+    [courseToBeAdded save];
+
 }
 
 
@@ -97,6 +108,7 @@
     [self setTf2:nil];
     [self setSelectCourseButton:nil];
     [self setSubjectLabel:nil];
+    [self setAddButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
