@@ -74,6 +74,7 @@ task :import do
 
   CSV.foreach(csv, :headers => true) do |row|
     building = get_building_id(dbh, row)
+    next unless building
     subject  = get_subject_id(dbh, row)
     course   = get_course_id(dbh, row, subject)
     room     = get_room_id(dbh, row, building)
