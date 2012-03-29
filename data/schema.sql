@@ -20,25 +20,23 @@ CREATE TABLE `BoredInterest` (
   `Interested` TINYINT(1)  NULL ,
   PRIMARY KEY (`idBoredInterest`) );
 CREATE TABLE `Building` (
-  `idBuilding` VARCHAR(5) NOT NULL ,
-  `Name` VARCHAR(45) NULL ,
-  `fk_idGPS` INT NULL ,
+    id INTEGER PRIMARY KEY,
+  `abbr` VARCHAR(5) NOT NULL ,
+  `name` VARCHAR(45) NULL ,
+  gps_id INT NOT NULL,
 
-  PRIMARY KEY (`idBuilding`) ,
-  CONSTRAINT `fk_idGPS`
-    FOREIGN KEY (`fk_idGPS` )
+  CONSTRAINT gps_id
+    FOREIGN KEY (`gps_id` )
     REFERENCES `GPS` (`idGPS` )
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 CREATE TABLE `Classroom` (
-  `idClassroom` INT NOT NULL ,
-  `fk_idBuilding` INT NULL ,
-  `RoomNumber` VARCHAR(20) NULL ,
-  PRIMARY KEY (`idClassroom`) ,
-
-  CONSTRAINT `fk_idBuilding`
-    FOREIGN KEY (`fk_idBuilding` )
-    REFERENCES `Building` (`idBuilding` )
+  id INTEGER PRIMARY KEY,
+  room VARCHAR(20) NULL,
+  building_id INTEGER NOT NULL,
+  CONSTRAINT building_id
+    FOREIGN KEY (building_id)
+    REFERENCES Building(id)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 CREATE TABLE `Course` (
