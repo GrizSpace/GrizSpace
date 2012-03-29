@@ -53,6 +53,13 @@ def get_course_id(dbh, row, subj_id)
   course ? course[:id] : dbh[:Course].insert(params)
 end
 
+def get_room_id(dbh, row, bldg_id)
+  params = {:room => row['ROOM'], :building_id => bldg_id}
+  room = dbh[:Classroom].filter(params).first
+
+  room ? room[:id] : dbh[:Classroom].insert(params)
+end
+
 desc 'import course list'
 task :import do
   abort "ERROR: Ruby 1.9+ is required" if RUBY_VERSION < "1.9"
@@ -69,5 +76,6 @@ task :import do
     building = get_building_id(dbh, row)
     subject  = get_subject_id(dbh, row)
     course   = get_course_id(dbh, row, subject)
+    room     = get_room_id(dbh, row, building)
   end
 end
