@@ -50,32 +50,19 @@ CREATE TABLE `Course` (
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 CREATE TABLE `CourseSection` (
-  `idCRN` INT NOT NULL ,
-  `fk_idSemester` INT NULL ,
-  `SectionNum` CHAR(2) NULL ,
-  `StartTime` DATETIME NULL ,
-  `EndTime` DATETIME NULL ,
-  `Days` BIT NULL ,
-  `fk_idClassRoom` INT NULL ,
-  `InstructorLName` VARCHAR(45) NULL ,
-  `fk_idCourse` INT NULL ,
-  PRIMARY KEY (`idCRN`) ,
-
-  CONSTRAINT `fk_idCourse`
-    FOREIGN KEY (`fk_idCourse` )
-    REFERENCES `Course` (`idCourse` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_idClassroom`
-    FOREIGN KEY (`fk_idClassRoom` )
-    REFERENCES `Classroom` (`idClassroom` )
-    ON DELETE CASCADe
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_idSemester`
-    FOREIGN KEY (`fk_idSemester` )
-    REFERENCES `Semester` (`idSemester` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE);
+  id INTEGER PRIMARY KEY,
+  crn INTEGER NOT NULL,
+  number VARCHAR(2) NOT NULL,
+  start_time DATETIME NULL,
+  end_time DATETIME NULL,
+  days INTEGER NULL,
+  course_id INTEGER NOT NULL,
+  classroom_id INTEGER NOT NULL,
+  semester_id INTEGER NOT NULL,
+  CONSTRAINT course_id    FOREIGN KEY (course_id)    REFERENCES Course(id)
+  CONSTRAINT classroom_id FOREIGN KEY (classroom_id) REFERENCES Classroom(id),
+  CONSTRAINT semester_id  FOREIGN KEY (semester_id)  REFERENCES Semester(id)
+);
 CREATE TABLE `GPS` (
   `idGPS` INT NOT NULL ,
   `Latitude` DECIMAL(9,6) NULL ,
