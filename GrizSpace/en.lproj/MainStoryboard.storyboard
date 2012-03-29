@@ -1114,15 +1114,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <segmentedControl key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" segmentControlStyle="bar" selectedSegmentIndex="0" momentary="YES" id="1Z4-ft-VV8">
-                            <rect key="frame" x="0.0" y="66" width="320" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="View All On Map"/>
-                                <segment title="Find Course"/>
-                                <segment title="Add Course"/>
-                            </segments>
-                        </segmentedControl>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Course" textLabel="G15-0m-rMu" detailTextLabel="SoF-JE-ySJ" style="IBUITableViewCellStyleSubtitle" id="tBX-Yp-yNP">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
