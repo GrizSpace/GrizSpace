@@ -30,6 +30,29 @@ namespace :db do
   end
 end
 
+def get_building_id(dbh, row)
+  abbr = row['BLDG']
+  bldg = dbh[:Building].filter(:abbr => abbr).first
+
+  return bldg[:id] if bldg
+
+  STDERR.puts "WARNING: Building #{abbr} does not exist"
+end
+
+def get_subject_id(dbh, row)
+  params = {:abbr => row['SUBJ']}
+  subj = dbh[:Subject].filter(params).first
+
+  subj ? subj[:id] : dbh[:Subject].insert(params)
+end
+
+def get_course_id(dbh, row, subj_id)
+  params = {:number => row['CRSE #'], :subject_id => subj_id}
+  course = dbh[:Course].filter(params).first
+
+  course ? course[:id] : dbh[:Course].insert(params)
+end
+
 desc 'import course list'
 task :import do
   abort "ERROR: Ruby 1.9+ is required" if RUBY_VERSION < "1.9"
@@ -39,34 +62,12 @@ task :import do
   require 'csv'
   require 'sequel'
 
-  unk = Hash.new(0)
   dbh = Sequel.connect(:adapter => 'sqlite', :database => DB)
   dbh.foreign_keys()
 
   CSV.foreach(csv, :headers => true) do |row|
-    bldg = row['BLDG']
-    rs   = dbh[:Building].filter(:idBuilding => bldg).first
-    if !rs
-      unk[bldg] += 1
-      next
-    end
-
-    subjstr = row['SUBJ']
-    subj_id = dbh[:Subject].filter(:abbr => subjstr).first
-    subj_id &&= subj_id[:id]
-    if !subj_id
-      subj_id = dbh[:Subject].insert(:abbr => subjstr)
-    end
-
-    course = dbh[:Course].filter(:number => row['CRSE #']).first
-    unless course
-      dbh[:Course].insert(:number => row['CRSE #'], :subject_id => subj_id)
-    end
-  end
-
-  STDERR.puts "The following buildings must be imported:\nBLDG\t# Classes"
-  STDERR.puts "-" * 20
-  unk.sort { |a, b| b[1] <=> a[1] }.each do |name, num|
-    STDERR.puts "#{name}\t#{num}"
+    building = get_building_id(dbh, row)
+    subject  = get_subject_id(dbh, row)
+    course   = get_course_id(dbh, row, subject)
   end
 end
