@@ -39,25 +39,22 @@ def get_building_id(dbh, row)
   STDERR.puts "WARNING: Building #{abbr} does not exist"
 end
 
-def get_subject_id(dbh, row)
-  params = {:abbr => row['SUBJ']}
-  subj = dbh[:Subject].filter(params).first
+def fetch_id(dbh, table, params)
+  rs = dbh[table].filter(params).first
 
-  subj ? subj[:id] : dbh[:Subject].insert(params)
+  rs ? rs[:id] : dbh[table].insert(params)
+end
+
+def get_subject_id(dbh, row)
+  fetch_id(dbh, :Subject, :abbr => row['SUBJ'])
 end
 
 def get_course_id(dbh, row, subj_id)
-  params = {:number => row['CRSE #'], :subject_id => subj_id}
-  course = dbh[:Course].filter(params).first
-
-  course ? course[:id] : dbh[:Course].insert(params)
+  fetch_id(dbh, :Course, :number => row['CRSE #'], :subject_id => subj_id)
 end
 
 def get_room_id(dbh, row, bldg_id)
-  params = {:room => row['ROOM'], :building_id => bldg_id}
-  room = dbh[:Classroom].filter(params).first
-
-  room ? room[:id] : dbh[:Classroom].insert(params)
+  fetch_id(dbh, :Classroom, :room => row['ROOM'], :building_id => bldg_id)
 end
 
 desc 'import course list'
