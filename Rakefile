@@ -30,8 +30,47 @@ namespace :db do
   end
 end
 
+def get_building_id(dbh, row)
+  abbr = row['BLDG']
+  bldg = dbh[:Building].filter(:abbr => abbr).first
+
+  return bldg[:id] if bldg
+
+  STDERR.puts "WARNING: Building #{abbr} does not exist"
+end
+
+def fetch_id(dbh, table, params)
+  rs = dbh[table].filter(params).first
+
+  rs ? rs[:id] : dbh[table].insert(params)
+end
+
+def get_subject_id(dbh, row)
+  fetch_id(dbh, :Subject, :abbr => row['SUBJ'])
+end
+
+def get_course_id(dbh, row, subj_id)
+  fetch_id(dbh, :Course, :number => row['CRSE #'], :subject_id => subj_id)
+end
+
+def get_room_id(dbh, row, bldg_id)
+  fetch_id(dbh, :Classroom, :room => row['ROOM'], :building_id => bldg_id)
+end
+
+def daymask(str)
+  return 0 if str.to_s.empty?
+  table = Hash.new(0).tap do |hsh|
+    %w(M T W R F S U).map.with_index { |d, i| hsh[d] = 2**i }
+  end
+  str.split(//).map { |char| table[char] }.reduce(:+)
+end
+
+def parse_time(str)
+  str ? row['TIME'].split('-') : ['', '']
+end
+
 desc 'import course list'
-task :import do
+task :import => 'db:setup' do
   abort "ERROR: Ruby 1.9+ is required" if RUBY_VERSION < "1.9"
   csv = ENV['CSV'] || 'data/courses.csv'
   abort '#{csv} does not exist' unless File.exists?(csv)
@@ -39,34 +78,34 @@ task :import do
   require 'csv'
   require 'sequel'
 
-  unk = Hash.new(0)
   dbh = Sequel.connect(:adapter => 'sqlite', :database => DB)
   dbh.foreign_keys()
 
+  # section counter
+  seen_courses = Hash.new(0)
+
+  semester = fetch_id(dbh, :Semester, :year => 2012, :season => 'SP')
   CSV.foreach(csv, :headers => true) do |row|
-    bldg = row['BLDG']
-    rs   = dbh[:Building].filter(:idBuilding => bldg).first
-    if !rs
-      unk[bldg] += 1
-      next
-    end
+    building = get_building_id(dbh, row)
+    next unless building
+    subject  = get_subject_id(dbh, row)
+    course   = get_course_id(dbh, row, subject)
+    room     = get_room_id(dbh, row, building)
+    days     = daymask(row['DAYS'])
+    s_num    = (seen_courses[row['CRSE #']] += 1)
+    start_t, end_t = parse_time(row['TIMES'])
 
-    subjstr = row['SUBJ']
-    subj_id = dbh[:Subject].filter(:abbr => subjstr).first
-    subj_id &&= subj_id[:id]
-    if !subj_id
-      subj_id = dbh[:Subject].insert(:abbr => subjstr)
-    end
+    params = {
+      :crn          => row['CRN'],
+      :number       => s_num,
+      :start_time   => start_t,
+      :end_time     => end_t,
+      :days         => days,
+      :course_id    => course,
+      :classroom_id => room,
+      :semester_id  => semester
+    }
 
-    course = dbh[:Course].filter(:number => row['CRSE #']).first
-    unless course
-      dbh[:Course].insert(:number => row['CRSE #'], :subject_id => subj_id)
-    end
-  end
-
-  STDERR.puts "The following buildings must be imported:\nBLDG\t# Classes"
-  STDERR.puts "-" * 20
-  unk.sort { |a, b| b[1] <=> a[1] }.each do |name, num|
-    STDERR.puts "#{name}\t#{num}"
+    section = fetch_id(dbh, :CourseSection, params)
   end
 end
