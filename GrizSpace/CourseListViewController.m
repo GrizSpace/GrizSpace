@@ -133,6 +133,9 @@
     
     
     cell.detailTextLabel.text = [[self.myCourses objectAtIndex:indexPath.row] getNumber];
+    
+    NSLog(@"Parse ObjectID: %@", [[self.myCourses objectAtIndex:indexPath.row] getParseObjectID]);
+          
     return cell;
     
     
@@ -154,6 +157,14 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
       //  [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        PFQuery* query = [PFQuery queryWithClassName:@"CourseModel"];
+        NSString* objectID = [[myCourses objectAtIndex:indexPath.row] getParseObjectID];
+        PFObject *courseToDelete = [query getObjectWithId:objectID];
+        [courseToDelete delete];
+        [self viewDidLoad];
+        [tableView reloadData];
+                                    
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

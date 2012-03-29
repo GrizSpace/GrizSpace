@@ -37,9 +37,12 @@
 
 @property (assign, nonatomic) NSInteger index;
 
+@property (strong, nonatomic) NSString* parseObjectID;
+
 
 -(NSString*) getTitle;
 -(NSString*) getNumber;
 -(NSString*) getSubject;
+-(NSString*) getParseObjectID;
 
 @end

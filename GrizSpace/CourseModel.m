@@ -25,7 +25,7 @@
 @synthesize latitude;
 @synthesize radius;
 @synthesize index;
-
+@synthesize parseObjectID;
 
 
 -(NSString*) getTitle
@@ -43,5 +43,11 @@ return title;
 {
     return subject;
 }
+
+-(NSString*) getParseObjectID
+{
+    return parseObjectID;
+}
+
 @end
 
