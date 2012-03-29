@@ -58,7 +58,7 @@ def get_room_id(dbh, row, bldg_id)
 end
 
 desc 'import course list'
-task :import do
+task :import => 'db:setup' do
   abort "ERROR: Ruby 1.9+ is required" if RUBY_VERSION < "1.9"
   csv = ENV['CSV'] || 'data/courses.csv'
   abort '#{csv} does not exist' unless File.exists?(csv)
