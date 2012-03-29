@@ -31,14 +31,12 @@ CREATE TABLE `Building` (
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 CREATE TABLE `Classroom` (
-  `idClassroom` INT NOT NULL ,
-  `fk_idBuilding` INT NULL ,
-  `RoomNumber` VARCHAR(20) NULL ,
-  PRIMARY KEY (`idClassroom`) ,
-
-  CONSTRAINT `fk_idBuilding`
-    FOREIGN KEY (`fk_idBuilding` )
-    REFERENCES `Building` (`idBuilding` )
+  id INTEGER PRIMARY KEY,
+  room VARCHAR(20) NULL,
+  building_id INTEGER NOT NULL,
+  CONSTRAINT building_id
+    FOREIGN KEY (building_id)
+    REFERENCES Building(id)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 CREATE TABLE `Course` (
