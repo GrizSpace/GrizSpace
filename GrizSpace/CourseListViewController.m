@@ -53,12 +53,35 @@
     
    // NSArray *myDayTimes = [NSArray arrayWithObjects:@"MWF   10:10-11:00   LA 411", @"MWF   3:10-4:00   SS402", @"MWF   8:10-9:00     SS 362", @"MWF  9:10-10:00   SS 355", @"TTh     12:40-2:00      LA 411", @"TTh  3:10-4:30   SS 341",nil];
     
-    CourseList* myCourseListObject = [[CourseList alloc] init];
+   CourseList* myCourseListObject = [[CourseList alloc] init];
     
     
-    [self setMyCourses:[myCourseListObject getCourseList]];
+   [self setMyCourses:[myCourseListObject getCourseListFromParse]];
+   // PFQuery *query = [PFQuery queryWithClassName:@"GameScore"];
+  //  [query whereKey:@"playerName" equalTo:@"Dan Stemkoski"];
+   // NSArray* scoreArray = [query findObjects]; 
      
-     
+    //PFQuery *query = [PFQuery queryWithClassName:@"CourseModel"];
+    
+    
+    
+    //[self setMyCourses:[query findObjects]];
+    
+    //NSArray* PFObjArray = [query findObjects];
+    
+    //PFObject *myPFCourse = [query getObjectWithId:@"Ag4p0stEA3"];
+    
+    //NSString* myPFCourseNumber = [myPFCourse objectForKey:@"number"];
+    
+    //NSLog(@"PFCourseNumber: %@", myPFCourseNumber);
+    
+    
+    //int score = [[gameScore objectForKey:@"score"] intValue];
+    
+    
+    
+    //NSLog(@"MyCourses number: %d", [self.myCourses count]);
+    
     //[self setDayTimes:myDayTimes];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -106,11 +129,13 @@
     
     // Configure the cell...
     
-    cell.textLabel.text = [[self.myCourses objectAtIndex:indexPath.row] getTitle];
+    cell.textLabel.text = [[self.myCourses objectAtIndex:indexPath.row] getSubject];
     
     
     cell.detailTextLabel.text = [[self.myCourses objectAtIndex:indexPath.row] getNumber];
     return cell;
+    
+    
 }
 
 /*

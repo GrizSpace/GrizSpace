@@ -38,5 +38,10 @@ return title;
 {
     return number;
 }
+
+-(NSString*) getSubject
+{
+    return subject;
+}
 @end
 

@@ -18,6 +18,26 @@
     return self;
 }
 
+-(NSMutableArray*) getCourseListFromParse
+{
+    
+    NSMutableArray* tmpCourseList = [[NSMutableArray alloc] init];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"CourseModel"];
+    NSArray* PFObjectCourseArray = [query findObjects];
+    
+    for (int i=0; i<[PFObjectCourseArray count];i++)
+    {
+        CourseModel* tmpCourse = [[CourseModel alloc] init];
+        [tmpCourse setSubject:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"subject"]];
+         
+        [tmpCourse setNumber:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"number"]];
+        [tmpCourseList addObject:tmpCourse];
+        
+    }
+    
+    return tmpCourseList;
+}
 
 -(NSMutableArray*) getCourseList // populate and return an array of CourseModel objects
                                 // CURRENTLY JUST DUMMY VALUES, USED FOR TESTING, NOT PULLING FROM DB

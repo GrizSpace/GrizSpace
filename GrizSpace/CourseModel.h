@@ -40,6 +40,6 @@
 
 -(NSString*) getTitle;
 -(NSString*) getNumber;
-
+-(NSString*) getSubject;
 
 @end

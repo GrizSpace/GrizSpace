@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
+
 #import "CourseModel.h"
+
 
 @interface CourseList : NSObject
 {
@@ -19,6 +22,8 @@
 -(CourseModel*) GetNextCourse; //gets the next course item
 -(NSMutableArray*) getCourseList;
 
+
+-(NSMutableArray*) getCourseListFromParse;  //used for TESTING ONLY
 +(NSMutableArray*) getMyCourseList;
 
 @end
