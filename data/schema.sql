@@ -20,13 +20,13 @@ CREATE TABLE `BoredInterest` (
   `Interested` TINYINT(1)  NULL ,
   PRIMARY KEY (`idBoredInterest`) );
 CREATE TABLE `Building` (
-  `idBuilding` VARCHAR(5) NOT NULL ,
-  `Name` VARCHAR(45) NULL ,
-  `fk_idGPS` INT NULL ,
+    id INTEGER PRIMARY KEY,
+  `abbr` VARCHAR(5) NOT NULL ,
+  `name` VARCHAR(45) NULL ,
+  gps_id INT NOT NULL,
 
-  PRIMARY KEY (`idBuilding`) ,
-  CONSTRAINT `fk_idGPS`
-    FOREIGN KEY (`fk_idGPS` )
+  CONSTRAINT gps_id
+    FOREIGN KEY (`gps_id` )
     REFERENCES `GPS` (`idGPS` )
     ON DELETE CASCADE
     ON UPDATE CASCADE);
