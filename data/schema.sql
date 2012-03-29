@@ -53,8 +53,8 @@ CREATE TABLE `CourseSection` (
   id INTEGER PRIMARY KEY,
   crn INTEGER NOT NULL,
   number VARCHAR(2) NOT NULL,
-  start_time DATETIME NULL,
-  end_time DATETIME NULL,
+  start_time CHAR(4) NULL,
+  end_time CHAR(4) NULL,
   days INTEGER NULL,
   course_id INTEGER NOT NULL,
   classroom_id INTEGER NOT NULL,
@@ -70,10 +70,9 @@ CREATE TABLE `GPS` (
   `Radius` INT NULL ,
   PRIMARY KEY (`idGPS`) );
 CREATE TABLE `Semester` (
-  `idSemester` INT NOT NULL ,
-  `Year` INT NULL ,
-  `Season` CHAR(2) NULL ,
-  PRIMARY KEY (`idSemester`) );
+  `id` INTEGER PRIMARY KEY ,
+  `year` INTEGER NOT NULL ,
+  `season` CHAR(2) NOT NULL);
 CREATE TABLE `Student` (
   `idStudent` INT NOT NULL ,
   `LName` VARCHAR(45) NULL ,
