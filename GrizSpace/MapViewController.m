@@ -372,34 +372,17 @@
             } 
             
             
-            float theNewHeading = theHeading;// - 90;
+            float theNewHeading = theHeading; // - 90;
             if(theNewHeading < 0)
             {
                 theNewHeading = 360 + theNewHeading;
             }
 
-            int diffAngle = floor((float)annotationAngle);
-            
-            if(annotationAngle < theNewHeading)
-            {
-                diffAngle = annotationAngle + (theNewHeading - annotationAngle);
-                NSLog(@"add %i diff: %f", diffAngle, (theNewHeading - annotationAngle));
-            }
-            else if (annotationAngle > theNewHeading) {
-                diffAngle = annotationAngle - (annotationAngle - theNewHeading);
-                NSLog(@"Sub %i diff %f", diffAngle, (annotationAngle - theNewHeading));
-            }
-            
-            
-            //diffAngle = diffAngle - 90;
-            if(diffAngle < 0) //third and fourth quards.
-            {
-                diffAngle = 360 + diffAngle;
-            }
-            
+            int diffAngle = annotationAngle - theNewHeading;
+
             float diffRad = degreesToRadians(diffAngle);
             
-            NSLog(@"Heading: %f, Annotation: %i, Difference: %i DifRad: %f", theNewHeading, annotationAngle, diffAngle, diffRad);
+            //NSLog(@"Heading: %f, Annotation: %i, Difference: %i DifRad: %f", theNewHeading, annotationAngle, diffAngle, diffRad);
             DirectionCompas.transform = CGAffineTransformMakeRotation(diffRad);  
             
         }
@@ -453,61 +436,51 @@
             
         }
         
-        
-        
-        //find building angle to current location.
-        float testY = (destCord.coordinate.latitude - newLocation.coordinate.latitude); 
-        float testX = (destCord.coordinate.longitude - newLocation.coordinate.longitude); 
-        testY = testY * -1;
-        float annotationAngleRad = atan2f(testY, testX);        
-        int annotationAngle = floor(radiansToDegrees(annotationAngleRad));
-        
-        
-        if(annotationAngle < 0) //third and fourth quards.
+        if(!(CLLocationManager.locationServicesEnabled && CLLocationManager.headingAvailable))       
         {
-            annotationAngle = 360 + annotationAngle;
+            //find building angle to current location.
+            float testY = (destCord.coordinate.latitude - newLocation.coordinate.latitude); 
+            float testX = (destCord.coordinate.longitude - newLocation.coordinate.longitude); 
+            testY = testY * -1;
+            float annotationAngleRad = atan2f(testY, testX);        
+            int annotationAngle = floor(radiansToDegrees(annotationAngleRad));
+            
+            
+            if(annotationAngle < 0) //third and fourth quards.
+            {
+                annotationAngle = 360 + annotationAngle;
+            }
+
+            //find find angle of travel
+            float headingY = newLocation.coordinate.latitude - oldLocation.coordinate.latitude; 
+            float headingX = newLocation.coordinate.longitude - oldLocation.coordinate.longitude; 
+            headingY = headingY * -1;
+            float headingAngleRad = atan2f(headingY, headingX);
+            int headingAngle = floor(radiansToDegrees(headingAngleRad));
+            
+            
+            if(headingAngle < 0) //third and fourth quards.
+            {
+                headingAngle = 360 + headingAngle;
+            }
+
+            int diffAngle = headingAngle;
+            
+            if(headingAngle > annotationAngle)
+            {
+                diffAngle = annotationAngle - headingAngle;
+            }
+            else if (headingAngle < annotationAngle) {
+                diffAngle = headingAngle - annotationAngle;
+            }
+
+            
+            float diffRad = degreesToRadians(diffAngle);
+            
+            //NSLog(@"Direction: %i, Destination: %i, Difference: %i DifRad: %f", headingAngle, annotationAngle, diffAngle, diffRad);
+            DirectionCompas.transform = CGAffineTransformMakeRotation(diffRad);  
+       
         }
-        
-        
-        
-        
-        //NSLog(@"X: %f and Y: %f Rad: %f and Deg: %i", testX, testY, annotationAngleRad, annotationAngle);
-        
-        //find find angle of travel
-        float headingY = newLocation.coordinate.latitude - oldLocation.coordinate.latitude; 
-        float headingX = newLocation.coordinate.longitude - oldLocation.coordinate.longitude; 
-        headingY = headingY * -1;
-        float headingAngleRad = atan2f(headingY, headingX);
-        int headingAngle = floor(radiansToDegrees(headingAngleRad));
-        
-        
-        if(headingAngle < 0) //third and fourth quards.
-        {
-            headingAngle = 360 + headingAngle;
-        }
-        
-        //NSLog(@"X: %f and Y: %f Rad: %f and Deg: %i", headingX, headingY, headingAngleRad, headingAngle);
-        
-        int diffAngle = headingAngle;// - (annotationAngle - headingAngle);//annotationAngle + headingAngle; // + (annotationAngle - headingAngle);
-        if(headingAngle < annotationAngle)
-        {
-            diffAngle = headingAngle + (annotationAngle - headingAngle);
-        }
-        else if (headingAngle > annotationAngle) {
-            diffAngle = headingAngle - (headingAngle - annotationAngle);
-        }
-        
-        
-        
-        if(diffAngle < 0) //third and fourth quards.
-        {
-            diffAngle = 360 + diffAngle;
-        }
-        
-        float diffRad = degreesToRadians(diffAngle);
-        
-        //NSLog(@"Direction: %i, Destination: %i, Difference: %i DifRad: %f", headingAngle, annotationAngle, diffAngle, diffRad);
-        //DirectionCompas.transform = CGAffineTransformMakeRotation(diffRad);  
         
     }
     else { //show current walking direction
@@ -516,7 +489,7 @@
         dy = dy * -1;
         float directionAngleRad = atan2f(dy, dx);
         
-        int directionAngle = floor(radiansToDegrees(directionAngleRad));
+        int directionAngle = floor(radiansToDegrees(directionAngleRad) + 90);
         
         
         if(directionAngle < 0) //third and fourth quards.
