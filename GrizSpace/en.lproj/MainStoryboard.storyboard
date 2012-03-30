@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -51,15 +51,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQ2-Kp-huJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="MapViewControllerIdentifier" id="ZEc-nW-1Ux" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u4J-xM-NQ5">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="wUt-tu-AOu" userLabel="MapViewControllerIdentity">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="434"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="348"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" id="ct6-VK-9q2">
-                                <rect key="frame" x="0.0" y="338" width="320" height="30"/>
+                                <rect key="frame" x="0.0" y="319" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="All Classes"/>
@@ -71,11 +71,11 @@
                                 </connections>
                             </segmentedControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Direction_Arrow.png" id="jRp-n3-pbM">
-                                <rect key="frame" x="249" y="269" width="35" height="35"/>
+                                <rect key="frame" x="249" y="253" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="M5W-CN-evQ">
-                                <rect key="frame" x="224" y="309" width="96" height="21"/>
+                                <rect key="frame" x="224" y="293" width="96" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -108,7 +108,7 @@
                         <outlet property="mapView" destination="wUt-tu-AOu" id="oXE-Va-XXb"/>
                         <outlet property="myMapAnnotationSegmentControl" destination="ct6-VK-9q2" id="9yq-D0-1Ax"/>
                         <outlet property="myMapViewTypeSegmentControl" destination="KeH-Q1-XXv" id="MpE-Cx-iIo"/>
-                        <segue destination="TBf-LV-LzM" kind="custom" identifier="MapToCourseDetail" id="e13-RZ-dFB"/>
+                        <segue destination="TBf-LV-LzM" kind="push" identifier="MapToCourseDetail" id="e13-RZ-dFB"/>
                     </connections>
                 </viewController>
             </objects>
@@ -1052,19 +1052,19 @@
         <scene sceneID="QbO-Ax-gZa">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0rl-kL-VQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="TBf-LV-LzM" customClass="CourseDetailVewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CourseDetailViewController" id="TBf-LV-LzM" customClass="CourseDetailVewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="emY-ff-r1w">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ECON 511" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2JS-0n-O2r">
-                                <rect key="frame" x="109" y="68" width="83" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ECON 511" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2JS-0n-O2r">
+                                <rect key="frame" x="56" y="68" width="219" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Advanced Microeconomics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Pbj-dB-0q4">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Advanced Microeconomics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Pbj-dB-0q4">
                                 <rect key="frame" x="56" y="97" width="208" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1132,6 +1132,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Course Detail" id="04t-tT-ryo"/>
+                    <connections>
+                        <outlet property="courseDays" destination="vTn-6r-SRP" id="V1H-5U-f9B"/>
+                        <outlet property="courseRoom" destination="yjA-Yv-eT5" id="xxd-qG-eB2"/>
+                        <outlet property="courseSubjectNumber" destination="2JS-0n-O2r" id="Wsf-tv-WSS"/>
+                        <outlet property="courseTime" destination="sqw-s9-Ds1" id="HR3-8a-g08"/>
+                        <outlet property="courseTitle" destination="Pbj-dB-0q4" id="PHv-aa-4bq"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="2520" y="1115"/>
@@ -1564,16 +1571,80 @@
         <image name="Direction_Arrow.png" width="425" height="425"/>
         <image name="bear_2 (1).png" width="128" height="128"/>
     </resources>
+    <classes>
+        <class className="BoredInterestsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BoredInterestsTableViewController.h"/>
+        </class>
+        <class className="BuildingPickerViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuildingPickerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="ClassPickerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClassPickerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showCoursesToSelect:"/>
+                <relationship kind="outlet" name="coursePicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="selectCourseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="subjectLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tf2" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CourseDetailVewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CourseDetailVewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="courseDays" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="courseRoom" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="courseSubjectNumber" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="courseTime" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="courseTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CourseListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CourseListViewController.h"/>
+        </class>
+        <class className="GrizSpaceTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GrizSpaceTabBarController.h"/>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="DirectionCompas" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="myMapAnnotationSegmentControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="myMapViewTypeSegmentControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="PhotoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="photoTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="photomap" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="SelectCourseTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectCourseTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonClicked:"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="SubjectPickerViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SubjectPickerViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="K62-WQ-gCS"/>
         <segue reference="fx8-tT-JjN"/>
-        <segue reference="Vm2-kh-gvc"/>
         <segue reference="cdk-8W-ett"/>
+        <segue reference="JW9-WT-rF0"/>
         <segue reference="e13-RZ-dFB"/>
+        <segue reference="K62-WQ-gCS"/>
     </inferredMetricsTieBreakers>
 </document>

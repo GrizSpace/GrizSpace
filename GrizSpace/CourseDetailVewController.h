@@ -8,9 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CourseDetailVewController : UIViewController
 
 
--(void) LoadCourseDetails: (int) courseID;
+//used for accing and setting the map properties
+@protocol CourseDetailControllerDelegate
+-(void) LoadCourseDetails; //used to display details about a course.
+@end
+
+@interface CourseDetailVewController : UIViewController <CourseDetailControllerDelegate>
+{
+    __weak IBOutlet UILabel *courseSubjectNumber;
+    
+    __weak IBOutlet UILabel *courseTitle;
+    
+    __weak IBOutlet UILabel *courseDays;
+    
+    __weak IBOutlet UILabel *courseTime;
+    
+    __weak IBOutlet UILabel *courseRoom;
+    
+    
+}
+
+@property (nonatomic, readwrite) int courseIndex;
 
 @end

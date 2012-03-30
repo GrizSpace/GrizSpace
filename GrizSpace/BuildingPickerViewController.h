@@ -2,9 +2,15 @@
 //  BuildingPickerViewController.h
 //  GrizSpace
 //
-//  Created by William Lyon on 3/1/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by William Lyon and Kevin Scott on 3/1/12.
+//  Copyright (c) 2012 University of Montana, Missoula MT. 
+//  All rights reserved.
 //
+//  Description:  This View controller is used to search for a building to display on
+//  the mapviewcontroller as an annotation.  This View controller also allows the user to search for
+//  a building to find.
+
+
 
 #import <UIKit/UIKit.h>
 #import "DBAccess.h"
@@ -21,7 +27,5 @@
 }
 
 @property (nonatomic, weak) id<MapViewControllerDelegate> delegate; //delegate used to call mapview 
-
-- (void) searchTableView;
 
 @end

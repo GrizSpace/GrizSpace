@@ -15,6 +15,7 @@
 @end
 
 @implementation CourseDetailVewController
+@synthesize courseIndex;
 
 
 - (GrizSpaceDataObjects*) theAppDataObject
@@ -46,12 +47,20 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    NSLog(@"Loading course detail");
+    
 
+    [self LoadCourseDetails];
     
 }
 
 - (void)viewDidUnload
 {
+    courseSubjectNumber = nil;
+    courseTitle = nil;
+    courseDays = nil;
+    courseTime = nil;
+    courseRoom = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -62,11 +71,24 @@
 }
 
 
--(void) LoadCourseDetails: (int) courseID
+-(void) LoadCourseDetails
 {
-        
+   NSLog(@"Button %d clicked.", courseIndex);     
 
-
+    CourseModel* tmpCM = [[self theAppDataObject].myCourses.myCourseItems objectAtIndex:courseIndex];
+    
+    if(tmpCM != nil)
+    {
+        courseSubjectNumber.text = [NSString stringWithFormat:@"%@ %@",tmpCM.subject, tmpCM.number];
+    
+        courseTitle.text = tmpCM.title;
+    
+        courseDays.text = [tmpCM days];
+    
+        courseTime.text = [tmpCM time];
+    
+        courseRoom.text = [tmpCM buildingAndRoom];
+    }
 }
 
 

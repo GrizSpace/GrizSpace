@@ -426,11 +426,18 @@
 		5A59DB4515000D7300CE4FC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: K S (EM7J35XEP3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: K S (EM7J35XEP3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos5.1]" = "iPhone Developer: K S (EM7J35XEP3)";
+				"CODE_SIGN_RESOURCE_RULES_PATH[sdk=*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GrizSpace/GrizSpace-Prefix.pch";
 				INFOPLIST_FILE = "GrizSpace/GrizSpace-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos5.1]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -439,11 +446,17 @@
 		5A59DB4615000D7300CE4FC6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: K S (EM7J35XEP3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: K S (EM7J35XEP3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos5.1]" = "iPhone Developer: K S (EM7J35XEP3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GrizSpace/GrizSpace-Prefix.pch";
 				INFOPLIST_FILE = "GrizSpace/GrizSpace-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos5.1]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
