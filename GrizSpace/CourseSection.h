@@ -17,7 +17,7 @@
 
 - (NSString*)getDays;
 
-@property int crn;
+@property int crn; 
 @property int number;
 @property NSString* startTime;
 @property NSString* endTime;
