@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "Constants.h"
 #import "DBAccess.h"
 #import "GPSModel.h"
 
@@ -15,8 +14,6 @@
 //Reference to the SQLite database
 
 sqlite3* database;
-
-
 
 -(id) init
 {
