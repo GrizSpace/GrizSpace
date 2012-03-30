@@ -6,8 +6,10 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "Constants.h"
 #import "DBAccess.h"
 #import "GPSModel.h"
+
 @implementation DBAccess 
 
 //Reference to the SQLite database
@@ -32,7 +34,7 @@ sqlite3* database;
 - (void)initializeDatabase {
     
     // Get the database from the application bundle. 
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"GrizSpaceDB" 
+    NSString *path = [[NSBundle mainBundle] pathForResource:DB_NAME
                                                      ofType:@"sqlite"];
     
     // Open the database. 

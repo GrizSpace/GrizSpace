@@ -21,6 +21,8 @@
 		5A81A0B71524373C0077BC16 /* CourseSectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0B61524373C0077BC16 /* CourseSectionTest.m */; };
 		5A81A0BA152437850077BC16 /* CourseSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0B9152437850077BC16 /* CourseSection.m */; };
 		5A81A0BB152437850077BC16 /* CourseSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0B9152437850077BC16 /* CourseSection.m */; };
+		5A81A0EF15254C9C0077BC16 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0EE15254C9C0077BC16 /* Constants.m */; };
+		5A81A0F015254C9C0077BC16 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0EE15254C9C0077BC16 /* Constants.m */; };
 		C52A226B152296F200507580 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A226A152296F200507580 /* Parse.framework */; };
 		C52A226E1522972900507580 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A226D1522972900507580 /* AudioToolbox.framework */; };
 		C52A22701522973300507580 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A226F1522973300507580 /* CFNetwork.framework */; };
@@ -79,6 +81,8 @@
 		5A81A0B61524373C0077BC16 /* CourseSectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSectionTest.m; sourceTree = "<group>"; };
 		5A81A0B8152437850077BC16 /* CourseSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSection.h; sourceTree = "<group>"; };
 		5A81A0B9152437850077BC16 /* CourseSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSection.m; sourceTree = "<group>"; };
+		5A81A0ED15254C170077BC16 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		5A81A0EE15254C9C0077BC16 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		C52A226A152296F200507580 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		C52A226D1522972900507580 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C52A226F1522973300507580 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -228,6 +232,8 @@
 				D83F9725151C3AAB00BAA16E /* Models */,
 				5A59DB2615000D7300CE4FC6 /* Supporting Files */,
 				D83F9727151C3AF100BAA16E /* ViewControllers */,
+				5A81A0ED15254C170077BC16 /* Constants.h */,
+				5A81A0EE15254C9C0077BC16 /* Constants.m */,
 			);
 			path = GrizSpace;
 			sourceTree = "<group>";
@@ -478,6 +484,7 @@
 				E6CCD157151ACE720060CAEA /* CourseModel.m in Sources */,
 				C58123CE151C0614008624B8 /* CourseList.m in Sources */,
 				5A81A0BA152437850077BC16 /* CourseSection.m in Sources */,
+				5A81A0EF15254C9C0077BC16 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +494,7 @@
 			files = (
 				5A81A0B71524373C0077BC16 /* CourseSectionTest.m in Sources */,
 				5A81A0BB152437850077BC16 /* CourseSection.m in Sources */,
+				5A81A0F015254C9C0077BC16 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +667,7 @@
 				5A81A0B3152437110077BC16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
