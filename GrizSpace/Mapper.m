@@ -20,9 +20,13 @@
     return self;
 }
 
-- (int)close
+- (NSMutableArray*)query: (NSMutableArray* (^)(void))block
 {
-    return [db close];
+    [db open];
+    NSMutableArray* result = block();
+    [db close];
+
+    return result;
 }
 
 + (NSString*)getDatabasePath

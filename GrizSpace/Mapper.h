@@ -16,7 +16,7 @@
 }
 
 - (id)init;
-
+- (NSMutableArray*)query: (NSMutableArray* (^)(void))block;
 + (NSString*)getDatabasePath;
 
 @end
