@@ -20,25 +20,23 @@ CREATE TABLE `BoredInterest` (
   `Interested` TINYINT(1)  NULL ,
   PRIMARY KEY (`idBoredInterest`) );
 CREATE TABLE `Building` (
-  `idBuilding` VARCHAR(5) NOT NULL ,
-  `Name` VARCHAR(45) NULL ,
-  `fk_idGPS` INT NULL ,
+    id INTEGER PRIMARY KEY,
+  `abbr` VARCHAR(5) NOT NULL ,
+  `name` VARCHAR(45) NULL ,
+  gps_id INT NOT NULL,
 
-  PRIMARY KEY (`idBuilding`) ,
-  CONSTRAINT `fk_idGPS`
-    FOREIGN KEY (`fk_idGPS` )
+  CONSTRAINT gps_id
+    FOREIGN KEY (`gps_id` )
     REFERENCES `GPS` (`idGPS` )
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 CREATE TABLE `Classroom` (
-  `idClassroom` INT NOT NULL ,
-  `fk_idBuilding` INT NULL ,
-  `RoomNumber` VARCHAR(20) NULL ,
-  PRIMARY KEY (`idClassroom`) ,
-
-  CONSTRAINT `fk_idBuilding`
-    FOREIGN KEY (`fk_idBuilding` )
-    REFERENCES `Building` (`idBuilding` )
+  id INTEGER PRIMARY KEY,
+  room VARCHAR(20) NULL,
+  building_id INTEGER NOT NULL,
+  CONSTRAINT building_id
+    FOREIGN KEY (building_id)
+    REFERENCES Building(id)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 CREATE TABLE `Course` (
@@ -52,32 +50,19 @@ CREATE TABLE `Course` (
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 CREATE TABLE `CourseSection` (
-  `idCRN` INT NOT NULL ,
-  `fk_idSemester` INT NULL ,
-  `SectionNum` CHAR(2) NULL ,
-  `StartTime` DATETIME NULL ,
-  `EndTime` DATETIME NULL ,
-  `Days` BIT NULL ,
-  `fk_idClassRoom` INT NULL ,
-  `InstructorLName` VARCHAR(45) NULL ,
-  `fk_idCourse` INT NULL ,
-  PRIMARY KEY (`idCRN`) ,
-
-  CONSTRAINT `fk_idCourse`
-    FOREIGN KEY (`fk_idCourse` )
-    REFERENCES `Course` (`idCourse` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_idClassroom`
-    FOREIGN KEY (`fk_idClassRoom` )
-    REFERENCES `Classroom` (`idClassroom` )
-    ON DELETE CASCADe
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_idSemester`
-    FOREIGN KEY (`fk_idSemester` )
-    REFERENCES `Semester` (`idSemester` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE);
+  id INTEGER PRIMARY KEY,
+  crn INTEGER NOT NULL,
+  number VARCHAR(2) NOT NULL,
+  start_time CHAR(4) NULL,
+  end_time CHAR(4) NULL,
+  days INTEGER NULL,
+  course_id INTEGER NOT NULL,
+  classroom_id INTEGER NOT NULL,
+  semester_id INTEGER NOT NULL,
+  CONSTRAINT course_id    FOREIGN KEY (course_id)    REFERENCES Course(id)
+  CONSTRAINT classroom_id FOREIGN KEY (classroom_id) REFERENCES Classroom(id),
+  CONSTRAINT semester_id  FOREIGN KEY (semester_id)  REFERENCES Semester(id)
+);
 CREATE TABLE `GPS` (
   `idGPS` INT NOT NULL ,
   `Latitude` DECIMAL(9,6) NULL ,
@@ -85,10 +70,9 @@ CREATE TABLE `GPS` (
   `Radius` INT NULL ,
   PRIMARY KEY (`idGPS`) );
 CREATE TABLE `Semester` (
-  `idSemester` INT NOT NULL ,
-  `Year` INT NULL ,
-  `Season` CHAR(2) NULL ,
-  PRIMARY KEY (`idSemester`) );
+  `id` INTEGER PRIMARY KEY ,
+  `year` INTEGER NOT NULL ,
+  `season` CHAR(2) NOT NULL);
 CREATE TABLE `Student` (
   `idStudent` INT NOT NULL ,
   `LName` VARCHAR(45) NULL ,

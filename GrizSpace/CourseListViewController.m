@@ -19,6 +19,8 @@
 @synthesize dayTimes = _dayTimes;
 @synthesize delegate;
 
+@synthesize myCourses;
+
 -(void) setCourses:(NSArray *)courses
 {
     _courses = courses;
@@ -47,17 +49,45 @@
 
     
     
-    NSArray *myCourses = [NSArray arrayWithObjects:@"ECON 513", @"ECON 511", @"CSCI 491", @"CSCI 576", @"ECON 591", @"ECON 221", nil];
+   // NSArray *myCourses = [NSArray arrayWithObjects:@"ECON 513", @"ECON 511", @"CSCI 491", @"CSCI 576", @"ECON 591", @"ECON 221", nil];
     
-    NSArray *myDayTimes = [NSArray arrayWithObjects:@"MWF   10:10-11:00   LA 411", @"MWF   3:10-4:00   SS402", @"MWF   8:10-9:00     SS 362", @"MWF  9:10-10:00   SS 355", @"TTh     12:40-2:00      LA 411", @"TTh  3:10-4:30   SS 341",nil];
+   // NSArray *myDayTimes = [NSArray arrayWithObjects:@"MWF   10:10-11:00   LA 411", @"MWF   3:10-4:00   SS402", @"MWF   8:10-9:00     SS 362", @"MWF  9:10-10:00   SS 355", @"TTh     12:40-2:00      LA 411", @"TTh  3:10-4:30   SS 341",nil];
     
-    [self setCourses:myCourses];
-    [self setDayTimes:myDayTimes];
+   CourseList* myCourseListObject = [[CourseList alloc] init];
+    
+    
+   [self setMyCourses:[myCourseListObject getCourseListFromParse]];
+   // PFQuery *query = [PFQuery queryWithClassName:@"GameScore"];
+  //  [query whereKey:@"playerName" equalTo:@"Dan Stemkoski"];
+   // NSArray* scoreArray = [query findObjects]; 
+     
+    //PFQuery *query = [PFQuery queryWithClassName:@"CourseModel"];
+    
+    
+    
+    //[self setMyCourses:[query findObjects]];
+    
+    //NSArray* PFObjArray = [query findObjects];
+    
+    //PFObject *myPFCourse = [query getObjectWithId:@"Ag4p0stEA3"];
+    
+    //NSString* myPFCourseNumber = [myPFCourse objectForKey:@"number"];
+    
+    //NSLog(@"PFCourseNumber: %@", myPFCourseNumber);
+    
+    
+    //int score = [[gameScore objectForKey:@"score"] intValue];
+    
+    
+    
+    //NSLog(@"MyCourses number: %d", [self.myCourses count]);
+    
+    //[self setDayTimes:myDayTimes];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -85,7 +115,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.courses count];
+    NSLog(@"Size of myCourses array: %d", [self.myCourses count]);
+    
+    return [self.myCourses count];
+    
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,9 +129,16 @@
     
     // Configure the cell...
     
-    cell.textLabel.text = [self.courses objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [self.dayTimes objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[self.myCourses objectAtIndex:indexPath.row] getSubject];
+    
+    
+    cell.detailTextLabel.text = [[self.myCourses objectAtIndex:indexPath.row] getNumber];
+    
+    NSLog(@"Parse ObjectID: %@", [[self.myCourses objectAtIndex:indexPath.row] getParseObjectID]);
+          
     return cell;
+    
+    
 }
 
 /*
@@ -116,6 +157,14 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
       //  [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        PFQuery* query = [PFQuery queryWithClassName:@"CourseModel"];
+        NSString* objectID = [[myCourses objectAtIndex:indexPath.row] getParseObjectID];
+        PFObject *courseToDelete = [query getObjectWithId:objectID];
+        [courseToDelete delete];
+        [self viewDidLoad];
+        [tableView reloadData];
+                                    
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

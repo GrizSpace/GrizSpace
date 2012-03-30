@@ -14,5 +14,8 @@
 @synthesize abbr;
 @synthesize title;
 
-
+-(NSString*) getAbbr
+{
+    return abbr;
+}
 @end

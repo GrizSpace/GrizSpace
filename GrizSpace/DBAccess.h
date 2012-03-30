@@ -15,6 +15,7 @@
 #import "InterestsModel.h"
 #import "CourseModel.h"
 
+#import "Constants.h"
 
 @interface DBAccess : NSObject
 

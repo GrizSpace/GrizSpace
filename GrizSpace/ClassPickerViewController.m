@@ -20,6 +20,32 @@
 @synthesize coursePicker;
 @synthesize selectCourseButton;
 @synthesize selectedSubject;
+@synthesize selectedCourse = _selectedCourse;
+@synthesize addButton;
+
+-(void) didReceiveCourse:(CourseModel *)selectedCourseFromPicker
+{
+    [self setSelectedCourse:selectedCourseFromPicker];
+    NSLog(@"Selecte course title: %@", self.selectedCourse.title);
+}
+
+-(void)setSelectedCourse:(CourseModel *)selectedCourse
+{
+    _selectedCourse = selectedCourse;
+    
+    selectCourseButton.titleLabel.text = selectedCourse.number;
+}
+- (IBAction)addToCourseList:(id)sender 
+{
+
+    PFObject *courseToBeAdded = [PFObject objectWithClassName:@"CourseModel"];
+    [courseToBeAdded setObject:[self.selectedCourse getNumber] forKey:@"number"];
+    [courseToBeAdded setObject:[self.selectedSubject getAbbr] forKey:@"subject"];
+    
+    [courseToBeAdded save];
+
+}
+
 
 //-(void) setSelectedSubject:(SubjectModel *)selectedSubject
 //{
@@ -33,7 +59,11 @@
     
     [selectView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     
+    selectView.delegate = self;
+    
+    
     [selectView setSelectedSubject:selectedSubject];
+//    [selectView setParentClassPicker:self];
     
     [self.navigationController presentModalViewController:selectView animated:YES];
     //[self presentModalViewController:selectView animated:YES];
@@ -78,6 +108,7 @@
     [self setTf2:nil];
     [self setSelectCourseButton:nil];
     [self setSubjectLabel:nil];
+    [self setAddButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

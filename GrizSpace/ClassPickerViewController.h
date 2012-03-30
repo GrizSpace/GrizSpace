@@ -7,14 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 #import "SelectCourseTableViewController.h"
 #import "SubjectModel.h"
+#import "CourseModel.h"
+@protocol CourseDelegate
 
+-(void) didReceiveCourse:(CourseModel*) selectedCourseFromPicker;
 
-@interface ClassPickerViewController : UIViewController
+@end
+
+@interface ClassPickerViewController : UIViewController<CourseDelegate>
+
 @property (weak, nonatomic) IBOutlet UIPickerView *coursePicker;
 @property (strong, nonatomic) IBOutlet UIButton *selectCourseButton;
 @property (strong, nonatomic) SubjectModel* selectedSubject;
+@property (strong, nonatomic) CourseModel* selectedCourse;
+@property (strong, nonatomic) IBOutlet UIButton *addButton;
 
 -(IBAction)showCoursesToSelect:(id)sender;
 @end

@@ -21,6 +21,6 @@
 @property (nonatomic, retain)NSString *title;
 
 
-
+-(NSString*) getAbbr;
 
 @end

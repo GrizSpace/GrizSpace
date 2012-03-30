@@ -18,6 +18,7 @@
 @synthesize cancelButton;
 @synthesize courses = _courses;
 @synthesize selectedSubject;
+@synthesize delegate;
 
 
 -(void)setCourses:(NSMutableArray *)courses
@@ -156,6 +157,10 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    [delegate didReceiveCourse:[self.courses objectAtIndex:indexPath.row]];
+    [self dismissModalViewControllerAnimated:YES];
+    
 }
 
 

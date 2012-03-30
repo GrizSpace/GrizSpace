@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <Parse/Parse.h>
 #import "AppDelegate.h"
 #import "AppDelegateProtocol.h"
 #import "GrizSpaceDataObjects.h"
@@ -20,6 +21,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [Parse setApplicationId:@"ySR0BrxPW4KgOyt89ByghiX1OQDpmUS7VvxrLIWh" 
+                  clientKey:@"VMy91mYnMl3VE2jTGd66YnKOA03EjWMvbFfZUViS"];
     
     //instanciate the courseappdata object for getting data from objects.
     self.theAppDataObject = [[GrizSpaceDataObjects alloc] init];

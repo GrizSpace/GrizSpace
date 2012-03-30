@@ -7,14 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
+
 #import "CourseModel.h"
+
 
 @interface CourseList : NSObject
 {
     int currentCourseIndex; //the currently selected course index
 }
 
+
 @property (nonatomic, readwrite) NSMutableArray* myCourseItems; //gets the list of annotation items
 -(CourseModel*) GetNextCourse; //gets the next course item
+-(NSMutableArray*) getCourseList;
+
+
+-(NSMutableArray*) getCourseListFromParse;  //used for TESTING ONLY
++(NSMutableArray*) getMyCourseList;
 
 @end
