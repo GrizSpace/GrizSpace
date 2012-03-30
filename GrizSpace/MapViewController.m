@@ -441,7 +441,7 @@
             //find building angle to current location.
             float testY = (destCord.coordinate.latitude - newLocation.coordinate.latitude); 
             float testX = (destCord.coordinate.longitude - newLocation.coordinate.longitude); 
-            testY = testY * -1;
+
             float annotationAngleRad = atan2f(testY, testX);        
             int annotationAngle = floor(radiansToDegrees(annotationAngleRad));
             
@@ -454,7 +454,7 @@
             //find find angle of travel
             float headingY = newLocation.coordinate.latitude - oldLocation.coordinate.latitude; 
             float headingX = newLocation.coordinate.longitude - oldLocation.coordinate.longitude; 
-            headingY = headingY * -1;
+
             float headingAngleRad = atan2f(headingY, headingX);
             int headingAngle = floor(radiansToDegrees(headingAngleRad));
             
