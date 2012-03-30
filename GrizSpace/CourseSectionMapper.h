@@ -12,6 +12,6 @@
 @interface CourseSectionMapper : Mapper
 
 - (id)init;
-- (CourseSection*)getFirst;
+- (NSMutableArray*)findByCourseId: (int)courseId;
 
 @end

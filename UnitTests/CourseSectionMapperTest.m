@@ -16,13 +16,13 @@
     self->table = [[CourseSectionMapper alloc] init];
 }
 
-- (void)testGetFirst
+- (void)testFindByCourseId
 {
-    CourseSection* cs = [[CourseSection alloc] initWithCrn:35114 andSection:7
-                                                thatStarts:@"0910"
-                                                   andEnds:@"1000" on:15];
-
-    STAssertEquals([[table getFirst] crn], [cs crn], @"CRN should be equal");
+    NSMutableArray* results = [table findByCourseId:1];
+    CourseSection* first = [results objectAtIndex:0];
+    STAssertEquals([first crn], 35114, @"Should be ARTZ 108A");
+    STAssertEqualObjects([first startTime], @"0900", @"Should be ARTZ 108A");
+    STAssertEqualObjects([first getDays], @"MTWRF", @"Should be each weekday");
 }
 
 @end

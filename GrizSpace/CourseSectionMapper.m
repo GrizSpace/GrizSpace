@@ -15,36 +15,34 @@
     self = [super init];
     if (!self)
         return nil;
+
     return self;
 }
 
-- (CourseSection*)getFirst
+- (NSMutableArray*)findByCourseId: (int)courseId
 {
-    [db open];
+    return [self query:^{
+        NSMutableArray* results = [[NSMutableArray alloc] init];
+        NSString* sql = @"SELECT crn, number, start_time, end_time, days"
+                        " FROM CourseSection"
+                        " WHERE course_id = ?";
+        FMResultSet* rs = [db executeQuery:sql, [NSNumber numberWithInt:courseId]];
 
-    NSString* sql = @"SELECT crn, number, start_time, end_time, days"
-                    " FROM CourseSection"
-                    " LIMIT 1";
-    FMResultSet* rs = [db executeQuery:sql];
-
-    while ([rs next]) {
-        int crn = [rs intForColumn:@"crn"];
-        int number = [rs intForColumn:@"number"];
-        NSString* startTime = [rs stringForColumn:@"start_time"];
-        NSString* endTime   = [rs stringForColumn:@"end_time"];
-        int days = [rs intForColumn:@"days"];
-
-        CourseSection* cs = [[CourseSection alloc] initWithCrn:crn
-                                                    andSection:number
-                                                    thatStarts:startTime
-                                                       andEnds:endTime
-                                                            on:days];
-        return cs;
-    }
-
-    [db close];
-
-    return nil;
+        while ([rs next]) {
+            int crn = [rs intForColumn:@"crn"];
+            int number = [rs intForColumn:@"number"];
+            NSString* startTime = [rs stringForColumn:@"start_time"];
+            NSString* endTime   = [rs stringForColumn:@"end_time"];
+            int days = [rs intForColumn:@"days"];
+            NSLog(@"YO DAWG \t\t %@", startTime);
+            CourseSection* cs = [[CourseSection alloc] initWithCrn:crn
+                                                        andSection:number
+                                                        thatStarts:startTime
+                                                           andEnds:endTime
+                                                                on:days];
+            [results addObject:cs];
+        }
+        return results;
+    }];
 }
-
 @end
