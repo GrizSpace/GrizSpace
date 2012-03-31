@@ -21,6 +21,9 @@
 +(void) addCourse:(CourseModel*) courseToBeAdded inSubject:(SubjectModel *)subjToBeAdded
 {
     PFObject *PFcourseToBeAdded = [PFObject objectWithClassName:@"CourseModel"];
+    
+    [PFcourseToBeAdded setObject:[[UIDevice currentDevice] uniqueIdentifier] forKey:@"userid"];
+    
     [PFcourseToBeAdded setObject:[courseToBeAdded getNumber] forKey:@"number"];
     [PFcourseToBeAdded setObject:[subjToBeAdded getAbbr] forKey:@"subject"];
     
