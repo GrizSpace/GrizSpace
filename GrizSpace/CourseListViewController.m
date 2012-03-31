@@ -159,6 +159,8 @@
         // Delete the row from the data source
       //  [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
+    
+        
         PFQuery* query = [PFQuery queryWithClassName:@"CourseModel"];
         NSString* objectID = [[myCourses objectAtIndex:indexPath.row] getParseObjectID];
         PFObject *courseToDelete = [query getObjectWithId:objectID];

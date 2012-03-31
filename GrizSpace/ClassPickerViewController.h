@@ -11,6 +11,8 @@
 #import "SelectCourseTableViewController.h"
 #import "SubjectModel.h"
 #import "CourseModel.h"
+#import "CourseList.h"
+
 @protocol CourseDelegate
 
 -(void) didReceiveCourse:(CourseModel*) selectedCourseFromPicker;
