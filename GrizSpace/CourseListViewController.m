@@ -161,10 +161,14 @@
         
     
         
-        PFQuery* query = [PFQuery queryWithClassName:@"CourseModel"];
+      /*  PFQuery* query = [PFQuery queryWithClassName:@"CourseModel"];
         NSString* objectID = [[myCourses objectAtIndex:indexPath.row] getParseObjectID];
         PFObject *courseToDelete = [query getObjectWithId:objectID];
         [courseToDelete delete];
+    */
+        
+        [CourseList removeCourse: [myCourses objectAtIndex:indexPath.row]];
+         
         [self viewDidLoad];
         [tableView reloadData];
                                     

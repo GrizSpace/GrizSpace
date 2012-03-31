@@ -27,7 +27,7 @@
 -(NSMutableArray*) getCourseListFromParse;  //used for TESTING ONLY
 +(void) addCourse:(CourseModel*) courseToBeAdded inSubject:(SubjectModel*) subjToBeAdded;
 
-
++(void) removeCourse:(CourseModel*) courseToBeRemoved;
 
 
 +(NSMutableArray*) getMyCourseList;

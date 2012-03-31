@@ -18,6 +18,14 @@
     return self;
 }
 
++(void) removeCourse:(CourseModel *)courseToBeRemoved
+{
+    PFQuery* query = [PFQuery queryWithClassName:@"CourseModel"];
+    NSString* objectID = [courseToBeRemoved getParseObjectID];
+    PFObject *courseToDelete = [query getObjectWithId:objectID];
+    [courseToDelete delete];
+}
+
 +(void) addCourse:(CourseModel*) courseToBeAdded inSubject:(SubjectModel *)subjToBeAdded
 {
     PFObject *PFcourseToBeAdded = [PFObject objectWithClassName:@"CourseModel"];
@@ -30,6 +38,7 @@
     [PFcourseToBeAdded save];
     
 }
+
 
 -(NSMutableArray*) getCourseListFromParse
 {
