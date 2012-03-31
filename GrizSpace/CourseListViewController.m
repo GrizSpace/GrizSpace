@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+// TODO: pull out Parse calls - should not happen in this class [CourseList removeCourse:course]
 
 #import "CourseListViewController.h"
 #import "MapViewController.h"

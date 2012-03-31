@@ -20,7 +20,7 @@
 
 -(NSMutableArray*) getCourseListFromParse
 {
-    
+ // TODO: all parse calls need to run on background threads  
     NSMutableArray* tmpCourseList = [[NSMutableArray alloc] init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"CourseModel"];
