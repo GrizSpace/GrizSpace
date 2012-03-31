@@ -2,15 +2,19 @@
 //  MapViewController.m
 //  GrizSpace
 //
-//  Created by William Lyon on 3/1/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by William Lyon and Kevin Scott on 3/1/12.
+//  Copyright (c) 2012 University of Montana, Missoula MT. 
 //
+//  Description:  This View Controller is used to display a map, annotations, 
+//    and additional functionalities for modifying the map.  Some of the functions 
+//    include "shitching between map views and viewing a particular user class or list of classes.
+
 
 
 #import "MapViewController.h"
 #import "GrizSpaceDataObjects.h"
 #import "AppDelegateProtocol.h"
-
+#import "CourseDetailVewController.h"
 @interface MapViewController ()
 @end
 
@@ -25,8 +29,18 @@
 @synthesize distanceLabel;
 @synthesize myLocationManager;
 
+@synthesize delegate;
+
+
 //calculation used to transfer degree measurnments to radians.
-#define degreesToRadians(x) (M_PI * ((x) / 180.0))
+#define degreesToRadians(x) (x * ((M_PI) / 180.0))
+#define radiansToDegrees(x) (x * (180/M_PI))
+/*
++ (float)degreesToRadians2:(float)degrees{
+    return degrees / 57.2958;
+    
+}
+*/
 
 //used to store global information.
 - (GrizSpaceDataObjects*) theAppDataObject
@@ -108,8 +122,16 @@
     myLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     
+    if( CLLocationManager.locationServicesEnabled && CLLocationManager.headingAvailable)        
+    {
+       
+        [myLocationManager startUpdatingHeading];
+    }
+    else {
+        NSLog(@"Can't report heading");
+    }
+    
     [myLocationManager startUpdatingLocation];
-    [myLocationManager startUpdatingHeading];
     
     
     //testing pretend we are in this location and set the view to here.
@@ -143,6 +165,8 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
+
+
 
 
 //default to Porterate orientation all the time
@@ -216,7 +240,7 @@
             [mapView addAnnotation: tmpMapAnn];
             [mapView selectAnnotation: tmpMapAnn animated:YES];
             
-            NSLog(@"Annotation set %@ Lon:%f Lat%f",tmpMapAnn.title, tmpMapAnn.coordinate.latitude, tmpMapAnn.coordinate.longitude);
+            //NSLog(@"Annotation set %@ Lon:%f Lat%f",tmpMapAnn.title, tmpMapAnn.coordinate.latitude, tmpMapAnn.coordinate.longitude);
             //ensure all annotations are visible in window.
             
             if (MKMapRectIsNull(flyTo)) {
@@ -259,11 +283,7 @@
     }
     
     //clear map button event
-    if(myMapAnnotationSegmentControl.selectedSegmentIndex == 2){
-        //theDataObject.myMapAnnotationList.currentAnnotationIndexSet = false;
-    }
-    else {
-        
+    if(myMapAnnotationSegmentControl.selectedSegmentIndex != 2){
         //focus map to fly to area only if an annotation point is set.
         mapView.visibleMapRect = flyTo;
         
@@ -313,6 +333,61 @@
     return d;
 }
 
+- (void)locationManager:(CLLocationManager*)manager didUpdateHeading:(CLHeading*)newHeading
+{
+    // If the accuracy is valid, process the event.
+    if (newHeading.headingAccuracy > 0)
+    {
+        //find heading.
+        CLLocationDirection theHeading = newHeading.magneticHeading;
+
+        if(mapView.annotations.count == 2){ 
+            CLLocation* startCord;
+            CLLocation* destCord;
+            int annotationAngle = 0;
+            
+            for(id<MKAnnotation> annotation in mapView.annotations)
+            {
+                if(annotation != mapView.userLocation) //set the destination cord.
+                {
+                    destCord = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
+                }
+                else //set the user location cord 
+                {
+                    startCord = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];    
+                }
+            }
+  
+            //find building angle to current location.
+            float testY = (destCord.coordinate.latitude - startCord.coordinate.latitude); 
+            float testX = (destCord.coordinate.longitude - startCord.coordinate.longitude); 
+            testY = testY * -1;
+            float annotationAngleRad = atan2f(testY, testX);        
+            annotationAngle = floor(radiansToDegrees(annotationAngleRad));
+            
+            
+            if(annotationAngle < 0) //third and fourth quards.
+            {
+                annotationAngle = 360 + annotationAngle;
+            } 
+            
+            
+            float theNewHeading = theHeading; // - 90;
+            if(theNewHeading < 0)
+            {
+                theNewHeading = 360 + theNewHeading;
+            }
+
+            int diffAngle = annotationAngle - theNewHeading;
+
+            float diffRad = degreesToRadians(diffAngle);
+            
+            //NSLog(@"Heading: %f, Annotation: %i, Difference: %i DifRad: %f", theNewHeading, annotationAngle, diffAngle, diffRad);
+            DirectionCompas.transform = CGAffineTransformMakeRotation(diffRad);  
+            
+        }
+    }
+}
 
 
 //fires every time the locatioin manager is updated.
@@ -360,15 +435,75 @@
             }
             
         }
-    }
-    
+        
+        if(!(CLLocationManager.locationServicesEnabled && CLLocationManager.headingAvailable))       
+        {
+            //find building angle to current location.
+            float testY = (destCord.coordinate.latitude - newLocation.coordinate.latitude); 
+            float testX = (destCord.coordinate.longitude - newLocation.coordinate.longitude); 
 
-    float dy = startCord.coordinate.latitude - destCord.coordinate.latitude;    
-    float dx = startCord.coordinate.longitude - destCord.coordinate.longitude;
-    dy = dy * -1;
-    float angle = atan2f(dy, dx);
-    DirectionCompas.transform = CGAffineTransformMakeRotation(angle);    
-    
+            float annotationAngleRad = atan2f(testY, testX);        
+            int annotationAngle = floor(radiansToDegrees(annotationAngleRad));
+            
+            
+            if(annotationAngle < 0) //third and fourth quards.
+            {
+                annotationAngle = 360 + annotationAngle;
+            }
+
+            //find find angle of travel
+            float headingY = newLocation.coordinate.latitude - oldLocation.coordinate.latitude; 
+            float headingX = newLocation.coordinate.longitude - oldLocation.coordinate.longitude; 
+
+            float headingAngleRad = atan2f(headingY, headingX);
+            int headingAngle = floor(radiansToDegrees(headingAngleRad));
+            
+            
+            if(headingAngle < 0) //third and fourth quards.
+            {
+                headingAngle = 360 + headingAngle;
+            }
+
+            int diffAngle = headingAngle;
+            
+            if(headingAngle > annotationAngle)
+            {
+                diffAngle = annotationAngle - headingAngle;
+            }
+            else if (headingAngle < annotationAngle) {
+                diffAngle = headingAngle - annotationAngle;
+            }
+
+            
+            float diffRad = degreesToRadians(diffAngle);
+            
+            //NSLog(@"Direction: %i, Destination: %i, Difference: %i DifRad: %f", headingAngle, annotationAngle, diffAngle, diffRad);
+            DirectionCompas.transform = CGAffineTransformMakeRotation(diffRad);  
+       
+        }
+        
+    }
+    else { //show current walking direction
+        float dy = destCord.coordinate.latitude - startCord.coordinate.latitude;    
+        float dx = destCord.coordinate.longitude - startCord.coordinate.longitude;
+        dy = dy * -1;
+        float directionAngleRad = atan2f(dy, dx);
+        
+        int directionAngle = floor(radiansToDegrees(directionAngleRad) + 90);
+        
+        
+        if(directionAngle < 0) //third and fourth quards.
+        {
+            directionAngle = 360 + directionAngle;
+        }
+        
+        float newDirAngRad = degreesToRadians(directionAngle);
+        //NSLog(@"DirAng: %i DirAngRad: %f", directionAngle, directionAngleRad);
+        
+        DirectionCompas.transform = CGAffineTransformMakeRotation(newDirAngRad);    
+    }
+
+
     
     //if navigating to a class make sure both person and class are in map window.
     if(mapView.annotations.count == 2){
@@ -401,6 +536,11 @@
         [mapView setRegion:myRegion animated:true];  
     } 
 }
+
+
+
+
+
 
 //creates the annotation display for the annoation that is being added to the map.
 - (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:(id <MKAnnotation>)annotation
@@ -458,33 +598,70 @@
 -(void) buttonClicked:(UIButton*) button
 {
 
-    NSLog(@"Button %ld clicked.", (long int)[button tag]);
+    //NSLog(@"Button %ld clicked.", (long int)[button tag]);
     annotationButtonActionTag = (long int)[button tag];
     
-    //get the app data from teh griz space data objects ref.
-    //GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
+    //perform action for annotation.
+    //CourseDetailVewController *cDVC= [self.storyboard instantiateViewControllerWithIdentifier:@"CourseDetailViewController"];
     
-    //erform action for annotation.
+    //[self.navigationController presentViewController:cDVC animated:NO];
+    
+    //cDVC.initialViewControler = self;
+    
+    //[self presentModalViewController:cDVC animated:YES];
+
+    
+    
+    
+    //[self performSegueWithIdentifier:@"MapToCourseDetail" sender:self];
+    
+    // Get reference to the destination view controller
+    //CourseDetailVewController *vc = [self.storyboard valueForKeyPath:@"MapToCourseDetail"];
+    
+    // Pass any objects to the view controller here, like...
+    //self.delegate = cDVC;
+    //[delegate LoadCourseDetails: (long int) [button tag]];
+    
+    
+    //sets the correct tab index
+    //[self.tabBarController setSelectedIndex:1];
     [self performSegueWithIdentifier:@"MapToCourseDetail" sender:self];
     
-    //override prepare for segway function.  Use segway identifier.
-    //-(void)prepareForSegue:(UStoryboardSeque)
+    //get handle for nav controller
+    //UINavigationController *tmpNC = [self.tabBarController.viewControllers objectAtIndex:1];
+    
+    //get handle for map view controller
+    //CourseDetailVewController *cDVC = [tmpNC.viewControllers objectAtIndex:2];
+    
+    // Pass any objects to the view controller here, like...
+    //self.delegate = cDVC;
+    //[delegate LoadCourseDetails: (long int) [button tag]];
+    
 }
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Make sure your segue name in storyboard is the same as this line
-    /*
+    
     if ([[segue identifier] isEqualToString:@"MapToCourseDetail"])
     {
         // Get reference to the destination view controller
-        //CourseDetailVewController *vc = [segue destinationViewController];
-        
+        CourseDetailVewController *cDVC = [segue destinationViewController];
+    
+        cDVC.courseIndex = annotationButtonActionTag;
         // Pass any objects to the view controller here, like...
-        //[vc setMyObjectHere:object];
+        //self.delegate = cDVC;
+        //[delegate LoadCourseDetails: annotationButtonActionTag];
+        
+        
+        //[cDVC LoadCourseDetails:annotationButtonActionTag];
+        
+        
+        
+        //cDVC.courseTitle.text =  @"testing new title";
     }
-     */
+     
 }
 
 //function used to show all annotations on the map.

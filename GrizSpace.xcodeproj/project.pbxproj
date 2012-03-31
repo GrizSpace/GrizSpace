@@ -21,7 +21,25 @@
 		5A81A0B71524373C0077BC16 /* CourseSectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0B61524373C0077BC16 /* CourseSectionTest.m */; };
 		5A81A0BA152437850077BC16 /* CourseSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0B9152437850077BC16 /* CourseSection.m */; };
 		5A81A0BB152437850077BC16 /* CourseSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0B9152437850077BC16 /* CourseSection.m */; };
-		C52A226B152296F200507580 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A226A152296F200507580 /* Parse.framework */; };
+		5A81A0EF15254C9C0077BC16 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0EE15254C9C0077BC16 /* Constants.m */; };
+		5A81A0F015254C9C0077BC16 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0EE15254C9C0077BC16 /* Constants.m */; };
+		5A81A0FB15254F240077BC16 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0F215254F230077BC16 /* FMDatabase.m */; };
+		5A81A0FC15254F240077BC16 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0F215254F230077BC16 /* FMDatabase.m */; };
+		5A81A0FD15254F240077BC16 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0F415254F230077BC16 /* FMDatabaseAdditions.m */; };
+		5A81A0FE15254F240077BC16 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0F415254F230077BC16 /* FMDatabaseAdditions.m */; };
+		5A81A0FF15254F240077BC16 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0F615254F230077BC16 /* FMDatabasePool.m */; };
+		5A81A10015254F240077BC16 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0F615254F230077BC16 /* FMDatabasePool.m */; };
+		5A81A10115254F240077BC16 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0F815254F240077BC16 /* FMDatabaseQueue.m */; };
+		5A81A10215254F240077BC16 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0F815254F240077BC16 /* FMDatabaseQueue.m */; };
+		5A81A10315254F240077BC16 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0FA15254F240077BC16 /* FMResultSet.m */; };
+		5A81A10415254F240077BC16 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A0FA15254F240077BC16 /* FMResultSet.m */; };
+		5A81A10D152556800077BC16 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */; };
+		5A81A1131525605A0077BC16 /* GrizSpaceDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E63A1B2D151D5FA300FE57D9 /* GrizSpaceDB.sqlite */; };
+		5A81A117152566110077BC16 /* Mapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A116152566110077BC16 /* Mapper.m */; };
+		5A81A118152566110077BC16 /* Mapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A116152566110077BC16 /* Mapper.m */; };
+		5A81A11B152568B20077BC16 /* CourseSectionMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A11A152568B20077BC16 /* CourseSectionMapper.m */; };
+		5A81A11C152568B20077BC16 /* CourseSectionMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A11A152568B20077BC16 /* CourseSectionMapper.m */; };
+		5A81A11F152569C40077BC16 /* CourseSectionMapperTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A81A11E152569C40077BC16 /* CourseSectionMapperTest.m */; };
 		C52A226E1522972900507580 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A226D1522972900507580 /* AudioToolbox.framework */; };
 		C52A22701522973300507580 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A226F1522973300507580 /* CFNetwork.framework */; };
 		C52A22721522974000507580 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A22711522974000507580 /* SystemConfiguration.framework */; };
@@ -45,6 +63,7 @@
 		D811D2DC151417C6006416A7 /* GrizSpaceDataObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */; };
 		D811D2E01514183D006416A7 /* AppDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DF1514183D006416A7 /* AppDataObject.m */; };
 		D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D83ADE0F15031F76003733BE /* MapAnnotation.m */; };
+		D83AEA26152657850087ABAD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A226A152296F200507580 /* Parse.framework */; };
 		D860ADD415052C5700EB030A /* GrizSpaceTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */; };
 		D8B123B81513022A00F40A42 /* MapAnnotationList.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B123B71513022A00F40A42 /* MapAnnotationList.m */; };
 		D8E53BC81505BC3400D59A52 /* Location2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D8E53BC71505BC3400D59A52 /* Location2.gpx */; };
@@ -79,6 +98,23 @@
 		5A81A0B61524373C0077BC16 /* CourseSectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSectionTest.m; sourceTree = "<group>"; };
 		5A81A0B8152437850077BC16 /* CourseSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSection.h; sourceTree = "<group>"; };
 		5A81A0B9152437850077BC16 /* CourseSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSection.m; sourceTree = "<group>"; };
+		5A81A0ED15254C170077BC16 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		5A81A0EE15254C9C0077BC16 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		5A81A0F115254F230077BC16 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		5A81A0F215254F230077BC16 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		5A81A0F315254F230077BC16 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		5A81A0F415254F230077BC16 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		5A81A0F515254F230077BC16 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		5A81A0F615254F230077BC16 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		5A81A0F715254F230077BC16 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		5A81A0F815254F240077BC16 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		5A81A0F915254F240077BC16 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		5A81A0FA15254F240077BC16 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		5A81A115152566110077BC16 /* Mapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mapper.h; sourceTree = "<group>"; };
+		5A81A116152566110077BC16 /* Mapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mapper.m; sourceTree = "<group>"; };
+		5A81A119152568B20077BC16 /* CourseSectionMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSectionMapper.h; sourceTree = "<group>"; };
+		5A81A11A152568B20077BC16 /* CourseSectionMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSectionMapper.m; sourceTree = "<group>"; };
+		5A81A11E152569C40077BC16 /* CourseSectionMapperTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSectionMapperTest.m; sourceTree = "<group>"; };
 		C52A226A152296F200507580 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		C52A226D1522972900507580 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C52A226F1522973300507580 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -148,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D83AEA26152657850087ABAD /* Parse.framework in Frameworks */,
 				C52A227A1522976C00507580 /* QuartzCore.framework in Frameworks */,
 				C52A22781522976300507580 /* Security.framework in Frameworks */,
 				C52A22761522975A00507580 /* libz.1.1.3.dylib in Frameworks */,
@@ -161,7 +198,6 @@
 				5A59DB2015000D7300CE4FC6 /* UIKit.framework in Frameworks */,
 				5A59DB2215000D7300CE4FC6 /* Foundation.framework in Frameworks */,
 				E6F0348F150ED5BE00BF0E0F /* libsqlite3.0.dylib in Frameworks */,
-				C52A226B152296F200507580 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A81A10D152556800077BC16 /* libsqlite3.0.dylib in Frameworks */,
 				5A81A0A5152437110077BC16 /* SenTestingKit.framework in Frameworks */,
 				5A81A0A6152437110077BC16 /* UIKit.framework in Frameworks */,
 				5A81A0A7152437110077BC16 /* Foundation.framework in Frameworks */,
@@ -222,12 +259,16 @@
 		5A59DB2515000D7300CE4FC6 /* GrizSpace */ = {
 			isa = PBXGroup;
 			children = (
+				5A81A10515254F2C0077BC16 /* FMDB */,
 				E63A1B2D151D5FA300FE57D9 /* GrizSpaceDB.sqlite */,
 				D8DB7B3715169CAC008EF626 /* Global_Objects */,
 				D809A686150571CC007236B4 /* MapSpace */,
+				5A81A114152565D70077BC16 /* Mappers */,
 				D83F9725151C3AAB00BAA16E /* Models */,
 				5A59DB2615000D7300CE4FC6 /* Supporting Files */,
 				D83F9727151C3AF100BAA16E /* ViewControllers */,
+				5A81A0ED15254C170077BC16 /* Constants.h */,
+				5A81A0EE15254C9C0077BC16 /* Constants.m */,
 			);
 			path = GrizSpace;
 			sourceTree = "<group>";
@@ -253,6 +294,7 @@
 			children = (
 				5A81A0A9152437110077BC16 /* Supporting Files */,
 				5A81A0B61524373C0077BC16 /* CourseSectionTest.m */,
+				5A81A11E152569C40077BC16 /* CourseSectionMapperTest.m */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -265,6 +307,34 @@
 				5A81A0B1152437110077BC16 /* UnitTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5A81A10515254F2C0077BC16 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				5A81A0F115254F230077BC16 /* FMDatabase.h */,
+				5A81A0F215254F230077BC16 /* FMDatabase.m */,
+				5A81A0F315254F230077BC16 /* FMDatabaseAdditions.h */,
+				5A81A0F415254F230077BC16 /* FMDatabaseAdditions.m */,
+				5A81A0F515254F230077BC16 /* FMDatabasePool.h */,
+				5A81A0F615254F230077BC16 /* FMDatabasePool.m */,
+				5A81A0F715254F230077BC16 /* FMDatabaseQueue.h */,
+				5A81A0F815254F240077BC16 /* FMDatabaseQueue.m */,
+				5A81A0F915254F240077BC16 /* FMResultSet.h */,
+				5A81A0FA15254F240077BC16 /* FMResultSet.m */,
+			);
+			name = FMDB;
+			sourceTree = "<group>";
+		};
+		5A81A114152565D70077BC16 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				5A81A115152566110077BC16 /* Mapper.h */,
+				5A81A116152566110077BC16 /* Mapper.m */,
+				5A81A119152568B20077BC16 /* CourseSectionMapper.h */,
+				5A81A11A152568B20077BC16 /* CourseSectionMapper.m */,
+			);
+			name = Mappers;
 			sourceTree = "<group>";
 		};
 		D809A686150571CC007236B4 /* MapSpace */ = {
@@ -426,6 +496,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A81A1131525605A0077BC16 /* GrizSpaceDB.sqlite in Resources */,
 				5A81A0AD152437110077BC16 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +549,14 @@
 				E6CCD157151ACE720060CAEA /* CourseModel.m in Sources */,
 				C58123CE151C0614008624B8 /* CourseList.m in Sources */,
 				5A81A0BA152437850077BC16 /* CourseSection.m in Sources */,
+				5A81A0EF15254C9C0077BC16 /* Constants.m in Sources */,
+				5A81A0FB15254F240077BC16 /* FMDatabase.m in Sources */,
+				5A81A0FD15254F240077BC16 /* FMDatabaseAdditions.m in Sources */,
+				5A81A0FF15254F240077BC16 /* FMDatabasePool.m in Sources */,
+				5A81A10115254F240077BC16 /* FMDatabaseQueue.m in Sources */,
+				5A81A10315254F240077BC16 /* FMResultSet.m in Sources */,
+				5A81A117152566110077BC16 /* Mapper.m in Sources */,
+				5A81A11B152568B20077BC16 /* CourseSectionMapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +566,15 @@
 			files = (
 				5A81A0B71524373C0077BC16 /* CourseSectionTest.m in Sources */,
 				5A81A0BB152437850077BC16 /* CourseSection.m in Sources */,
+				5A81A0F015254C9C0077BC16 /* Constants.m in Sources */,
+				5A81A0FC15254F240077BC16 /* FMDatabase.m in Sources */,
+				5A81A0FE15254F240077BC16 /* FMDatabaseAdditions.m in Sources */,
+				5A81A10015254F240077BC16 /* FMDatabasePool.m in Sources */,
+				5A81A10215254F240077BC16 /* FMDatabaseQueue.m in Sources */,
+				5A81A10415254F240077BC16 /* FMResultSet.m in Sources */,
+				5A81A118152566110077BC16 /* Mapper.m in Sources */,
+				5A81A11C152568B20077BC16 /* CourseSectionMapper.m in Sources */,
+				5A81A11F152569C40077BC16 /* CourseSectionMapperTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +656,10 @@
 		5A59DB4515000D7300CE4FC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: K S (EM7J35XEP3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: K S (EM7J35XEP3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos5.1]" = "iPhone Developer: K S (EM7J35XEP3)";
+				"CODE_SIGN_RESOURCE_RULES_PATH[sdk=*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -577,6 +669,9 @@
 				INFOPLIST_FILE = "GrizSpace/GrizSpace-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos5.1]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -585,6 +680,9 @@
 		5A59DB4615000D7300CE4FC6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: K S (EM7J35XEP3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: K S (EM7J35XEP3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos5.1]" = "iPhone Developer: K S (EM7J35XEP3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -594,6 +692,9 @@
 				INFOPLIST_FILE = "GrizSpace/GrizSpace-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos5.1]" = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -659,6 +760,7 @@
 				5A81A0B3152437110077BC16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

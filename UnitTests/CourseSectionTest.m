@@ -27,12 +27,12 @@
 
 - (void)testStartTime
 {
-    STAssertEquals([cs startTime], @"0910", @"Start time is incorrect");
+    STAssertEqualObjects([cs startTime], @"0910", @"Start time is incorrect");
 }
 
 - (void)testEndTime
 {
-    STAssertEquals([cs endTime], @"1000", @"End time is incorrect");
+    STAssertEqualObjects([cs endTime], @"1000", @"End time is incorrect");
 }
 
 - (void)testDays

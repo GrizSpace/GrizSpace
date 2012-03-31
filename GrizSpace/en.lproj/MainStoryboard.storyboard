@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <deployment defaultVersion="1280" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -52,7 +52,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="wUt-tu-AOu" userLabel="MapViewControllerIdentity">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="341"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="339"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" id="ct6-VK-9q2">
@@ -68,11 +68,11 @@
                                 </connections>
                             </segmentedControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Direction_Arrow.png" id="jRp-n3-pbM">
-                                <rect key="frame" x="249" y="269" width="35" height="35"/>
+                                <rect key="frame" x="249" y="253" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="M5W-CN-evQ">
-                                <rect key="frame" x="224" y="309" width="96" height="21"/>
+                                <rect key="frame" x="224" y="293" width="96" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -105,7 +105,7 @@
                         <outlet property="mapView" destination="wUt-tu-AOu" id="oXE-Va-XXb"/>
                         <outlet property="myMapAnnotationSegmentControl" destination="ct6-VK-9q2" id="9yq-D0-1Ax"/>
                         <outlet property="myMapViewTypeSegmentControl" destination="KeH-Q1-XXv" id="MpE-Cx-iIo"/>
-                        <segue destination="TBf-LV-LzM" kind="custom" identifier="MapToCourseDetail" id="e13-RZ-dFB"/>
+                        <segue destination="TBf-LV-LzM" kind="push" identifier="MapToCourseDetail" id="e13-RZ-dFB"/>
                     </connections>
                 </viewController>
             </objects>
@@ -116,7 +116,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ad7-bs-YQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="CP5-FD-hMa" customClass="SubjectPickerViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gVB-lx-iYY">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="r5R-6U-saM">
@@ -177,7 +177,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3hf-4R-Qic" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="lqC-Bo-WFi" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wL5-Gi-Jep">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Course: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Eii-0A-dcS">
@@ -602,7 +602,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="diQ-lh-GIe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Yk1-PS-6Qc" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Yv5-cM-sbC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -1096,7 +1096,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ej1-Sw-8Ee" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="z6t-L1-cBQ" userLabel="CourseListViewControllerIdentity" customClass="CourseListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1o8-GE-fIi">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1153,19 +1153,19 @@
         <scene sceneID="QbO-Ax-gZa">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0rl-kL-VQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="TBf-LV-LzM" customClass="CourseDetailVewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CourseDetailViewController" id="TBf-LV-LzM" customClass="CourseDetailVewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="emY-ff-r1w">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ECON 511" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2JS-0n-O2r">
-                                <rect key="frame" x="109" y="68" width="83" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ECON 511" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2JS-0n-O2r">
+                                <rect key="frame" x="56" y="68" width="219" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Advanced Microeconomics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Pbj-dB-0q4">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Advanced Microeconomics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Pbj-dB-0q4">
                                 <rect key="frame" x="56" y="97" width="208" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1233,6 +1233,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Course Detail" id="04t-tT-ryo"/>
+                    <connections>
+                        <outlet property="courseDays" destination="vTn-6r-SRP" id="V1H-5U-f9B"/>
+                        <outlet property="courseRoom" destination="yjA-Yv-eT5" id="xxd-qG-eB2"/>
+                        <outlet property="courseSubjectNumber" destination="2JS-0n-O2r" id="Wsf-tv-WSS"/>
+                        <outlet property="courseTime" destination="sqw-s9-Ds1" id="HR3-8a-g08"/>
+                        <outlet property="courseTitle" destination="Pbj-dB-0q4" id="PHv-aa-4bq"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="2200" y="-5"/>
@@ -1679,6 +1686,13 @@
         </class>
         <class className="CourseDetailVewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CourseDetailVewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="courseDays" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="courseRoom" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="courseSubjectNumber" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="courseTime" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="courseTitle" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="CourseListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CourseListViewController.h"/>
@@ -1720,8 +1734,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="fx8-tT-JjN"/>
         <segue reference="e13-RZ-dFB"/>
-        <segue reference="1Tx-cZ-WSU"/>
         <segue reference="K62-WQ-gCS"/>
     </inferredMetricsTieBreakers>
 </document>
