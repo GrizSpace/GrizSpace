@@ -12,12 +12,12 @@
 
 @implementation GrizSpaceDataObjects 
 
-@synthesize myMapAnnotationList, buildings, myCourses, selectableCourses, selectableSubjects;
+@synthesize buildings, myCourses, selectableCourses, selectableSubjects;
 
 //default constructor
 -(id) init {
     self = [super init];
-    myMapAnnotationList = [[MapAnnotationList alloc] init];
+    //myMapAnnotationList = [[MapAnnotationList alloc] init];
     buildings = [[NSMutableArray alloc] init];
  
     

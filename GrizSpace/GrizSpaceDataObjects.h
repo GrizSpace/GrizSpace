@@ -7,7 +7,6 @@
 //
 
 #import "AppDataObject.h"
-#import "MapAnnotationList.h"
 #import "CourseDetailVewController.h"
 #import "MapViewController.h"
 #import "GPSModel.h"
@@ -16,8 +15,6 @@
 @interface GrizSpaceDataObjects : AppDataObject
 
 //procedure to get class data from the data objects.
-@property (nonatomic, readwrite) MapAnnotationList* myMapAnnotationList;
-
 @property (nonatomic, strong) NSMutableArray *buildings; //building list to select from
 @property (nonatomic, readwrite) CourseList* myCourses; //the user courses in there list.
 @property (nonatomic, strong) NSMutableArray *selectableCourses; //the selectable courses avaliable.

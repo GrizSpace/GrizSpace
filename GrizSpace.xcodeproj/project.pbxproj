@@ -65,7 +65,6 @@
 		D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D83ADE0F15031F76003733BE /* MapAnnotation.m */; };
 		D83AEA26152657850087ABAD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A226A152296F200507580 /* Parse.framework */; };
 		D860ADD415052C5700EB030A /* GrizSpaceTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */; };
-		D8B123B81513022A00F40A42 /* MapAnnotationList.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B123B71513022A00F40A42 /* MapAnnotationList.m */; };
 		D8E53BC81505BC3400D59A52 /* Location2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D8E53BC71505BC3400D59A52 /* Location2.gpx */; };
 		D8FE67A215048EE600D09F31 /* Direction_Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D8FE67A115048EE600D09F31 /* Direction_Arrow.png */; };
 		E637A2A71515131C001E0E2D /* BuildingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2A41515131C001E0E2D /* BuildingModel.m */; };
@@ -158,8 +157,6 @@
 		D83ADE0F15031F76003733BE /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrizSpaceTabBarController.h; sourceTree = "<group>"; };
 		D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrizSpaceTabBarController.m; sourceTree = "<group>"; };
-		D8B123B61513022900F40A42 /* MapAnnotationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotationList.h; sourceTree = "<group>"; };
-		D8B123B71513022A00F40A42 /* MapAnnotationList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotationList.m; sourceTree = "<group>"; };
 		D8DCED431506CFB100E111DC /* Location3.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location3.gpx; sourceTree = "<group>"; };
 		D8E53BC71505BC3400D59A52 /* Location2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location2.gpx; sourceTree = "<group>"; };
 		D8FE67A115048EE600D09F31 /* Direction_Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Direction_Arrow.png; sourceTree = "<group>"; };
@@ -340,8 +337,6 @@
 		D809A686150571CC007236B4 /* MapSpace */ = {
 			isa = PBXGroup;
 			children = (
-				D8B123B61513022900F40A42 /* MapAnnotationList.h */,
-				D8B123B71513022A00F40A42 /* MapAnnotationList.m */,
 				D83ADE0E15031F76003733BE /* MapAnnotation.h */,
 				D83ADE0F15031F76003733BE /* MapAnnotation.m */,
 			);
@@ -536,7 +531,6 @@
 				C562FD2115003FF800ADA1C8 /* PhotoViewController.m in Sources */,
 				D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */,
 				D860ADD415052C5700EB030A /* GrizSpaceTabBarController.m in Sources */,
-				D8B123B81513022A00F40A42 /* MapAnnotationList.m in Sources */,
 				D811D2DC151417C6006416A7 /* GrizSpaceDataObjects.m in Sources */,
 				D811D2E01514183D006416A7 /* AppDataObject.m in Sources */,
 				E637A2A71515131C001E0E2D /* BuildingModel.m in Sources */,
