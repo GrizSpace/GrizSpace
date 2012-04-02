@@ -18,12 +18,38 @@
     return self;
 }
 
++(void) removeCourse:(CourseModel *)courseToBeRemoved
+{
+    PFQuery* query = [PFQuery queryWithClassName:@"CourseModel"];
+    NSString* objectID = [courseToBeRemoved getParseObjectID];
+    PFObject *courseToDelete = [query getObjectWithId:objectID];
+    [courseToDelete delete];
+}
+
++(void) addCourse:(CourseModel*) courseToBeAdded inSubject:(SubjectModel *)subjToBeAdded
+{
+    PFObject *PFcourseToBeAdded = [PFObject objectWithClassName:@"CourseModel"];
+    
+    [PFcourseToBeAdded setObject:[[UIDevice currentDevice] uniqueIdentifier] forKey:@"userid"];
+    
+    [PFcourseToBeAdded setObject:[courseToBeAdded getNumber] forKey:@"number"];
+    [PFcourseToBeAdded setObject:[subjToBeAdded getAbbr] forKey:@"subject"];
+    
+    [PFcourseToBeAdded save];
+    
+}
+
+
 -(NSMutableArray*) getCourseListFromParse
 {
-    
+ // TODO: all parse calls need to run on background threads  
     NSMutableArray* tmpCourseList = [[NSMutableArray alloc] init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"CourseModel"];
+    [query whereKey:@"userid" equalTo:[[UIDevice currentDevice] uniqueIdentifier]];
+    
+    NSLog([[UIDevice currentDevice] uniqueIdentifier]);
+           
     NSArray* PFObjectCourseArray = [query findObjects];
     
     for (int i=0; i<[PFObjectCourseArray count];i++)

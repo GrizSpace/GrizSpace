@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+// TODO: pull out Parse calls - should not happen in this class [CourseList removeCourse:course]
 
 #import "CourseListViewController.h"
 #import "MapViewController.h"
@@ -158,10 +159,16 @@
         // Delete the row from the data source
       //  [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
-        PFQuery* query = [PFQuery queryWithClassName:@"CourseModel"];
+    
+        
+      /*  PFQuery* query = [PFQuery queryWithClassName:@"CourseModel"];
         NSString* objectID = [[myCourses objectAtIndex:indexPath.row] getParseObjectID];
         PFObject *courseToDelete = [query getObjectWithId:objectID];
         [courseToDelete delete];
+    */
+        
+        [CourseList removeCourse: [myCourses objectAtIndex:indexPath.row]];
+         
         [self viewDidLoad];
         [tableView reloadData];
                                     

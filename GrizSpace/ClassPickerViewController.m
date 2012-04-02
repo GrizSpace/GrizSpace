@@ -37,13 +37,17 @@
 }
 - (IBAction)addToCourseList:(id)sender 
 {
-
+    
+    [CourseList addCourse: self.selectedCourse inSubject: selectedSubject];
+    
+    
+    /*
     PFObject *courseToBeAdded = [PFObject objectWithClassName:@"CourseModel"];
     [courseToBeAdded setObject:[self.selectedCourse getNumber] forKey:@"number"];
     [courseToBeAdded setObject:[self.selectedSubject getAbbr] forKey:@"subject"];
     
     [courseToBeAdded save];
-
+     */
 }
 
 
