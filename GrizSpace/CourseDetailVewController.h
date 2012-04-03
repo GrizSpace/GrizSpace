@@ -7,15 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
+#import "CourseModel.h"
 
+// ignore CourseDelegate protocol/delegate - that is not needed and will be deleted
 
 //used for accing and setting the map properties
 @protocol CourseDetailControllerDelegate
 -(void) LoadCourseDetails; //used to display details about a course.
 @end
 
-@interface CourseDetailVewController : UIViewController <CourseDetailControllerDelegate>
+@protocol CourseDelegate
+
+-(void) didReceiveCourse:(CourseModel*) selectedCourseFromPicker;
+
+@end
+
+
+@interface CourseDetailVewController : UIViewController <CourseDelegate,
+CourseDetailControllerDelegate>
 {
     __weak IBOutlet UILabel *courseSubjectNumber;
     
@@ -31,5 +42,11 @@
 }
 
 @property (nonatomic, readwrite) int courseIndex;
+@property (nonatomic, weak) id<CourseDelegate> courseDelegate;
+
+
+@property (nonatomic, strong) CourseModel* selectedCourse;
+
+
 
 @end

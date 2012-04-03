@@ -59,6 +59,8 @@
          
         [tmpCourse setNumber:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"number"]];
         [tmpCourse setParseObjectID:((PFObject*)[PFObjectCourseArray objectAtIndex:i]).objectId];
+        
+        [tmpCourse setUserid:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"userid"]];
          
         [tmpCourseList addObject:tmpCourse];
         

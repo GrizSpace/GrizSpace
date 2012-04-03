@@ -19,6 +19,7 @@
 @synthesize courses = _courses;
 @synthesize dayTimes = _dayTimes;
 @synthesize delegate;
+@synthesize courseDelegate;
 
 @synthesize myCourses;
 
@@ -226,6 +227,16 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    CourseDetailVewController *detailView = [self.storyboard instantiateViewControllerWithIdentifier:@"CourseDetailViewController"];
+    
+    [detailView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    //detailView.courseDelegate = self;
+    
+    [detailView setSelectedCourse:[self.myCourses objectAtIndex:indexPath.row]];
+    
+    [self.navigationController presentModalViewController:detailView animated:YES];
 }
 
 @end

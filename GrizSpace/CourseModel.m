@@ -26,6 +26,7 @@
 @synthesize radius;
 @synthesize index;
 @synthesize parseObjectID;
+@synthesize userid;
 
 
 -(NSString*) getTitle

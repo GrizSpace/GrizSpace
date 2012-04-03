@@ -39,6 +39,8 @@
 
 @property (strong, nonatomic) NSString* parseObjectID;
 
+@property (strong, nonatomic) NSString* userid;
+
 
 -(NSString*) getTitle;
 -(NSString*) getNumber;
