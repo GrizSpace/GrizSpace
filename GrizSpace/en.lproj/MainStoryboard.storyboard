@@ -55,11 +55,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="wUt-tu-AOu" userLabel="MapViewControllerIdentity">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="339"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="338"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" id="ct6-VK-9q2">
-                                <rect key="frame" x="0.0" y="338" width="320" height="30"/>
+                                <rect key="frame" x="0.0" y="337" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="All Classes"/>
