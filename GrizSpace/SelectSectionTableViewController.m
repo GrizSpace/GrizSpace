@@ -1,37 +1,28 @@
-
-
 //
-//  SelectCourseTableViewController.m
+//  SelectSectionTableViewController.m
 //  GrizSpace
 //
-//  Created by William Lyon on 3/17/12.
+//  Created by William Lyon on 4/3/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "SelectCourseTableViewController.h"
+#import "SelectSectionTableViewController.h"
 
-@interface SelectCourseTableViewController ()
+@interface SelectSectionTableViewController ()
 
 @end
 
-@implementation SelectCourseTableViewController
-@synthesize cancelButton;
-@synthesize courses = _courses;
-@synthesize selectedSubject;
+@implementation SelectSectionTableViewController
+
 @synthesize delegate;
+@synthesize sections;
+@synthesize selectedCourse;
 
-
--(void)setCourses:(NSMutableArray *)courses
-{
-    _courses = courses;
-}
-
-
-
--(IBAction)cancelButtonClicked:(id)sender
+- (IBAction)cancelButtonSelected:(id)sender 
 {
     [self dismissModalViewControllerAnimated:YES];
 }
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -44,18 +35,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    CourseSectionMapper *mapper = [[CourseSectionMapper alloc] init];
+    
+    self.sections = [mapper findByCourseId:selectedCourse.idCourse];
+    
+    NSLog(@"idCourse: %d", [self.selectedCourse idCourse]);
+    
+    NSLog(@"Number of sections: %d", [self.sections count]);
+    
 
-    DBAccess* db = [[DBAccess alloc] init];
-    
-    NSLog(@"SelectedSubjectID: %d", selectedSubject.idSubject);
-    
-    self.courses = [db getAllCoursesGivenSubject:selectedSubject.idSubject];
-    
-    
-    NSLog(@"Number of courses: %d", [self.courses count]);
-    
-    [db closeDatabase];
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -65,7 +54,6 @@
 
 - (void)viewDidUnload
 {
-    [self setCancelButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -78,32 +66,37 @@
 
 #pragma mark - Table view data source
 
-/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
-*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.courses count];
+    return [self.sections count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Course";
+    static NSString *CellIdentifier = @"section";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     
-    cell.textLabel.text = [[self.courses objectAtIndex:indexPath.row] getSubject];
-  //  NSLog([[self.courses objectAtIndex:indexPath.row] subject]);
-          
-    cell.detailTextLabel.text = [[self.courses objectAtIndex:indexPath.row] getNumber];
+    NSString* sectionText = [[sections objectAtIndex:indexPath.row] startTime];
+    
+    
+                            
+    
+    
+    
+    //@"%d", [[[self.sections objectAtIndex:indexPath.row] number];
+    
+    cell.textLabel.text = sectionText;
     return cell;
 }
 
@@ -157,12 +150,6 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-    
-    [delegate didReceiveCourse:[self.courses objectAtIndex:indexPath.row]];
-    [self dismissModalViewControllerAnimated:YES];
-    
 }
-
-
 
 @end

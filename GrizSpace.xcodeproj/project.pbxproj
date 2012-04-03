@@ -60,6 +60,7 @@
 		C562FD2115003FF800ADA1C8 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD2015003FF700ADA1C8 /* PhotoViewController.m */; };
 		C58123CE151C0614008624B8 /* CourseList.m in Sources */ = {isa = PBXBuildFile; fileRef = C58123CD151C0614008624B8 /* CourseList.m */; };
 		C5915B2015155A2E00D489CD /* SelectCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */; };
+		C5E643A5152B4AC80055A7A3 /* SelectSectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643A4152B4AC80055A7A3 /* SelectSectionTableViewController.m */; };
 		D811D2DC151417C6006416A7 /* GrizSpaceDataObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */; };
 		D811D2E01514183D006416A7 /* AppDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DF1514183D006416A7 /* AppDataObject.m */; };
 		D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D83ADE0F15031F76003733BE /* MapAnnotation.m */; };
@@ -148,6 +149,8 @@
 		C58123CD151C0614008624B8 /* CourseList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseList.m; sourceTree = "<group>"; };
 		C5915B1E15155A2E00D489CD /* SelectCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCourseTableViewController.h; sourceTree = "<group>"; };
 		C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCourseTableViewController.m; sourceTree = "<group>"; };
+		C5E643A3152B4AC80055A7A3 /* SelectSectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSectionTableViewController.h; sourceTree = "<group>"; };
+		C5E643A4152B4AC80055A7A3 /* SelectSectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSectionTableViewController.m; sourceTree = "<group>"; };
 		D80AE651150521D4004EA055 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		D811D2DA151417C6006416A7 /* GrizSpaceDataObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrizSpaceDataObjects.h; sourceTree = "<group>"; };
 		D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrizSpaceDataObjects.m; sourceTree = "<group>"; };
@@ -392,6 +395,8 @@
 				D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */,
 				D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */,
 				5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */,
+				C5E643A3152B4AC80055A7A3 /* SelectSectionTableViewController.h */,
+				C5E643A4152B4AC80055A7A3 /* SelectSectionTableViewController.m */,
 				C562FD06150035A700ADA1C8 /* MapViewController.h */,
 				C562FD07150035A700ADA1C8 /* MapViewController.m */,
 				C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */,
@@ -563,6 +568,7 @@
 				5A81A117152566110077BC16 /* Mapper.m in Sources */,
 				5A81A11B152568B20077BC16 /* CourseSectionMapper.m in Sources */,
 				E6D43CFF152AAB4D00976AF6 /* ScheduleTableViewController.m in Sources */,
+				C5E643A5152B4AC80055A7A3 /* SelectSectionTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

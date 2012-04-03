@@ -72,6 +72,22 @@
     [self.navigationController presentModalViewController:selectView animated:YES];
     //[self presentModalViewController:selectView animated:YES];
 }
+- (IBAction)showSectionsToSelect:(id)sender 
+{
+
+    SelectSectionTableViewController *selectView = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectSectionTableViewController"];
+    
+    [selectView setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    
+    selectView.delegate = self;
+    
+    [selectView setSelectedCourse:self.selectedCourse];
+    
+    [self.navigationController presentModalViewController:selectView animated:YES];
+}
+
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

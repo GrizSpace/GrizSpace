@@ -27,7 +27,14 @@
 @synthesize index;
 @synthesize parseObjectID;
 @synthesize userid;
+@synthesize section;
 
+/*
+-(void) setCourseSection:(CourseSection *)sectionToBeAdded
+{
+    
+}
+*/
 
 -(NSString*) getTitle
 {

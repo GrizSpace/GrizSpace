@@ -9,14 +9,21 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "SelectCourseTableViewController.h"
+#import "SelectSectionTableViewController.h"
 #import "SubjectModel.h"
 #import "CourseModel.h"
 #import "CourseList.h"
+#import "CourseSection.h"
 
 @protocol CourseDelegate
 
 -(void) didReceiveCourse:(CourseModel*) selectedCourseFromPicker;
 
+@end
+
+@protocol sectionDelegate 
+
+-(void) didReceiveSection:(CourseSection*) selectedSectionFromPicker;
 @end
 
 @interface ClassPickerViewController : UIViewController<CourseDelegate>
