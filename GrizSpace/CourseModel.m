@@ -57,5 +57,9 @@ return title;
     return parseObjectID;
 }
 
+-(int) getIdCourse
+{
+    return idCourse;
+}
 @end
 

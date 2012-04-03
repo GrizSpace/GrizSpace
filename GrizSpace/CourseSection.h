@@ -22,4 +22,7 @@
 @property NSString* startTime;
 @property NSString* endTime;
 @property int days;
+
+-(NSString*) getNumberString;
+
 @end

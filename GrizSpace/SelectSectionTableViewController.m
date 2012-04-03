@@ -37,10 +37,13 @@
     [super viewDidLoad];
     
     CourseSectionMapper *mapper = [[CourseSectionMapper alloc] init];
+    //self.selectedCourse.idCourse = 105;
     
-    self.sections = [mapper findByCourseId:selectedCourse.idCourse];
+    self.sections = [mapper findByCourseId:[self.selectedCourse getIdCourse]];
+                     
     
     NSLog(@"idCourse: %d", [self.selectedCourse idCourse]);
+    
     
     NSLog(@"Number of sections: %d", [self.sections count]);
     
@@ -87,10 +90,11 @@
     
     // Configure the cell...
     
-    NSString* sectionText = [[sections objectAtIndex:indexPath.row] startTime];
+ //   NSString* sectionText = [[sections objectAtIndex:indexPath.row] number];
     
-    
-                            
+  //  NSString* sectionText = [NSString stringWithFormat:@"%d", (CourseSection*)[[sections objectAtIndex:indexPath.row].number]];
+                             
+    NSString* sectionText = [[sections objectAtIndex:indexPath.row] getNumberString];                        
     
     
     

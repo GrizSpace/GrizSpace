@@ -34,6 +34,12 @@
     return self;
 }
 
+- (NSString *)getNumberString
+{
+    return [NSString stringWithFormat:@"%d", self.number];
+
+}
+
 // TODO: Clean this up with a hash, e.g., {[COND] => "MONDAY"}
 - (NSString*)getDays
 {

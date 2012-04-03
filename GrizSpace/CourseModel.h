@@ -14,7 +14,7 @@
  //this doesn't have to be done now?   
 }
 
-@property (nonatomic, assign)NSInteger idCourse;
+@property (nonatomic, assign)int idCourse;
 @property (nonatomic, retain)NSString *number;
 @property (nonatomic, assign)NSString *title;
 @property (nonatomic, assign)NSString *subject_id;
@@ -53,5 +53,6 @@
 -(NSString*) getNumber;
 -(NSString*) getSubject;
 -(NSString*) getParseObjectID;
+-(int) getIdCourse;
 
 @end
