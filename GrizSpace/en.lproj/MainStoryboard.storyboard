@@ -445,8 +445,12 @@
                     <navigationItem key="navigationItem" title="Select Course" id="DDg-S9-4qJ"/>
                     <connections>
                         <outlet property="addButton" destination="uJl-vY-8b1" id="Deg-BP-xhw"/>
+                        <outlet property="daysLabel" destination="X96-bZ-Gfi" id="uLA-hq-YW9"/>
+                        <outlet property="locationLabel" destination="ZAK-98-NAV" id="OkT-E7-aaE"/>
                         <outlet property="selectCourseButton" destination="sAa-aw-KAS" id="HjD-ti-dVA"/>
+                        <outlet property="selectSectionButton" destination="9Yo-Ec-lzO" id="JlG-ts-huB"/>
                         <outlet property="subjectLabel" destination="L3X-v3-w4H" id="Hyd-U9-wp4"/>
+                        <outlet property="timesLabel" destination="G8E-rZ-EP8" id="4vG-GP-gnj"/>
                     </connections>
                 </viewController>
             </objects>
@@ -1375,9 +1379,13 @@
                 <relationship kind="action" name="showCoursesToSelect:"/>
                 <relationship kind="outlet" name="addButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="coursePicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="daysLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="selectCourseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="selectSectionButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="subjectLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="tf2" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="timesLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="CourseDetailVewController" superclassName="UIViewController">

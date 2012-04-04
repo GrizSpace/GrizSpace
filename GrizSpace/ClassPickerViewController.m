@@ -11,12 +11,20 @@
 @interface ClassPickerViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *tf2;
 @property (strong, nonatomic) IBOutlet UILabel *subjectLabel;
+@property (strong, nonatomic) IBOutlet UILabel *daysLabel;
+@property (strong, nonatomic) IBOutlet UILabel *timesLabel;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) IBOutlet UIButton *selectSectionButton;
 
 @end
 
 @implementation ClassPickerViewController
 @synthesize tf2;
 @synthesize subjectLabel;
+@synthesize daysLabel;
+@synthesize timesLabel;
+@synthesize locationLabel;
+@synthesize selectSectionButton;
 @synthesize coursePicker;
 @synthesize selectCourseButton;
 @synthesize selectedSubject;
@@ -26,7 +34,16 @@
 -(void) didReceiveCourse:(CourseModel *)selectedCourseFromPicker
 {
     [self setSelectedCourse:selectedCourseFromPicker];
-    NSLog(@"Selecte course title: %@", self.selectedCourse.title);
+    NSLog(@"Selected course title: %@", self.selectedCourse.title);
+}
+
+-(void) didReceiveSection:(CourseSection *)selectedSectionFromPicker
+{
+    self.selectedCourse.section = selectedSectionFromPicker;
+    daysLabel.text = self.selectedCourse.section.getDays;
+    timesLabel.text = [NSString stringWithFormat:@"%@: %@", self.selectedCourse.section.startTime, self.selectedCourse.section.endTime];
+    selectSectionButton.titleLabel.text = self.selectedCourse.section.getNumberString;
+    
 }
 
 -(void)setSelectedCourse:(CourseModel *)selectedCourse
@@ -41,13 +58,6 @@
     [CourseList addCourse: self.selectedCourse inSubject: selectedSubject];
     
     
-    /*
-    PFObject *courseToBeAdded = [PFObject objectWithClassName:@"CourseModel"];
-    [courseToBeAdded setObject:[self.selectedCourse getNumber] forKey:@"number"];
-    [courseToBeAdded setObject:[self.selectedSubject getAbbr] forKey:@"subject"];
-    
-    [courseToBeAdded save];
-     */
 }
 
 
@@ -67,10 +77,10 @@
     
     
     [selectView setSelectedSubject:selectedSubject];
-//    [selectView setParentClassPicker:self];
+
     
     [self.navigationController presentModalViewController:selectView animated:YES];
-    //[self presentModalViewController:selectView animated:YES];
+    
 }
 - (IBAction)showSectionsToSelect:(id)sender 
 {
@@ -79,7 +89,7 @@
     
     [selectView setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
     
-    selectView.delegate = self;
+    selectView.sectiondelegate = self;
     
     [selectView setSelectedCourse:self.selectedCourse];
     
@@ -96,28 +106,13 @@
     }
     return self;
 }
-/*
-- (void)loadView
-{
-    // If you create your views manually, you MUST override this method and use it to create your views.
-    // If you use Interface Builder to create your views, then you must NOT override this method.
-}
-*/
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.subjectLabel.text = self.selectedSubject.abbr;
     
-    //subjectLabel.text = selectedSubject.abbr;
-    
-	// Do any additional setup after loading the view, typically from a nib.
-    
-  //  UIView *purpleView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 120.0f)]; 
-    
- //   coursePicker = [UIPickerView initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 120.0f)];
-//    purpleView.backgroundColor = [UIColor whiteColor]; // Assign the input view 
-    
-    tf2.inputView = coursePicker;
+
     
     
 }
@@ -129,6 +124,10 @@
     [self setSelectCourseButton:nil];
     [self setSubjectLabel:nil];
     [self setAddButton:nil];
+    [self setDaysLabel:nil];
+    [self setTimesLabel:nil];
+    [self setLocationLabel:nil];
+    [self setSelectSectionButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

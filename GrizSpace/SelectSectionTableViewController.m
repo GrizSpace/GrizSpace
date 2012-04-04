@@ -14,7 +14,7 @@
 
 @implementation SelectSectionTableViewController
 
-@synthesize delegate;
+@synthesize sectiondelegate;
 @synthesize sections;
 @synthesize selectedCourse;
 
@@ -154,6 +154,9 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+[sectiondelegate didReceiveSection:[self.sections objectAtIndex:indexPath.row]];
+[self dismissModalViewControllerAnimated:YES];
 }
 
 @end

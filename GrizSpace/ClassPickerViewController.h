@@ -26,7 +26,7 @@
 -(void) didReceiveSection:(CourseSection*) selectedSectionFromPicker;
 @end
 
-@interface ClassPickerViewController : UIViewController<CourseDelegate>
+@interface ClassPickerViewController : UIViewController<CourseDelegate, sectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *coursePicker;
 @property (strong, nonatomic) IBOutlet UIButton *selectCourseButton;
