@@ -34,6 +34,14 @@
     
     [PFcourseToBeAdded setObject:[courseToBeAdded getNumber] forKey:@"number"];
     [PFcourseToBeAdded setObject:[subjToBeAdded getAbbr] forKey:@"subject"];
+    [PFcourseToBeAdded setObject:[NSNumber numberWithInt:courseToBeAdded.section.days] forKey:@"days"];
+    
+    
+    [PFcourseToBeAdded setObject:courseToBeAdded.section.startTime forKey:@"startTime"];
+    [PFcourseToBeAdded setObject:courseToBeAdded.section.endTime forKey:@"endTime"];
+    [PFcourseToBeAdded setObject:courseToBeAdded.section.getNumberString forKey:@"sectionNumber"];
+    
+    
     
     [PFcourseToBeAdded save];
     
@@ -61,7 +69,12 @@
         [tmpCourse setParseObjectID:((PFObject*)[PFObjectCourseArray objectAtIndex:i]).objectId];
         
         [tmpCourse setUserid:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"userid"]];
-         
+        tmpCourse.section.number = (int)[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"sectionNumber"]; //not sure if this casting will result in the correct value, need to confirm 
+        tmpCourse.section.startTime = [[PFObjectCourseArray objectAtIndex:i] objectForKey:@"startTime"];
+        tmpCourse.section.endTime = [[PFObjectCourseArray objectAtIndex:i] objectForKey:@"endTime"];
+        tmpCourse.section.days = [[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"days"] intValue];
+        
+        
         [tmpCourseList addObject:tmpCourse];
         
     }
