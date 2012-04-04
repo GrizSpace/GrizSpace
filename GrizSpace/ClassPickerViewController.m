@@ -42,6 +42,8 @@
     self.selectedCourse.section = selectedSectionFromPicker;
     daysLabel.text = self.selectedCourse.section.getDays;
     timesLabel.text = [NSString stringWithFormat:@"%@: %@", self.selectedCourse.section.startTime, self.selectedCourse.section.endTime];
+    
+    locationLabel.text = [NSString stringWithFormat:@"%@ %@", self.selectedCourse.section.building, self.selectedCourse.section.room];
     selectSectionButton.titleLabel.text = self.selectedCourse.section.getNumberString;
     
 }

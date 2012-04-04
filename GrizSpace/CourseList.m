@@ -41,7 +41,10 @@
     [PFcourseToBeAdded setObject:courseToBeAdded.section.endTime forKey:@"endTime"];
     [PFcourseToBeAdded setObject:courseToBeAdded.section.getNumberString forKey:@"sectionNumber"];
     
-    
+    [PFcourseToBeAdded setObject:courseToBeAdded.section.room forKey:@"room"];
+    [PFcourseToBeAdded setObject:courseToBeAdded.section.building forKey:@"building"];
+    [PFcourseToBeAdded setObject:[NSNumber numberWithDouble:courseToBeAdded.section.longitude] forKey:@"longitude"];
+    [PFcourseToBeAdded setObject:[NSNumber numberWithDouble:courseToBeAdded.section.latitude] forKey:@"latitude"];
     
     [PFcourseToBeAdded save];
     
@@ -73,8 +76,12 @@
         tmpCourse.section.startTime = [[PFObjectCourseArray objectAtIndex:i] objectForKey:@"startTime"];
         tmpCourse.section.endTime = [[PFObjectCourseArray objectAtIndex:i] objectForKey:@"endTime"];
         tmpCourse.section.days = [[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"days"] intValue];
+        tmpCourse.section.building = [[PFObjectCourseArray objectAtIndex:i] objectForKey:@"building"]; 
+        tmpCourse.section.room = [[PFObjectCourseArray objectAtIndex:i] objectForKey:@"room"];
         
+        tmpCourse.section.latitude = [[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"latitude"] doubleValue];
         
+        tmpCourse.section.longitude = [[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"longitude"] doubleValue]; 
         [tmpCourseList addObject:tmpCourse];
         
     }

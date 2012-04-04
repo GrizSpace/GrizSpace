@@ -131,11 +131,15 @@
         
         courseTitle.text = tmpCM.title;
     
-        courseDays.text = [tmpCM days];
-    
-        courseTime.text = [tmpCM time];
-    
-        courseRoom.text = [tmpCM buildingAndRoom];
+        
+        //courseDays.text = [tmpCM days];
+        courseDays.text = [NSString stringWithFormat:@"%@", selectedCourse.section.getDays];
+        //courseTime.text = [tmpCM time];
+        courseTime.text = [NSString stringWithFormat:@"%@:%@", selectedCourse.section.startTime, selectedCourse.section.endTime];
+        
+        //courseRoom.text = [tmpCM buildingAndRoom];
+        
+        courseRoom.text = [NSString stringWithFormat:@"%@ %@", selectedCourse.section.building, selectedCourse.section.room];
     }
 }
 
