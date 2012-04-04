@@ -7,12 +7,29 @@
 //
 
 #import "ScheduleTableViewController.h"
+#import "CourseList.h"
+#import "MapViewController.h"
 
 @interface ScheduleTableViewController ()
 
 @end
 
 @implementation ScheduleTableViewController
+@synthesize courses = _courses;
+@synthesize dayTimes = _dayTimes;
+@synthesize myCourses;
+
+//override setters
+-(void) setCourses:(NSArray *)courses
+{
+    _courses = courses;
+}
+
+-(void) setDayTimes:(NSArray *)dayTimes
+{
+    _dayTimes = dayTimes;
+}
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +49,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    CourseList* myCourseListObject = [[CourseList alloc] init];
+    [self setMyCourses:[myCourseListObject getCourseListFromParse]];
+    
+    
 }
 
 - (void)viewDidUnload
@@ -59,7 +81,10 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1;
+    NSLog(@"Size of myCourses array from Parse: %d", [self.myCourses count]);
+    
+    return [self.myCourses count];
+    //return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,6 +93,14 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
+    
+    cell.textLabel.text = [[self.myCourses objectAtIndex:indexPath.row] getSubject];
+    
+    
+    cell.detailTextLabel.text = [[self.myCourses objectAtIndex:indexPath.row] getNumber];
+    
+    NSLog(@"Parse ObjectID: %@", [[self.myCourses objectAtIndex:indexPath.row] getParseObjectID]);
+    
     
     return cell;
 }
