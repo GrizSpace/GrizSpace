@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 
 #import "CourseModel.h"
+#import "CourseSection.h"
 
 // ignore CourseDelegate protocol/delegate - that is not needed and will be deleted
 

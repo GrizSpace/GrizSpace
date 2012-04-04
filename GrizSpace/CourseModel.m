@@ -29,12 +29,12 @@
 @synthesize userid;
 @synthesize section;
 
-/*
+
 -(void) setCourseSection:(CourseSection *)sectionToBeAdded
 {
-    
+    section = sectionToBeAdded;
 }
-*/
+
 
 -(NSString*) getTitle
 {

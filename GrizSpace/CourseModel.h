@@ -44,7 +44,7 @@
 
 @property (strong, nonatomic) CourseSection* section;
 
-//-(void) setCourseSection: (CourseSection*) sectionToBeAdded;
+-(void) setCourseSection: (CourseSection*) sectionToBeAdded;
 
 
 

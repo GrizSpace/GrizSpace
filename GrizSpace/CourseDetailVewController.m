@@ -129,8 +129,9 @@
     
         courseSubjectNumber.text = [NSString stringWithFormat:@"%@ %@", selectedCourse.subject, selectedCourse.number];
         
-        courseTitle.text = tmpCM.title;
+        //courseTitle.text = tmpCM.title;
     
+        courseTitle.text = @"We need some course titles in the db";
         
         //courseDays.text = [tmpCM days];
         courseDays.text = [NSString stringWithFormat:@"%@", selectedCourse.section.getDays];
