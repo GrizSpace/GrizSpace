@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 
 #import "CourseModel.h"
+#import "CourseSection.h"
 #import "SubjectModel.h"
 
 

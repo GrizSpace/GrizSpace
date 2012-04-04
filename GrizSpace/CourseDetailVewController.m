@@ -16,7 +16,50 @@
 
 @implementation CourseDetailVewController
 @synthesize courseIndex;
+@synthesize selectedCourse;
+@synthesize courseDelegate;
 
+- (IBAction)showStudyBuddy:(id)sender 
+{
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"CourseModel"];
+    [query whereKey:@"number" equalTo:[self.selectedCourse number]];
+    [query whereKey:@"subject" equalTo:[self.selectedCourse subject]];
+    [query whereKey:@"userid" notEqualTo:[[UIDevice currentDevice] uniqueIdentifier]];
+    PFObject* queryResults = [query getFirstObject];
+    
+    if (!queryResults) 
+    
+    {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Buddies" message:@"I'm sorry but there are not study buddies available for this course" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        
+        [alert show];
+    }
+    
+    
+    else 
+    {
+        NSString* buddyID = [queryResults objectForKey:@"userid"];
+        
+        NSString *mesg = [[NSString alloc] initWithFormat:@"Your study buddy is %@", buddyID];
+    
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Study Buddy" message:mesg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    [alert show];
+    }
+
+}
+- (IBAction)selectCancel:(id)sender 
+{
+    [self dismissModalViewControllerAnimated:YES];
+
+}
+
+-(void) didReceiveCourse:(id)selectedCourseFromPicker
+{
+    selectedCourse = selectedCourseFromPicker;
+}
 
 - (GrizSpaceDataObjects*) theAppDataObject
 {
@@ -49,6 +92,9 @@
     
     NSLog(@"Loading course detail");
     
+    NSLog(@"Your selected course is: %@", self.selectedCourse.number);
+    
+    
 
     [self LoadCourseDetails];
     
@@ -79,15 +125,22 @@
     
     if(tmpCM != nil)
     {
-        courseSubjectNumber.text = [NSString stringWithFormat:@"%@ %@",tmpCM.subject, tmpCM.number];
+        //courseSubjectNumber.text = [NSString stringWithFormat:@"%@ %@",tmpCM.subject, tmpCM.number];
     
-        courseTitle.text = tmpCM.title;
+        courseSubjectNumber.text = [NSString stringWithFormat:@"%@ %@", selectedCourse.subject, selectedCourse.number];
+        
+        //courseTitle.text = tmpCM.title;
     
-        courseDays.text = [tmpCM days];
-    
-        courseTime.text = [tmpCM time];
-    
-        courseRoom.text = [tmpCM buildingAndRoom];
+        courseTitle.text = @"We need some course titles in the db";
+        
+        //courseDays.text = [tmpCM days];
+        courseDays.text = [NSString stringWithFormat:@"%@", selectedCourse.section.getDays];
+        //courseTime.text = [tmpCM time];
+        courseTime.text = [NSString stringWithFormat:@"%@:%@", selectedCourse.section.startTime, selectedCourse.section.endTime];
+        
+        //courseRoom.text = [tmpCM buildingAndRoom];
+        
+        courseRoom.text = [NSString stringWithFormat:@"%@ %@", selectedCourse.section.building, selectedCourse.section.room];
     }
 }
 

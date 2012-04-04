@@ -272,7 +272,9 @@ sqlite3* database;
             
             
             //  Set all the attributes of the course
-            course.idCourse = (NSInteger)sqlite3_column_text(statement, 0);  
+            course.idCourse = (int)sqlite3_column_int(statement, 0);
+            
+            NSLog(@"idCourse in DB= %d", course.idCourse);
             //course.id= id;
             //below doesn't work.  fix it?  not sure how tonight 3/21
             //course.id = (id) ? [NSInteger stringWithUTF8String:id] : @"";

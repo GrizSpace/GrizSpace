@@ -60,6 +60,7 @@
 		C562FD2115003FF800ADA1C8 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD2015003FF700ADA1C8 /* PhotoViewController.m */; };
 		C58123CE151C0614008624B8 /* CourseList.m in Sources */ = {isa = PBXBuildFile; fileRef = C58123CD151C0614008624B8 /* CourseList.m */; };
 		C5915B2015155A2E00D489CD /* SelectCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */; };
+		C5E643A5152B4AC80055A7A3 /* SelectSectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643A4152B4AC80055A7A3 /* SelectSectionTableViewController.m */; };
 		D811D2DC151417C6006416A7 /* GrizSpaceDataObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */; };
 		D811D2E01514183D006416A7 /* AppDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DF1514183D006416A7 /* AppDataObject.m */; };
 		D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D83ADE0F15031F76003733BE /* MapAnnotation.m */; };
@@ -74,6 +75,7 @@
 		E63A1B2E151D5FA300FE57D9 /* GrizSpaceDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E63A1B2D151D5FA300FE57D9 /* GrizSpaceDB.sqlite */; };
 		E6CCD11B151A9B5F0060CAEA /* InterestsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */; };
 		E6CCD157151ACE720060CAEA /* CourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCD156151ACE720060CAEA /* CourseModel.m */; };
+		E6D43CFF152AAB4D00976AF6 /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D43CFE152AAB4D00976AF6 /* ScheduleTableViewController.m */; };
 		E6F0348F150ED5BE00BF0E0F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +148,8 @@
 		C58123CD151C0614008624B8 /* CourseList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseList.m; sourceTree = "<group>"; };
 		C5915B1E15155A2E00D489CD /* SelectCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCourseTableViewController.h; sourceTree = "<group>"; };
 		C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCourseTableViewController.m; sourceTree = "<group>"; };
+		C5E643A3152B4AC80055A7A3 /* SelectSectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSectionTableViewController.h; sourceTree = "<group>"; };
+		C5E643A4152B4AC80055A7A3 /* SelectSectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSectionTableViewController.m; sourceTree = "<group>"; };
 		D80AE651150521D4004EA055 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		D811D2DA151417C6006416A7 /* GrizSpaceDataObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrizSpaceDataObjects.h; sourceTree = "<group>"; };
 		D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrizSpaceDataObjects.m; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 		E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestsModel.m; sourceTree = "<group>"; };
 		E6CCD155151ACE720060CAEA /* CourseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseModel.h; sourceTree = "<group>"; };
 		E6CCD156151ACE720060CAEA /* CourseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseModel.m; sourceTree = "<group>"; };
+		E6D43CFD152AAB4D00976AF6 /* ScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewController.h; sourceTree = "<group>"; };
+		E6D43CFE152AAB4D00976AF6 /* ScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewController.m; sourceTree = "<group>"; };
 		E6F0348E150ED5BE00BF0E0F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -388,8 +394,12 @@
 				C562FD07150035A700ADA1C8 /* MapViewController.m */,
 				C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */,
 				C562FD2015003FF700ADA1C8 /* PhotoViewController.m */,
+				E6D43CFD152AAB4D00976AF6 /* ScheduleTableViewController.h */,
+				E6D43CFE152AAB4D00976AF6 /* ScheduleTableViewController.m */,
 				C5915B1E15155A2E00D489CD /* SelectCourseTableViewController.h */,
 				C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */,
+				C5E643A3152B4AC80055A7A3 /* SelectSectionTableViewController.h */,
+				C5E643A4152B4AC80055A7A3 /* SelectSectionTableViewController.m */,
 				C562FD09150036BE00ADA1C8 /* SubjectPickerViewController.h */,
 				C562FD0A150036BE00ADA1C8 /* SubjectPickerViewController.m */,
 			);
@@ -551,6 +561,8 @@
 				5A81A10315254F240077BC16 /* FMResultSet.m in Sources */,
 				5A81A117152566110077BC16 /* Mapper.m in Sources */,
 				5A81A11B152568B20077BC16 /* CourseSectionMapper.m in Sources */,
+				E6D43CFF152AAB4D00976AF6 /* ScheduleTableViewController.m in Sources */,
+				C5E643A5152B4AC80055A7A3 /* SelectSectionTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +620,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: William Lyon (DRM4L626LD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -623,6 +636,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "587671C8-61F4-4C0A-BDE7-F7782CF252CE";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -633,6 +647,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: William Lyon (DRM4L626LD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -642,6 +657,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "587671C8-61F4-4C0A-BDE7-F7782CF252CE";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -650,9 +666,9 @@
 		5A59DB4515000D7300CE4FC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: K S (EM7J35XEP3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: K S (EM7J35XEP3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos5.1]" = "iPhone Developer: K S (EM7J35XEP3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: William Lyon (DRM4L626LD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: William Lyon (DRM4L626LD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos5.1]" = "iPhone Developer: William Lyon (DRM4L626LD)";
 				"CODE_SIGN_RESOURCE_RULES_PATH[sdk=*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -663,9 +679,9 @@
 				INFOPLIST_FILE = "GrizSpace/GrizSpace-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos5.1]" = "";
+				PROVISIONING_PROFILE = "587671C8-61F4-4C0A-BDE7-F7782CF252CE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "587671C8-61F4-4C0A-BDE7-F7782CF252CE";
+				"PROVISIONING_PROFILE[sdk=iphoneos5.1]" = "587671C8-61F4-4C0A-BDE7-F7782CF252CE";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -674,9 +690,9 @@
 		5A59DB4615000D7300CE4FC6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: K S (EM7J35XEP3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: K S (EM7J35XEP3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos5.1]" = "iPhone Developer: K S (EM7J35XEP3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: William Lyon (DRM4L626LD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: William Lyon (DRM4L626LD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos5.1]" = "iPhone Developer: William Lyon (DRM4L626LD)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -686,9 +702,9 @@
 				INFOPLIST_FILE = "GrizSpace/GrizSpace-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos5.1]" = "";
+				PROVISIONING_PROFILE = "587671C8-61F4-4C0A-BDE7-F7782CF252CE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "587671C8-61F4-4C0A-BDE7-F7782CF252CE";
+				"PROVISIONING_PROFILE[sdk=iphoneos5.1]" = "587671C8-61F4-4C0A-BDE7-F7782CF252CE";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

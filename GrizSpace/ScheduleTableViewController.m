@@ -1,37 +1,36 @@
-
-
 //
-//  SelectCourseTableViewController.m
+//  ScheduleTableViewController.m
 //  GrizSpace
 //
-//  Created by William Lyon on 3/17/12.
+//  Created by Jaylene Naylor on 4/2/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "SelectCourseTableViewController.h"
+#import "ScheduleTableViewController.h"
+#import "CourseList.h"
+#import "MapViewController.h"
 
-@interface SelectCourseTableViewController ()
+@interface ScheduleTableViewController ()
 
 @end
 
-@implementation SelectCourseTableViewController
-@synthesize cancelButton;
+@implementation ScheduleTableViewController
 @synthesize courses = _courses;
-@synthesize selectedSubject;
-@synthesize delegate;
+@synthesize dayTimes = _dayTimes;
+@synthesize myCourses;
 
-
--(void)setCourses:(NSMutableArray *)courses
+//override setters
+-(void) setCourses:(NSArray *)courses
 {
     _courses = courses;
 }
 
-
-
--(IBAction)cancelButtonClicked:(id)sender
+-(void) setDayTimes:(NSArray *)dayTimes
 {
-    [self dismissModalViewControllerAnimated:YES];
+    _dayTimes = dayTimes;
 }
+
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -45,27 +44,20 @@
 {
     [super viewDidLoad];
 
-    DBAccess* db = [[DBAccess alloc] init];
-    
-    NSLog(@"SelectedSubjectID: %d", selectedSubject.idSubject);
-    
-    self.courses = [db getAllCoursesGivenSubject:selectedSubject.idSubject];
-    
-    
-    NSLog(@"Number of courses: %d", [self.courses count]);
-    
-    [db closeDatabase];
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    CourseList* myCourseListObject = [[CourseList alloc] init];
+    [self setMyCourses:[myCourseListObject getCourseListFromParse]];
+    
+    
 }
 
 - (void)viewDidUnload
 {
-    [self setCancelButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -78,32 +70,38 @@
 
 #pragma mark - Table view data source
 
-/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
-*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.courses count];
+    NSLog(@"Size of myCourses array from Parse: %d", [self.myCourses count]);
+    
+    return [self.myCourses count];
+    //return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Course";
+    static NSString *CellIdentifier = @"CourseCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     
-    cell.textLabel.text = [[self.courses objectAtIndex:indexPath.row] getSubject];
-  //  NSLog([[self.courses objectAtIndex:indexPath.row] subject]);
-          
-    cell.detailTextLabel.text = [[self.courses objectAtIndex:indexPath.row] getNumber];
+    cell.textLabel.text = [[self.myCourses objectAtIndex:indexPath.row] getSubject];
+    
+    
+    cell.detailTextLabel.text = [[self.myCourses objectAtIndex:indexPath.row] getNumber];
+    
+    NSLog(@"Parse ObjectID: %@", [[self.myCourses objectAtIndex:indexPath.row] getParseObjectID]);
+    
+    
     return cell;
 }
 
@@ -157,12 +155,6 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-    
-    [delegate didReceiveCourse:[self.courses objectAtIndex:indexPath.row]];
-    [self dismissModalViewControllerAnimated:YES];
-    
 }
-
-
 
 @end

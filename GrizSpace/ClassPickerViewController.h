@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "SelectCourseTableViewController.h"
+#import "SelectSectionTableViewController.h"
 #import "SubjectModel.h"
 #import "CourseModel.h"
 #import "CourseList.h"
+#import "CourseSection.h"
 
 @protocol CourseDelegate
 
@@ -19,7 +21,12 @@
 
 @end
 
-@interface ClassPickerViewController : UIViewController<CourseDelegate>
+@protocol sectionDelegate 
+
+-(void) didReceiveSection:(CourseSection*) selectedSectionFromPicker;
+@end
+
+@interface ClassPickerViewController : UIViewController<CourseDelegate, sectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *coursePicker;
 @property (strong, nonatomic) IBOutlet UIButton *selectCourseButton;

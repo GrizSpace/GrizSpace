@@ -34,6 +34,17 @@
     
     [PFcourseToBeAdded setObject:[courseToBeAdded getNumber] forKey:@"number"];
     [PFcourseToBeAdded setObject:[subjToBeAdded getAbbr] forKey:@"subject"];
+    [PFcourseToBeAdded setObject:[NSNumber numberWithInt:courseToBeAdded.section.days] forKey:@"days"];
+    
+    
+    [PFcourseToBeAdded setObject:courseToBeAdded.section.startTime forKey:@"startTime"];
+    [PFcourseToBeAdded setObject:courseToBeAdded.section.endTime forKey:@"endTime"];
+    [PFcourseToBeAdded setObject:courseToBeAdded.section.getNumberString forKey:@"sectionNumber"];
+    
+    [PFcourseToBeAdded setObject:courseToBeAdded.section.room forKey:@"room"];
+    [PFcourseToBeAdded setObject:courseToBeAdded.section.building forKey:@"building"];
+    [PFcourseToBeAdded setObject:[NSNumber numberWithDouble:courseToBeAdded.section.longitude] forKey:@"longitude"];
+    [PFcourseToBeAdded setObject:[NSNumber numberWithDouble:courseToBeAdded.section.latitude] forKey:@"latitude"];
     
     [PFcourseToBeAdded save];
     
@@ -59,7 +70,32 @@
          
         [tmpCourse setNumber:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"number"]];
         [tmpCourse setParseObjectID:((PFObject*)[PFObjectCourseArray objectAtIndex:i]).objectId];
+        
+        [tmpCourse setUserid:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"userid"]];
+        
+        
+        CourseSection *tmpSection = [[CourseSection alloc] initWithCrn:nil andSection:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"sectionNumber"] intValue] thatStarts:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"startTime"] andEnds:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"endTime"] on:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"days"] intValue] inBuilding:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"building"] inRoom:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"room"] atLongitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"longitude"] doubleValue] andLatitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"latitude"] doubleValue]];
+        
+        [tmpCourse setSection:tmpSection];
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+        /*
+        tmpCourse.section.number = (int)[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"sectionNumber"]; //not sure if this casting will result in the correct value, need to confirm 
+        [tmpCourse.section setStartTime:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"startTime"]];
          
+        tmpCourse.section.endTime = [[PFObjectCourseArray objectAtIndex:i] objectForKey:@"endTime"];
+        tmpCourse.section.days = [[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"days"] intValue];
+        tmpCourse.section.building = [[PFObjectCourseArray objectAtIndex:i] objectForKey:@"building"]; 
+        [tmpCourse.section setRoom: [[PFObjectCourseArray objectAtIndex:i] objectForKey:@"room"]];
+        
+        tmpCourse.section.latitude = [[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"latitude"] doubleValue];
+        
+        tmpCourse.section.longitude = [[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"longitude"] doubleValue]; 
+        */
+        NSLog(@"building: %@", tmpCourse.section.building);
+        NSLog(@"room: %@", tmpCourse.section.room);
+        NSLog(@"latitude: %f", tmpCourse.section.latitude);
+        NSLog(@"section number: %d", tmpCourse.section.number);
+        
         [tmpCourseList addObject:tmpCourse];
         
     }

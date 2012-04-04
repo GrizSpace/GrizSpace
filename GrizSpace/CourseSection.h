@@ -12,7 +12,11 @@
 
 - (id)initWithCrn: (int) crn andSection: (int) number 
        thatStarts: (NSString*) start_t andEnds: (NSString*) end_t
-               on: (int) days;
+               on: (int) days
+        inBuilding:(NSString*) building
+           inRoom:(NSString*) room
+      atLongitude:(double) longitude
+      andLatitude:(double) latitude;
 
 
 - (NSString*)getDays;
@@ -22,4 +26,11 @@
 @property NSString* startTime;
 @property NSString* endTime;
 @property int days;
+@property double longitude;
+@property double latitude;
+@property NSString* building;
+@property NSString* room;
+
+-(NSString*) getNumberString;
+
 @end

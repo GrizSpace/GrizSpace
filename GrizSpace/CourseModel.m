@@ -26,6 +26,14 @@
 @synthesize radius;
 @synthesize index;
 @synthesize parseObjectID;
+@synthesize userid;
+@synthesize section;
+
+
+-(void) setCourseSection:(CourseSection *)sectionToBeAdded
+{
+    section = sectionToBeAdded;
+}
 
 
 -(NSString*) getTitle
@@ -49,5 +57,9 @@ return title;
     return parseObjectID;
 }
 
+-(int) getIdCourse
+{
+    return idCourse;
+}
 @end
 

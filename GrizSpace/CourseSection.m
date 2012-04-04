@@ -14,11 +14,19 @@
 @synthesize startTime;
 @synthesize endTime;
 @synthesize days;
+@synthesize longitude;
+@synthesize latitude;
+@synthesize building;
+@synthesize room;
 
 - (id)initWithCrn:(int)aCrn andSection:(int)aNumber 
        thatStarts:(NSString *)aStartTime 
           andEnds:(NSString *)aEndTime
                on:(int)aDays
+       inBuilding:(NSString*) abuilding
+           inRoom:(NSString*) aroom
+      atLongitude:(double) alongitude
+      andLatitude:(double) alatitude
 {
     self = [super init];
     
@@ -30,8 +38,17 @@
     self.startTime = aStartTime;
     self.endTime = aEndTime;
     self.days = aDays;
-
+    self.room = aroom;
+    self.building = abuilding;
+    self.latitude = alatitude;
+    self.longitude = alongitude;
     return self;
+}
+
+- (NSString *)getNumberString
+{
+    return [NSString stringWithFormat:@"%d", self.number];
+
 }
 
 // TODO: Clean this up with a hash, e.g., {[COND] => "MONDAY"}
