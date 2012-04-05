@@ -47,7 +47,6 @@
 		C52A22761522975A00507580 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A22751522975A00507580 /* libz.1.1.3.dylib */; };
 		C52A22781522976300507580 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A22771522976300507580 /* Security.framework */; };
 		C52A227A1522976C00507580 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A22791522976C00507580 /* QuartzCore.framework */; };
-		C55AE7B2151AD09A00679059 /* BoredInterestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C55AE7B1151AD09900679059 /* BoredInterestsTableViewController.m */; };
 		C562FD08150035A700ADA1C8 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD07150035A700ADA1C8 /* MapViewController.m */; };
 		C562FD0B150036BE00ADA1C8 /* SubjectPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD0A150036BE00ADA1C8 /* SubjectPickerViewController.m */; };
 		C562FD0E1500373300ADA1C8 /* ClassPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD0D1500373300ADA1C8 /* ClassPickerViewController.m */; };
@@ -61,6 +60,8 @@
 		C58123CE151C0614008624B8 /* CourseList.m in Sources */ = {isa = PBXBuildFile; fileRef = C58123CD151C0614008624B8 /* CourseList.m */; };
 		C5915B2015155A2E00D489CD /* SelectCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */; };
 		C5E643A5152B4AC80055A7A3 /* SelectSectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643A4152B4AC80055A7A3 /* SelectSectionTableViewController.m */; };
+		C5E643A9152D3DFE0055A7A3 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643A8152D3DFD0055A7A3 /* EventDetailsViewController.m */; };
+		C5E643AC152D407D0055A7A3 /* BoredTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643AB152D407D0055A7A3 /* BoredTableViewController.m */; };
 		D811D2DC151417C6006416A7 /* GrizSpaceDataObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */; };
 		D811D2E01514183D006416A7 /* AppDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DF1514183D006416A7 /* AppDataObject.m */; };
 		D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D83ADE0F15031F76003733BE /* MapAnnotation.m */; };
@@ -125,8 +126,6 @@
 		C52A22751522975A00507580 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		C52A22771522976300507580 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C52A22791522976C00507580 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		C55AE7B0151AD09900679059 /* BoredInterestsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoredInterestsTableViewController.h; sourceTree = "<group>"; };
-		C55AE7B1151AD09900679059 /* BoredInterestsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoredInterestsTableViewController.m; sourceTree = "<group>"; };
 		C562FD06150035A700ADA1C8 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		C562FD07150035A700ADA1C8 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		C562FD09150036BE00ADA1C8 /* SubjectPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectPickerViewController.h; sourceTree = "<group>"; };
@@ -151,6 +150,10 @@
 		C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCourseTableViewController.m; sourceTree = "<group>"; };
 		C5E643A3152B4AC80055A7A3 /* SelectSectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSectionTableViewController.h; sourceTree = "<group>"; };
 		C5E643A4152B4AC80055A7A3 /* SelectSectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSectionTableViewController.m; sourceTree = "<group>"; };
+		C5E643A7152D3DFD0055A7A3 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
+		C5E643A8152D3DFD0055A7A3 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
+		C5E643AA152D407D0055A7A3 /* BoredTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoredTableViewController.h; sourceTree = "<group>"; };
+		C5E643AB152D407D0055A7A3 /* BoredTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoredTableViewController.m; sourceTree = "<group>"; };
 		D80AE651150521D4004EA055 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		D811D2DA151417C6006416A7 /* GrizSpaceDataObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrizSpaceDataObjects.h; sourceTree = "<group>"; };
 		D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrizSpaceDataObjects.m; sourceTree = "<group>"; };
@@ -380,8 +383,8 @@
 		D83F9727151C3AF100BAA16E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C55AE7B0151AD09900679059 /* BoredInterestsTableViewController.h */,
-				C55AE7B1151AD09900679059 /* BoredInterestsTableViewController.m */,
+				C5E643AA152D407D0055A7A3 /* BoredTableViewController.h */,
+				C5E643AB152D407D0055A7A3 /* BoredTableViewController.m */,
 				C562FD1C15003F3D00ADA1C8 /* BoredViewController.h */,
 				C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */,
 				C562FD1915003DAB00ADA1C8 /* BuildingPickerViewController.h */,
@@ -395,6 +398,8 @@
 				D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */,
 				D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */,
 				5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */,
+				C5E643A7152D3DFD0055A7A3 /* EventDetailsViewController.h */,
+				C5E643A8152D3DFD0055A7A3 /* EventDetailsViewController.m */,
 				C562FD06150035A700ADA1C8 /* MapViewController.h */,
 				C562FD07150035A700ADA1C8 /* MapViewController.m */,
 				C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */,
@@ -555,7 +560,6 @@
 				E637A2B315154F14001E0E2D /* SubjectModel.m in Sources */,
 				C5915B2015155A2E00D489CD /* SelectCourseTableViewController.m in Sources */,
 				E6CCD11B151A9B5F0060CAEA /* InterestsModel.m in Sources */,
-				C55AE7B2151AD09A00679059 /* BoredInterestsTableViewController.m in Sources */,
 				E6CCD157151ACE720060CAEA /* CourseModel.m in Sources */,
 				C58123CE151C0614008624B8 /* CourseList.m in Sources */,
 				5A81A0BA152437850077BC16 /* CourseSection.m in Sources */,
@@ -569,6 +573,8 @@
 				5A81A11B152568B20077BC16 /* CourseSectionMapper.m in Sources */,
 				E6D43CFF152AAB4D00976AF6 /* ScheduleTableViewController.m in Sources */,
 				C5E643A5152B4AC80055A7A3 /* SelectSectionTableViewController.m in Sources */,
+				C5E643A9152D3DFE0055A7A3 /* EventDetailsViewController.m in Sources */,
+				C5E643AC152D407D0055A7A3 /* BoredTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

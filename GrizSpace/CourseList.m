@@ -59,7 +59,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"CourseModel"];
     [query whereKey:@"userid" equalTo:[[UIDevice currentDevice] uniqueIdentifier]];
     
-    NSLog([[UIDevice currentDevice] uniqueIdentifier]);
+    NSLog(@"%@", [[UIDevice currentDevice] uniqueIdentifier]);
            
     NSArray* PFObjectCourseArray = [query findObjects];
     
@@ -74,7 +74,16 @@
         [tmpCourse setUserid:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"userid"]];
         
         
-        CourseSection *tmpSection = [[CourseSection alloc] initWithCrn:nil andSection:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"sectionNumber"] intValue] thatStarts:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"startTime"] andEnds:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"endTime"] on:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"days"] intValue] inBuilding:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"building"] inRoom:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"room"] atLongitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"longitude"] doubleValue] andLatitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"latitude"] doubleValue]];
+        CourseSection *tmpSection = [[CourseSection alloc] 
+                                     initWithCrn:nil 
+                                     andSection:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"sectionNumber"] intValue] 
+                                     thatStarts:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"startTime"] 
+                                     andEnds:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"endTime"] 
+                                     on:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"days"] intValue] 
+                                     inBuilding:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"building"] 
+                                     inRoom:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"room"] 
+                                     atLongitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"longitude"] doubleValue]
+                                     andLatitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"latitude"] doubleValue]];
         
         [tmpCourse setSection:tmpSection];
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
