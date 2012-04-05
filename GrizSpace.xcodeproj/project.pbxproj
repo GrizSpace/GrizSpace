@@ -62,6 +62,7 @@
 		C5E643A5152B4AC80055A7A3 /* SelectSectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643A4152B4AC80055A7A3 /* SelectSectionTableViewController.m */; };
 		C5E643A9152D3DFE0055A7A3 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643A8152D3DFD0055A7A3 /* EventDetailsViewController.m */; };
 		C5E643AC152D407D0055A7A3 /* BoredTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643AB152D407D0055A7A3 /* BoredTableViewController.m */; };
+		C5E643B3152DEC560055A7A3 /* SubmitNewEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643B2152DEC560055A7A3 /* SubmitNewEventViewController.m */; };
 		D811D2DC151417C6006416A7 /* GrizSpaceDataObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */; };
 		D811D2E01514183D006416A7 /* AppDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DF1514183D006416A7 /* AppDataObject.m */; };
 		D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D83ADE0F15031F76003733BE /* MapAnnotation.m */; };
@@ -155,6 +156,8 @@
 		C5E643A8152D3DFD0055A7A3 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
 		C5E643AA152D407D0055A7A3 /* BoredTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoredTableViewController.h; sourceTree = "<group>"; };
 		C5E643AB152D407D0055A7A3 /* BoredTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoredTableViewController.m; sourceTree = "<group>"; };
+		C5E643B1152DEC560055A7A3 /* SubmitNewEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitNewEventViewController.h; sourceTree = "<group>"; };
+		C5E643B2152DEC560055A7A3 /* SubmitNewEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitNewEventViewController.m; sourceTree = "<group>"; };
 		D80AE651150521D4004EA055 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		D811D2DA151417C6006416A7 /* GrizSpaceDataObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrizSpaceDataObjects.h; sourceTree = "<group>"; };
 		D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrizSpaceDataObjects.m; sourceTree = "<group>"; };
@@ -401,6 +404,8 @@
 				D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */,
 				D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */,
 				5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */,
+				C5E643B1152DEC560055A7A3 /* SubmitNewEventViewController.h */,
+				C5E643B2152DEC560055A7A3 /* SubmitNewEventViewController.m */,
 				C5E643A7152D3DFD0055A7A3 /* EventDetailsViewController.h */,
 				C5E643A8152D3DFD0055A7A3 /* EventDetailsViewController.m */,
 				C562FD06150035A700ADA1C8 /* MapViewController.h */,
@@ -579,6 +584,7 @@
 				C5E643A5152B4AC80055A7A3 /* SelectSectionTableViewController.m in Sources */,
 				C5E643A9152D3DFE0055A7A3 /* EventDetailsViewController.m in Sources */,
 				C5E643AC152D407D0055A7A3 /* BoredTableViewController.m in Sources */,
+				C5E643B3152DEC560055A7A3 /* SubmitNewEventViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

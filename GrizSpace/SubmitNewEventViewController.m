@@ -1,24 +1,21 @@
 //
-//  EventDetailsViewController.m
+//  SubmitNewEventViewController.m
 //  GrizSpace
 //
-//  Created by William Lyon on 4/4/12.
+//  Created by William Lyon on 4/5/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "EventDetailsViewController.h"
+#import "SubmitNewEventViewController.h"
 
-@interface EventDetailsViewController ()
+@interface SubmitNewEventViewController ()
 
 @end
 
-@implementation EventDetailsViewController
-@synthesize descLabel;
-@synthesize dateLabel;
-@synthesize startLabel;
-@synthesize endLabel;
-@synthesize locationLabel;
-@synthesize titleLabel;
+@implementation SubmitNewEventViewController
+@synthesize titleText;
+@synthesize descText;
+@synthesize locationText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,12 +34,9 @@
 
 - (void)viewDidUnload
 {
-    [self setTitleLabel:nil];
-    [self setDescLabel:nil];
-    [self setDateLabel:nil];
-    [self setStartLabel:nil];
-    [self setEndLabel:nil];
-    [self setLocationLabel:nil];
+    [self setTitleText:nil];
+    [self setDescText:nil];
+    [self setLocationText:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -52,4 +46,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)selectSubmitButton:(id)sender {
+}
 @end

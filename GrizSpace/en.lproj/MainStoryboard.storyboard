@@ -669,6 +669,82 @@
             </objects>
             <point key="canvasLocation" x="925" y="1659"/>
         </scene>
+        <!--Submit New Event View Controller - Submit New Event-->
+        <scene sceneID="Ovp-Wz-Jzx">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2TJ-JS-ktQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="HcA-e0-azX" customClass="SubmitNewEventViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zY0-uF-efd">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="SHY-dE-KsE">
+                                <rect key="frame" x="112" y="40" width="188" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="E2a-Rc-Z8Y">
+                                <rect key="frame" x="112" y="100" width="188" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="wuk-Do-N4G">
+                                <rect key="frame" x="112" y="157" width="188" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cuS-ND-pja">
+                                <rect key="frame" x="227" y="310" width="75" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectSubmitButton:" destination="HcA-e0-azX" eventType="touchUpInside" id="d6A-6J-VBv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="hvP-KG-g4H">
+                                <rect key="frame" x="70" y="44" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="TMg-ux-saX">
+                                <rect key="frame" x="20" y="103" width="92" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="xHI-cG-IRB">
+                                <rect key="frame" x="41" y="162" width="71" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Submit New Event" id="pZo-Dh-UFs"/>
+                    <connections>
+                        <outlet property="descText" destination="E2a-Rc-Z8Y" id="j3w-Ul-3Yf"/>
+                        <outlet property="locationText" destination="wuk-Do-N4G" id="ZRI-nI-bnI"/>
+                        <outlet property="titleText" destination="SHY-dE-KsE" id="veP-lj-hqR"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1404" y="1865"/>
+        </scene>
         <!--Schedule Table View Controller - Schedule-->
         <scene sceneID="Lya-7g-dWn">
             <objects>
@@ -973,6 +1049,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5H2-E0-rlj">
                             <connections>
                                 <action selector="settings:" destination="EOY-ca-zqd" id="eBh-sz-fTm"/>
+                                <segue destination="HcA-e0-azX" kind="push" id="gtL-5L-ftf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1047,9 +1124,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Event Details" id="Rls-CE-X5V"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="4II-dl-1SJ" id="R7G-hy-fbK"/>
+                        <outlet property="descLabel" destination="cOF-Qg-EbO" id="MkI-JG-cEn"/>
+                        <outlet property="endLabel" destination="aPe-oW-5KX" id="3WJ-LM-fbR"/>
+                        <outlet property="locationLabel" destination="OJm-KD-t3y" id="UIs-9u-FUt"/>
+                        <outlet property="startLabel" destination="MXK-3N-bnx" id="2oN-dp-9EO"/>
+                        <outlet property="titleLabel" destination="Ed3-Tl-pxP" id="zhX-so-ffd"/>
+                    </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1447" y="2251"/>
+            <point key="canvasLocation" x="1378" y="2438"/>
         </scene>
         <!--Navigation Controller - Initial Setup-->
         <scene sceneID="rAO-ub-VUF">
@@ -1383,6 +1468,14 @@
         </class>
         <class className="EventDetailsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="endLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="GrizSpaceTabBarController" superclassName="UITabBarController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GrizSpaceTabBarController.h"/>
@@ -1419,6 +1512,15 @@
         </class>
         <class className="SubjectPickerViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SubjectPickerViewController.h"/>
+        </class>
+        <class className="SubmitNewEventViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SubmitNewEventViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="selectSubmitButton:"/>
+                <relationship kind="outlet" name="descText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="locationText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleText" candidateClass="UITextField"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

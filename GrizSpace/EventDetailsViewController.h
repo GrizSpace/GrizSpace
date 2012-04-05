@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface EventDetailsViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *descLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UILabel *startLabel;
+@property (strong, nonatomic) IBOutlet UILabel *endLabel;
+@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @end
