@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BoredEvent.h"
 
 @interface EventDetailsViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *descLabel;
@@ -16,4 +17,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (strong, nonatomic) BoredEvent* selectedEvent;
 @end

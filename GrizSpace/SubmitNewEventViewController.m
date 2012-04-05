@@ -26,12 +26,36 @@
     return self;
 }
 
+-(BOOL) textFieldShouldReturn:(UITextField *) textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    for (UIView *view in self.view.subviews)
+    {
+        if ([view isKindOfClass:[UITextField class]])
+        {
+            UITextField* aTextField = (UITextField*) view;
+            aTextField.delegate = self;
+            aTextField.returnKeyType = UIReturnKeyDone;
+            aTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+            aTextField.borderStyle = UITextBorderStyleRoundedRect;
+            aTextField.autocorrectionType = UITextAutocorrectionTypeYes;
+            
+        }
+    }
 	// Do any additional setup after loading the view.
 }
 
+-(IBAction)selectSubmitButton:(id)sender
+{
+    NSLog(@"Title: %@", titleText.text);
+}
 - (void)viewDidUnload
 {
     [self setTitleText:nil];
@@ -46,6 +70,5 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)selectSubmitButton:(id)sender {
-}
+
 @end

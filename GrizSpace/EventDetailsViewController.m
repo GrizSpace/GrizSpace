@@ -19,6 +19,7 @@
 @synthesize endLabel;
 @synthesize locationLabel;
 @synthesize titleLabel;
+@synthesize selectedEvent;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,10 +29,17 @@
     }
     return self;
 }
+- (IBAction)selectCancel:(id)sender 
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.titleLabel.text = self.selectedEvent.title;
+    self.descLabel.text = self.selectedEvent.description;
+    self.locationLabel.text = self.selectedEvent.location;
 	// Do any additional setup after loading the view.
 }
 

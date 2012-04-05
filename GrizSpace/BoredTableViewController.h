@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "BoredEvent.h"
+#import "EventDetailsViewController.h"
 
 @interface BoredTableViewController : UITableViewController
 

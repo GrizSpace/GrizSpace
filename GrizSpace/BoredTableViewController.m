@@ -31,22 +31,33 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Event"];
 
-    
-    PFObject* PFObjectCourseArray = [query getFirstObject];
-    
-   // for (int i=0; i<[PFObjectCourseArray count]; i++)
-   // {
-    
-    NSString* tmpString = [PFObjectCourseArray objectForKey:@"title"];
-    
-   // [events addObject:tmpString];
-    
+    PFObject* tmpPFObject = [[PFObject alloc] init];
     NSMutableArray* tmpArray = [[NSMutableArray alloc] init];
     
-    NSLog(@"tmpString: %@", tmpString);
     
-    [tmpArray addObject:tmpString];
+    NSArray* PFObjectCourseArray = [query findObjects];
     
+    
+   for (int i=0; i<[PFObjectCourseArray count]; i++)
+   {
+       tmpPFObject = [PFObjectCourseArray objectAtIndex:i];
+       
+    NSString* tmpTitle = [tmpPFObject objectForKey:@"title"];
+    
+       NSString* tmpDesc = [tmpPFObject objectForKey:@"desc"];
+       NSString* tmpLoc = [tmpPFObject objectForKey:@"location"];
+       
+
+       BoredEvent* tmpBoredEvent = [[BoredEvent alloc] initWithTitle:tmpTitle andDescription:tmpDesc atLocation:tmpLoc];
+       
+   // [events addObject:tmpString];
+    
+    
+    
+    //NSLog(@"tmpString: %@", tmpString);
+    
+    [tmpArray addObject:tmpBoredEvent];
+   }
     [self setEvents:tmpArray];
      
   //  }
@@ -87,7 +98,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    cell.textLabel.text = [self.events objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[self.events objectAtIndex:indexPath.row] title];
     
     return cell;
 }
@@ -142,6 +153,15 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    EventDetailsViewController *detailView = [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetailsViewController"];
+    
+    [detailView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    //detailView.courseDelegate = self;
+    
+    [detailView setSelectedEvent:[self.events objectAtIndex:indexPath.row]];
+    
+    [self.navigationController presentModalViewController:detailView animated:YES];
 }
 
 @end
