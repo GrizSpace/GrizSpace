@@ -75,6 +75,7 @@
 		E637A2AC1515132E001E0E2D /* GPSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2AB1515132E001E0E2D /* GPSModel.m */; };
 		E637A2B315154F14001E0E2D /* SubjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2B215154F14001E0E2D /* SubjectModel.m */; };
 		E63A1B2E151D5FA300FE57D9 /* GrizSpaceDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E63A1B2D151D5FA300FE57D9 /* GrizSpaceDB.sqlite */; };
+		E6570C9D152D3A7F00EACBC4 /* grizzly1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E6570C9C152D3A7F00EACBC4 /* grizzly1.jpg */; };
 		E6CCD11B151A9B5F0060CAEA /* InterestsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */; };
 		E6CCD157151ACE720060CAEA /* CourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCD156151ACE720060CAEA /* CourseModel.m */; };
 		E6D43CFF152AAB4D00976AF6 /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D43CFE152AAB4D00976AF6 /* ScheduleTableViewController.m */; };
@@ -179,6 +180,7 @@
 		E637A2B115154F14001E0E2D /* SubjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectModel.h; sourceTree = "<group>"; };
 		E637A2B215154F14001E0E2D /* SubjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectModel.m; sourceTree = "<group>"; };
 		E63A1B2D151D5FA300FE57D9 /* GrizSpaceDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = GrizSpaceDB.sqlite; sourceTree = "<group>"; };
+		E6570C9C152D3A7F00EACBC4 /* grizzly1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grizzly1.jpg; sourceTree = "<group>"; };
 		E6CCD119151A9B5F0060CAEA /* InterestsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestsModel.h; sourceTree = "<group>"; };
 		E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestsModel.m; sourceTree = "<group>"; };
 		E6CCD155151ACE720060CAEA /* CourseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseModel.h; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 		5A59DB2615000D7300CE4FC6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E6570C9C152D3A7F00EACBC4 /* grizzly1.jpg */,
 				D8160AF7151A7D14009D366E /* bear_2 (1).png */,
 				D8FE67A115048EE600D09F31 /* Direction_Arrow.png */,
 				5A59DB2715000D7300CE4FC6 /* GrizSpace-Info.plist */,
@@ -504,6 +507,7 @@
 				D8FE67A215048EE600D09F31 /* Direction_Arrow.png in Resources */,
 				D8E53BC81505BC3400D59A52 /* Location2.gpx in Resources */,
 				E63A1B2E151D5FA300FE57D9 /* GrizSpaceDB.sqlite in Resources */,
+				E6570C9D152D3A7F00EACBC4 /* grizzly1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
