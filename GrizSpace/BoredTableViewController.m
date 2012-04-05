@@ -46,9 +46,9 @@
     
        NSString* tmpDesc = [tmpPFObject objectForKey:@"desc"];
        NSString* tmpLoc = [tmpPFObject objectForKey:@"location"];
-       
+       NSString* tmpObjId = tmpPFObject.objectId;
 
-       BoredEvent* tmpBoredEvent = [[BoredEvent alloc] initWithTitle:tmpTitle andDescription:tmpDesc atLocation:tmpLoc];
+       BoredEvent* tmpBoredEvent = [[BoredEvent alloc] initWithTitle:tmpTitle andDescription:tmpDesc atLocation:tmpLoc withParseObjID:tmpObjId];
        
    // [events addObject:tmpString];
     

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BoredEvent.h"
+#import "BoredEventMapper.h"
 
 @interface EventDetailsViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *descLabel;

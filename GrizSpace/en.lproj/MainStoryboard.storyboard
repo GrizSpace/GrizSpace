@@ -1116,6 +1116,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="selectFlag:" destination="Xun-N8-93i" eventType="touchUpInside" id="CVQ-Jr-ZTG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tWC-s8-9Ki">
                                 <rect key="frame" x="227" y="305" width="74" height="37"/>

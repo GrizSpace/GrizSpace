@@ -13,6 +13,7 @@
 @property NSString* title;
 @property NSString* description;
 @property NSString* location;
--(id) initWithTitle:(NSString*) title andDescription:(NSString*) description atLocation:(NSString*) location;
+@property NSString* parseObjectID;
+-(id) initWithTitle:(NSString*) title andDescription:(NSString*) description atLocation:(NSString*) location withParseObjID:(NSString*) objectID;
 
 @end

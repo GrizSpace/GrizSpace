@@ -12,15 +12,16 @@
 @synthesize title;
 @synthesize description;
 @synthesize location;
+@synthesize parseObjectID;
 
--(id) initWithTitle:(NSString *)atitle andDescription:(NSString *)adescription atLocation:(NSString *)alocation
+-(id) initWithTitle:(NSString *)atitle andDescription:(NSString *)adescription atLocation:(NSString *)alocation withParseObjID:(NSString *)aobjectID
 {
     self = [super init];
     
     self.title = atitle;
     self.description = adescription;
     self.location = alocation;
-    
+    self.parseObjectID = aobjectID;
     return self;
 }
 

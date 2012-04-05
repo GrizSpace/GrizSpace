@@ -33,6 +33,11 @@
 {
     [self dismissModalViewControllerAnimated:YES];
 }
+- (IBAction)selectFlag:(id)sender 
+{
+    [BoredEventMapper flagEvent:self.selectedEvent];
+
+}
 
 - (void)viewDidLoad
 {
