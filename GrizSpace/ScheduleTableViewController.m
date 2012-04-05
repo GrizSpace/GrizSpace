@@ -34,8 +34,10 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
+    //self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -52,6 +54,15 @@
     
     CourseList* myCourseListObject = [[CourseList alloc] init];
     [self setMyCourses:[myCourseListObject getCourseListFromParse]];
+    
+    //allow the custom background to be seen
+    //self.tableView.backgroundColor = [UIColor clearColor];
+    
+    //still need to figure out how to put in a custom background!
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"grizzly1.jpg"]];
+    self.tableView.backgroundView = imageView;
+    
+    
     
     
 }
@@ -74,7 +85,7 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
