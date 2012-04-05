@@ -29,36 +29,9 @@
 {
     [super viewDidLoad];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
-
-    PFObject* tmpPFObject = [[PFObject alloc] init];
-    NSMutableArray* tmpArray = [[NSMutableArray alloc] init];
     
+    [self setEvents:[BoredEvent getBoredEvents]];
     
-    NSArray* PFObjectCourseArray = [query findObjects];
-    
-    
-   for (int i=0; i<[PFObjectCourseArray count]; i++)
-   {
-       tmpPFObject = [PFObjectCourseArray objectAtIndex:i];
-       
-    NSString* tmpTitle = [tmpPFObject objectForKey:@"title"];
-    
-       NSString* tmpDesc = [tmpPFObject objectForKey:@"desc"];
-       NSString* tmpLoc = [tmpPFObject objectForKey:@"location"];
-       NSString* tmpObjId = tmpPFObject.objectId;
-
-       BoredEvent* tmpBoredEvent = [[BoredEvent alloc] initWithTitle:tmpTitle andDescription:tmpDesc atLocation:tmpLoc withParseObjID:tmpObjId];
-       
-   // [events addObject:tmpString];
-    
-    
-    
-    //NSLog(@"tmpString: %@", tmpString);
-    
-    [tmpArray addObject:tmpBoredEvent];
-   }
-    [self setEvents:tmpArray];
      
   //  }
     

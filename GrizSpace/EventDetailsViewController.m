@@ -35,7 +35,7 @@
 }
 - (IBAction)selectFlag:(id)sender 
 {
-    [BoredEventMapper flagEvent:self.selectedEvent];
+    [BoredEvent flagEvent:self.selectedEvent];
 
 }
 

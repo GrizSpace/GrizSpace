@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 @interface BoredEvent : NSObject
 
@@ -15,5 +16,9 @@
 @property NSString* location;
 @property NSString* parseObjectID;
 -(id) initWithTitle:(NSString*) title andDescription:(NSString*) description atLocation:(NSString*) location withParseObjID:(NSString*) objectID;
+
++(void) flagEvent: (BoredEvent*) event;
++(NSMutableArray*) getBoredEvents;
++(void) addBoredEvent: (BoredEvent*) event;
 
 @end
