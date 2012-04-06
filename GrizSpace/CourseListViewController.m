@@ -59,6 +59,7 @@
     
     
    [self setMyCourses:[myCourseListObject getCourseListFromParse]];
+    [self.tableView reloadData];
    // PFQuery *query = [PFQuery queryWithClassName:@"GameScore"];
   //  [query whereKey:@"playerName" equalTo:@"Dan Stemkoski"];
    // NSArray* scoreArray = [query findObjects]; 
