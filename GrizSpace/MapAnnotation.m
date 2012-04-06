@@ -66,7 +66,7 @@
         [self setAnnotationType: @"myCourse"];
         
         //should be Latitude then longitude.  Database data needs switched.
-        [self setCoordinate:CLLocationCoordinate2DMake(tmpCM.latitude, tmpCM.longitude)];
+        [self setCoordinate:CLLocationCoordinate2DMake(tmpCM.section.latitude, tmpCM.section.longitude)];
         //[self setCoordinate:CLLocationCoordinate2DMake(tmpBM.Longitude, tmpBM.Latitude)];
         [self setTitle: tmpCM.subject];
         [self setSubtitle: tmpCM.buildingAndRoom];  

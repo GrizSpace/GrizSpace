@@ -180,7 +180,7 @@
 -(CourseModel*) GetNextCourse
 {
     
-     if(currentCourseIndex == ([myCourseItems count] - 1))
+     if(currentCourseIndex == ([[self getCourseListFromParse] count] - 1))
      {
         currentCourseIndex = 0;
      }
@@ -195,7 +195,8 @@
 //gets the current annotation item.
 -(CourseModel*) GetCurrentCourse
 {
-    return [myCourseItems objectAtIndex: currentCourseIndex];
+    //return [myCourseItems objectAtIndex: currentCourseIndex];
+    return [[self getCourseListFromParse] objectAtIndex: currentCourseIndex];
 }
 
 
