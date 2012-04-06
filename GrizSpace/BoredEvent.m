@@ -77,7 +77,11 @@
 
 +(void) addBoredEvent:(BoredEvent *)event
 {
-    
+    PFObject* newEvent = [PFObject objectWithClassName:@"Event"];
+    [newEvent setObject:event.title forKey:@"title"];
+    [newEvent setObject:event.description forKey:@"desc"];
+    [newEvent setObject:event.location forKey:@"location"];
+    [newEvent save];
 }
 
 

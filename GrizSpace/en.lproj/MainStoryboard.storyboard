@@ -1043,6 +1043,11 @@
                         <sections/>
                     </tableView>
                     <navigationItem key="navigationItem" title="I'm Bored" id="lep-BY-AvA">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="uYE-iy-hlb">
+                            <connections>
+                                <action selector="refresh:" destination="EOY-ca-zqd" id="Zl5-67-vpM"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5H2-E0-rlj">
                             <connections>
                                 <action selector="settings:" destination="EOY-ca-zqd" id="eBh-sz-fTm"/>

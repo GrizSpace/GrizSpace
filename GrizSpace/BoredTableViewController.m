@@ -41,6 +41,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+- (IBAction)refresh:(id)sender 
+
+{
+    [self viewDidLoad];
+    [self.tableView reloadData];
+
+}
 
 - (void)viewDidUnload
 {
@@ -133,8 +140,8 @@
     //detailView.courseDelegate = self;
     
     [detailView setSelectedEvent:[self.events objectAtIndex:indexPath.row]];
-    
-    [self.navigationController presentModalViewController:detailView animated:YES];
+    //[self.navigationController presentModalViewController:detailView animated:YES];
+    [self.navigationController pushViewController:detailView animated:YES];
 }
 
 @end

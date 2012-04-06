@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BoredEvent.h"
 
 @interface SubmitNewEventViewController : UIViewController
 - (IBAction)selectSubmitButton:(id)sender;

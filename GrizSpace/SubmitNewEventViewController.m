@@ -55,6 +55,11 @@
 -(IBAction)selectSubmitButton:(id)sender
 {
     NSLog(@"Title: %@", titleText.text);
+    BoredEvent* newEvent = [[BoredEvent alloc] initWithTitle:titleText.text andDescription:descText.text atLocation:locationText.text withParseObjID:nil];
+    
+    [BoredEvent addBoredEvent:newEvent];
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 - (void)viewDidUnload
 {
