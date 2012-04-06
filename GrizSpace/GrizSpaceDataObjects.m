@@ -28,7 +28,8 @@
      
     //sets up the courses for reference.
     self.myCourses = [[CourseList alloc] init];
-    
+    myCourses.myCourseItems = [myCourses getCourseListFromParse];
+    //[self setMyCourses:[myCourses getCourseListFromParse]];
     //sets up the courses for reference.
     [dbAccess initializeDatabase];
     self.selectableCourses = [dbAccess.getAllCourses mutableCopy];

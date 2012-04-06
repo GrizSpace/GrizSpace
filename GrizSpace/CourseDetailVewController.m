@@ -94,10 +94,8 @@
     
     NSLog(@"Your selected course is: %@", self.selectedCourse.number);
     
-    
 
-    [self LoadCourseDetails];
-    
+    [self LoadCourseDetails];    
 }
 
 - (void)viewDidUnload

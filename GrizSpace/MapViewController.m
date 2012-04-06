@@ -602,40 +602,8 @@
     annotationButtonActionTag = (long int)[button tag];
     
     //perform action for annotation.
-    //CourseDetailVewController *cDVC= [self.storyboard instantiateViewControllerWithIdentifier:@"CourseDetailViewController"];
-    
-    //[self.navigationController presentViewController:cDVC animated:NO];
-    
-    //cDVC.initialViewControler = self;
-    
-    //[self presentModalViewController:cDVC animated:YES];
-
-    
-    
-    
-    //[self performSegueWithIdentifier:@"MapToCourseDetail" sender:self];
-    
-    // Get reference to the destination view controller
-    //CourseDetailVewController *vc = [self.storyboard valueForKeyPath:@"MapToCourseDetail"];
-    
-    // Pass any objects to the view controller here, like...
-    //self.delegate = cDVC;
-    //[delegate LoadCourseDetails: (long int) [button tag]];
-    
-    
-    //sets the correct tab index
-    //[self.tabBarController setSelectedIndex:1];
     [self performSegueWithIdentifier:@"MapToCourseDetail" sender:self];
     
-    //get handle for nav controller
-    //UINavigationController *tmpNC = [self.tabBarController.viewControllers objectAtIndex:1];
-    
-    //get handle for map view controller
-    //CourseDetailVewController *cDVC = [tmpNC.viewControllers objectAtIndex:2];
-    
-    // Pass any objects to the view controller here, like...
-    //self.delegate = cDVC;
-    //[delegate LoadCourseDetails: (long int) [button tag]];
     
 }
 
@@ -646,20 +614,15 @@
     
     if ([[segue identifier] isEqualToString:@"MapToCourseDetail"])
     {
+        //get the app data from teh griz space data objects ref.
+        GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
+        NSMutableArray* myCourses = [theDataObject.myCourses myCourseItems]; 
+        
         // Get reference to the destination view controller
         CourseDetailVewController *cDVC = [segue destinationViewController];
     
         cDVC.courseIndex = annotationButtonActionTag;
-        // Pass any objects to the view controller here, like...
-        //self.delegate = cDVC;
-        //[delegate LoadCourseDetails: annotationButtonActionTag];
-        
-        
-        //[cDVC LoadCourseDetails:annotationButtonActionTag];
-        
-        
-        
-        //cDVC.courseTitle.text =  @"testing new title";
+        [cDVC setSelectedCourse:[myCourses objectAtIndex:annotationButtonActionTag]];
     }
      
 }

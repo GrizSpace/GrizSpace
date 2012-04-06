@@ -16,7 +16,7 @@
 
 //procedure to get class data from the data objects.
 @property (nonatomic, strong) NSMutableArray *buildings; //building list to select from
-@property (nonatomic, readwrite) CourseList* myCourses; //the user courses in there list.
+@property (nonatomic, strong) CourseList* myCourses; //the user courses in there list.
 @property (nonatomic, strong) NSMutableArray *selectableCourses; //the selectable courses avaliable.
 @property (nonatomic, strong) NSMutableArray *selectableSubjects; //the selectable subjects avaliable.
 @end
