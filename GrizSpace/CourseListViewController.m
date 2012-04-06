@@ -56,9 +56,8 @@
    // NSArray *myDayTimes = [NSArray arrayWithObjects:@"MWF   10:10-11:00   LA 411", @"MWF   3:10-4:00   SS402", @"MWF   8:10-9:00     SS 362", @"MWF  9:10-10:00   SS 355", @"TTh     12:40-2:00      LA 411", @"TTh  3:10-4:30   SS 341",nil];
     
    CourseList* myCourseListObject = [[CourseList alloc] init];
-    
-    
    [self setMyCourses:[myCourseListObject getCourseListFromParse]];
+    
     [self.tableView reloadData];
    // PFQuery *query = [PFQuery queryWithClassName:@"GameScore"];
   //  [query whereKey:@"playerName" equalTo:@"Dan Stemkoski"];
