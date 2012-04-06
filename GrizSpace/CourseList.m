@@ -13,7 +13,7 @@
 @synthesize myCourseItems;
 -(id) init
 {
-    myCourseItems = [self.getCourseList mutableCopy];
+    //myCourseItems = [self.getCourseList mutableCopy];
     currentCourseIndex = 0; //default course is first one.
     return self;
 }
@@ -113,9 +113,12 @@
     return tmpCourseList;
 }
 
--(NSMutableArray*) getCourseList // populate and return an array of CourseModel objects
+
+//-(NSMutableArray*) getCourseList // populate and return an array of CourseModel objects
                                 // CURRENTLY JUST DUMMY VALUES, USED FOR TESTING, NOT PULLING FROM DB
-{
+//{
+//    return [self getCourseListFromParse];
+    /*
     NSArray* subjects = [[NSArray alloc] initWithObjects:@"Economics", @"Computer Science", @"Mathematics", nil];
     
     NSArray* subjAbbrs = [[NSArray alloc] initWithObjects:@"ECON", @"CSCI", @"M", nil];
@@ -164,7 +167,8 @@
     }
     
     return myCourses;
-}
+     */
+//}
 
 +(NSMutableArray*) getMyCourseList
 {
@@ -193,6 +197,8 @@
 {
     return [myCourseItems objectAtIndex: currentCourseIndex];
 }
+
+
 
 @end
 

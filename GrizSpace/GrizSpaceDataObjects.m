@@ -12,7 +12,9 @@
 
 @implementation GrizSpaceDataObjects 
 
-@synthesize buildings, myCourses, selectableCourses, selectableSubjects;
+@synthesize buildings;
+@synthesize myCourses; 
+@synthesize selectableCourses, selectableSubjects;
 
 //default constructor
 -(id) init {
@@ -28,7 +30,8 @@
      
     //sets up the courses for reference.
     self.myCourses = [[CourseList alloc] init];
-    myCourses.myCourseItems = [myCourses getCourseListFromParse];
+    //self.myCourses.myCourseItems = [myCourses getCourseListFromParse];
+    
     //[self setMyCourses:[myCourses getCourseListFromParse]];
     //sets up the courses for reference.
     [dbAccess initializeDatabase];
@@ -47,5 +50,12 @@
     return self;
 }
 
+/*
+-(NSMutableArray*) MyCourses
+{
+    CourseList* tmpCL = [[CourseList alloc] init];
+    return [tmpCL getCourseListFromParse];
+}
+*/
 
 @end

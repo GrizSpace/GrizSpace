@@ -13,10 +13,16 @@
 #import "CourseList.h"
 
 @interface GrizSpaceDataObjects : AppDataObject
-
+{
+    //CourseList* myCourses;  
+}
 //procedure to get class data from the data objects.
 @property (nonatomic, strong) NSMutableArray *buildings; //building list to select from
 @property (nonatomic, strong) CourseList* myCourses; //the user courses in there list.
 @property (nonatomic, strong) NSMutableArray *selectableCourses; //the selectable courses avaliable.
 @property (nonatomic, strong) NSMutableArray *selectableSubjects; //the selectable subjects avaliable.
+
+//-(NSMutableArray*) GetMyCourses;
+
+
 @end

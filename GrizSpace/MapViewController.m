@@ -223,7 +223,7 @@
     if(myMapAnnotationSegmentControl.selectedSegmentIndex == 0){
         
         //get the users class items
-        NSMutableArray* tmpMyClassArray = [theDataObject.myCourses myCourseItems];
+        NSMutableArray* tmpMyClassArray = [[[self theAppDataObject] myCourses] getCourseListFromParse];
         
          
 
@@ -614,15 +614,13 @@
     
     if ([[segue identifier] isEqualToString:@"MapToCourseDetail"])
     {
-        //get the app data from teh griz space data objects ref.
-        GrizSpaceDataObjects* theDataObject = [self theAppDataObject];
-        NSMutableArray* myCourses = [theDataObject.myCourses myCourseItems]; 
-        
+
         // Get reference to the destination view controller
         CourseDetailVewController *cDVC = [segue destinationViewController];
     
         cDVC.courseIndex = annotationButtonActionTag;
-        [cDVC setSelectedCourse:[myCourses objectAtIndex:annotationButtonActionTag]];
+        [cDVC setSelectedCourse:[[[[self theAppDataObject] myCourses] getCourseListFromParse]   objectAtIndex:annotationButtonActionTag]];
+        
     }
      
 }

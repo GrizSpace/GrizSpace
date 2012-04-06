@@ -22,7 +22,7 @@
 
 @property (nonatomic, readwrite) NSMutableArray* myCourseItems; //gets the list of annotation items
 -(CourseModel*) GetNextCourse; //gets the next course item
--(NSMutableArray*) getCourseList;
+//-(NSMutableArray*) getCourseList;
 
 
 -(NSMutableArray*) getCourseListFromParse;  //used for TESTING ONLY
@@ -32,6 +32,7 @@
 
 
 +(NSMutableArray*) getMyCourseList;
+
 
 
 @end
