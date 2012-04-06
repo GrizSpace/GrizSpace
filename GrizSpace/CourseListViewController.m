@@ -236,7 +236,8 @@
     
     [detailView setSelectedCourse:[self.myCourses objectAtIndex:indexPath.row]];
     
-    [self.navigationController presentModalViewController:detailView animated:YES];
+    //[self.navigationController presentModalViewController:detailView animated:YES];
+    [self.navigationController pushViewController:detailView animated:YES];
 }
 
 @end
