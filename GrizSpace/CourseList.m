@@ -59,7 +59,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"CourseModel"];
     [query whereKey:@"userid" equalTo:[[UIDevice currentDevice] uniqueIdentifier]];
     
-    NSLog([[UIDevice currentDevice] uniqueIdentifier]);
+    NSLog(@"%@", [[UIDevice currentDevice] uniqueIdentifier]);
            
     NSArray* PFObjectCourseArray = [query findObjects];
     
@@ -74,7 +74,16 @@
         [tmpCourse setUserid:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"userid"]];
         
         
-        CourseSection *tmpSection = [[CourseSection alloc] initWithCrn:nil andSection:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"sectionNumber"] intValue] thatStarts:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"startTime"] andEnds:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"endTime"] on:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"days"] intValue] inBuilding:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"building"] inRoom:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"room"] atLongitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"longitude"] doubleValue] andLatitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"latitude"] doubleValue]];
+        CourseSection *tmpSection = [[CourseSection alloc] 
+                                     initWithCrn:nil 
+                                     andSection:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"sectionNumber"] intValue] 
+                                     thatStarts:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"startTime"] 
+                                     andEnds:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"endTime"] 
+                                     on:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"days"] intValue] 
+                                     inBuilding:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"building"] 
+                                     inRoom:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"room"] 
+                                     atLongitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"longitude"] doubleValue]
+                                     andLatitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"latitude"] doubleValue]];
         
         [tmpCourse setSection:tmpSection];
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
@@ -97,53 +106,6 @@
         NSLog(@"section number: %d", tmpCourse.section.number);
         
         [tmpCourseList addObject:tmpCourse];
-        
-    }
-    
-    NSArray* subjects = [[NSArray alloc] initWithObjects:@"Economics", @"Computer Science", @"Mathematics", nil];
-    
-    NSArray* subjAbbrs = [[NSArray alloc] initWithObjects:@"ECON", @"CSCI", @"M", nil];
-    
-    NSArray* numbers = [[NSArray alloc] initWithObjects:@"311", @"576", @"225", nil];
-    
-    NSArray* titles = [[NSArray alloc] initWithObjects:@"Intermediate Microeconomics", @"Human Computer Interaction", @"Discrete Mathematics", nil];
-    
-    NSArray* days = [[NSArray alloc] initWithObjects:@"MWF", @"TTh", @"MWF", nil];
-    
-    NSArray* times = [[NSArray alloc] initWithObjects:@"8:10-9:00", @"12:10-1:30", @"11:10-12:00", nil];
-    
-    NSArray* buildingAndRooms= [[NSArray alloc] initWithObjects:@"GBB L09", @"LA 311", @"SS 362", nil];
-    
-    NSArray* longitudes = [[NSArray alloc] initWithObjects:[NSNumber numberWithDouble:-113.988385], [NSNumber numberWithDouble:-113.987379],[NSNumber numberWithDouble:-113.985247], nil];
-    
-    NSArray* latitudes = [[NSArray alloc] initWithObjects:[NSNumber numberWithDouble:46.8579], [NSNumber numberWithDouble:46.86078],[NSNumber numberWithDouble:46.862683], nil];
-    
-    NSArray* indexes = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:0],[NSNumber numberWithInt:1], [NSNumber numberWithInt:2], nil];
-    
-    
-  //  NSMutableArray* myCourses = [[NSMutableArray alloc] init ];
-    
-    for (int i=0;i<3;i++)
-    {
-        CourseModel* tmpCourse = [[CourseModel alloc] init];
-        [tmpCourse setSubject:[subjects objectAtIndex:i]];
-        [tmpCourse setSubjAbbr:[subjAbbrs objectAtIndex:i]];
-        [tmpCourse setNumber:[numbers objectAtIndex:i]];
-        [tmpCourse setTitle:[titles objectAtIndex:i]];
-        [tmpCourse setDays:[days objectAtIndex:i]];
-        [tmpCourse setTime:[times objectAtIndex:i]];
-        [tmpCourse setBuildingAndRoom:[buildingAndRooms objectAtIndex:i]];
-        
-        [tmpCourse setLatitude:[[latitudes objectAtIndex:i ] doubleValue]];
-        
-        [tmpCourse setLongitude:[[longitudes objectAtIndex:i ] doubleValue]];
-        
-        [tmpCourse setIndex:[[indexes objectAtIndex:i] integerValue]];
-        
-        
-        
-        [tmpCourseList addObject:tmpCourse];
-        
         
     }
     

@@ -144,6 +144,27 @@
     }
 }
 
+- (IBAction)removeCourseButton:(id)sender 
+{
+   // [CourseList removeCourse:self.selectedCourse];
+    
+
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+            
+        if ([[segue identifier] isEqualToString:@"justRemovedACourse"])
+        {
+             [CourseList removeCourse:self.selectedCourse];
+            [[segue destinationViewController] viewDidLoad];
+           // [[segue destinationViewController].tableView reloadData]];
+            
+            
+        }
+        
+    
+}
 
 
 @end

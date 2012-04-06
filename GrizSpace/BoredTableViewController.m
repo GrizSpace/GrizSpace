@@ -1,27 +1,20 @@
 //
-//  BoredInterestsTableViewController.m
+//  BoredTableViewController.m
 //  GrizSpace
 //
-//  Created by William Lyon on 3/21/12.
+//  Created by William Lyon on 4/4/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "BoredInterestsTableViewController.h"
+#import "BoredTableViewController.h"
 
-@interface BoredInterestsTableViewController ()
-
-
+@interface BoredTableViewController ()
 
 @end
 
-@implementation BoredInterestsTableViewController
+@implementation BoredTableViewController
+@synthesize events;
 
-@synthesize interests = _interests;
-
--(void) setInterests:(NSMutableArray *)interests
-{
-    _interests = interests;
-}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,18 +28,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    DBAccess *dbAccess = [[DBAccess alloc] init];
     
-    self.interests = [dbAccess getAllInterests];
-    NSLog(@"Number of interests: %d", [self.interests count]);
     
-    [dbAccess closeDatabase];
-
+    [self setEvents:[BoredEvent getBoredEvents]];
+    
+     
+  //  }
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+- (IBAction)refresh:(id)sender 
+
+{
+    [self viewDidLoad];
+    [self.tableView reloadData];
+
 }
 
 - (void)viewDidUnload
@@ -62,30 +62,24 @@
 }
 
 #pragma mark - Table view data source
-/*
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-*/
+
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.interests count];
+    return [events count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Interest";
+    static NSString *CellIdentifier = @"event";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
+    cell.textLabel.text = [[self.events objectAtIndex:indexPath.row] title];
     
-    cell.textLabel.text = [[self.interests objectAtIndex:indexPath.row] InterestName];
-    NSLog(@"%@", [[self.interests objectAtIndex:indexPath.row] InterestName]);
     return cell;
 }
 
@@ -139,6 +133,15 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    EventDetailsViewController *detailView = [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetailsViewController"];
+    
+    [detailView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    //detailView.courseDelegate = self;
+    
+    [detailView setSelectedEvent:[self.events objectAtIndex:indexPath.row]];
+    //[self.navigationController presentModalViewController:detailView animated:YES];
+    [self.navigationController pushViewController:detailView animated:YES];
 }
 
 @end

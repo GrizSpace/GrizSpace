@@ -59,6 +59,7 @@
     
     
    [self setMyCourses:[myCourseListObject getCourseListFromParse]];
+    [self.tableView reloadData];
    // PFQuery *query = [PFQuery queryWithClassName:@"GameScore"];
   //  [query whereKey:@"playerName" equalTo:@"Dan Stemkoski"];
    // NSArray* scoreArray = [query findObjects]; 
@@ -236,7 +237,8 @@
     
     [detailView setSelectedCourse:[self.myCourses objectAtIndex:indexPath.row]];
     
-    [self.navigationController presentModalViewController:detailView animated:YES];
+    //[self.navigationController presentModalViewController:detailView animated:YES];
+    [self.navigationController pushViewController:detailView animated:YES];
 }
 
 @end

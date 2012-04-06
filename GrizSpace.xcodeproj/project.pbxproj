@@ -47,7 +47,6 @@
 		C52A22761522975A00507580 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A22751522975A00507580 /* libz.1.1.3.dylib */; };
 		C52A22781522976300507580 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A22771522976300507580 /* Security.framework */; };
 		C52A227A1522976C00507580 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A22791522976C00507580 /* QuartzCore.framework */; };
-		C55AE7B2151AD09A00679059 /* BoredInterestsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C55AE7B1151AD09900679059 /* BoredInterestsTableViewController.m */; };
 		C562FD08150035A700ADA1C8 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD07150035A700ADA1C8 /* MapViewController.m */; };
 		C562FD0B150036BE00ADA1C8 /* SubjectPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD0A150036BE00ADA1C8 /* SubjectPickerViewController.m */; };
 		C562FD0E1500373300ADA1C8 /* ClassPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD0D1500373300ADA1C8 /* ClassPickerViewController.m */; };
@@ -61,6 +60,10 @@
 		C58123CE151C0614008624B8 /* CourseList.m in Sources */ = {isa = PBXBuildFile; fileRef = C58123CD151C0614008624B8 /* CourseList.m */; };
 		C5915B2015155A2E00D489CD /* SelectCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */; };
 		C5E643A5152B4AC80055A7A3 /* SelectSectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643A4152B4AC80055A7A3 /* SelectSectionTableViewController.m */; };
+		C5E643A9152D3DFE0055A7A3 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643A8152D3DFD0055A7A3 /* EventDetailsViewController.m */; };
+		C5E643AC152D407D0055A7A3 /* BoredTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643AB152D407D0055A7A3 /* BoredTableViewController.m */; };
+		C5E643B3152DEC560055A7A3 /* SubmitNewEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643B2152DEC560055A7A3 /* SubmitNewEventViewController.m */; };
+		C5E643B7152E1C990055A7A3 /* BoredEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643B6152E1C990055A7A3 /* BoredEvent.m */; };
 		D811D2DC151417C6006416A7 /* GrizSpaceDataObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */; };
 		D811D2E01514183D006416A7 /* AppDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D811D2DF1514183D006416A7 /* AppDataObject.m */; };
 		D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D83ADE0F15031F76003733BE /* MapAnnotation.m */; };
@@ -73,6 +76,7 @@
 		E637A2AC1515132E001E0E2D /* GPSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2AB1515132E001E0E2D /* GPSModel.m */; };
 		E637A2B315154F14001E0E2D /* SubjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2B215154F14001E0E2D /* SubjectModel.m */; };
 		E63A1B2E151D5FA300FE57D9 /* GrizSpaceDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E63A1B2D151D5FA300FE57D9 /* GrizSpaceDB.sqlite */; };
+		E6570C9D152D3A7F00EACBC4 /* grizzly1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E6570C9C152D3A7F00EACBC4 /* grizzly1.jpg */; };
 		E6CCD11B151A9B5F0060CAEA /* InterestsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */; };
 		E6CCD157151ACE720060CAEA /* CourseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CCD156151ACE720060CAEA /* CourseModel.m */; };
 		E6D43CFF152AAB4D00976AF6 /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D43CFE152AAB4D00976AF6 /* ScheduleTableViewController.m */; };
@@ -124,8 +128,6 @@
 		C52A22751522975A00507580 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		C52A22771522976300507580 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C52A22791522976C00507580 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		C55AE7B0151AD09900679059 /* BoredInterestsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoredInterestsTableViewController.h; sourceTree = "<group>"; };
-		C55AE7B1151AD09900679059 /* BoredInterestsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoredInterestsTableViewController.m; sourceTree = "<group>"; };
 		C562FD06150035A700ADA1C8 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		C562FD07150035A700ADA1C8 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		C562FD09150036BE00ADA1C8 /* SubjectPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectPickerViewController.h; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 		C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCourseTableViewController.m; sourceTree = "<group>"; };
 		C5E643A3152B4AC80055A7A3 /* SelectSectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSectionTableViewController.h; sourceTree = "<group>"; };
 		C5E643A4152B4AC80055A7A3 /* SelectSectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSectionTableViewController.m; sourceTree = "<group>"; };
+		C5E643A7152D3DFD0055A7A3 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
+		C5E643A8152D3DFD0055A7A3 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
+		C5E643AA152D407D0055A7A3 /* BoredTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoredTableViewController.h; sourceTree = "<group>"; };
+		C5E643AB152D407D0055A7A3 /* BoredTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoredTableViewController.m; sourceTree = "<group>"; };
+		C5E643B1152DEC560055A7A3 /* SubmitNewEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitNewEventViewController.h; sourceTree = "<group>"; };
+		C5E643B2152DEC560055A7A3 /* SubmitNewEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitNewEventViewController.m; sourceTree = "<group>"; };
+		C5E643B5152E1C990055A7A3 /* BoredEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoredEvent.h; sourceTree = "<group>"; };
+		C5E643B6152E1C990055A7A3 /* BoredEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoredEvent.m; sourceTree = "<group>"; };
 		D80AE651150521D4004EA055 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		D811D2DA151417C6006416A7 /* GrizSpaceDataObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrizSpaceDataObjects.h; sourceTree = "<group>"; };
 		D811D2DB151417C6006416A7 /* GrizSpaceDataObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrizSpaceDataObjects.m; sourceTree = "<group>"; };
@@ -173,6 +183,7 @@
 		E637A2B115154F14001E0E2D /* SubjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectModel.h; sourceTree = "<group>"; };
 		E637A2B215154F14001E0E2D /* SubjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectModel.m; sourceTree = "<group>"; };
 		E63A1B2D151D5FA300FE57D9 /* GrizSpaceDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = GrizSpaceDB.sqlite; sourceTree = "<group>"; };
+		E6570C9C152D3A7F00EACBC4 /* grizzly1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grizzly1.jpg; sourceTree = "<group>"; };
 		E6CCD119151A9B5F0060CAEA /* InterestsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestsModel.h; sourceTree = "<group>"; };
 		E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestsModel.m; sourceTree = "<group>"; };
 		E6CCD155151ACE720060CAEA /* CourseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseModel.h; sourceTree = "<group>"; };
@@ -279,6 +290,7 @@
 		5A59DB2615000D7300CE4FC6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E6570C9C152D3A7F00EACBC4 /* grizzly1.jpg */,
 				D8160AF7151A7D14009D366E /* bear_2 (1).png */,
 				D8FE67A115048EE600D09F31 /* Direction_Arrow.png */,
 				5A59DB2715000D7300CE4FC6 /* GrizSpace-Info.plist */,
@@ -332,6 +344,8 @@
 		5A81A114152565D70077BC16 /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
+				C58123CC151C0614008624B8 /* CourseList.h */,
+				C58123CD151C0614008624B8 /* CourseList.m */,
 				5A81A115152566110077BC16 /* Mapper.h */,
 				5A81A116152566110077BC16 /* Mapper.m */,
 				5A81A119152568B20077BC16 /* CourseSectionMapper.h */,
@@ -354,8 +368,6 @@
 			children = (
 				E637A2A31515131C001E0E2D /* BuildingModel.h */,
 				E637A2A41515131C001E0E2D /* BuildingModel.m */,
-				C58123CC151C0614008624B8 /* CourseList.h */,
-				C58123CD151C0614008624B8 /* CourseList.m */,
 				E6CCD155151ACE720060CAEA /* CourseModel.h */,
 				E6CCD156151ACE720060CAEA /* CourseModel.m */,
 				E637A2A51515131C001E0E2D /* DBAccess.h */,
@@ -366,6 +378,8 @@
 				E6CCD11A151A9B5F0060CAEA /* InterestsModel.m */,
 				E637A2B115154F14001E0E2D /* SubjectModel.h */,
 				E637A2B215154F14001E0E2D /* SubjectModel.m */,
+				C5E643B5152E1C990055A7A3 /* BoredEvent.h */,
+				C5E643B6152E1C990055A7A3 /* BoredEvent.m */,
 				5A81A0B8152437850077BC16 /* CourseSection.h */,
 				5A81A0B9152437850077BC16 /* CourseSection.m */,
 			);
@@ -375,8 +389,8 @@
 		D83F9727151C3AF100BAA16E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C55AE7B0151AD09900679059 /* BoredInterestsTableViewController.h */,
-				C55AE7B1151AD09900679059 /* BoredInterestsTableViewController.m */,
+				C5E643AA152D407D0055A7A3 /* BoredTableViewController.h */,
+				C5E643AB152D407D0055A7A3 /* BoredTableViewController.m */,
 				C562FD1C15003F3D00ADA1C8 /* BoredViewController.h */,
 				C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */,
 				C562FD1915003DAB00ADA1C8 /* BuildingPickerViewController.h */,
@@ -387,6 +401,8 @@
 				C562FD1715003C3300ADA1C8 /* CourseDetailVewController.m */,
 				C562FD1315003B1800ADA1C8 /* CourseListViewController.h */,
 				C562FD1415003B1800ADA1C8 /* CourseListViewController.m */,
+				C5E643A7152D3DFD0055A7A3 /* EventDetailsViewController.h */,
+				C5E643A8152D3DFD0055A7A3 /* EventDetailsViewController.m */,
 				D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */,
 				D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */,
 				5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */,
@@ -402,6 +418,8 @@
 				C5E643A4152B4AC80055A7A3 /* SelectSectionTableViewController.m */,
 				C562FD09150036BE00ADA1C8 /* SubjectPickerViewController.h */,
 				C562FD0A150036BE00ADA1C8 /* SubjectPickerViewController.m */,
+				C5E643B1152DEC560055A7A3 /* SubmitNewEventViewController.h */,
+				C5E643B2152DEC560055A7A3 /* SubmitNewEventViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -494,6 +512,7 @@
 				D8FE67A215048EE600D09F31 /* Direction_Arrow.png in Resources */,
 				D8E53BC81505BC3400D59A52 /* Location2.gpx in Resources */,
 				E63A1B2E151D5FA300FE57D9 /* GrizSpaceDB.sqlite in Resources */,
+				E6570C9D152D3A7F00EACBC4 /* grizzly1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,7 +568,6 @@
 				E637A2B315154F14001E0E2D /* SubjectModel.m in Sources */,
 				C5915B2015155A2E00D489CD /* SelectCourseTableViewController.m in Sources */,
 				E6CCD11B151A9B5F0060CAEA /* InterestsModel.m in Sources */,
-				C55AE7B2151AD09A00679059 /* BoredInterestsTableViewController.m in Sources */,
 				E6CCD157151ACE720060CAEA /* CourseModel.m in Sources */,
 				C58123CE151C0614008624B8 /* CourseList.m in Sources */,
 				5A81A0BA152437850077BC16 /* CourseSection.m in Sources */,
@@ -563,6 +581,10 @@
 				5A81A11B152568B20077BC16 /* CourseSectionMapper.m in Sources */,
 				E6D43CFF152AAB4D00976AF6 /* ScheduleTableViewController.m in Sources */,
 				C5E643A5152B4AC80055A7A3 /* SelectSectionTableViewController.m in Sources */,
+				C5E643A9152D3DFE0055A7A3 /* EventDetailsViewController.m in Sources */,
+				C5E643AC152D407D0055A7A3 /* BoredTableViewController.m in Sources */,
+				C5E643B3152DEC560055A7A3 /* SubmitNewEventViewController.m in Sources */,
+				C5E643B7152E1C990055A7A3 /* BoredEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
