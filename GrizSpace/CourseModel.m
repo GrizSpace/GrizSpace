@@ -16,11 +16,11 @@
 @synthesize subject_id;
 @synthesize subject;
 @synthesize instructorName;
+
+@synthesize buildingAndRoom;
 @synthesize days;
 @synthesize time;
-@synthesize buildingAndRoom;
 @synthesize subjAbbr;
-
 @synthesize longitude;
 @synthesize latitude;
 @synthesize radius;
@@ -61,5 +61,9 @@ return title;
 {
     return idCourse;
 }
+
+
+
+
 @end
 

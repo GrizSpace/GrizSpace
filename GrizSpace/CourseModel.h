@@ -22,13 +22,10 @@
 
 @property (strong, nonatomic) NSString* instructorName;
 
-@property (strong, nonatomic) NSString* days; // will need to figure out how to use the bitmask for this, but using NSString temporarily
-
-@property (strong, nonatomic) NSString* time; // will need to use a better representation of time/event, but using NSString temporarily for testing
-
-@property (strong, nonatomic) NSString* buildingAndRoom; // will need more accurate representation, but justing using NSString temporarily for testing
-
-@property (strong, nonatomic) NSString* subjAbbr; //added for testing
+@property (strong, nonatomic) NSString* days; //not used
+@property (strong, nonatomic) NSString* time;
+@property (strong, nonatomic) NSString* buildingAndRoom;
+@property (strong, nonatomic) NSString* subjAbbr;
 
 @property (assign, nonatomic) double longitude;
 
