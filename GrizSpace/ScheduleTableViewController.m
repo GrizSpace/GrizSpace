@@ -24,6 +24,8 @@
 
 @synthesize coursesByDayArray;
 
+
+
 //override setters
 -(void) setCourses:(NSArray *)courses
 {
@@ -60,12 +62,13 @@
     CourseList* myCourseListObject = [[CourseList alloc] init];
     [self setMyCourses:[myCourseListObject getCourseListFromParse]];
     
+
     //allow the custom background to be seen
     //self.tableView.backgroundColor = [UIColor clearColor];
     
     //still need to figure out how to put in a custom background!
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"grizzly1.jpg"]];
-    self.tableView.backgroundView = imageView;
+    //UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"grizzly1.jpg"]];
+    //self.tableView.backgroundView = imageView;
     
     
     //The following is VERY hack, but is a first attempt.  Grab the days for the course.  If the days string
@@ -97,67 +100,100 @@
         if(rangeM.location != NSNotFound) 
         {
             
-            printf("i=%d\n", i);
-            NSLog(@"Found an M!");
-            
             [mondayArray addObject:tmpCourse];
 
-            //create an index for the Monday array
-            int k = mondayArray.count -1;
-            printf("Monday k=%d\n", k);
-            
-            NSLog(@"mondayArray subject:%@", [[mondayArray objectAtIndex:k] subject]);  
-           
-            NSLog(@"mondayArray subject:%@", [tmpCourse.section getDays]);
+        }
 
-        }
-        else
-        {
-            NSLog(@"Didn't find an M");
-            
-            
-        }
-        
         NSRange rangeT = [tmpDays rangeOfString:@"T" 
                                        options:NSCaseInsensitiveSearch];
         if(rangeT.location != NSNotFound) 
         {
             
-            printf("i=%d\n", i);
-            NSLog(@"Found a T!");
             [tuesdayArray addObject:tmpCourse];
             
-            //create an index variable for the tuesdayArray
-            int j = tuesdayArray.count - 1;
-            
-            
-            
-            NSLog(@"TuesdayArray subject:%@", [[tuesdayArray objectAtIndex:j] subject]);  //can't do this because first class has no Tt
-            
-            NSLog(@"TuesdayArray days:%@", [tmpCourse.section getDays]);
-            
-            //NSString *tmpRoom = tmpCourse.section.room;
-            //NSLog(@"mondayArray subject:%@", [[mondayArray objectAtIndex:i] tmpCourse.section.room]);
-            
         }
-        else
+        
+        NSRange rangeW = [tmpDays rangeOfString:@"W" 
+                                        options:NSCaseInsensitiveSearch];
+        if(rangeW.location != NSNotFound) 
         {
-            NSLog(@"Didn't find an T");
+            
+            [wednesdayArray addObject:tmpCourse];
             
         }
+        NSRange rangeR = [tmpDays rangeOfString:@"R" 
+                                        options:NSCaseInsensitiveSearch];
+        if(rangeR.location != NSNotFound) 
+        {
+            
+            [thursdayArray addObject:tmpCourse];
+            
+        }
+        
+        NSRange rangeF = [tmpDays rangeOfString:@"F" 
+                                        options:NSCaseInsensitiveSearch];
+        if(rangeF.location != NSNotFound) 
+        {
+            
+            [fridayArray addObject:tmpCourse];
+            
+        }
+        
 
-        
-       
-        
-        
-        //NSLog(@"MyCourse iteration%@", [[myCourses objectAtIndex:i] subject ]);
-        
-        //NSLog(@"MyCourse iteration%@", [myCourses objectAtIndex:i] );
-       
+
     }  
     
-   //Add the day arrays to the coursesByDay array (an array of arrays) **do I need that nil?
-    NSMutableArray *tmpArray = [[NSMutableArray alloc] initWithObjects:mondayArray,tuesdayArray, nil];
+   //Add the day arrays to the coursesByDay array (an array of arrays)
+    
+    NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
+    
+    //NSLog(@"Count of mondayArray %@", [mondayArray count]);
+    
+    if (mondayArray == nil)
+    {
+        [tmpArray addObject:[NSNumber numberWithInt:1]];
+         
+    }
+    else {
+        [tmpArray addObject:mondayArray];
+    }
+    
+    if (tuesdayArray == nil)
+    {
+        [tmpArray addObject:[NSNumber numberWithInt:1]];
+        
+    }
+    else {
+        [tmpArray addObject:tuesdayArray];
+    }
+    if (wednesdayArray == nil)
+    {
+        [tmpArray addObject:[NSNumber numberWithInt:1]];
+        
+    }
+    else {
+        [tmpArray addObject:wednesdayArray];
+    }
+    
+    if (thursdayArray == nil)
+    {
+        [tmpArray addObject:[NSNumber numberWithInt:1]];
+        
+    }
+    else {
+        [tmpArray addObject:thursdayArray];
+    }
+    
+    if (fridayArray == nil)
+    {
+        [tmpArray addObject:[NSNumber numberWithInt:1]];
+        
+    }
+    else {
+        [tmpArray addObject:fridayArray];
+    }
+    
+    
     [self setCoursesByDayArray:tmpArray];
     
     
@@ -183,28 +219,76 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 
+    int numberOfSections = 0;
+     int j=0;
     // Return the number of sections, which is the number of objects in the coursesByDayArray
+    //NSLog(@"CoursesByDayArray Count %d", [coursesByDayArray count]);
+         
+    //return only if is not an integer, that is, there is a course in the mondayArray, for example.
+    for (int i=0; i<[coursesByDayArray count]; i++) 
+    {
     
-    NSInteger tableSections = [[self coursesByDayArray] count];
-    return tableSections;
+    
+        if (![[coursesByDayArray objectAtIndex:i] isKindOfClass:[NSMutableArray class]])
+        {
+            
+            j = 0;
+            NSLog(@"Is not NSMutableArray %d", j);
+        }
+        else 
+        {
+            j = j + 1;
+        }
+        //NSLog(@"Table Sections before add %d", numberOfSections);
+        
+       
+        NSLog(@"Table Sections after add %d", j);
+    }
+
+     
+     
+    numberOfSections = j;
+    NSLog(@"Table Sections %d", numberOfSections);
+    
+    return numberOfSections;
     
 }
 
 //Return the header title for a section
 - (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section
 {
-   //if the index of coursesByDayArray =0, then the label should be Monday.  But, if no classes
-    //were found on Mondays, then the first item in the cBDArray would be Tuesday classes.
-    //what if I added a "nil" element for index 0, if no Monday classes were found?  Then I would
-    //always know what order things were in and that all slots in the cBDArray got filled.
+   
+     NSString *sectionLabel;
     
-    NSString *sectionLabel;
     
-    if (section == 0)
-    {
     
-       sectionLabel =  @"Monday";
+    if ([[coursesByDayArray objectAtIndex:section] isKindOfClass:[NSMutableArray class]])
         
+    {
+        if (section == 0)
+        {
+            sectionLabel =  @"Monday";
+        }
+        
+        if (section == 1)
+        {
+            sectionLabel = @"Tuesday";  //if there is not Tuesday class, it still shows up in the section title
+        }
+        
+        if (section == 2)
+        {
+            sectionLabel =  @"Wednesday";
+        }
+        
+        if (section == 3)
+        {
+            sectionLabel =  @"Thursday";
+        }
+        
+        if (section == 4)
+        {
+            sectionLabel =  @"Friday";
+        }
     }
 
     return sectionLabel;
@@ -217,11 +301,20 @@
     // Return the number of rows in the section.
     //first create a temporary array (sectionContents) by extracting all of the items in the mondayArray, for example.
     //the mondayArray is gotten at by objectAtIndex:section, instead of row.
+    
+    if (![[coursesByDayArray objectAtIndex:section] isKindOfClass:[NSMutableArray class]])
+    {
+        return 0;
+    }
+    else {
+        
+    
     NSMutableArray *sectionContents = [[self coursesByDayArray] objectAtIndex:section];
     
+    
     //now just count how many rows are in this new temp array and that will tell you how many rows are in the mondayArray
-    NSInteger rows = [sectionContents count];
-    return rows;
+    return [sectionContents count];
+    }
     
 }
 
@@ -241,14 +334,17 @@
     
     // Configure the cell...
     
-    cell.textLabel.text = [[contentForThisRow subject] stringByAppendingString:[contentForThisRow number]]; //how to put in a space?
-    
-    cell.detailTextLabel.text = [contentForThisRow.section getDays]; //works
-    
-    //cell.detailTextLabel.text = [contentForThisRow.section startTime]; //returns nothing
+    //cell.textLabel.text = [[contentForThisRow subject] stringByAppendingString:[contentForThisRow number]]; //how to put in a space?
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [contentForThisRow subject],[contentForThisRow number]];
     
     
+    //cell.detailTextLabel.text = [contentForThisRow.section getDays]; //works
     
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@ %@ - %@", 
+                                 [contentForThisRow.section building], [contentForThisRow.section room],
+                                 [contentForThisRow.section startTime], [contentForThisRow.section endTime]]; //building, room, start time, end time
+
+        
     //NSLog(@"Days: %@", [tmpCourse.section getDays]);
     
     //NSLog(@"Subject: %@", [[self.myCourses objectAtIndex:indexPath.row] getSubject]);
