@@ -17,4 +17,5 @@
 @property (nonatomic, strong) NSArray *dayTimes;
 @property (nonatomic, strong) NSMutableArray *myCourses;
 @property (nonatomic, strong) NSMutableArray* coursesByDayArray;
+
 @end
