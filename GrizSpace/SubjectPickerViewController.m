@@ -45,6 +45,13 @@
     
     [db closeDatabase];
     
+    //the copy list of items used in the filtering.
+    copyListOfItems = [[NSMutableArray alloc] init];
+    searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+    
+    searching = NO;
+    letUserSelectRow = YES; 
+    
  //   self.tableView.tableHeaderView = self.searchBar;
 
   //  NSArray *myArray = [NSArray arrayWithObjects:@"Anthropology", @"Art", @"Biology", @"Business Administration", @"Chemistry", @"Economics", @"Financial Managment", @"Geology", @"History", @"Journalism", @"Liberal Studies", @"Managment", @"Physics", nil];
@@ -71,30 +78,44 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Table view data source
 
-/*
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-*/
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [self.subjects count];
+
+// Customize the number of rows in the table view.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if (searching)
+        return [copyListOfItems count];
+    else {
+        
+        //Number of rows it should expect should be based on the section
+        return [self.subjects count]; 
+    }
 }
 
+
+//sets the cell information for the table view.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    //NSMutableArray *buildings = [self theAppDataObject].buildings;
+    
     static NSString *CellIdentifier = @"Subject";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
-    cell.textLabel.text = [[self.subjects objectAtIndex:indexPath.row] abbr];
-    NSLog(@"%@", [[self.subjects objectAtIndex:indexPath.row] abbr]);
+    if(searching){
+        cell.textLabel.text = [[copyListOfItems objectAtIndex:indexPath.row] title];
+        cell.detailTextLabel.text = [[copyListOfItems objectAtIndex:indexPath.row] abbr];
+        //cell.tag = [[copyListOfItems objectAtIndex:indexPath.row] buildingIndex];
+    }
+    else {
+        
+        cell.textLabel.text = [[self.subjects objectAtIndex:indexPath.row] title];
+        cell.detailTextLabel.text = [[self.subjects objectAtIndex:indexPath.row] abbr];
+        //cell.tag = [[buildings objectAtIndex:indexPath.row] buildingIndex];
+    }
+    
+    NSLog(@"Cell %@ %@", cell.textLabel.text, cell.detailTextLabel.text);
+    
     return cell;
 }
 
@@ -169,5 +190,102 @@
     }
 }
 */
+
+//put the table in search mode
+- (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
+    searching = YES;
+    letUserSelectRow = NO;
+    self.tableView.scrollEnabled = NO;
+}
+
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {
+    self->searchBar.text = @"";
+    [self->searchBar resignFirstResponder];
+    
+    letUserSelectRow = YES;
+    searching = NO;
+    self.navigationItem.rightBarButtonItem = nil;
+    self.tableView.scrollEnabled = YES;
+    
+    [self.tableView reloadData];    
+}
+
+
+
+//prevent user from selecting a row
+- (NSIndexPath *)tableView :(UITableView *)theTableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if(letUserSelectRow)
+        return indexPath;
+    else
+        return nil;
+}
+
+//filter itmes when text enterd
+- (void)searchBar:(UISearchBar *)theSearchBar textDidChange:(NSString *)searchText {
+    
+    //Remove all objects first.
+    [copyListOfItems removeAllObjects];
+    
+    if([searchText length] > 0) {
+        
+        searching = YES;
+        letUserSelectRow = YES;
+        self.tableView.scrollEnabled = YES;
+        [self searchTableView];
+    }
+    else {
+        
+        searching = NO;
+        letUserSelectRow = NO;
+        self.tableView.scrollEnabled = NO;
+    }
+    
+    [self.tableView reloadData];
+}
+
+//perform search
+- (void) searchBarSearchButtonClicked:(UISearchBar *)theSearchBar {
+    
+    [self->searchBar resignFirstResponder];    
+    [self searchTableView];
+}
+
+//function to search the table view.
+- (void) searchTableView {
+    NSString *searchText = searchBar.text;
+    NSMutableArray *searchArray = [[NSMutableArray alloc] init];
+    
+    for (SubjectModel *dictionary in self.subjects)
+    {
+        
+        NSRange titleResultsRange = [dictionary.abbr rangeOfString:searchText options:NSCaseInsensitiveSearch];        
+        
+        NSRange idResultsRange = [dictionary.title rangeOfString:searchText options:NSCaseInsensitiveSearch]; 
+        
+        if(titleResultsRange.length > 0 || idResultsRange.length > 0)
+        {
+            [copyListOfItems addObject:dictionary];
+        }
+    }
+    searchArray = nil;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    if(searching)
+        return @"Filtered Sections";
+    else 
+        return @"Select a Section";
+}
+
+
 
 @end

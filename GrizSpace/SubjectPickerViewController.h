@@ -13,7 +13,10 @@
 
 @interface SubjectPickerViewController : UITableViewController
 {
- //   UISearchBar* searchBar;
+    NSMutableArray *copyListOfItems;
+    BOOL searching;
+    BOOL letUserSelectRow;
+    IBOutlet UISearchBar *searchBar;
 }
 
 @property (nonatomic, strong) NSArray *subjects;

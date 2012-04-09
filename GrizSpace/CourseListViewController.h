@@ -17,6 +17,7 @@
 @protocol CourseDelegate;
 
 @interface CourseListViewController : UITableViewController 
+
 @property (nonatomic, strong) NSArray *courses;
 @property (nonatomic, strong) NSArray *dayTimes;
 @property (nonatomic, weak) id<MapViewControllerDelegate> delegate;

@@ -56,6 +56,9 @@
     
     [db closeDatabase];
     
+    
+    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -87,11 +90,16 @@
 }
 */
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
     return [self.courses count];
 }
+
+
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -106,6 +114,9 @@
     cell.detailTextLabel.text = [[self.courses objectAtIndex:indexPath.row] getNumber];
     return cell;
 }
+
+
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -167,7 +178,6 @@
     [self dismissModalViewControllerAnimated:YES];
     
 }
-
 
 
 @end
