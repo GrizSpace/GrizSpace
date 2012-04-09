@@ -109,6 +109,8 @@
             NSLog(@"mondayArray subject:%@", [[mondayArray objectAtIndex:k] subject]);  
            
             NSLog(@"mondayArray subject:%@", [tmpCourse.section getDays]);
+            [NSNumber numberWithInt:5];
+            
 
         }
         else
