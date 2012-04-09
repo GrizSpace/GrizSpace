@@ -113,6 +113,7 @@
             
         }
         
+        
         NSRange rangeW = [tmpDays rangeOfString:@"W" 
                                         options:NSCaseInsensitiveSearch];
         if(rangeW.location != NSNotFound) 
@@ -151,6 +152,7 @@
     
     if (mondayArray == nil)
     {
+        NSLog(@"Monday Array is nil");
         [tmpArray addObject:[NSNumber numberWithInt:1]];
          
     }
@@ -160,6 +162,7 @@
     
     if (tuesdayArray == nil)
     {
+        NSLog(@"Tuesday Array is nil");
         [tmpArray addObject:[NSNumber numberWithInt:1]];
         
     }
@@ -218,7 +221,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
+/*
     int numberOfSections = 0;
      int j=0;
     // Return the number of sections, which is the number of objects in the coursesByDayArray
@@ -251,6 +254,8 @@
     NSLog(@"Table Sections %d", numberOfSections);
     
     return numberOfSections;
+ */
+    return 5;
     
 }
 
@@ -262,9 +267,9 @@
     
     
     
-    if ([[coursesByDayArray objectAtIndex:section] isKindOfClass:[NSMutableArray class]])
-        
-    {
+    //if ([[coursesByDayArray objectAtIndex:section] isKindOfClass:[NSMutableArray class]])
+    //{ 
+    
         if (section == 0)
         {
             sectionLabel =  @"Monday";
@@ -289,7 +294,11 @@
         {
             sectionLabel =  @"Friday";
         }
-    }
+        if (section == 5)
+        {
+            sectionLabel =  @"Saturday";
+        }
+    
 
     return sectionLabel;
     
@@ -321,16 +330,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //create an array with all of the mondayArray (for example) courses
+    
     NSMutableArray *sectionContents = [[self coursesByDayArray] objectAtIndex:[indexPath section]];
     
     //cycle through each element of this new array to display it in a cell.  Basically, have put mondayArray into
     //the coursesByDayArray and just re-extracted it to display it.  The data needed to be prepped properly
     //to make it easy to display without a bunch of case:switch statements
     
-    CourseModel *contentForThisRow = [sectionContents objectAtIndex:[indexPath row]];
-    
     static NSString *CellIdentifier = @"CourseCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    
+    
+    CourseModel *contentForThisRow = [sectionContents objectAtIndex:[indexPath row]];
+    
+
     
     // Configure the cell...
     
@@ -351,6 +365,7 @@
     
     
     return cell;
+        
 }
 
 /*
