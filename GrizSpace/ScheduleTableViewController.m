@@ -60,8 +60,10 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     CourseList* myCourseListObject = [[CourseList alloc] init];
+
     [self setMyCourses:[myCourseListObject getCourseListFromParse]];
-    [self createDayArrays];
+    Schedule* sched   = [[Schedule alloc] initFromCourseList:myCourses];
+    coursesByDayArray = [sched toDayArray];
 
     //allow the custom background to be seen
     //self.tableView.backgroundColor = [UIColor clearColor];
@@ -86,140 +88,11 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void) createDayArrays
-{
-    NSMutableArray *mondayArray = [NSMutableArray array];
-    NSMutableArray *tuesdayArray = [NSMutableArray array];
-    NSMutableArray *wednesdayArray = [NSMutableArray array];
-    NSMutableArray *thursdayArray = [NSMutableArray array];
-    NSMutableArray *fridayArray = [NSMutableArray array]; 
-    
-    for (int i=0; i<[myCourses count]; i++) 
-    {
-        
-        //get the days for the course section
-        CourseModel *tmpCourse = [self.myCourses objectAtIndex:i];
-        
-        NSString *tmpDays = [tmpCourse.section getDays];
-        NSLog(@"MyCourse iteration days %@", tmpDays);
-        
-        
-        //this search will also be moved to its own method where I will just pass in the letter to look for
-        
-        //Search for M (Monday) in tmpDays
-        NSRange rangeM = [tmpDays rangeOfString:@"M" 
-                                        options:NSCaseInsensitiveSearch];
-        if(rangeM.location != NSNotFound) 
-        {
-            
-            [mondayArray addObject:tmpCourse];
-            
-        }
-        
-        NSRange rangeT = [tmpDays rangeOfString:@"T" 
-                                        options:NSCaseInsensitiveSearch];
-        if(rangeT.location != NSNotFound) 
-        {
-            
-            [tuesdayArray addObject:tmpCourse];
-            
-        }
-        
-        
-        NSRange rangeW = [tmpDays rangeOfString:@"W" 
-                                        options:NSCaseInsensitiveSearch];
-        if(rangeW.location != NSNotFound) 
-        {
-            
-            [wednesdayArray addObject:tmpCourse];
-            
-        }
-        NSRange rangeR = [tmpDays rangeOfString:@"R" 
-                                        options:NSCaseInsensitiveSearch];
-        if(rangeR.location != NSNotFound) 
-        {
-            
-            [thursdayArray addObject:tmpCourse];
-            
-        }
-        
-        NSRange rangeF = [tmpDays rangeOfString:@"F" 
-                                        options:NSCaseInsensitiveSearch];
-        if(rangeF.location != NSNotFound) 
-        {
-            
-            [fridayArray addObject:tmpCourse];
-            
-        }
-        
-        
-        
-    }  
-    
-    //Add the day arrays to the coursesByDay array (an array of arrays)
-    
-    NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
-    
-    //NSLog(@"Count of mondayArray %@", [mondayArray count]);
-    
-    if (mondayArray == nil)
-    {
-        NSLog(@"Monday Array is nil");
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-        
-    }
-    else {
-        [tmpArray addObject:mondayArray];
-    }
-    
-    if (tuesdayArray == nil)
-    {
-        NSLog(@"Tuesday Array is nil");
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-        
-    }
-    else {
-        [tmpArray addObject:tuesdayArray];
-    }
-    if (wednesdayArray == nil)
-    {
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-        
-    }
-    else {
-        [tmpArray addObject:wednesdayArray];
-    }
-    
-    if (thursdayArray == nil)
-    {
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-        
-    }
-    else {
-        [tmpArray addObject:thursdayArray];
-    }
-    
-    if (fridayArray == nil)
-    {
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-        
-    }
-    else {
-        [tmpArray addObject:fridayArray];
-    }
-    
-    
-    [self setCoursesByDayArray:tmpArray];
-    
-    
-
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-/*
+    /*
     int numberOfSections = 0;
      int j=0;
     // Return the number of sections, which is the number of objects in the coursesByDayArray

@@ -46,7 +46,7 @@
     return self;
 }
 
-- (NSString *)getNumberString
+- (NSString*)getNumberString
 {
     return [NSString stringWithFormat:@"%d", self.number];
 
@@ -56,34 +56,35 @@
 - (NSString*)getDays
 {
     NSString* dayStr = @"";
-    int m = self.days & 1;
-    int t = self.days & 2;
-    int w = self.days & 4;
-    int r = self.days & 8;
-    int f = self.days & 16;
-    int s = self.days & 32;
-    int u = self.days & 64;
 
     if ([self isOnMonday])
         dayStr = [dayStr stringByAppendingString: @"M"];
-    if (t > 0)
+    if ([self isOnTuesday])
         dayStr = [dayStr stringByAppendingString: @"T"];
-    if (w > 0)
+    if ([self isOnWednesday])
         dayStr = [dayStr stringByAppendingString: @"W"];
-    if (r > 0)
+    if ([self isOnThursday])
         dayStr = [dayStr stringByAppendingString: @"R"];
-    if (f > 0)
+    if ([self isOnFriday])
         dayStr = [dayStr stringByAppendingString: @"F"];
-    if (s > 0)
+    if ([self isOnSaturday])
         dayStr = [dayStr stringByAppendingString: @"S"];
-    if (u > 0)
+    if ([self isOnSunday])
         dayStr = [dayStr stringByAppendingString: @"U"];
     return dayStr;
 }
 
-- (BOOL) isOnMonday
+- (BOOL)isOnMonday    { return (self.days & 1)  > 0; }
+- (BOOL)isOnTuesday   { return (self.days & 2)  > 0; }
+- (BOOL)isOnWednesday { return (self.days & 4)  > 0; }
+- (BOOL)isOnThursday  { return (self.days & 8)  > 0; }
+- (BOOL)isOnFriday    { return (self.days & 16) > 0; }
+- (BOOL)isOnSaturday  { return (self.days & 32) > 0; }
+- (BOOL)isOnSunday    { return (self.days & 64) > 0; }
+
+- (int)getOccurrences
 {
-    return (self.days & 1) > 0;
+    return [[self getDays] length];
 }
 
 @end

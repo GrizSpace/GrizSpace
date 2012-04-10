@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A3DF0611533EC1400D83062 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF0601533EC1400D83062 /* Schedule.m */; };
+		5A3DF0621533EC1400D83062 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF0601533EC1400D83062 /* Schedule.m */; };
+		5A3DF0661533EF7E00D83062 /* ScheduleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3DF0651533EF7E00D83062 /* ScheduleTest.m */; };
 		5A59DB2015000D7300CE4FC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A59DB1F15000D7300CE4FC6 /* UIKit.framework */; };
 		5A59DB2215000D7300CE4FC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A59DB2115000D7300CE4FC6 /* Foundation.framework */; };
 		5A59DB2415000D7300CE4FC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A59DB2315000D7300CE4FC6 /* CoreGraphics.framework */; };
@@ -84,6 +87,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A3DF05F1533EC1400D83062 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		5A3DF0601533EC1400D83062 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
+		5A3DF0651533EF7E00D83062 /* ScheduleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTest.m; sourceTree = "<group>"; };
 		5A59DB1B15000D7300CE4FC6 /* GrizSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrizSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A59DB1F15000D7300CE4FC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5A59DB2115000D7300CE4FC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -309,6 +315,7 @@
 			children = (
 				5A81A0A9152437110077BC16 /* Supporting Files */,
 				5A81A0B61524373C0077BC16 /* CourseSectionTest.m */,
+				5A3DF0651533EF7E00D83062 /* ScheduleTest.m */,
 				5A81A11E152569C40077BC16 /* CourseSectionMapperTest.m */,
 			);
 			path = UnitTests;
@@ -382,6 +389,8 @@
 				C5E643B6152E1C990055A7A3 /* BoredEvent.m */,
 				5A81A0B8152437850077BC16 /* CourseSection.h */,
 				5A81A0B9152437850077BC16 /* CourseSection.m */,
+				5A3DF05F1533EC1400D83062 /* Schedule.h */,
+				5A3DF0601533EC1400D83062 /* Schedule.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -585,6 +594,7 @@
 				C5E643AC152D407D0055A7A3 /* BoredTableViewController.m in Sources */,
 				C5E643B3152DEC560055A7A3 /* SubmitNewEventViewController.m in Sources */,
 				C5E643B7152E1C990055A7A3 /* BoredEvent.m in Sources */,
+				5A3DF0611533EC1400D83062 /* Schedule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +613,8 @@
 				5A81A118152566110077BC16 /* Mapper.m in Sources */,
 				5A81A11C152568B20077BC16 /* CourseSectionMapper.m in Sources */,
 				5A81A11F152569C40077BC16 /* CourseSectionMapperTest.m in Sources */,
+				5A3DF0621533EC1400D83062 /* Schedule.m in Sources */,
+				5A3DF0661533EF7E00D83062 /* ScheduleTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "CourseList.h"
 #import "CourseDetailVewController.h"
+#import "Schedule.h"
 
 @interface ScheduleTableViewController : UITableViewController
 

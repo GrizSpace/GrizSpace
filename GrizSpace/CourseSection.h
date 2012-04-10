@@ -18,8 +18,16 @@
       atLongitude:(double) longitude
       andLatitude:(double) latitude;
 
+- (BOOL)isOnMonday;
+- (BOOL)isOnTuesday;
+- (BOOL)isOnWednesday;
+- (BOOL)isOnThursday;
+- (BOOL)isOnFriday;
+- (BOOL)isOnSaturday;
+- (BOOL)isOnSunday;
 
 - (NSString*)getDays;
+- (int)getOccurrences;
 
 @property int crn; 
 @property int number;
