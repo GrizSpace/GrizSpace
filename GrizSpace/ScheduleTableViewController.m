@@ -377,19 +377,31 @@
 }
 */
 
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        //  [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        
+        
+        /*  PFQuery* query = [PFQuery queryWithClassName:@"CourseModel"];
+         NSString* objectID = [[myCourses objectAtIndex:indexPath.row] getParseObjectID];
+         PFObject *courseToDelete = [query getObjectWithId:objectID];
+         [courseToDelete delete];
+         */
+        
+        [CourseList removeCourse: [myCourses objectAtIndex:indexPath.row]];
+        
+        [self viewDidLoad];
+        [tableView reloadData];
+        
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -418,6 +430,17 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    CourseDetailVewController *detailView = [self.storyboard instantiateViewControllerWithIdentifier:@"CourseDetailViewController"];
+    
+    [detailView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    //detailView.courseDelegate = self;
+    
+    [detailView setSelectedCourse:[self.myCourses objectAtIndex:indexPath.row]];
+    
+    // [self.navigationController presentModalViewController:detailView animated:YES];
+    [self.navigationController pushViewController:detailView animated:YES];
 }
 
 @end
