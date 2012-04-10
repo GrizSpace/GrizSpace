@@ -47,4 +47,39 @@
     STAssertEqualObjects([cs getDays], @"MTWR", @"Bitmask to string is incorrect");
 }
 
+- (void)testIsOnMonday
+{
+    STAssertTrue([cs isOnMonday], @"Class should be on Monday");
+}
+
+- (void)testIsOnTuesday
+{
+    STAssertTrue([cs isOnTuesday], @"Class should be on Tuesday");
+}
+
+- (void)testIsOnWednesday
+{
+    STAssertTrue([cs isOnWednesday], @"Class should be on Wednesday");
+}
+
+- (void)testIsOnThursday
+{
+    STAssertTrue([cs isOnThursday], @"Class should be on Thursday");
+}
+
+- (void)testIsOnFriday
+{
+    STAssertFalse([cs isOnFriday], @"Class should not be on Friday");
+}
+
+- (void)testIsOnSaturday
+{
+    STAssertFalse([cs isOnSaturday], @"Class should not be on Saturday");
+}
+
+- (void)testIsOnSunday
+{
+    STAssertFalse([cs isOnSunday], @"Class should not be on Sunday");
+}
+
 @end
