@@ -19,7 +19,8 @@
 @synthesize building;
 @synthesize room;
 
-- (id)initWithCrn:(int)aCrn andSection:(int)aNumber 
+- (id)initWithCrn:(int)aCrn
+       andSection:(int)aNumber
        thatStarts:(NSString *)aStartTime 
           andEnds:(NSString *)aEndTime
                on:(int)aDays

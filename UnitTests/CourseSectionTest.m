@@ -11,8 +11,15 @@
 
 - (void)setUp
 {
-    self->cs = [[CourseSection alloc] initWithCrn:666 andSection:7 
-                                       thatStarts:@"0910" andEnds:@"1000" on:15];
+    self->cs = [[CourseSection alloc] initWithCrn:666
+                                       andSection:7
+                                       thatStarts:@"0910"
+                                          andEnds:@"1000"
+                                               on:15 // MTWR
+                                       inBuilding:@"SS"
+                                           inRoom:@"362"
+                                      atLongitude:0.0
+                                      andLatitude:0.0];
 }
 
 - (void)testCrn
