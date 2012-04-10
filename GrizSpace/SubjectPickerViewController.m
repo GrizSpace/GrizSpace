@@ -117,7 +117,7 @@
     NSLog(@"Cell %@ %@", cell.textLabel.text, cell.detailTextLabel.text);
     
     return cell;
-}
+} 
 
 /*
 // Override to support conditional editing of the table view.
