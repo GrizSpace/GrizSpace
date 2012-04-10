@@ -61,7 +61,7 @@
     
     CourseList* myCourseListObject = [[CourseList alloc] init];
     [self setMyCourses:[myCourseListObject getCourseListFromParse]];
-    
+    [self createDayArrays];
 
     //allow the custom background to be seen
     //self.tableView.backgroundColor = [UIColor clearColor];
@@ -70,17 +70,29 @@
     //UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"grizzly1.jpg"]];
     //self.tableView.backgroundView = imageView;
     
+       
     
-    //The following is VERY hack, but is a first attempt.  Grab the days for the course.  If the days string
-    //has an M in it, add the course to the MondayArray.  If it has a Tuesday in it...
-    //needs to move to its own method
-    //set up an array for all the Monday, etc courses
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void) createDayArrays
+{
     NSMutableArray *mondayArray = [NSMutableArray array];
     NSMutableArray *tuesdayArray = [NSMutableArray array];
     NSMutableArray *wednesdayArray = [NSMutableArray array];
     NSMutableArray *thursdayArray = [NSMutableArray array];
-    NSMutableArray *fridayArray = [NSMutableArray array];
-    
+    NSMutableArray *fridayArray = [NSMutableArray array]; 
     
     for (int i=0; i<[myCourses count]; i++) 
     {
@@ -96,16 +108,16 @@
         
         //Search for M (Monday) in tmpDays
         NSRange rangeM = [tmpDays rangeOfString:@"M" 
-                                          options:NSCaseInsensitiveSearch];
+                                        options:NSCaseInsensitiveSearch];
         if(rangeM.location != NSNotFound) 
         {
             
             [mondayArray addObject:tmpCourse];
-
+            
         }
-
+        
         NSRange rangeT = [tmpDays rangeOfString:@"T" 
-                                       options:NSCaseInsensitiveSearch];
+                                        options:NSCaseInsensitiveSearch];
         if(rangeT.location != NSNotFound) 
         {
             
@@ -140,11 +152,11 @@
             
         }
         
-
-
+        
+        
     }  
     
-   //Add the day arrays to the coursesByDay array (an array of arrays)
+    //Add the day arrays to the coursesByDay array (an array of arrays)
     
     NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
     
@@ -154,7 +166,7 @@
     {
         NSLog(@"Monday Array is nil");
         [tmpArray addObject:[NSNumber numberWithInt:1]];
-         
+        
     }
     else {
         [tmpArray addObject:mondayArray];
@@ -200,22 +212,8 @@
     [self setCoursesByDayArray:tmpArray];
     
     
-    
+
 }
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-
 
 #pragma mark - Table view data source
 
