@@ -61,7 +61,7 @@
     
     CourseList* myCourseListObject = [[CourseList alloc] init];
     [self setMyCourses:[myCourseListObject getCourseListFromParse]];
-    
+    [self createDayArrays];
 
     //allow the custom background to be seen
     //self.tableView.backgroundColor = [UIColor clearColor];
@@ -70,17 +70,29 @@
     //UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"grizzly1.jpg"]];
     //self.tableView.backgroundView = imageView;
     
+       
     
-    //The following is VERY hack, but is a first attempt.  Grab the days for the course.  If the days string
-    //has an M in it, add the course to the MondayArray.  If it has a Tuesday in it...
-    //needs to move to its own method
-    //set up an array for all the Monday, etc courses
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void) createDayArrays
+{
     NSMutableArray *mondayArray = [NSMutableArray array];
     NSMutableArray *tuesdayArray = [NSMutableArray array];
     NSMutableArray *wednesdayArray = [NSMutableArray array];
     NSMutableArray *thursdayArray = [NSMutableArray array];
-    NSMutableArray *fridayArray = [NSMutableArray array];
-    
+    NSMutableArray *fridayArray = [NSMutableArray array]; 
     
     for (int i=0; i<[myCourses count]; i++) 
     {
@@ -96,22 +108,23 @@
         
         //Search for M (Monday) in tmpDays
         NSRange rangeM = [tmpDays rangeOfString:@"M" 
-                                          options:NSCaseInsensitiveSearch];
+                                        options:NSCaseInsensitiveSearch];
         if(rangeM.location != NSNotFound) 
         {
             
             [mondayArray addObject:tmpCourse];
-
+            
         }
-
+        
         NSRange rangeT = [tmpDays rangeOfString:@"T" 
-                                       options:NSCaseInsensitiveSearch];
+                                        options:NSCaseInsensitiveSearch];
         if(rangeT.location != NSNotFound) 
         {
             
             [tuesdayArray addObject:tmpCourse];
             
         }
+        
         
         NSRange rangeW = [tmpDays rangeOfString:@"W" 
                                         options:NSCaseInsensitiveSearch];
@@ -139,11 +152,11 @@
             
         }
         
-
-
+        
+        
     }  
     
-   //Add the day arrays to the coursesByDay array (an array of arrays)
+    //Add the day arrays to the coursesByDay array (an array of arrays)
     
     NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
     
@@ -151,8 +164,9 @@
     
     if (mondayArray == nil)
     {
+        NSLog(@"Monday Array is nil");
         [tmpArray addObject:[NSNumber numberWithInt:1]];
-         
+        
     }
     else {
         [tmpArray addObject:mondayArray];
@@ -160,6 +174,7 @@
     
     if (tuesdayArray == nil)
     {
+        NSLog(@"Tuesday Array is nil");
         [tmpArray addObject:[NSNumber numberWithInt:1]];
         
     }
@@ -197,28 +212,14 @@
     [self setCoursesByDayArray:tmpArray];
     
     
-    
+
 }
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
+/*
     int numberOfSections = 0;
      int j=0;
     // Return the number of sections, which is the number of objects in the coursesByDayArray
@@ -251,6 +252,8 @@
     NSLog(@"Table Sections %d", numberOfSections);
     
     return numberOfSections;
+ */
+    return 5;
     
 }
 
@@ -262,9 +265,9 @@
     
     
     
-    if ([[coursesByDayArray objectAtIndex:section] isKindOfClass:[NSMutableArray class]])
-        
-    {
+    //if ([[coursesByDayArray objectAtIndex:section] isKindOfClass:[NSMutableArray class]])
+    //{ 
+    
         if (section == 0)
         {
             sectionLabel =  @"Monday";
@@ -289,7 +292,11 @@
         {
             sectionLabel =  @"Friday";
         }
-    }
+        if (section == 5)
+        {
+            sectionLabel =  @"Saturday";
+        }
+    
 
     return sectionLabel;
     
@@ -321,16 +328,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //create an array with all of the mondayArray (for example) courses
+    
     NSMutableArray *sectionContents = [[self coursesByDayArray] objectAtIndex:[indexPath section]];
     
     //cycle through each element of this new array to display it in a cell.  Basically, have put mondayArray into
     //the coursesByDayArray and just re-extracted it to display it.  The data needed to be prepped properly
     //to make it easy to display without a bunch of case:switch statements
     
-    CourseModel *contentForThisRow = [sectionContents objectAtIndex:[indexPath row]];
-    
     static NSString *CellIdentifier = @"CourseCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    
+    
+    CourseModel *contentForThisRow = [sectionContents objectAtIndex:[indexPath row]];
+    
+
     
     // Configure the cell...
     
@@ -351,6 +363,7 @@
     
     
     return cell;
+        
 }
 
 /*
@@ -362,19 +375,31 @@
 }
 */
 
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        //  [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        
+        
+        /*  PFQuery* query = [PFQuery queryWithClassName:@"CourseModel"];
+         NSString* objectID = [[myCourses objectAtIndex:indexPath.row] getParseObjectID];
+         PFObject *courseToDelete = [query getObjectWithId:objectID];
+         [courseToDelete delete];
+         */
+        
+        [CourseList removeCourse: [myCourses objectAtIndex:indexPath.row]];
+        
+        [self viewDidLoad];
+        [tableView reloadData];
+        
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -403,6 +428,17 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    CourseDetailVewController *detailView = [self.storyboard instantiateViewControllerWithIdentifier:@"CourseDetailViewController"];
+    
+    [detailView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    
+    //detailView.courseDelegate = self;
+    
+    [detailView setSelectedCourse:[self.myCourses objectAtIndex:indexPath.row]];
+    
+    // [self.navigationController presentModalViewController:detailView animated:YES];
+    [self.navigationController pushViewController:detailView animated:YES];
 }
 
 @end

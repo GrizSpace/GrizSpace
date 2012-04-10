@@ -120,7 +120,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ad7-bs-YQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="CP5-FD-hMa" customClass="SubjectPickerViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gVB-lx-iYY">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="z4z-NU-arb">
@@ -193,7 +193,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3hf-4R-Qic" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="lqC-Bo-WFi" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wL5-Gi-Jep">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Course: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="Eii-0A-dcS">
@@ -762,7 +762,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="diQ-lh-GIe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Yk1-PS-6Qc" customClass="ScheduleTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Yv5-cM-sbC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -799,7 +799,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Schedule" id="Abi-F7-OAx">
-                        <barButtonItem key="rightBarButtonItem" title="Add Class" id="gOo-My-6yf"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add Class" id="gOo-My-6yf">
+                            <connections>
+                                <segue destination="CP5-FD-hMa" kind="push" id="iyU-wR-17n"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
             </objects>
@@ -858,7 +862,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ej1-Sw-8Ee" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="z6t-L1-cBQ" userLabel="CourseListViewControllerIdentity" customClass="CourseListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1o8-GE-fIi">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1567,7 +1571,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="fx8-tT-JjN"/>
+        <segue reference="iyU-wR-17n"/>
         <segue reference="K62-WQ-gCS"/>
-        <segue reference="SRC-O4-Zfk"/>
     </inferredMetricsTieBreakers>
 </document>

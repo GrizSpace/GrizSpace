@@ -63,7 +63,7 @@
     int s = self.days & 32;
     int u = self.days & 64;
 
-    if (m > 0)
+    if ([self isOnMonday])
         dayStr = [dayStr stringByAppendingString: @"M"];
     if (t > 0)
         dayStr = [dayStr stringByAppendingString: @"T"];
@@ -78,6 +78,11 @@
     if (u > 0)
         dayStr = [dayStr stringByAppendingString: @"U"];
     return dayStr;
+}
+
+- (BOOL) isOnMonday
+{
+    return (self.days & 1) > 0;
 }
 
 @end

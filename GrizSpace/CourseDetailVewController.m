@@ -119,8 +119,8 @@
 {
    NSLog(@"Button %d clicked.", courseIndex);     
 
-    CourseModel* tmpCM = [[self theAppDataObject].myCourses.myCourseItems objectAtIndex:courseIndex];
-    
+   // CourseModel* tmpCM = [[self theAppDataObject].myCourses.myCourseItems objectAtIndex:courseIndex];
+    CourseModel *tmpCM = [self selectedCourse];
     if(tmpCM != nil)
     {
         //courseSubjectNumber.text = [NSString stringWithFormat:@"%@ %@",tmpCM.subject, tmpCM.number];
