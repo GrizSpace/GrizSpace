@@ -99,61 +99,22 @@
         
         //get the days for the course section
         CourseModel *tmpCourse = [self.myCourses objectAtIndex:i];
+        CourseSection* sect = tmpCourse.section;
         
         NSString *tmpDays = [tmpCourse.section getDays];
         NSLog(@"MyCourse iteration days %@", tmpDays);
         
-        
-        //this search will also be moved to its own method where I will just pass in the letter to look for
-        
-        //Search for M (Monday) in tmpDays
-        NSRange rangeM = [tmpDays rangeOfString:@"M" 
-                                        options:NSCaseInsensitiveSearch];
-        if(rangeM.location != NSNotFound) 
-        {
-            
+
+        if ([sect isOnMonday])
             [mondayArray addObject:tmpCourse];
-            
-        }
-        
-        NSRange rangeT = [tmpDays rangeOfString:@"T" 
-                                        options:NSCaseInsensitiveSearch];
-        if(rangeT.location != NSNotFound) 
-        {
-            
+        if ([sect isOnTuesday])
             [tuesdayArray addObject:tmpCourse];
-            
-        }
-        
-        
-        NSRange rangeW = [tmpDays rangeOfString:@"W" 
-                                        options:NSCaseInsensitiveSearch];
-        if(rangeW.location != NSNotFound) 
-        {
-            
+        if ([sect isOnWednesday])
             [wednesdayArray addObject:tmpCourse];
-            
-        }
-        NSRange rangeR = [tmpDays rangeOfString:@"R" 
-                                        options:NSCaseInsensitiveSearch];
-        if(rangeR.location != NSNotFound) 
-        {
-            
+        if ([sect isOnThursday])
             [thursdayArray addObject:tmpCourse];
-            
-        }
-        
-        NSRange rangeF = [tmpDays rangeOfString:@"F" 
-                                        options:NSCaseInsensitiveSearch];
-        if(rangeF.location != NSNotFound) 
-        {
-            
+        if ([sect isOnFriday])
             [fridayArray addObject:tmpCourse];
-            
-        }
-        
-        
-        
     }  
     
     //Add the day arrays to the coursesByDay array (an array of arrays)
