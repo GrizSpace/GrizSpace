@@ -131,7 +131,7 @@ sqlite3* database;
     
     //  The SQL statement that we plan on executing against the database
     
-    const char *sql = "SELECT id, abbr FROM Subject order by abbr;";  // addd id
+    const char *sql = "SELECT id, abbr, title FROM Subject order by title, abbr;";  // addd id
     
     //  The SQLite statement object that will hold our result set
     sqlite3_stmt *statement;
@@ -155,6 +155,15 @@ sqlite3* database;
                                     
             char *abbr = (char *)sqlite3_column_text(statement, 1);  // changed column to zero since current select statement is only querying for abbr ==> changed SELECT statement so Will changed to 1
             
+             NSString* subjectTitle = @"";
+            
+            @try {
+                subjectTitle = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 2)];
+            }
+            @catch (NSException *exception) {
+                subjectTitle = @"";
+            }
+            
             
           
             //  Set all the attributes of the subject
@@ -163,7 +172,8 @@ sqlite3* database;
             
             subject.idSubject = subjectID;
             //NSLog(@"%@", subject.abbr);
-                        
+               
+            subject.title = subjectTitle;
             
             [subjects addObject:subject];
             
