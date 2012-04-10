@@ -82,4 +82,9 @@
 - (BOOL)isOnSaturday  { return (self.days & 32) > 0; }
 - (BOOL)isOnSunday    { return (self.days & 64) > 0; }
 
+- (int)getOccurrences
+{
+    return [[self getDays] length];
+}
+
 @end

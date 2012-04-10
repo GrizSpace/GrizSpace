@@ -92,7 +92,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-/*
+    /*
     int numberOfSections = 0;
      int j=0;
     // Return the number of sections, which is the number of objects in the coursesByDayArray

@@ -11,7 +11,7 @@
 
 - (void)setUp
 {
-    self->schedule = Schedule;
+//    self->schedule = Schedule;
 }
 
 @end

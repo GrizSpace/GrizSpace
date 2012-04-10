@@ -82,4 +82,9 @@
     STAssertFalse([cs isOnSunday], @"Class should not be on Sunday");
 }
 
+- (void)testGetOccurrences
+{
+    STAssertEquals([cs getOccurrences], 4, @"Class has four sessions");
+}
+
 @end
