@@ -60,8 +60,10 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     CourseList* myCourseListObject = [[CourseList alloc] init];
+
     [self setMyCourses:[myCourseListObject getCourseListFromParse]];
-    [self createDayArrays];
+    Schedule* sched   = [[Schedule alloc] initFromCourseList:myCourses];
+    coursesByDayArray = [sched toDayArray];
 
     //allow the custom background to be seen
     //self.tableView.backgroundColor = [UIColor clearColor];
@@ -84,96 +86,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void) createDayArrays
-{
-    NSMutableArray *mondayArray = [NSMutableArray array];
-    NSMutableArray *tuesdayArray = [NSMutableArray array];
-    NSMutableArray *wednesdayArray = [NSMutableArray array];
-    NSMutableArray *thursdayArray = [NSMutableArray array];
-    NSMutableArray *fridayArray = [NSMutableArray array]; 
-    
-    for (int i=0; i<[myCourses count]; i++) 
-    {
-        
-        //get the days for the course section
-        CourseModel *tmpCourse = [self.myCourses objectAtIndex:i];
-        CourseSection* sect = tmpCourse.section;
-        
-        NSString *tmpDays = [tmpCourse.section getDays];
-        NSLog(@"MyCourse iteration days %@", tmpDays);
-        
-
-        if ([sect isOnMonday])
-            [mondayArray addObject:tmpCourse];
-        if ([sect isOnTuesday])
-            [tuesdayArray addObject:tmpCourse];
-        if ([sect isOnWednesday])
-            [wednesdayArray addObject:tmpCourse];
-        if ([sect isOnThursday])
-            [thursdayArray addObject:tmpCourse];
-        if ([sect isOnFriday])
-            [fridayArray addObject:tmpCourse];
-    }  
-    
-    //Add the day arrays to the coursesByDay array (an array of arrays)
-    
-    NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
-    
-    //NSLog(@"Count of mondayArray %@", [mondayArray count]);
-    
-    if (mondayArray == nil)
-    {
-        NSLog(@"Monday Array is nil");
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-        
-    }
-    else {
-        [tmpArray addObject:mondayArray];
-    }
-    
-    if (tuesdayArray == nil)
-    {
-        NSLog(@"Tuesday Array is nil");
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-        
-    }
-    else {
-        [tmpArray addObject:tuesdayArray];
-    }
-    if (wednesdayArray == nil)
-    {
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-        
-    }
-    else {
-        [tmpArray addObject:wednesdayArray];
-    }
-    
-    if (thursdayArray == nil)
-    {
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-        
-    }
-    else {
-        [tmpArray addObject:thursdayArray];
-    }
-    
-    if (fridayArray == nil)
-    {
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-        
-    }
-    else {
-        [tmpArray addObject:fridayArray];
-    }
-    
-    
-    [self setCoursesByDayArray:tmpArray];
-    
-    
-
 }
 
 #pragma mark - Table view data source

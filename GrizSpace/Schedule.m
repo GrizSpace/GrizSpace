@@ -47,47 +47,11 @@
     }
 
     NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
-    if (mondayArray == nil)
-    {
-        NSLog(@"Monday Array is nil");
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-    }
-    else {
-        [tmpArray addObject:mondayArray];
-    }
-
-    if (tuesdayArray == nil)
-    {
-        NSLog(@"Tuesday Array is nil");
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-    }
-    else {
-        [tmpArray addObject:tuesdayArray];
-    }
-
-    if (wednesdayArray == nil)
-    {
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-    }
-    else {
-        [tmpArray addObject:wednesdayArray];
-    }
-
-    if (thursdayArray == nil)
-    {
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-    }
-    else {
-        [tmpArray addObject:thursdayArray];
-    }
-
-    if (fridayArray == nil)
-    {
-        [tmpArray addObject:[NSNumber numberWithInt:1]];
-    }
-    else {
-        [tmpArray addObject:fridayArray];
-    }
+    [tmpArray addObject:mondayArray];
+    [tmpArray addObject:tuesdayArray];
+    [tmpArray addObject:wednesdayArray];
+    [tmpArray addObject:thursdayArray];
+    [tmpArray addObject:fridayArray];
 
     return tmpArray;
 }
