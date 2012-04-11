@@ -73,7 +73,9 @@
         
         [tmpCourse setUserid:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"userid"]];
         
-        
+        //used to identify the correct course.
+        [tmpCourse setIndex:[[NSNumber numberWithInt:i] integerValue]];
+        NSLog(@"course index (%i) or: %i", i, tmpCourse.index);
         CourseSection *tmpSection = [[CourseSection alloc] 
                                      initWithCrn:nil 
                                      andSection:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"sectionNumber"] intValue] 
