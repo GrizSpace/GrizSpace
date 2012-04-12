@@ -59,9 +59,10 @@
 		C562FD1815003C3300ADA1C8 /* CourseDetailVewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1715003C3300ADA1C8 /* CourseDetailVewController.m */; };
 		C562FD1B15003DAB00ADA1C8 /* BuildingPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1A15003DAB00ADA1C8 /* BuildingPickerViewController.m */; };
 		C562FD1E15003F3D00ADA1C8 /* BoredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */; };
-		C562FD2115003FF800ADA1C8 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD2015003FF700ADA1C8 /* PhotoViewController.m */; };
 		C58123CE151C0614008624B8 /* CourseList.m in Sources */ = {isa = PBXBuildFile; fileRef = C58123CD151C0614008624B8 /* CourseList.m */; };
 		C5915B2015155A2E00D489CD /* SelectCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */; };
+		C596D01A153707AA00DF25EC /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C596D019153707AA00DF25EC /* PhotoDetailViewController.m */; };
+		C596D01E153709BD00DF25EC /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C596D01D153709BD00DF25EC /* PhotoViewController.m */; };
 		C5E643A5152B4AC80055A7A3 /* SelectSectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643A4152B4AC80055A7A3 /* SelectSectionTableViewController.m */; };
 		C5E643A9152D3DFE0055A7A3 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643A8152D3DFD0055A7A3 /* EventDetailsViewController.m */; };
 		C5E643AC152D407D0055A7A3 /* BoredTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E643AB152D407D0055A7A3 /* BoredTableViewController.m */; };
@@ -150,12 +151,14 @@
 		C562FD1A15003DAB00ADA1C8 /* BuildingPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingPickerViewController.m; sourceTree = "<group>"; };
 		C562FD1C15003F3D00ADA1C8 /* BoredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoredViewController.h; sourceTree = "<group>"; };
 		C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoredViewController.m; sourceTree = "<group>"; };
-		C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
-		C562FD2015003FF700ADA1C8 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		C58123CC151C0614008624B8 /* CourseList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseList.h; sourceTree = "<group>"; };
 		C58123CD151C0614008624B8 /* CourseList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseList.m; sourceTree = "<group>"; };
 		C5915B1E15155A2E00D489CD /* SelectCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCourseTableViewController.h; sourceTree = "<group>"; };
 		C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCourseTableViewController.m; sourceTree = "<group>"; };
+		C596D018153707AA00DF25EC /* PhotoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailViewController.h; sourceTree = "<group>"; };
+		C596D019153707AA00DF25EC /* PhotoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailViewController.m; sourceTree = "<group>"; };
+		C596D01C153709BD00DF25EC /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		C596D01D153709BD00DF25EC /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		C5E643A3152B4AC80055A7A3 /* SelectSectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSectionTableViewController.h; sourceTree = "<group>"; };
 		C5E643A4152B4AC80055A7A3 /* SelectSectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSectionTableViewController.m; sourceTree = "<group>"; };
 		C5E643A7152D3DFD0055A7A3 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
@@ -398,6 +401,8 @@
 		D83F9727151C3AF100BAA16E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C596D01C153709BD00DF25EC /* PhotoViewController.h */,
+				C596D01D153709BD00DF25EC /* PhotoViewController.m */,
 				C5E643AA152D407D0055A7A3 /* BoredTableViewController.h */,
 				C5E643AB152D407D0055A7A3 /* BoredTableViewController.m */,
 				C562FD1C15003F3D00ADA1C8 /* BoredViewController.h */,
@@ -417,8 +422,8 @@
 				5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */,
 				C562FD06150035A700ADA1C8 /* MapViewController.h */,
 				C562FD07150035A700ADA1C8 /* MapViewController.m */,
-				C562FD1F15003FF700ADA1C8 /* PhotoViewController.h */,
-				C562FD2015003FF700ADA1C8 /* PhotoViewController.m */,
+				C596D018153707AA00DF25EC /* PhotoDetailViewController.h */,
+				C596D019153707AA00DF25EC /* PhotoDetailViewController.m */,
 				E6D43CFD152AAB4D00976AF6 /* ScheduleTableViewController.h */,
 				E6D43CFE152AAB4D00976AF6 /* ScheduleTableViewController.m */,
 				C5915B1E15155A2E00D489CD /* SelectCourseTableViewController.h */,
@@ -566,7 +571,6 @@
 				C562FD1815003C3300ADA1C8 /* CourseDetailVewController.m in Sources */,
 				C562FD1B15003DAB00ADA1C8 /* BuildingPickerViewController.m in Sources */,
 				C562FD1E15003F3D00ADA1C8 /* BoredViewController.m in Sources */,
-				C562FD2115003FF800ADA1C8 /* PhotoViewController.m in Sources */,
 				D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */,
 				D860ADD415052C5700EB030A /* GrizSpaceTabBarController.m in Sources */,
 				D811D2DC151417C6006416A7 /* GrizSpaceDataObjects.m in Sources */,
@@ -595,6 +599,8 @@
 				C5E643B3152DEC560055A7A3 /* SubmitNewEventViewController.m in Sources */,
 				C5E643B7152E1C990055A7A3 /* BoredEvent.m in Sources */,
 				5A3DF0611533EC1400D83062 /* Schedule.m in Sources */,
+				C596D01A153707AA00DF25EC /* PhotoDetailViewController.m in Sources */,
+				C596D01E153709BD00DF25EC /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
