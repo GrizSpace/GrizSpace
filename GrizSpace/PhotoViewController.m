@@ -27,6 +27,12 @@
 
 - (IBAction)refresh:(id)sender
 {
+    allImages = [[NSMutableArray alloc] init];
+    for (UIView *subview in photoScrollView.subviews) {
+        if(![subview isKindOfClass:[UIImageView class]])
+            [subview removeFromSuperview];
+    }
+    
     NSLog(@"Showing Refresh HUD");
     refreshHUD = [[PF_MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:refreshHUD];
@@ -55,86 +61,25 @@
                 
                 refreshHUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
                 
-                                refreshHUD.mode = PF_MBProgressHUDModeCustomView;
+                refreshHUD.mode = PF_MBProgressHUDModeCustomView;
                 
                 refreshHUD.delegate = self;
             }
             NSLog(@"Successfully retrieved %d photos.", objects.count);
             
-            // Retrieve existing objectIDs
-            
-            NSMutableArray *oldCompareObjectIDArray = [NSMutableArray array];
-            for (UIView *view in [photoScrollView subviews]) {
-                if ([view isKindOfClass:[UIButton class]]) {
-                    UIButton *eachButton = (UIButton *)view;
-                    [oldCompareObjectIDArray addObject:[eachButton titleForState:UIControlStateReserved]];
-                }
-            }
-            
-            NSMutableArray *oldCompareObjectIDArray2 = [NSMutableArray arrayWithArray:oldCompareObjectIDArray];
-            
-                        
-            NSMutableArray *newObjectIDArray = [NSMutableArray array];            
-            if (objects.count > 0) {
-                for (PFObject *eachObject in objects) {
-                    [newObjectIDArray addObject:[eachObject objectId]];
-                }
-            }
-                        NSMutableArray *newCompareObjectIDArray = [NSMutableArray arrayWithArray:newObjectIDArray];
-            NSMutableArray *newCompareObjectIDArray2 = [NSMutableArray arrayWithArray:newObjectIDArray];
-            if (oldCompareObjectIDArray.count > 0) {
-                
-                [newCompareObjectIDArray removeObjectsInArray:oldCompareObjectIDArray];
-               
-                [oldCompareObjectIDArray removeObjectsInArray:newCompareObjectIDArray2];
-                if (oldCompareObjectIDArray.count > 0) {
-                    
-                    NSMutableArray *listOfToRemove = [[NSMutableArray alloc] init];
-                    for (NSString *objectID in oldCompareObjectIDArray){
-                        int i = 0;
-                        for (NSString *oldObjectID in oldCompareObjectIDArray2){
-                            if ([objectID isEqualToString:oldObjectID]) {
-                                
-                                [listOfToRemove addObject:[NSNumber numberWithInt:i]];
-                            }
-                            i++;
-                        }
-                    }
-                    
-                   
-                    NSSortDescriptor *highestToLowest = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:NO];
-                    [listOfToRemove sortUsingDescriptors:[NSArray arrayWithObject:highestToLowest]];
-                    
-                    for (NSNumber *index in listOfToRemove){                        
-                        [allImages removeObjectAtIndex:[index intValue]];
-                    }
-                }
-            }
-            
-          
-            for (NSString *objectID in newCompareObjectIDArray){
-                for (PFObject *eachObject in objects){
-                    if ([[eachObject objectId] isEqualToString:objectID]) {
-                        NSMutableArray *selectedPhotoArray = [[NSMutableArray alloc] init];
-                        [selectedPhotoArray addObject:eachObject];
-                        
-                        if (selectedPhotoArray.count > 0) {
-                            [allImages addObjectsFromArray:selectedPhotoArray];                
-                        }
-                    }
-                }
-            }
-            
+                  for (PFObject *eachObject in objects)
+       {
+           NSMutableArray *selectedPhotoArray = [[NSMutableArray alloc] init];
+           [selectedPhotoArray addObject:eachObject];
            
+           if (selectedPhotoArray.count > 0)
+           {
+               [allImages addObjectsFromArray:selectedPhotoArray];
+           }
+       }
+            
             [self setUpImages:allImages];
-            
-        } else {
-            [refreshHUD hide:YES];
-            
-           
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+        }}];
 }
 
 - (IBAction)cameraButtonTapped:(id)sender
@@ -194,6 +139,8 @@
             
             PFObject *userPhoto = [PFObject objectWithClassName:@"UserPhoto"];
             [userPhoto setObject:imageFile forKey:@"imageFile"];
+            [userPhoto setObject:[NSNumber numberWithInt:0] forKey:@"flags"];
+            
             
             //userPhoto.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
             
@@ -305,7 +252,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    allImages = [[NSMutableArray alloc] init];
+   // allImages = [[NSMutableArray alloc] init];
 }
 
 - (void)viewDidUnload
