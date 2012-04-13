@@ -21,6 +21,7 @@
 @protocol MapViewControllerDelegate
 -(void)setAnnotationsSegmentIndex: (int) newSegmentIndex; //sets map annotation segment index
 -(void)showBuildingAnnotation: (int) newBuildingIndex; //sets the map annotation to the building input
+-(void)showCourseAnnotation: (NSObject*) newCourse; //sets the course annotation to the course. 
 @end
 @protocol CourseDetailControllerDelegate; //protocal to set the cours details item to display.
 
@@ -29,6 +30,8 @@
     __weak IBOutlet MKMapView *mapView; //reference to the private mapview
     MapAnnotation* tmpAnn;
     long int annotationButtonActionTag; //the action tag associated with the page button annotation action.
+    
+    NSObject* annotationObject; //the current set annotation object.
     
 }
 

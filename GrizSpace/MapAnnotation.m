@@ -13,7 +13,7 @@
 
 @implementation MapAnnotation
 @synthesize coordinate,title,subtitle, keyVal, annotationType, radius, arrived;
-
+//@synthesize annotationObject;
 
 
 //overloaded constructor.
@@ -72,6 +72,25 @@
         [self setSubtitle: tmpCM.buildingAndRoom];  
         [self setRadius:tmpCM.radius];
         [self setArrived:false];
+    }
+    return self;  
+}
+
+-(id) initWithSearchCourseModel: (CourseModel*) tmpCM
+{
+    if (self = [super init])
+    {
+        [self setKeyVal: tmpCM.index];
+        [self setAnnotationType: @"mySearchCourse"];
+        
+        //should be Latitude then longitude.  Database data needs switched.
+        [self setCoordinate:CLLocationCoordinate2DMake(tmpCM.section.latitude, tmpCM.section.longitude)];
+        //[self setCoordinate:CLLocationCoordinate2DMake(tmpBM.Longitude, tmpBM.Latitude)];
+        [self setTitle: tmpCM.subject];
+        [self setSubtitle: tmpCM.buildingAndRoom];  
+        [self setRadius:tmpCM.radius];
+        [self setArrived:false];
+        //[self setAnnotationObject:tmpCM];
     }
     return self;  
 }

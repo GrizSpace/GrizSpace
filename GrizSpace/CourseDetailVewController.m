@@ -18,7 +18,7 @@
 @synthesize courseIndex;
 @synthesize selectedCourse;
 @synthesize courseDelegate;
-
+@synthesize delegate;
 - (IBAction)showStudyBuddy:(id)sender 
 {
     
@@ -107,6 +107,32 @@
     courseRoom = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+- (IBAction)findItAction:(id)sender {
+    
+    
+
+    //else {
+        //sets the correct tab index
+        [self.tabBarController setSelectedIndex:0];
+        
+        //get handle for nav controller
+        UINavigationController *tmpNC = [self.tabBarController.viewControllers objectAtIndex:0];
+        
+        //get handle for map view controller
+        MapViewController *mView = [tmpNC.viewControllers objectAtIndex:0];
+        
+        //set the appropriate delegate for the action
+        self.delegate = mView;
+        
+        //call delegate action to display the building index
+        [delegate showCourseAnnotation: selectedCourse]; 
+    
+    if (self.tabBarController.selectedIndex == 0) {
+        [[self navigationController] popViewControllerAnimated:YES];
+        
+    }
+    //}
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

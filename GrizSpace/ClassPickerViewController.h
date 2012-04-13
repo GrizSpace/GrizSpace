@@ -14,6 +14,10 @@
 #import "CourseModel.h"
 #import "CourseList.h"
 #import "CourseSection.h"
+#import "MapViewController.h"
+
+
+@protocol MapViewControllerDelegate; //protocal to set the map annotations on the map.
 
 @protocol CourseDelegate
 
@@ -33,6 +37,9 @@
 @property (strong, nonatomic) SubjectModel* selectedSubject;
 @property (strong, nonatomic) CourseModel* selectedCourse;
 @property (strong, nonatomic) IBOutlet UIButton *addButton;
+
+@property (nonatomic, weak) id<MapViewControllerDelegate> delegate; //delegate used to call mapview 
+
 
 -(IBAction)showCoursesToSelect:(id)sender;
 @end

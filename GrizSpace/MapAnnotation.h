@@ -21,6 +21,7 @@
 @property (nonatomic, readwrite) int radius; //the radius of the object identified
 @property (nonatomic, readwrite) bool arrived; //set to true when arrived at destination.
 
+//@property (nonatomic, assign) NSObject* annotationObject;
 
 //@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
@@ -31,4 +32,6 @@
 - (id) initWithBuildingModel: (BuildingModel*) tmpBM;
 
 -(id) initWithCourseModel: (CourseModel*) tmpCM;
+
+-(id) initWithSearchCourseModel: (CourseModel*) tmpCM;
 @end

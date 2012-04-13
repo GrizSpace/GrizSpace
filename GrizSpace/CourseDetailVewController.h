@@ -12,12 +12,16 @@
 #import "CourseModel.h"
 #import "CourseSection.h"
 
+#import "MapViewController.h"
+
 // ignore CourseDelegate protocol/delegate - that is not needed and will be deleted
 
 //used for accing and setting the map properties
 @protocol CourseDetailControllerDelegate
 -(void) LoadCourseDetails; //used to display details about a course.
 @end
+
+@protocol MapViewControllerDelegate; //protocal to set the map annotations on the map.
 
 @protocol CourseDelegate
 
@@ -47,6 +51,8 @@ CourseDetailControllerDelegate>
 
 
 @property (nonatomic, strong) CourseModel* selectedCourse;
+
+@property (nonatomic, weak) id<MapViewControllerDelegate> delegate; //delegate used to call mapview 
 
 
 

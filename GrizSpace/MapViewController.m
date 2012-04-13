@@ -304,9 +304,9 @@
         
     }
     
-    //ensures that no segment is selected.
+    //ensures that no segment is selected and annotation object is unset.
     [myMapAnnotationSegmentControl setSelectedSegmentIndex: UISegmentedControlNoSegment];
-    
+    annotationObject = Nil;
     
     
     
@@ -580,6 +580,19 @@
             pin.rightCalloutAccessoryView = annotationButton;
             
         }
+        else if ([(MapAnnotation*)annotation annotationType] == @"mySearchCourse") {
+            //define the annotation button type to add to the annotation.
+            UIButton *annotationButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            
+            //set the identifying atribute to the annotation
+            [annotationButton setTag: [(MapAnnotation*)annotation keyVal]];
+            
+            //add an event to the button
+            [annotationButton addTarget:self action:@selector(buttonSearchClicked:) forControlEvents:UIControlEventTouchUpInside];
+            
+            //define the button on the pin annotation
+            pin.rightCalloutAccessoryView = annotationButton;
+        }
         else {
             pin.rightCalloutAccessoryView = nil;
         }
@@ -607,6 +620,19 @@
     
 }
 
+//action for annotation object click event.
+-(void) buttonSearchClicked:(UIButton*) button
+{
+    
+    //NSLog(@"Button %ld clicked.", (long int)[button tag]);
+    annotationButtonActionTag = (long int)[button tag];
+    
+    //perform action for annotation.
+    [self performSegueWithIdentifier:@"MapToCourseDetail" sender:self];
+    
+    
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -614,13 +640,18 @@
     
     if ([[segue identifier] isEqualToString:@"MapToCourseDetail"])
     {
-
         // Get reference to the destination view controller
         CourseDetailVewController *cDVC = [segue destinationViewController];
-    
-        cDVC.courseIndex = annotationButtonActionTag;
-        [cDVC setSelectedCourse:[[[[self theAppDataObject] myCourses] getCourseListFromParse]   objectAtIndex:annotationButtonActionTag]];
         
+        cDVC.courseIndex = annotationButtonActionTag;
+        if(annotationObject != Nil &&  ([annotationObject isKindOfClass:[CourseModel class]]))
+        {
+            [cDVC setSelectedCourse:(CourseModel*)annotationObject]; 
+        }
+        else {
+            [cDVC setSelectedCourse:[[[[self theAppDataObject] myCourses] getCourseListFromParse]   objectAtIndex:annotationButtonActionTag]];
+            annotationObject = Nil;
+        }
     }
      
 }
@@ -674,6 +705,41 @@
     
     //show the distance label
     distanceLabel.hidden = false;
+}
+
+-(void)showCourseAnnotation: (NSObject*) tmpClass
+{
+    //we can auto call option 2 to remove annotations befor another needs to be drawn.
+    [mapView removeAnnotations:mapView.annotations];
+    
+    MKMapRect flyTo = MKMapRectNull; //map bounding rectangle for classes.
+    
+    if ([tmpClass isKindOfClass:[CourseModel class]])
+    {
+        //get the next annotation for the class
+        MapAnnotation* tmpNextAnnotation = [[MapAnnotation alloc] initWithSearchCourseModel:(CourseModel*)tmpClass];
+        
+        annotationObject = tmpClass;
+        
+        //define anotation point for map.
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(tmpNextAnnotation.coordinate);
+        
+        //place the annotation on the map.
+        [mapView addAnnotation:tmpNextAnnotation];
+        [mapView selectAnnotation:tmpNextAnnotation animated:YES];
+        
+        //define the bounding rectangle and set visible area to include annotation point.
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+        if (MKMapRectIsNull(flyTo)) {
+            flyTo = pointRect;
+        } else {
+            flyTo = MKMapRectUnion(flyTo, pointRect);
+        }
+        
+        //show the distance label
+        distanceLabel.hidden = false;
+        NSLog(@"show course");
+    }
 }
 
 
