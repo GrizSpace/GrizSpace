@@ -254,18 +254,15 @@
         // Delete the row from the data source
         //  [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
+        NSMutableArray *sectionContents = [[self coursesByDayArray] objectAtIndex:[indexPath section]];
         
-        
-        /*  PFQuery* query = [PFQuery queryWithClassName:@"CourseModel"];
-         NSString* objectID = [[myCourses objectAtIndex:indexPath.row] getParseObjectID];
-         PFObject *courseToDelete = [query getObjectWithId:objectID];
-         [courseToDelete delete];
-         */
-        
-        [CourseList removeCourse: [myCourses objectAtIndex:indexPath.row]];
+        [CourseList removeCourse: [sectionContents objectAtIndex:indexPath.row]];
+
         
         [self viewDidLoad];
+
         [tableView reloadData];
+        
         
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -302,15 +299,17 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     
+    
     CourseDetailVewController *detailView = [self.storyboard instantiateViewControllerWithIdentifier:@"CourseDetailViewController"];
     
     [detailView setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     
-    //detailView.courseDelegate = self;
+    NSMutableArray *sectionContents = [[self coursesByDayArray] objectAtIndex:[indexPath section]];
     
-    [detailView setSelectedCourse:[self.myCourses objectAtIndex:indexPath.row]];
     
-    // [self.navigationController presentModalViewController:detailView animated:YES];
+    [detailView setSelectedCourse:[sectionContents objectAtIndex:indexPath.row]];
+    
+   
     [self.navigationController pushViewController:detailView animated:YES];
 }
 
