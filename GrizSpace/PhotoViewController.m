@@ -252,6 +252,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self refresh:nil];
+    
    // allImages = [[NSMutableArray alloc] init];
 }
 
