@@ -172,7 +172,7 @@
 
 - (IBAction)removeCourseButton:(id)sender 
 {
-   // [CourseList removeCourse:self.selectedCourse];
+    [CourseList removeCourse:self.selectedCourse];
     
 
 }

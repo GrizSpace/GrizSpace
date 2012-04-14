@@ -120,7 +120,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ad7-bs-YQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="CP5-FD-hMa" customClass="SubjectPickerViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gVB-lx-iYY">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="z4z-NU-arb">
@@ -625,7 +625,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="diQ-lh-GIe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Yk1-PS-6Qc" customClass="ScheduleTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Yv5-cM-sbC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -776,6 +776,7 @@
                                 </state>
                                 <connections>
                                     <action selector="removeCourseButton:" destination="TBf-LV-LzM" eventType="touchUpInside" id="1QN-Wg-t4j"/>
+                                    <segue destination="Yk1-PS-6Qc" kind="push" identifier="justRemovedACourse" id="g2G-Ff-FKd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dtZ-ZJ-f1p">
@@ -1389,7 +1390,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="uld-Og-tri"/>
         <segue reference="K62-WQ-gCS"/>
+        <segue reference="g2G-Ff-FKd"/>
     </inferredMetricsTieBreakers>
 </document>
