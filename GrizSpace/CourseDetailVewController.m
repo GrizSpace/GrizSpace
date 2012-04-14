@@ -18,6 +18,7 @@
 @synthesize courseIndex;
 @synthesize selectedCourse;
 @synthesize courseDelegate;
+@synthesize studyBuddySwitch;
 @synthesize delegate;
 - (IBAction)showStudyBuddy:(id)sender 
 {
@@ -105,6 +106,7 @@
     courseDays = nil;
     courseTime = nil;
     courseRoom = nil;
+    [self setStudyBuddySwitch:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -191,4 +193,6 @@
 }
 
 
+- (IBAction)didToggleStudyBuddySwitch:(id)sender {
+}
 @end

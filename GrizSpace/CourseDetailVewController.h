@@ -49,11 +49,13 @@ CourseDetailControllerDelegate>
 @property (nonatomic, readwrite) int courseIndex;
 @property (nonatomic, weak) id<CourseDelegate> courseDelegate;
 
+@property (strong, nonatomic) IBOutlet UISwitch *studyBuddySwitch;
 
 @property (nonatomic, strong) CourseModel* selectedCourse;
 
 @property (nonatomic, weak) id<MapViewControllerDelegate> delegate; //delegate used to call mapview 
 
+- (IBAction)didToggleStudyBuddySwitch:(id)sender;
 
 
 @end
