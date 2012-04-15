@@ -794,7 +794,7 @@
                                     <action selector="showStudyBuddy:" destination="TBf-LV-LzM" eventType="touchUpInside" id="kce-fu-zc8"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="FZ6-6F-E0y">
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="FZ6-6F-E0y">
                                 <rect key="frame" x="221" y="269" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>

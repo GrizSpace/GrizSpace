@@ -201,7 +201,27 @@
     return [[self getCourseListFromParse] objectAtIndex: currentCourseIndex];
 }
 
++(void) setStuddyBuddy:(CourseModel *)course withUserName:(NSString *)name withEmail:(NSString *)email
+{
+    PFQuery* query = [PFQuery queryWithClassName:@"CourseModel"];
+    NSString* objectID = [course getParseObjectID];
+    PFObject *courseToUpdate = [query getObjectWithId:objectID];
+    
+    [courseToUpdate setObject:[NSNumber numberWithBool:YES] forKey:@"studyBuddy"];
+    [courseToUpdate setObject:name forKey:@"userName"];
+    [courseToUpdate setObject:email forKey:@"userEmail"];
+    [courseToUpdate save];
+}
 
++(void) setStuddyBuddyNo: (CourseModel*) course
+{
+    PFQuery* query = [PFQuery queryWithClassName:@"CourseModel"];
+    NSString* objectID = [course getParseObjectID];
+    PFObject *courseToUpdate = [query getObjectWithId:objectID];
+    
+    [courseToUpdate setObject:[NSNumber numberWithBool:NO] forKey:@"studyBuddy"];
+    [courseToUpdate save];
+}
 
 @end
 

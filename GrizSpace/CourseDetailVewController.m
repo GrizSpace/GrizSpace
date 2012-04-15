@@ -28,6 +28,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"CourseModel"];
     [query whereKey:@"number" equalTo:[self.selectedCourse number]];
     [query whereKey:@"subject" equalTo:[self.selectedCourse subject]];
+    [query whereKey:@"studyBuddy" equalTo:[NSNumber numberWithBool:YES]];
     [query whereKey:@"userid" notEqualTo:[[UIDevice currentDevice] uniqueIdentifier]];
     PFObject* queryResults = [query getFirstObject];
     
@@ -43,9 +44,11 @@
     
     else 
     {
-        NSString* buddyID = [queryResults objectForKey:@"userid"];
+        NSString* buddyName = [queryResults objectForKey:@"userName"];
         
-        NSString *mesg = [[NSString alloc] initWithFormat:@"Your study buddy is %@", buddyID];
+        NSString* buddyEmail = [queryResults objectForKey:@"userEmail"];
+        
+        NSString *mesg = [[NSString alloc] initWithFormat:@"Your study buddy is %@ at %@", buddyName, buddyEmail];
     
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Study Buddy" message:mesg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
@@ -92,6 +95,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    if (!studyBuddySwitch.isOn)
+    {
+        studyBuddyButton.enabled=NO;
+    }
     
     NSLog(@"Loading course detail");
     
@@ -208,7 +216,7 @@ if (studyBuddySwitch.isOn)
     
     NSString *userName = @"";
     if ([delegate show])
-        userName = [NSString stringWithFormat:@"Hello %@", [namePrompt textFieldAtIndex:0].text];
+        userName = [NSString stringWithFormat: [namePrompt textFieldAtIndex:0].text];
     
     
     UIAlertView *emailPrompt = [[UIAlertView alloc] initWithTitle:@"Study Buddy Contact Info" message:@"Please enter your email address" delegate:nil cancelButtonTitle:@"Cancel " otherButtonTitles:@"Okay", nil];
@@ -218,13 +226,16 @@ if (studyBuddySwitch.isOn)
     
     NSString *userEmail = @"";
     if ([delegate2 show])
-        userEmail = [NSString stringWithFormat:@"Hello %@", [emailPrompt textFieldAtIndex:0].text];
+        userEmail = [NSString stringWithFormat: [emailPrompt textFieldAtIndex:0].text];
     
     [studyBuddyButton setEnabled:YES];
+    [CourseList setStuddyBuddy:selectedCourse withUserName:userName withEmail:userEmail];
 }
 else 
 {
     [studyBuddyButton setEnabled:NO];
+    [CourseList setStuddyBuddyNo:selectedCourse];
+    
 }
 
 }

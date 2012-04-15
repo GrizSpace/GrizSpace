@@ -32,6 +32,8 @@
 
 
 +(NSMutableArray*) getMyCourseList;
++(void) setStuddyBuddy: (CourseModel*) course withUserName: (NSString*) name withEmail: (NSString*) email;
++(void) setStuddyBuddyNo: (CourseModel*) course;
 
 
 
