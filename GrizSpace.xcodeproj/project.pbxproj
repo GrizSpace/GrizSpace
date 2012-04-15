@@ -59,6 +59,7 @@
 		C562FD1815003C3300ADA1C8 /* CourseDetailVewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1715003C3300ADA1C8 /* CourseDetailVewController.m */; };
 		C562FD1B15003DAB00ADA1C8 /* BuildingPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1A15003DAB00ADA1C8 /* BuildingPickerViewController.m */; };
 		C562FD1E15003F3D00ADA1C8 /* BoredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */; };
+		C5757039153A500B00285BE1 /* ModalAlertDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5757038153A500B00285BE1 /* ModalAlertDelegate.m */; };
 		C58123CE151C0614008624B8 /* CourseList.m in Sources */ = {isa = PBXBuildFile; fileRef = C58123CD151C0614008624B8 /* CourseList.m */; };
 		C5915B2015155A2E00D489CD /* SelectCourseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5915B1F15155A2E00D489CD /* SelectCourseTableViewController.m */; };
 		C596D01A153707AA00DF25EC /* PhotoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C596D019153707AA00DF25EC /* PhotoDetailViewController.m */; };
@@ -151,6 +152,8 @@
 		C562FD1A15003DAB00ADA1C8 /* BuildingPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingPickerViewController.m; sourceTree = "<group>"; };
 		C562FD1C15003F3D00ADA1C8 /* BoredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoredViewController.h; sourceTree = "<group>"; };
 		C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoredViewController.m; sourceTree = "<group>"; };
+		C5757037153A500B00285BE1 /* ModalAlertDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalAlertDelegate.h; sourceTree = "<group>"; };
+		C5757038153A500B00285BE1 /* ModalAlertDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalAlertDelegate.m; sourceTree = "<group>"; };
 		C58123CC151C0614008624B8 /* CourseList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseList.h; sourceTree = "<group>"; };
 		C58123CD151C0614008624B8 /* CourseList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseList.m; sourceTree = "<group>"; };
 		C5915B1E15155A2E00D489CD /* SelectCourseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCourseTableViewController.h; sourceTree = "<group>"; };
@@ -401,6 +404,8 @@
 		D83F9727151C3AF100BAA16E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C5757037153A500B00285BE1 /* ModalAlertDelegate.h */,
+				C5757038153A500B00285BE1 /* ModalAlertDelegate.m */,
 				C596D01C153709BD00DF25EC /* PhotoViewController.h */,
 				C596D01D153709BD00DF25EC /* PhotoViewController.m */,
 				C5E643AA152D407D0055A7A3 /* BoredTableViewController.h */,
@@ -601,6 +606,7 @@
 				5A3DF0611533EC1400D83062 /* Schedule.m in Sources */,
 				C596D01A153707AA00DF25EC /* PhotoDetailViewController.m in Sources */,
 				C596D01E153709BD00DF25EC /* PhotoViewController.m in Sources */,
+				C5757039153A500B00285BE1 /* ModalAlertDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

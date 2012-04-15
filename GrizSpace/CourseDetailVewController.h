@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-
 #import "CourseModel.h"
 #import "CourseSection.h"
-
 #import "MapViewController.h"
+#import "ModalAlertDelegate.h"
 
 // ignore CourseDelegate protocol/delegate - that is not needed and will be deleted
 

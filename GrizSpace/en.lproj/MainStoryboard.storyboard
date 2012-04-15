@@ -811,6 +811,7 @@
                         <outlet property="courseSubjectNumber" destination="2JS-0n-O2r" id="Wsf-tv-WSS"/>
                         <outlet property="courseTime" destination="sqw-s9-Ds1" id="HR3-8a-g08"/>
                         <outlet property="courseTitle" destination="Pbj-dB-0q4" id="PHv-aa-4bq"/>
+                        <outlet property="studyBuddyButton" destination="dtZ-ZJ-f1p" id="1iC-gj-yFo"/>
                         <outlet property="studyBuddySwitch" destination="FZ6-6F-E0y" id="PSh-g0-CX0"/>
                     </connections>
                 </viewController>
@@ -1313,6 +1314,7 @@
                 <relationship kind="outlet" name="courseSubjectNumber" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="courseTime" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="courseTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="studyBuddyButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="studyBuddySwitch" candidateClass="UISwitch"/>
             </relationships>
         </class>

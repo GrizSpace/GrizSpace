@@ -11,10 +11,12 @@
 #import "AppDelegateProtocol.h"
 
 @interface CourseDetailVewController ()
+@property (strong, nonatomic) IBOutlet UIButton *studyBuddyButton;
 
 @end
 
 @implementation CourseDetailVewController
+@synthesize studyBuddyButton;
 @synthesize courseIndex;
 @synthesize selectedCourse;
 @synthesize courseDelegate;
@@ -107,6 +109,7 @@
     courseTime = nil;
     courseRoom = nil;
     [self setStudyBuddySwitch:nil];
+    [self setStudyBuddyButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -193,6 +196,36 @@
 }
 
 
-- (IBAction)didToggleStudyBuddySwitch:(id)sender {
+- (IBAction)didToggleStudyBuddySwitch:(id)sender 
+{
+ 
+if (studyBuddySwitch.isOn)
+{
+    UIAlertView *namePrompt = [[UIAlertView alloc] initWithTitle:@"Study Buddy Contact Info" message:@"Please enter your name" delegate:nil cancelButtonTitle:@"Cancel " otherButtonTitles:@"Okay", nil];
+    namePrompt.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    ModalAlertDelegate *delegate = [ModalAlertDelegate delegateWithAlert:namePrompt];
+    
+    NSString *userName = @"";
+    if ([delegate show])
+        userName = [NSString stringWithFormat:@"Hello %@", [namePrompt textFieldAtIndex:0].text];
+    
+    
+    UIAlertView *emailPrompt = [[UIAlertView alloc] initWithTitle:@"Study Buddy Contact Info" message:@"Please enter your email address" delegate:nil cancelButtonTitle:@"Cancel " otherButtonTitles:@"Okay", nil];
+    emailPrompt.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    ModalAlertDelegate *delegate2 = [ModalAlertDelegate delegateWithAlert:emailPrompt];
+    
+    NSString *userEmail = @"";
+    if ([delegate2 show])
+        userEmail = [NSString stringWithFormat:@"Hello %@", [emailPrompt textFieldAtIndex:0].text];
+    
+    [studyBuddyButton setEnabled:YES];
+}
+else 
+{
+    [studyBuddyButton setEnabled:NO];
+}
+
 }
 @end
