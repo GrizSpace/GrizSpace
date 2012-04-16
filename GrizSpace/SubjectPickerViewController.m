@@ -175,9 +175,16 @@
     
     ClassPickerViewController *classPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"ClassPickerViewController"];
     
-    [classPicker setSelectedSubject:[self.subjects objectAtIndex:indexPath.row]];
-    NSLog(@"You selected: %@", [[self.subjects objectAtIndex:indexPath.row] abbr]);
     
+    if(searching)
+    {
+        [classPicker setSelectedSubject:[copyListOfItems objectAtIndex:indexPath.row]];
+        NSLog(@"You selected: %@", [[copyListOfItems objectAtIndex:indexPath.row] abbr]);  
+    }
+    else {
+        [classPicker setSelectedSubject:[self.subjects objectAtIndex:indexPath.row]];
+        NSLog(@"You selected: %@", [[self.subjects objectAtIndex:indexPath.row] abbr]);
+    }
     [self.navigationController pushViewController:classPicker animated:YES];
 }
 
