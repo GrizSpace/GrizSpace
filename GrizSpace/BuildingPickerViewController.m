@@ -99,19 +99,35 @@
     searching = YES;
     letUserSelectRow = NO;
     self.tableView.scrollEnabled = NO;
+    
+    UIBarButtonItem *cancelSearch = [[UIBarButtonItem alloc] 
+                                   initWithTitle:@"Cancel"                                            
+                                   style:UIBarButtonItemStyleBordered 
+                                   target:self 
+                                   action:@selector(cancelSearch)];
+    self.navigationItem.rightBarButtonItem = cancelSearch;
+    
+
 }
 
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {
-   self->searchBar.text = @"";
-   [self->searchBar resignFirstResponder];
+-(IBAction)cancelSearch
+{
+    NSLog(@"cancel search");
+    
+    self->searchBar.text = @"";
+    [self->searchBar resignFirstResponder];
     
     letUserSelectRow = YES;
     searching = NO;
     self.navigationItem.rightBarButtonItem = nil;
     self.tableView.scrollEnabled = YES;
     
-    [self.tableView reloadData];    
+    [self.tableView reloadData];  
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {
+    [self cancelSearch];
 }
 
 
@@ -224,7 +240,6 @@
     
     return cell;
 }
-
 
 
 
