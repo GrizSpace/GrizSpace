@@ -91,7 +91,7 @@
         
        
         imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
-        
+        imagePicker.allowsEditing=YES;
         imagePicker.delegate = self;
         
     
@@ -252,6 +252,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self refresh:nil];
+    
    // allImages = [[NSMutableArray alloc] init];
 }
 
@@ -294,7 +296,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     
-    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
     
    
     [picker dismissModalViewControllerAnimated:YES];
