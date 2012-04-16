@@ -11,6 +11,8 @@
 #import "CourseModel.h"
 #import "ClassPickerViewController.h"
 #import "CourseSectionMapper.h"
+#import "SubjectModel.h"
+#import "ClassPickerViewController.h"
 
 @protocol sectionDelegate;
 
@@ -19,5 +21,6 @@
 @property (nonatomic, weak) id<sectionDelegate> sectiondelegate;
 @property (nonatomic, strong) NSArray* sections;
 @property (nonatomic, strong) CourseModel* selectedCourse;
+@property (nonatomic, strong) SubjectModel* selectedSubject; // subjetModel should be added as property in CourseModel - for refactor
 
 @end

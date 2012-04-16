@@ -31,6 +31,7 @@
 @synthesize selectedCourse = _selectedCourse;
 @synthesize addButton;
 @synthesize delegate;
+@synthesize receivedSection;
 
 -(void) didReceiveCourse:(CourseModel *)selectedCourseFromPicker
 {
@@ -47,6 +48,15 @@
     locationLabel.text = [NSString stringWithFormat:@"%@ %@", self.selectedCourse.section.building, self.selectedCourse.section.room];
     selectSectionButton.titleLabel.text = self.selectedCourse.section.getNumberString;
     
+}
+-(void) setReceivedSection:(CourseSection *)receivedSection
+{
+    [self.selectedCourse setSection:receivedSection];
+    daysLabel.text = self.selectedCourse.section.getDays;
+    timesLabel.text = [NSString stringWithFormat:@"%@: %@", self.selectedCourse.section.startTime, self.selectedCourse.section.endTime];
+    
+    locationLabel.text = [NSString stringWithFormat:@"%@ %@", self.selectedCourse.section.building, self.selectedCourse.section.room];
+    selectSectionButton.titleLabel.text = self.selectedCourse.section.getNumberString;
 }
 
 -(void)setSelectedCourse:(CourseModel *)selectedCourse
@@ -102,8 +112,8 @@
     [selectView setSelectedSubject:selectedSubject];
 
     
-    [self.navigationController presentModalViewController:selectView animated:YES];
-    
+   // [self.navigationController presentModalViewController:selectView animated:YES];
+    [self.navigationController pushViewController:selectView animated:YES];
 }
 - (IBAction)showSectionsToSelect:(id)sender 
 {
@@ -116,7 +126,8 @@
     
     [selectView setSelectedCourse:self.selectedCourse];
     
-    [self.navigationController presentModalViewController:selectView animated:YES];
+    //[self.navigationController presentModalViewController:selectView animated:YES];
+    [self.navigationController pushViewController:selectView animated:YES];
 }
 
 
@@ -133,8 +144,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    selectCourseButton.enabled=NO;
+    selectSectionButton.enabled=NO;
     self.subjectLabel.text = self.selectedSubject.abbr;
+    selectCourseButton.titleLabel.text = self.selectedCourse.number;
+    daysLabel.text = self.selectedCourse.section.getDays;
+    timesLabel.text = [NSString stringWithFormat:@"%@: %@", self.selectedCourse.section.startTime, self.selectedCourse.section.endTime];
     
+    locationLabel.text = [NSString stringWithFormat:@"%@ %@", self.selectedCourse.section.building, self.selectedCourse.section.room];
+    selectSectionButton.titleLabel.text = self.selectedCourse.section.getNumberString;
 
     
     

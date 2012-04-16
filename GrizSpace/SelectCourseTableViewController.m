@@ -174,9 +174,14 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     
-    [delegate didReceiveCourse:[self.courses objectAtIndex:indexPath.row]];
-    [self dismissModalViewControllerAnimated:YES];
+    //[delegate didReceiveCourse:[self.courses objectAtIndex:indexPath.row]];
+    //[self dismissModalViewControllerAnimated:YES];
     
+    SelectSectionTableViewController *sectionPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectSectionTableViewController"];
+    
+    [sectionPicker setSelectedCourse:[self.courses objectAtIndex:indexPath.row]];
+    [sectionPicker setSelectedSubject:self.selectedSubject];
+    [self.navigationController pushViewController:sectionPicker animated:YES];
 }
 
 

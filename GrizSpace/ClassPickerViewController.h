@@ -37,6 +37,7 @@
 @property (strong, nonatomic) SubjectModel* selectedSubject;
 @property (strong, nonatomic) CourseModel* selectedCourse;
 @property (strong, nonatomic) IBOutlet UIButton *addButton;
+@property (strong, nonatomic) CourseSection* receivedSection;
 
 @property (nonatomic, weak) id<MapViewControllerDelegate> delegate; //delegate used to call mapview 
 
