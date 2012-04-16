@@ -19,6 +19,7 @@
 @synthesize endLabel;
 @synthesize locationLabel;
 @synthesize titleLabel;
+@synthesize whenLabel;
 @synthesize selectedEvent;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -45,6 +46,7 @@
     self.titleLabel.text = self.selectedEvent.title;
     self.descLabel.text = self.selectedEvent.description;
     self.locationLabel.text = self.selectedEvent.location;
+    self.whenLabel.text = self.selectedEvent.when;
 	// Do any additional setup after loading the view.
 }
 
@@ -56,6 +58,7 @@
     [self setStartLabel:nil];
     [self setEndLabel:nil];
     [self setLocationLabel:nil];
+    [self setWhenLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

@@ -93,8 +93,6 @@
         imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
         imagePicker.allowsEditing=YES;
         imagePicker.delegate = self;
-        
-    
         [self presentModalViewController:imagePicker animated:YES];
     }
     else
