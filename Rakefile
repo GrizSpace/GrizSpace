@@ -41,6 +41,17 @@ namespace :db do
   task :setup => :clear do
     [SCHEMA, SEED].each { |f| sh "#{SQLITE} #{DB} < #{f}" }
   end
+
+  desc 'prune empty courses'
+  task :prune do
+    dbh = get_dbh()
+    sql = 'SELECT Course.id AS CID, CourseSection.id AS CSID
+          FROM Course
+          LEFT JOIN CourseSection ON CourseSection.course_id = Course.id
+          WHERE CSID IS NULL';
+    ids = dbh[sql].all.map { |row| row[:CID] }
+    dbh[:Course].filter('id IN ?', ids).delete
+  end
 end
 
 ALIASES = {
