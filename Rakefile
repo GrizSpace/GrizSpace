@@ -43,8 +43,18 @@ namespace :db do
   end
 end
 
+ALIASES = {
+  'CHEM' => 'CP',
+  'CUR'  => 'CHC',
+  'MLIB' => 'MLB',
+  'ADAM' => 'AC',
+  'HB'   => 'HS',
+  'GH'   => 'GBB',
+}
+
 def get_building_and_room_ids(dbh, str)
   abbr, num = str.split(/ /)
+  abbr = ALIASES[abbr] ? ALIASES[abbr] : abbr
   bldg = get_building_id(dbh, abbr)
 
   return nil unless bldg
@@ -105,10 +115,10 @@ def parse_abbr_num_sect(str)
 end
 
 desc 'Import courses from the Academic Planner'
-task :import_courses => 'db:setup' do
+task :import_courses => ['db:setup', :import_buildings, :import_subjects] do
   dbh      = get_dbh()
   fn       = 'data/course-import.txt'
-  semester = fetch_id(dbh, :Semester, :year => 2012, :season => 'SP')
+  semester = fetch_id(dbh, :Semester, :year => 2012, :season => 'FA')
 
   File.readlines(fn).each do |line|
     h = {}
@@ -127,6 +137,9 @@ task :import_courses => 'db:setup' do
     course = get_course_id(dbh, :title => h['Title'], :number => num, :subject_id => subj)
 
     bldg, room = get_building_and_room_ids(dbh, h['Building and Room'].to_s)
+    if !bldg
+      p line
+    end
     next unless bldg
 
     params = {
@@ -162,4 +175,24 @@ task :import_subjects do
     s = {:abbr => matches[:abbr].strip, :title => matches[:title].strip}
     fetch_id(dbh, :Subject, s)
   end
+end
+
+desc 'Imports the building spreadsheet'
+task :import_buildings do
+  dbh = get_dbh()
+  fn  = 'data/buildings.csv'
+
+  File.readlines(fn).each.with_index do |line, i|
+    next if i.zero?
+    fields = line.split(/\t/).map { |x| x.strip }
+    bldg = {:abbr => fields[0], :name => fields[1]}
+    gps  = {:latitude => fields[2], :longitude => fields[3], :radius => 100}
+
+    rs     = dbh[:GPS].filter(gps).first
+    gps_id = rs ? rs[:idGPS] : dbh[:GPS].insert(gps)
+    bldg[:gps_id] = gps_id
+
+    fetch_id(dbh, :Building, bldg)
+  end
+
 end
