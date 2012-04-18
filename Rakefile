@@ -4,6 +4,11 @@ namespace :db do
   SEED   = 'data/seed.sql'
   SCHEMA = 'data/schema.sql'
 
+  desc "open #{DB}"
+  task :open do
+    sh "#{SQLITE} #{DB}"
+  end
+
   desc "dump the SQLite schema to #{SCHEMA}"
   task :schema do
     sh "#{SQLITE} #{DB} .sch > #{SCHEMA}"
