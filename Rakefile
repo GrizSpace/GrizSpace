@@ -109,3 +109,24 @@ task :import => 'db:setup' do
     section = fetch_id(dbh, :CourseSection, params)
   end
 end
+desc 'Imports the list of subjects from the Academic Planner'
+task :import_subjects do
+  # Go to <http://www.umt.edu/academicplanner/coursesearch/search.html> in
+  # Chrome every semester, right-click the subject dropdown to select "Inspect
+  # Element". Then right-click the <select class....> HTML and select "Copy as
+  # HTML". In Terminal, do pbpaste > subjects.html.
+  require 'sequel'
+
+  dbh = Sequel.connect(:adapter => 'sqlite', :database => DB)
+  fn = 'data/subjects.html'
+
+  opts = File.read(fn).gsub('&amp;', '&').split('</option>')
+  opts.shift # remove <select...>
+  opts.pop   # remove </select>
+
+  opts.each do |o|
+    matches = o.match /\>(?<title>.+)\((?<abbr>.+)\)$/
+    s = {:abbr => matches[:abbr].strip, :title => matches[:title].strip}
+    fetch_id(dbh, :Subject, s)
+  end
+end
