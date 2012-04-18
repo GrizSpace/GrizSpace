@@ -1,6 +1,14 @@
+SQLITE = ENV['SQLITE'] || 'sqlite3'
+DB     = ENV['DB'] || 'GrizSpace/GrizSpaceDB.sqlite'
+
+def get_dbh
+  require 'sequel'
+  dbh = Sequel.connect(:adapter => 'sqlite', :database => DB)
+  dbh.foreign_keys()
+  dbh
+end
+
 namespace :db do
-  SQLITE = ENV['SQLITE'] || 'sqlite3'
-  DB     = ENV['DB'] || 'GrizSpace/GrizSpaceDB.sqlite'
   SEED   = 'data/seed.sql'
   SCHEMA = 'data/schema.sql'
 
@@ -35,12 +43,20 @@ namespace :db do
   end
 end
 
-def get_building_id(dbh, row)
-  abbr = row['BLDG']
+def get_building_and_room_ids(dbh, str)
+  abbr, num = str.split(/ /)
+  bldg = get_building_id(dbh, abbr)
+
+  return nil unless bldg
+
+  room = get_room_id(dbh, bldg, room)
+
+  [bldg, room]
+end
+
+def get_building_id(dbh, abbr)
   bldg = dbh[:Building].filter(:abbr => abbr).first
-
   return bldg[:id] if bldg
-
   STDERR.puts "WARNING: Building #{abbr} does not exist"
 end
 
@@ -50,16 +66,16 @@ def fetch_id(dbh, table, params)
   rs ? rs[:id] : dbh[table].insert(params)
 end
 
-def get_subject_id(dbh, row)
-  fetch_id(dbh, :Subject, :abbr => row['SUBJ'])
+def get_subject_id(dbh, abbr)
+  fetch_id(dbh, :Subject, :abbr => abbr)
 end
 
-def get_course_id(dbh, row, subj_id)
-  fetch_id(dbh, :Course, :number => row['CRSE #'], :subject_id => subj_id)
+def get_course_id(dbh, params)
+  fetch_id(dbh, :Course, params)
 end
 
-def get_room_id(dbh, row, bldg_id)
-  fetch_id(dbh, :Classroom, :room => row['ROOM'], :building_id => bldg_id)
+def get_room_id(dbh, bldg_id, room)
+  fetch_id(dbh, :Classroom, :room => room, :building_id => bldg_id)
 end
 
 def daymask(str)
@@ -71,59 +87,71 @@ def daymask(str)
 end
 
 def parse_time(str)
-  str ? row['TIME'].split('-') : ['', '']
+  key = :time
+  matches = str.match /Time:(?<start>\d+:\d+(AM|PM))-(?<end>\d+:\d+(AM|PM))/
+  matches ? [matches[:start], matches[:end]] : [nil, nil]
 end
 
-desc 'import course list'
-task :import => 'db:setup' do
-  abort "ERROR: Ruby 1.9+ is required" if RUBY_VERSION < "1.9"
-  csv = ENV['CSV'] || 'data/courses.csv'
-  abort '#{csv} does not exist' unless File.exists?(csv)
+# The course line includes escaped newlines and tabs, but we can use split on
+# them for each field.
+def course_line_to_fields(line)
+  line.split(/\\n/).map { |x| x.split(/\\t/) }.flatten.map { |x| x.strip }
+end
 
-  require 'csv'
-  require 'sequel'
+def parse_abbr_num_sect(str)
+  a, n, s = str.strip.gsub('-', '').split(/ /).delete_if { |x| x.empty? }
+  s ||= 1
+  [a, n, s]
+end
 
-  dbh = Sequel.connect(:adapter => 'sqlite', :database => DB)
-  dbh.foreign_keys()
-
-  # section counter
-  seen_courses = Hash.new(0)
-
+desc 'Import courses from the Academic Planner'
+task :import_courses => 'db:setup' do
+  dbh      = get_dbh()
+  fn       = 'data/course-import.txt'
   semester = fetch_id(dbh, :Semester, :year => 2012, :season => 'SP')
-  CSV.foreach(csv, :headers => true) do |row|
-    building = get_building_id(dbh, row)
-    next unless building
-    subject  = get_subject_id(dbh, row)
-    course   = get_course_id(dbh, row, subject)
-    room     = get_room_id(dbh, row, building)
-    days     = daymask(row['DAYS'])
-    s_num    = (seen_courses[row['CRSE #']] += 1)
-    start_t, end_t = parse_time(row['TIMES'])
+
+  File.readlines(fn).each do |line|
+    h = {}
+    course_line_to_fields(line).each do |field|
+      if field =~ /Time/
+        h[:time] = parse_time(field)
+      else
+        key, value = field.split(/:/).map { |x| x.gsub(/[",']/, '') }
+        h[key] = value
+      end
+    end
+
+    abbr, num, sect = parse_abbr_num_sect(h['Course Number'])
+    subj   = get_subject_id(dbh, abbr)
+    days   = daymask(h['Days'].gsub('-', ''))
+    course = get_course_id(dbh, :title => h['Title'], :number => num, :subject_id => subj)
+
+    bldg, room = get_building_and_room_ids(dbh, h['Building and Room'].to_s)
+    next unless bldg
 
     params = {
-      :crn          => row['CRN'],
-      :number       => s_num,
-      :start_time   => start_t,
-      :end_time     => end_t,
+      :crn          => h['CRN'],
+      :number       => sect,
+      :start_time   => h[:time][0],
+      :end_time     => h[:time][1],
       :days         => days,
       :course_id    => course,
       :classroom_id => room,
-      :semester_id  => semester
+      :semester_id  => semester,
     }
 
-    section = fetch_id(dbh, :CourseSection, params)
+    fetch_id(dbh, :CourseSection, params)
   end
 end
+
 desc 'Imports the list of subjects from the Academic Planner'
 task :import_subjects do
   # Go to <http://www.umt.edu/academicplanner/coursesearch/search.html> in
   # Chrome every semester, right-click the subject dropdown to select "Inspect
   # Element". Then right-click the <select class....> HTML and select "Copy as
   # HTML". In Terminal, do pbpaste > subjects.html.
-  require 'sequel'
-
-  dbh = Sequel.connect(:adapter => 'sqlite', :database => DB)
-  fn = 'data/subjects.html'
+  dbh = get_dbh()
+  fn  = 'data/subjects.html'
 
   opts = File.read(fn).gsub('&amp;', '&').split('</option>')
   opts.shift # remove <select...>
