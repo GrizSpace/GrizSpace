@@ -43,7 +43,7 @@ namespace :db do
   end
 
   desc 'delete and reload the database'
-  task :setup => [:clear, :schema] do
+  task :setup => [:clear, :load_schema] do
     sh "#{SQLITE} #{DB} < #{SEED}"
   end
 
