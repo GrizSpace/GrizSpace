@@ -3,7 +3,7 @@
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
         <!--Griz Space Tab Bar Controller-->
@@ -23,7 +23,6 @@
                         <segue destination="yRl-kL-U7H" kind="relationship" relationship="viewControllers" id="W0E-AU-JQK"/>
                         <segue destination="DwY-B9-W4e" kind="relationship" relationship="viewControllers" id="c0k-e8-bsA"/>
                         <segue destination="XHU-4S-Gwh" kind="relationship" relationship="viewControllers" id="JYR-CP-3V4"/>
-                        <segue destination="fPu-4W-thf" kind="relationship" relationship="viewControllers" id="Pnn-HU-UiE"/>
                     </connections>
                 </tabBarController>
             </objects>
@@ -948,239 +947,6 @@
             </objects>
             <point key="canvasLocation" x="1378" y="2438"/>
         </scene>
-        <!--Navigation Controller - Initial Setup-->
-        <scene sceneID="rAO-ub-VUF">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LuJ-fa-DnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController definesPresentationContext="YES" id="fPu-4W-thf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Initial Setup" id="IzG-nz-6eD"/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="TvN-fa-hMr">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="5vb-Dj-Hmh" kind="relationship" relationship="rootViewController" id="6vQ-cP-LAy"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-87" y="3393"/>
-        </scene>
-        <!--View Controller - Welcome To GrizSpace!-->
-        <scene sceneID="JhX-L1-1D8">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u78-Xx-9en" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="5vb-Dj-Hmh" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Bxe-uw-Gan">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bear_2 (1).png" id="ksF-er-jU9">
-                                <rect key="frame" x="53" y="0.0" width="215" height="207"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Thank you for using GrizSpace!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="GOC-te-vwS">
-                                <rect key="frame" x="41" y="215" width="239" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please take a moment to enter your information to ensure a richer experience. " lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="10" id="0Of-KE-V6u">
-                                <rect key="frame" x="56" y="215" width="224" height="123"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Uma-YB-HGU">
-                                <rect key="frame" x="228" y="310" width="72" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="lBo-8e-HfS" kind="push" id="K62-WQ-gCS"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Welcome To GrizSpace!" id="Qc3-Ke-0j0">
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="qLe-JB-rQC"/>
-                    </navigationItem>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="498" y="3600"/>
-        </scene>
-        <!--Table View Controller - Course List-->
-        <scene sceneID="vLc-EY-fru">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zi9-jK-dbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="lBo-8e-HfS" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="qEY-yu-2CM">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qha-3Z-g7V">
-                            <rect key="frame" x="0.0" y="102" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="Done entering courses">
-                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <segue destination="HoF-yS-rde" kind="push" id="IYW-Ml-Lz7"/>
-                            </connections>
-                        </button>
-                        <sections>
-                            <tableViewSection headerTitle="Select Courses" id="jZr-rd-Fdu">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PpH-AQ-ksJ">
-                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ceK-NS-Pdt">
-                                                    <rect key="frame" x="95" y="3" width="110" height="37"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Add Course">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <segue destination="uJX-Op-oHA" kind="push" id="ayP-dz-Z6K"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="lBo-8e-HfS" id="Mak-Mi-9Yf"/>
-                            <outlet property="delegate" destination="lBo-8e-HfS" id="CPt-2U-ohQ"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Course List" id="LBP-Hr-MPY">
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="HyZ-nZ-pc1"/>
-                    </navigationItem>
-                </tableViewController>
-            </objects>
-            <point key="canvasLocation" x="1037" y="3623"/>
-        </scene>
-        <!--Table View Controller - Select Course-->
-        <scene sceneID="Bc5-a6-boD">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FWd-aW-kAl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="uJX-Op-oHA" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dqe-CY-Yhs">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="course" id="YDe-bq-Ufi">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <connections>
-                                    <segue destination="ymX-up-Wwa" kind="push" id="vb3-pL-deu"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="uJX-Op-oHA" id="jha-gZ-zag"/>
-                            <outlet property="delegate" destination="uJX-Op-oHA" id="ajr-nY-KT8"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Select Course" id="fq2-t8-hNf"/>
-                </tableViewController>
-            </objects>
-            <point key="canvasLocation" x="1637" y="3549"/>
-        </scene>
-        <!--View Controller - Select Course-->
-        <scene sceneID="zYx-7U-Lje">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Od1-9x-rsl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="ymX-up-Wwa" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EdF-u6-ZSJ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="niI-uV-9dy">
-                                <rect key="frame" x="106" y="170" width="110" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Add Course">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="lBo-8e-HfS" kind="push" id="Fh3-QB-RtT"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Select Course" id="xRx-tL-FGR"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="2160" y="3623"/>
-        </scene>
-        <!--Table View Controller - Select Interests-->
-        <scene sceneID="Xyf-xm-GFb">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZT0-a2-Ekn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="HoF-yS-rde" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="UTT-Sp-a22">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rSh-2y-0IK">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="HoF-yS-rde" id="Rrl-XV-fcK"/>
-                            <outlet property="delegate" destination="HoF-yS-rde" id="dUf-JX-kYS"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Select Interests" id="bCQ-zd-vbv">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="e6w-Sy-hkY"/>
-                    </navigationItem>
-                </tableViewController>
-            </objects>
-            <point key="canvasLocation" x="1497" y="4274"/>
-        </scene>
         <!--Photo View Controller - Photos-->
         <scene sceneID="VY1-5c-GbL">
             <objects>
@@ -1278,7 +1044,6 @@
     </scenes>
     <resources>
         <image name="Direction_Arrow.png" width="425" height="425"/>
-        <image name="bear_2 (1).png" width="128" height="128"/>
     </resources>
     <classes>
         <class className="BoredTableViewController" superclassName="UITableViewController">
@@ -1394,7 +1159,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="K62-WQ-gCS"/>
         <segue reference="uld-Og-tri"/>
     </inferredMetricsTieBreakers>
 </document>
