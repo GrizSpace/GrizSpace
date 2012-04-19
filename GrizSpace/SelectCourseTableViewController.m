@@ -44,26 +44,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    DBAccess* db = [[DBAccess alloc] init];
-    
-    NSLog(@"SelectedSubjectID: %d", selectedSubject.idSubject);
-    
-    self.courses = [db getAllCoursesGivenSubject:selectedSubject.idSubject];
-    
+    SubjectMapper* sm = [[SubjectMapper alloc] init];
+    CourseMapper* cm = [[CourseMapper alloc] init];
+    self.courses = [cm findBySubject:selectedSubject];
     
     NSLog(@"Number of courses: %d", [self.courses count]);
-    
-    [db closeDatabase];
-    
-    
-    
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -107,11 +92,12 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    
-    cell.textLabel.text = [[self.courses objectAtIndex:indexPath.row] getSubject];
+
+    CourseModel* current = [self.courses objectAtIndex:indexPath.row];
+    cell.textLabel.text = [current getTitle];
   //  NSLog([[self.courses objectAtIndex:indexPath.row] subject]);
           
-    cell.detailTextLabel.text = [[self.courses objectAtIndex:indexPath.row] getNumber];
+    cell.detailTextLabel.text = [[self.courses objectAtIndex:indexPath.row] getShortName];
     return cell;
 }
 

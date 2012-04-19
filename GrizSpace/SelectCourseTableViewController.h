@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "DBAccess.h"
-#import "CourseModel.h"
+#import "SubjectMapper.h"
+#import "CourseMapper.h"
 #import "ClassPickerViewController.h"
 #import "SelectSectionTableViewController.h"
+
 @protocol CourseDelegate;
 
 @interface SelectCourseTableViewController : UITableViewController// {__weak id <CourseDelegate> delegate;}

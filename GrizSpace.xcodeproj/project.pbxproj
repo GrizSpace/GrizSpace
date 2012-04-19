@@ -19,6 +19,8 @@
 		5A59DB3315000D7300CE4FC6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */; };
 		5A716E5F153FDAD8009E20AF /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A716E5E153FDAD8009E20AF /* red.png */; };
 		5A716E61153FDB04009E20AF /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A716E60153FDB04009E20AF /* blue.png */; };
+		5A716E6C153FE422009E20AF /* CourseMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A716E6B153FE422009E20AF /* CourseMapper.m */; };
+		5A716E70153FEFDD009E20AF /* SubjectMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A716E6F153FEFDD009E20AF /* SubjectMapper.m */; };
 		5A81A0A5152437110077BC16 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A81A0A4152437110077BC16 /* SenTestingKit.framework */; };
 		5A81A0A6152437110077BC16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A59DB1F15000D7300CE4FC6 /* UIKit.framework */; };
 		5A81A0A7152437110077BC16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A59DB2115000D7300CE4FC6 /* Foundation.framework */; };
@@ -109,6 +111,10 @@
 		5A59DB3215000D7300CE4FC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5A716E5E153FDAD8009E20AF /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
 		5A716E60153FDB04009E20AF /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
+		5A716E6A153FE422009E20AF /* CourseMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseMapper.h; sourceTree = "<group>"; };
+		5A716E6B153FE422009E20AF /* CourseMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseMapper.m; sourceTree = "<group>"; };
+		5A716E6E153FEFDD009E20AF /* SubjectMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectMapper.h; sourceTree = "<group>"; };
+		5A716E6F153FEFDD009E20AF /* SubjectMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectMapper.m; sourceTree = "<group>"; };
 		5A81A0A3152437110077BC16 /* UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A81A0A4152437110077BC16 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5A81A0AA152437110077BC16 /* UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -375,6 +381,10 @@
 				5A81A116152566110077BC16 /* Mapper.m */,
 				5A81A119152568B20077BC16 /* CourseSectionMapper.h */,
 				5A81A11A152568B20077BC16 /* CourseSectionMapper.m */,
+				5A716E6A153FE422009E20AF /* CourseMapper.h */,
+				5A716E6B153FE422009E20AF /* CourseMapper.m */,
+				5A716E6E153FEFDD009E20AF /* SubjectMapper.h */,
+				5A716E6F153FEFDD009E20AF /* SubjectMapper.m */,
 			);
 			name = Mappers;
 			sourceTree = "<group>";
@@ -627,6 +637,8 @@
 				C5757039153A500B00285BE1 /* ModalAlertDelegate.m in Sources */,
 				D8BE010C153D2D90007FAF35 /* MapAnnotationView.m in Sources */,
 				D8BE0113153DD012007FAF35 /* MapAnnotationCallout.m in Sources */,
+				5A716E6C153FE422009E20AF /* CourseMapper.m in Sources */,
+				5A716E70153FEFDD009E20AF /* SubjectMapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

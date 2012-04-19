@@ -8,17 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "CourseSection.h"
+#import "SubjectModel.h"
 
 @interface CourseModel : NSObject
 {
  //this doesn't have to be done now?   
 }
 
+@property NSString* _title;
+
 @property (nonatomic, assign)int idCourse;
 @property (nonatomic, retain)NSString *number;
-@property (nonatomic, assign)NSString *title;
-@property (nonatomic, assign)NSString *subject_id;
-@property (nonatomic, retain) NSString *subject;
+@property SubjectModel* subject;
 
 @property (strong, nonatomic) NSString* instructorName;
 
@@ -43,13 +44,16 @@
 
 -(void) setCourseSection: (CourseSection*) sectionToBeAdded;
 
-
+-(id)initWithCourseId:(int)aCourseId
+            andNumber:(NSString*)aNumber
+             andTitle:(NSString*)aTitle
+         andSubject:(SubjectModel*)aSubject;
 
 // can delete all overwritten getters
 -(NSString*) getTitle;
 -(NSString*) getNumber;
--(NSString*) getSubject;
 -(NSString*) getParseObjectID;
 -(int) getIdCourse;
+-(NSString*) getShortName;
 
 @end

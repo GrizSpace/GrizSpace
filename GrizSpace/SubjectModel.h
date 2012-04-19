@@ -8,19 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SubjectModel : NSObject{
-    //create properties for each column in the subject table
-  //  NSInteger id;
-  //  NSString *abbr;
-  //  NSString *title;
-    
-}
+@interface SubjectModel : NSObject
 
 @property (nonatomic, assign)NSInteger idSubject;
 @property (nonatomic, retain)NSString *abbr;
 @property (nonatomic, retain)NSString *title;
 
-
+-(id)initWithId:(int)subjectId andAbbr:(NSString*)aAbbr andTitle:(NSString*)aTitle;
 -(NSString*) getAbbr;
 
 @end

@@ -36,7 +36,6 @@
 -(void) didReceiveCourse:(CourseModel *)selectedCourseFromPicker
 {
     [self setSelectedCourse:selectedCourseFromPicker];
-    NSLog(@"Selected course title: %@", self.selectedCourse.title);
 }
 
 -(void) didReceiveSection:(CourseSection *)selectedSectionFromPicker

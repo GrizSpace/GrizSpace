@@ -10,10 +10,9 @@
 
 @implementation CourseModel
 
+@synthesize _title;
 @synthesize idCourse;
 @synthesize number;
-@synthesize title;
-@synthesize subject_id;
 @synthesize subject;
 @synthesize instructorName;
 
@@ -30,26 +29,38 @@
 @synthesize section;
 
 
+-(id)initWithCourseId:(int)aCourseId
+            andNumber:(NSString*)aNumber
+             andTitle:(NSString*)aTitle
+         andSubject:(SubjectModel*)aSubject
+{
+    self = [super init];
+
+    if (!self)
+        return nil;
+
+    self.idCourse = aCourseId;
+    self.number   = aNumber;
+    self._title   = aTitle;
+    self.subject  = aSubject;
+
+    return self;
+
+}
+
 -(void) setCourseSection:(CourseSection *)sectionToBeAdded
 {
     section = sectionToBeAdded;
 }
 
-
--(NSString*) getTitle
+-(NSString*)getTitle
 {
-
-return title;
+    return self._title;
 }
 
 -(NSString*) getNumber
 {
     return number;
-}
-
--(NSString*) getSubject
-{
-    return subject;
 }
 
 -(NSString*) getParseObjectID
@@ -62,8 +73,10 @@ return title;
     return idCourse;
 }
 
-
-
+-(NSString*)getShortName
+{
+    return [NSString stringWithFormat:@"%@ %@", [subject abbr], number];
+}
 
 @end
 
