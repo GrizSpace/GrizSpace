@@ -82,7 +82,7 @@ def get_building_and_room_ids(dbh, str)
 
   return nil unless bldg
 
-  room = get_room_id(dbh, bldg, room)
+  room = get_room_id(dbh, bldg, num)
 
   [bldg, room]
 end
