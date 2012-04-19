@@ -279,27 +279,29 @@
         
         //gets the next class from the class data table.
         CourseModel* tmpClass = theDataObject.myCourses.GetNextCourse;
-        
-        //get the next annotation for the class
-        MapAnnotation* tmpNextAnnotation = [[MapAnnotation alloc] initWithCourseModel:tmpClass];
+        if(tmpClass != nil)
+        {
+            //get the next annotation for the class
+            MapAnnotation* tmpNextAnnotation = [[MapAnnotation alloc] initWithCourseModel:tmpClass];
             
-        //define anotation point for map.
-        MKMapPoint annotationPoint = MKMapPointForCoordinate(tmpNextAnnotation.coordinate);
-
-        //place the annotation on the map.
-        [self.mapView addAnnotation:tmpNextAnnotation];
-        [self.mapView selectAnnotation:tmpNextAnnotation animated:YES];
-      
-        //define the bounding rectangle and set visible area to include annotation point.
-        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
-        if (MKMapRectIsNull(flyTo)) {
-            flyTo = pointRect;
-        } else {
-            flyTo = MKMapRectUnion(flyTo, pointRect);
+            //define anotation point for map.
+            MKMapPoint annotationPoint = MKMapPointForCoordinate(tmpNextAnnotation.coordinate);
+            
+            //place the annotation on the map.
+            [self.mapView addAnnotation:tmpNextAnnotation];
+            [self.mapView selectAnnotation:tmpNextAnnotation animated:YES];
+            
+            //define the bounding rectangle and set visible area to include annotation point.
+            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+            if (MKMapRectIsNull(flyTo)) {
+                flyTo = pointRect;
+            } else {
+                flyTo = MKMapRectUnion(flyTo, pointRect);
+            }
+            
+            //show the distance label
+            distanceLabel.hidden = false;
         }
-        
-        //show the distance label
-        distanceLabel.hidden = false;
     }
     
     //clear map button event

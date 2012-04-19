@@ -181,17 +181,21 @@
 //gets the next class from the class list.
 -(CourseModel*) GetNextCourse
 {
-    
-     if(currentCourseIndex == ([[self getCourseListFromParse] count] - 1))
-     {
-        currentCourseIndex = 0;
-     }
-     else 
-     {
-         currentCourseIndex = currentCourseIndex + 1;
-     }
-     
-    return self.GetCurrentCourse;
+    int courseListCount = [[self getCourseListFromParse] count];
+    if(courseListCount >0)
+    {
+        if(currentCourseIndex == (courseListCount - 1))
+        {
+            currentCourseIndex = 0;
+        }
+        else 
+        {
+            currentCourseIndex = currentCourseIndex + 1;
+        }
+        
+        return self.GetCurrentCourse;
+    }
+    return nil;
 }
 
 //gets the current annotation item.
