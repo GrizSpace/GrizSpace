@@ -77,21 +77,22 @@
         annText.textColor = [UIColor whiteColor];
         
         
-        
-        UIButton* accessory = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        accessory.exclusiveTouch = YES;
-        accessory.enabled = YES;
-        [accessory addTarget: self 
-                      action: @selector(calloutAccessoryTapped) 
-            forControlEvents: UIControlEventTouchUpInside | UIControlEventTouchCancel];
-        accessory.tag = tmpMA.keyVal;
-        accessory.frame = CGRectMake(annWidth, 
-                                     (yOffset), 
-                                     25, 
-                                     annHeight);   
-        [self.contentView addSubview: accessory];
-        [buttonList addObject:accessory];
-        
+        if(tmpMA.annotationType != @"Building")
+        {
+            UIButton* accessory = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            accessory.exclusiveTouch = YES;
+            accessory.enabled = YES;
+            [accessory addTarget: self 
+                          action: @selector(calloutAccessoryTapped) 
+                forControlEvents: UIControlEventTouchUpInside | UIControlEventTouchCancel];
+            accessory.tag = tmpMA.keyVal;
+            accessory.frame = CGRectMake(annWidth, 
+                                         (yOffset), 
+                                         25, 
+                                         annHeight);   
+            [self.contentView addSubview: accessory];
+            [buttonList addObject:accessory];
+        }
         [self.contentView addSubview:annText];
     }
 }
