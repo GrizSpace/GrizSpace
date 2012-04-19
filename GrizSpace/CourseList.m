@@ -46,6 +46,9 @@
     [PFcourseToBeAdded setObject:[NSNumber numberWithDouble:courseToBeAdded.section.longitude] forKey:@"longitude"];
     [PFcourseToBeAdded setObject:[NSNumber numberWithDouble:courseToBeAdded.section.latitude] forKey:@"latitude"];
     
+    [PFcourseToBeAdded setObject:courseToBeAdded.section.courseTitle forKey:@"courseTitle"];
+    [PFcourseToBeAdded setObject:courseToBeAdded.section.subjectTitle forKey:@"subjectTitle"];
+    
     [PFcourseToBeAdded save];
     
 }
@@ -87,6 +90,9 @@
                                      atLongitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"longitude"] doubleValue]
                                      andLatitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"latitude"] doubleValue]
                                      andCourseTitle:nil andSubjectTitle:nil];
+        
+        [tmpSection setCourseTitle:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"courseTitle"]];
+        [tmpSection setSubjectTitle:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"subjectTitle"]];
         
         [tmpCourse setSection:tmpSection];
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
