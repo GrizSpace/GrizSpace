@@ -102,15 +102,15 @@ end
 def daymask(str)
   return 0 if str.to_s.empty?
   table = Hash.new(0).tap do |hsh|
-    %w(M T W R F S U).map.with_index { |d, i| hsh[d] = 2**i }
+    %w(M T W R F S U).each_with_index.map { |d, i| hsh[d] = 2**i }
   end
   str.split(//).map { |char| table[char] }.reduce(:+)
 end
 
 def parse_time(str)
   key = :time
-  matches = str.match /Time:(?<start>\d+:\d+(AM|PM))-(?<end>\d+:\d+(AM|PM))/
-  matches ? [matches[:start], matches[:end]] : [nil, nil]
+  matches = str.match /Time:(\d+:\d+(AM|PM))-(\d+:\d+(AM|PM))/
+  matches ? [matches[0], matches[1]] : [nil, nil]
 end
 
 # The course line includes escaped newlines and tabs, but we can use split on
@@ -182,8 +182,8 @@ task :import_subjects do
   opts.pop   # remove </select>
 
   opts.each do |o|
-    matches = o.match /\>(?<title>.+)\((?<abbr>.+)\)$/
-    s = {:abbr => matches[:abbr].strip, :title => matches[:title].strip}
+    matches = o.match /\>(.+)\((.+)\)$/
+    s = {:abbr => matches[1].strip, :title => matches[0].strip}
     fetch_id(dbh, :Subject, s)
   end
 end
@@ -193,7 +193,7 @@ task :import_buildings do
   dbh = get_dbh()
   fn  = 'data/buildings.csv'
 
-  File.readlines(fn).each.with_index do |line, i|
+  File.readlines(fn).each_with_index do |line, i|
     next if i.zero?
     fields = line.split(/\t/).map { |x| x.strip }
     bldg = {:abbr => fields[0], :name => fields[1]}
