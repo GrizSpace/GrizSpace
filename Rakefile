@@ -166,11 +166,11 @@ task :import_courses => ['db:load_schema', :import_buildings, :import_subjects] 
       next
     end
 
-    days   = daymask(h['Days'].gsub('-', ''))
-    course = get_course_id(dbh, :title => h['Title'], :number => num, :subject_id => subj)
-
     bldg, room = get_building_and_room_ids(dbh, h['Building and Room'].to_s)
     next unless bldg
+
+    days   = daymask(h['Days'].gsub('-', ''))
+    course = get_course_id(dbh, :title => h['Title'].strip, :number => num, :subject_id => subj)
 
     params = {
       :crn          => h['CRN'],
@@ -182,6 +182,7 @@ task :import_courses => ['db:load_schema', :import_buildings, :import_subjects] 
       :classroom_id => room,
       :semester_id  => semester,
     }
+    p params
 
     fetch_id(dbh, :CourseSection, params)
   end
