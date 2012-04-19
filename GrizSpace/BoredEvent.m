@@ -12,6 +12,7 @@
 @synthesize title;
 @synthesize description;
 @synthesize location;
+@synthesize when;
 @synthesize parseObjectID;
 
 -(id) initWithTitle:(NSString *)atitle andDescription:(NSString *)adescription atLocation:(NSString *)alocation withParseObjID:(NSString *)aobjectID
@@ -55,10 +56,12 @@
         
         NSString* tmpDesc = [tmpPFObject objectForKey:@"desc"];
         NSString* tmpLoc = [tmpPFObject objectForKey:@"location"];
+        NSString* tmpWhen = [tmpPFObject objectForKey:@"when"];
+        
         NSString* tmpObjId = tmpPFObject.objectId;
         
         BoredEvent* tmpBoredEvent = [[BoredEvent alloc] initWithTitle:tmpTitle andDescription:tmpDesc atLocation:tmpLoc withParseObjID:tmpObjId];
-        
+        [tmpBoredEvent setWhen:tmpWhen];
         // [events addObject:tmpString];
         
         
@@ -81,6 +84,7 @@
     [newEvent setObject:event.title forKey:@"title"];
     [newEvent setObject:event.description forKey:@"desc"];
     [newEvent setObject:event.location forKey:@"location"];
+    [newEvent setObject:event.when forKey:@"when"];
     [newEvent save];
 }
 

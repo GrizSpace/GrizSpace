@@ -173,7 +173,8 @@
      
      */
     
-    ClassPickerViewController *classPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"ClassPickerViewController"];
+    //ClassPickerViewController *classPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"ClassPickerViewController"];
+    SelectCourseTableViewController *classPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectCourseTableViewController"];
     
     
     if(searching)

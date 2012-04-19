@@ -64,11 +64,10 @@ CREATE TABLE `CourseSection` (
   CONSTRAINT semester_id  FOREIGN KEY (semester_id)  REFERENCES Semester(id)
 );
 CREATE TABLE `GPS` (
-  `idGPS` INT NOT NULL ,
+  `idGPS` INTEGER PRIMARY KEY,
   `Latitude` DECIMAL(9,6) NULL ,
   `Longitude` DECIMAL(9,6) NULL ,
-  `Radius` INT NULL ,
-  PRIMARY KEY (`idGPS`) );
+  `Radius` INT NULL);
 CREATE TABLE `Semester` (
   `id` INTEGER PRIMARY KEY ,
   `year` INTEGER NOT NULL ,

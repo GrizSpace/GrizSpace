@@ -17,6 +17,7 @@
 @synthesize sectiondelegate;
 @synthesize sections;
 @synthesize selectedCourse;
+@synthesize selectedSubject;
 
 - (IBAction)cancelButtonSelected:(id)sender 
 {
@@ -154,9 +155,14 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    ClassPickerViewController *classPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"ClassPickerViewController"];
     
-[sectiondelegate didReceiveSection:[self.sections objectAtIndex:indexPath.row]];
-[self dismissModalViewControllerAnimated:YES];
+    [classPicker setSelectedSubject:self.selectedSubject];
+    [classPicker setSelectedCourse:self.selectedCourse];
+    [classPicker setReceivedSection:[self.sections objectAtIndex:indexPath.row]];
+    [self.navigationController pushViewController:classPicker animated:YES];
+//[sectiondelegate didReceiveSection:[self.sections objectAtIndex:indexPath.row]];
+//[self dismissModalViewControllerAnimated:YES];
 }
 
 @end

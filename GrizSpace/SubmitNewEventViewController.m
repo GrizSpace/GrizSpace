@@ -16,6 +16,7 @@
 @synthesize titleText;
 @synthesize descText;
 @synthesize locationText;
+@synthesize whenText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,6 +57,7 @@
 {
     NSLog(@"Title: %@", titleText.text);
     BoredEvent* newEvent = [[BoredEvent alloc] initWithTitle:titleText.text andDescription:descText.text atLocation:locationText.text withParseObjID:nil];
+        [newEvent setWhen:whenText.text];
     
     [BoredEvent addBoredEvent:newEvent];
     [self.navigationController popViewControllerAnimated:YES];
@@ -66,6 +68,7 @@
     [self setTitleText:nil];
     [self setDescText:nil];
     [self setLocationText:nil];
+    [self setWhenText:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

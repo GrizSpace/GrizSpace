@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *titleText;
 @property (strong, nonatomic) IBOutlet UITextField *descText;
 @property (strong, nonatomic) IBOutlet UITextField *locationText;
+@property (strong, nonatomic) IBOutlet UITextField *whenText;
 
 @end

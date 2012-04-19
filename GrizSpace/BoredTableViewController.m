@@ -80,6 +80,7 @@
     // Configure the cell...
     cell.textLabel.text = [[self.events objectAtIndex:indexPath.row] title];
     
+    cell.detailTextLabel.text = [[self.events objectAtIndex:indexPath.row] description];
     return cell;
 }
 

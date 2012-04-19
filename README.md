@@ -110,3 +110,9 @@ as a result, we have more control.
 - `rake db:data` if you want to commit data changes
 - `rake db:dump` for both schema and data
 - `rake db:setup` to load the schema and data
+
+If you'd like to run the import, you need to install two gems first:
+
+    sudo gem install sqlite3 sequel --no-ri --no-rdoc
+
+Then run `rake -rrubygems import_courses`.
