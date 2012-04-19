@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "DBAccess.h"
-#import "SubjectMapper.h"
 #import "CourseMapper.h"
 #import "ClassPickerViewController.h"
 #import "SelectSectionTableViewController.h"

@@ -44,7 +44,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    SubjectMapper* sm = [[SubjectMapper alloc] init];
     CourseMapper* cm = [[CourseMapper alloc] init];
     self.courses = [cm findBySubject:selectedSubject];
     
