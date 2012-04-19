@@ -59,7 +59,6 @@
 		C562FD0E1500373300ADA1C8 /* ClassPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD0D1500373300ADA1C8 /* ClassPickerViewController.m */; };
 		C562FD101500388F00ADA1C8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C562FD0F1500388F00ADA1C8 /* MapKit.framework */; };
 		C562FD121500389B00ADA1C8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C562FD111500389B00ADA1C8 /* CoreLocation.framework */; };
-		C562FD1515003B1900ADA1C8 /* CourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1415003B1800ADA1C8 /* CourseListViewController.m */; };
 		C562FD1815003C3300ADA1C8 /* CourseDetailVewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1715003C3300ADA1C8 /* CourseDetailVewController.m */; };
 		C562FD1B15003DAB00ADA1C8 /* BuildingPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1A15003DAB00ADA1C8 /* BuildingPickerViewController.m */; };
 		C562FD1E15003F3D00ADA1C8 /* BoredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C562FD1D15003F3D00ADA1C8 /* BoredViewController.m */; };
@@ -156,8 +155,6 @@
 		C562FD0D1500373300ADA1C8 /* ClassPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassPickerViewController.m; sourceTree = "<group>"; };
 		C562FD0F1500388F00ADA1C8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C562FD111500389B00ADA1C8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		C562FD1315003B1800ADA1C8 /* CourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListViewController.h; sourceTree = "<group>"; };
-		C562FD1415003B1800ADA1C8 /* CourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListViewController.m; sourceTree = "<group>"; };
 		C562FD1615003C3300ADA1C8 /* CourseDetailVewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetailVewController.h; sourceTree = "<group>"; };
 		C562FD1715003C3300ADA1C8 /* CourseDetailVewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetailVewController.m; sourceTree = "<group>"; };
 		C562FD1915003DAB00ADA1C8 /* BuildingPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingPickerViewController.h; sourceTree = "<group>"; };
@@ -446,8 +443,6 @@
 				C562FD0D1500373300ADA1C8 /* ClassPickerViewController.m */,
 				C562FD1615003C3300ADA1C8 /* CourseDetailVewController.h */,
 				C562FD1715003C3300ADA1C8 /* CourseDetailVewController.m */,
-				C562FD1315003B1800ADA1C8 /* CourseListViewController.h */,
-				C562FD1415003B1800ADA1C8 /* CourseListViewController.m */,
 				C5E643A7152D3DFD0055A7A3 /* EventDetailsViewController.h */,
 				C5E643A8152D3DFD0055A7A3 /* EventDetailsViewController.m */,
 				D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */,
@@ -600,7 +595,6 @@
 				C562FD08150035A700ADA1C8 /* MapViewController.m in Sources */,
 				C562FD0B150036BE00ADA1C8 /* SubjectPickerViewController.m in Sources */,
 				C562FD0E1500373300ADA1C8 /* ClassPickerViewController.m in Sources */,
-				C562FD1515003B1900ADA1C8 /* CourseListViewController.m in Sources */,
 				C562FD1815003C3300ADA1C8 /* CourseDetailVewController.m in Sources */,
 				C562FD1B15003DAB00ADA1C8 /* BuildingPickerViewController.m in Sources */,
 				C562FD1E15003F3D00ADA1C8 /* BoredViewController.m in Sources */,
