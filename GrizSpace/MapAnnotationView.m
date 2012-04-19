@@ -75,7 +75,7 @@
         annText.backgroundColor = [UIColor clearColor];  
         annText.font = font;
         annText.textColor = [UIColor whiteColor];
-        
+        annText.editable = NO;                     // added to make annotation not editable
         
         if(tmpMA.annotationType != @"Building")
         {
