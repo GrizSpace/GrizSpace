@@ -79,7 +79,7 @@
         
         //should be Latitude then longitude.  Database data needs switched.
         [self setCoordinate:CLLocationCoordinate2DMake(tmpCM.section.latitude, tmpCM.section.longitude)];
-        [self setTitle: [NSString stringWithFormat: @"(%@) - %@", tmpCM.section.subjectTitle, tmpCM.section.courseTitle]];
+        [self setTitle: [NSString stringWithFormat: @"(%@) \n- %@", tmpCM.section.subjectTitle, tmpCM.section.courseTitle]];
         NSLog( @"subject course:%@ %@", tmpCM.section.subjectTitle, tmpCM.section.courseTitle);
         [self setSubtitle: tmpCM.buildingAndRoom];  
         [self setRadius:tmpCM.radius];
@@ -99,7 +99,7 @@
         
         //should be Latitude then longitude.  Database data needs switched.
         [self setCoordinate:CLLocationCoordinate2DMake(tmpCM.section.latitude, tmpCM.section.longitude)];
-        [self setTitle: [NSString stringWithFormat: @"(%@) - %@", tmpCM.section.subjectTitle, tmpCM.section.courseTitle]];
+        [self setTitle: [NSString stringWithFormat: @"(%@) \n- %@", tmpCM.section.subjectTitle, tmpCM.section.courseTitle]];
         NSLog( @"subject course:%@ %@", tmpCM.section.subjectTitle, tmpCM.section.courseTitle);
         [self setSubtitle: tmpCM.buildingAndRoom];  
         [self setRadius:tmpCM.radius];

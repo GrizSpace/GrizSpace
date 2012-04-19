@@ -58,14 +58,14 @@
         
         int alCount = annotationsList.count;
         int yOffset = 2;
-        int annHeight = 25;
+        int annHeight = 55;
         int annWidth = self.mapView.frame.size.width - 50;
         if(alCount > 1)
         {
             yOffset = yOffset + ((alCount - 1) * annHeight);
         }
         
-        self.contentHeight = (35.0f * alCount);
+        self.contentHeight = (annHeight * alCount);
         UIFont* font = [UIFont fontWithName:@"Arial" size:12];
         CGRect frame = CGRectMake(5, yOffset, annWidth, annHeight);
         
@@ -87,7 +87,7 @@
                 forControlEvents: UIControlEventTouchUpInside | UIControlEventTouchCancel];
             accessory.tag = tmpMA.keyVal;
             accessory.frame = CGRectMake(annWidth, 
-                                         (yOffset), 
+                                         (yOffset - 10), 
                                          25, 
                                          annHeight);   
             [self.contentView addSubview: accessory];
