@@ -529,7 +529,7 @@
         } else {
             flyTo = MKMapRectUnion(flyTo, pointRect);
         }
-        self.mapView.visibleMapRect = flyTo;
+        //self.mapView.visibleMapRect = flyTo;
     }   
     
     //only one annotation, center map here as this is usually the users location
@@ -544,7 +544,7 @@
         mySpan.longitudeDelta = 0.006;
         myRegion.span = mySpan;
         myRegion.center = myLocationCoordinate;
-        [self.mapView setRegion:myRegion animated:true];  
+        //[self.mapView setRegion:myRegion animated:true];  
     } 
 }
 
@@ -625,8 +625,14 @@ calloutAccessoryControlTapped:(UIControl *)control {
         }
         
         MapAnnotation* tmpAnnRef = (MapAnnotation*) annotation;
-        if ( tmpAnnRef.annObjectArray.count > 1) {
+        if ( tmpAnnRef.annObjectArray.count > 2) {
+            pin.pinColor = MKPinAnnotationColorPurple;
+        }
+        else if (tmpAnnRef.annObjectArray.count > 1) {
             pin.pinColor = MKPinAnnotationColorGreen;
+        }
+        else {
+            pin.pinColor = MKPinAnnotationColorRed;
         }
 
         pin.rightCalloutAccessoryView = nil;

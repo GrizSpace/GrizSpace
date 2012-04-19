@@ -79,9 +79,8 @@
         
         //should be Latitude then longitude.  Database data needs switched.
         [self setCoordinate:CLLocationCoordinate2DMake(tmpCM.section.latitude, tmpCM.section.longitude)];
-        [self setTitle: [NSString stringWithFormat: @"(%@) \n- %@", tmpCM.section.subjectTitle, tmpCM.section.courseTitle]];
-        NSLog( @"subject course:%@ %@", tmpCM.section.subjectTitle, tmpCM.section.courseTitle);
-        [self setSubtitle: tmpCM.buildingAndRoom];  
+        [self setTitle: [NSString stringWithFormat: @"%@", tmpCM.section.courseTitle]];
+        [self setSubtitle: [NSString stringWithFormat:@"     Room: %@ - Time: %@", tmpCM.section.room, tmpCM.section.startTime]]; 
         [self setRadius:tmpCM.radius];
         [self setArrived:false];
         annObjectArray = [[NSMutableArray alloc] init];
@@ -99,9 +98,8 @@
         
         //should be Latitude then longitude.  Database data needs switched.
         [self setCoordinate:CLLocationCoordinate2DMake(tmpCM.section.latitude, tmpCM.section.longitude)];
-        [self setTitle: [NSString stringWithFormat: @"(%@) \n- %@", tmpCM.section.subjectTitle, tmpCM.section.courseTitle]];
-        NSLog( @"subject course:%@ %@", tmpCM.section.subjectTitle, tmpCM.section.courseTitle);
-        [self setSubtitle: tmpCM.buildingAndRoom];  
+        [self setTitle: [NSString stringWithFormat: @"%@", tmpCM.section.courseTitle]];
+        [self setSubtitle: [NSString stringWithFormat:@"     Room: %@ - Time: %@", tmpCM.section.room, tmpCM.section.startTime]];   
         [self setRadius:tmpCM.radius];
         [self setArrived:false];
         annObjectArray = [[NSMutableArray alloc] init];
