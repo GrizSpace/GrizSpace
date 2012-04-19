@@ -576,7 +576,10 @@ calloutAccessoryControlTapped:(UIControl *)control {
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
-    [self.mapView removeAnnotation: self.calloutAnnotation];
+    if(self.calloutAnnotation != nil)
+    {
+        [self.mapView removeAnnotation: self.calloutAnnotation];
+    }
 }
 
 

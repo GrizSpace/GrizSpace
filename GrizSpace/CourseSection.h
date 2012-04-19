@@ -16,7 +16,9 @@
         inBuilding:(NSString*) building
            inRoom:(NSString*) room
       atLongitude:(double) longitude
-      andLatitude:(double) latitude;
+      andLatitude:(double) latitude 
+      andCourseTitle:(NSString*) coursetitle
+      andSubjectTitle:(NSString*) subjecttitle;
 
 - (BOOL)isOnMonday;
 - (BOOL)isOnTuesday;
@@ -38,6 +40,8 @@
 @property double latitude;
 @property NSString* building;
 @property NSString* room;
+@property NSString* courseTitle;
+@property NSString* subjectTitle;
 
 -(NSString*) getNumberString;
 

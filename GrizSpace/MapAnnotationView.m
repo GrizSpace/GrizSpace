@@ -66,7 +66,7 @@
         }
         
         self.contentHeight = (35.0f * alCount);
-        UIFont* font = [UIFont fontWithName:@"Arial" size:18];
+        UIFont* font = [UIFont fontWithName:@"Arial" size:12];
         CGRect frame = CGRectMake(5, yOffset, annWidth, annHeight);
         
         UITextView* annText = [[UITextView alloc] initWithFrame: frame];

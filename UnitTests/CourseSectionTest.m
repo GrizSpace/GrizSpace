@@ -19,7 +19,9 @@
                                        inBuilding:@"SS"
                                            inRoom:@"362"
                                       atLongitude:0.0
-                                      andLatitude:0.0];
+                                      andLatitude:0.0
+                                         andCourseTitle:@""
+                                  andSubjectTitle:@""];
 }
 
 - (void)testCrn

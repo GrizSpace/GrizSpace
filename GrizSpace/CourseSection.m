@@ -18,6 +18,8 @@
 @synthesize latitude;
 @synthesize building;
 @synthesize room;
+@synthesize courseTitle;
+@synthesize subjectTitle;
 
 - (id)initWithCrn:(int)aCrn
        andSection:(int)aNumber
@@ -27,7 +29,9 @@
        inBuilding:(NSString*) abuilding
            inRoom:(NSString*) aroom
       atLongitude:(double) alongitude
-      andLatitude:(double) alatitude
+      andLatitude:(double) alatitude 
+      andCourseTitle: (NSString*) acourseTitle
+      andSubjectTitle: (NSString*) asubjectTitle
 {
     self = [super init];
     
@@ -43,6 +47,8 @@
     self.building = abuilding;
     self.latitude = alatitude;
     self.longitude = alongitude;
+    self.courseTitle = acourseTitle;
+    self.subjectTitle = asubjectTitle;
     return self;
 }
 

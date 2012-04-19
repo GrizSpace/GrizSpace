@@ -85,7 +85,8 @@
                                      inBuilding:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"building"] 
                                      inRoom:[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"room"] 
                                      atLongitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"longitude"] doubleValue]
-                                     andLatitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"latitude"] doubleValue]];
+                                     andLatitude:[[[PFObjectCourseArray objectAtIndex:i] objectForKey:@"latitude"] doubleValue]
+                                     andCourseTitle:nil andSubjectTitle:nil];
         
         [tmpCourse setSection:tmpSection];
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
