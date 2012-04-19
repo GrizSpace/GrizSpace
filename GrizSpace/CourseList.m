@@ -195,7 +195,7 @@
         
         return self.GetCurrentCourse;
     }
-    return nil;
+    return nil; 
 }
 
 //gets the current annotation item.
