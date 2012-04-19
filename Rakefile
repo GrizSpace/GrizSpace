@@ -42,15 +42,22 @@ namespace :db do
     [SCHEMA, SEED].each { |f| sh "#{SQLITE} #{DB} < #{f}" }
   end
 
-  desc 'prune empty courses'
+  desc 'prune empty courses and subjects'
   task :prune do
     dbh = get_dbh()
     sql = 'SELECT Course.id AS CID, CourseSection.id AS CSID
           FROM Course
           LEFT JOIN CourseSection ON CourseSection.course_id = Course.id
-          WHERE CSID IS NULL';
+          WHERE CSID IS NULL'
     ids = dbh[sql].all.map { |row| row[:CID] }
     dbh[:Course].filter('id IN ?', ids).delete
+
+    sql = 'SELECT Subject.id AS SID, Course.id AS CID
+           FROM Subject
+           LEFT JOIN Course ON Course.subject_id = Subject.id
+           WHERE CID IS NULL'
+    ids = dbh[sql].all.map { |row| row[:SID] }
+    dbh[:Subject].filter('id in ?', ids).delete
   end
 end
 
@@ -88,7 +95,13 @@ def fetch_id(dbh, table, params)
 end
 
 def get_subject_id(dbh, abbr)
-  fetch_id(dbh, :Subject, :abbr => abbr)
+  rs = dbh[:Subject].filter(:abbr => abbr).first
+
+  if rs
+    rs[:id]
+  else
+    STDERR.puts "SUBJECT #{abbr} does not exist"
+  end
 end
 
 def get_course_id(dbh, params)
@@ -144,13 +157,14 @@ task :import_courses => ['db:setup', :import_buildings, :import_subjects] do
 
     abbr, num, sect = parse_abbr_num_sect(h['Course Number'])
     subj   = get_subject_id(dbh, abbr)
+    if !subj
+      next
+    end
+
     days   = daymask(h['Days'].gsub('-', ''))
     course = get_course_id(dbh, :title => h['Title'], :number => num, :subject_id => subj)
 
     bldg, room = get_building_and_room_ids(dbh, h['Building and Room'].to_s)
-    if !bldg
-      p line
-    end
     next unless bldg
 
     params = {
@@ -183,7 +197,7 @@ task :import_subjects do
 
   opts.each do |o|
     matches = o.match /\>(.+)\((.+)\)$/
-    s = {:abbr => matches[1].strip, :title => matches[0].strip}
+    s = {:abbr => matches[2].strip, :title => matches[1].strip}
     fetch_id(dbh, :Subject, s)
   end
 end
