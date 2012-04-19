@@ -37,9 +37,14 @@ namespace :db do
     sh "touch #{DB}"
   end
 
+  desc 'load schema'
+  task :load_schema => :clear do
+    sh "#{SQLITE} #{DB} < #{SCHEMA}"
+  end
+
   desc 'delete and reload the database'
-  task :setup => :clear do
-    [SCHEMA, SEED].each { |f| sh "#{SQLITE} #{DB} < #{f}" }
+  task :setup => [:clear, :schema] do
+    sh "#{SQLITE} #{DB} < #{SEED}"
   end
 
   desc 'prune empty courses and subjects'
@@ -139,7 +144,7 @@ def parse_abbr_num_sect(str)
 end
 
 desc 'Import courses from the Academic Planner'
-task :import_courses => ['db:setup', :import_buildings, :import_subjects] do
+task :import_courses => ['db:load_schema', :import_buildings, :import_subjects] do
   dbh      = get_dbh()
   fn       = 'data/course-import.txt'
   semester = fetch_id(dbh, :Semester, :year => 2012, :season => 'FA')
