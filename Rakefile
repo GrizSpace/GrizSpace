@@ -160,7 +160,8 @@ task :import_courses => ['db:load_schema', :import_buildings, :import_subjects] 
       end
     end
 
-    abbr, num, sect = parse_abbr_num_sect(h['Course Number'])
+    abbr, num, sect = parse_abbr_num_sect(h['Course Number'].to_s)
+    next unless abbr && num
     subj   = get_subject_id(dbh, abbr)
     if !subj
       next
@@ -182,7 +183,6 @@ task :import_courses => ['db:load_schema', :import_buildings, :import_subjects] 
       :classroom_id => room,
       :semester_id  => semester,
     }
-    p params
 
     fetch_id(dbh, :CourseSection, params)
   end
