@@ -29,6 +29,8 @@
 - (BOOL)isOnSunday;
 
 - (NSString*)getDays;
+- (NSString*)getTimes;
+- (NSString*)getDaysAndTimes;
 - (int)getOccurrences;
 
 @property int crn; 

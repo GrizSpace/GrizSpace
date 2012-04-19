@@ -88,20 +88,9 @@
 {
     static NSString *CellIdentifier = @"section";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    // Configure the cell...
-    
- //   NSString* sectionText = [[sections objectAtIndex:indexPath.row] number];
-    
-  //  NSString* sectionText = [NSString stringWithFormat:@"%d", (CourseSection*)[[sections objectAtIndex:indexPath.row].number]];
-                             
-    NSString* sectionText = [[sections objectAtIndex:indexPath.row] getNumberString];                        
-    
-    
-    
-    //@"%d", [[[self.sections objectAtIndex:indexPath.row] number];
-    
-    cell.textLabel.text = sectionText;
+    CourseSection* section = [sections objectAtIndex:indexPath.row];
+    cell.textLabel.text = [section getNumberString];
+    cell.detailTextLabel.text = [section getDaysAndTimes];
     return cell;
 }
 

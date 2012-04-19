@@ -88,6 +88,16 @@
 - (BOOL)isOnSaturday  { return (self.days & 32) > 0; }
 - (BOOL)isOnSunday    { return (self.days & 64) > 0; }
 
+- (NSString*)getTimes
+{
+    return [NSString stringWithFormat:@"%@-%@", startTime, endTime];
+}
+
+- (NSString*)getDaysAndTimes
+{
+    return [NSString stringWithFormat:@"%@ @ %@", [self getDays], [self getTimes]];
+}
+
 - (int)getOccurrences
 {
     return [[self getDays] length];
