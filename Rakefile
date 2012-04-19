@@ -110,7 +110,7 @@ end
 def parse_time(str)
   key = :time
   matches = str.match /Time:(\d+:\d+(AM|PM))-(\d+:\d+(AM|PM))/
-  matches ? [matches[0], matches[1]] : [nil, nil]
+  matches ? [matches[1], matches[-2]] : [nil, nil]
 end
 
 # The course line includes escaped newlines and tabs, but we can use split on
