@@ -170,6 +170,7 @@ task :import_courses => ['db:load_schema', :import_buildings, :import_subjects] 
     bldg, room = get_building_and_room_ids(dbh, h['Building and Room'].to_s)
     next unless bldg
 
+    next if h['Days'].gsub!('-', '') == ''
     days   = daymask(h['Days'].gsub('-', ''))
     course = get_course_id(dbh, :title => h['Title'].strip, :number => num, :subject_id => subj)
 
