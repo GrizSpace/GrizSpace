@@ -168,7 +168,7 @@
         
         //courseTitle.text = tmpCM.title;
     
-        courseTitle.text = @"We need some course titles in the db";
+        courseTitle.text = selectedCourse.section.courseTitle;
         
         //courseDays.text = [tmpCM days];
         courseDays.text = [NSString stringWithFormat:@"%@", selectedCourse.section.getDays];
