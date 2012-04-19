@@ -15,8 +15,14 @@
 #import "GrizSpaceDataObjects.h"
 #import "AppDelegateProtocol.h"
 #import "CourseDetailVewController.h"
+#import "MapAnnotationView.h"
+
 @interface MapViewController ()
+    @property (nonatomic, retain) MapAnnotationCallout *calloutAnnotation;
+
 @end
+
+
 
 @implementation MapViewController
 
@@ -28,7 +34,8 @@
 @synthesize DirectionCompas;
 @synthesize distanceLabel;
 @synthesize myLocationManager;
-
+@synthesize mapView = _mapView;
+@synthesize calloutAnnotation = _calloutAnnotation;
 @synthesize delegate;
 
 
@@ -104,13 +111,13 @@
     
     
     //mapview setup
-    [self.view insertSubview:mapView atIndex:0];
-    mapView.showsUserLocation = true;
-    mapView.delegate = self;
-    mapView.zoomEnabled = true;
-    mapView.scrollEnabled = true;
-    mapView.userInteractionEnabled = true; 
-    mapView.mapType = MKMapTypeSatellite;
+    [self.view insertSubview:self.mapView atIndex:0];
+    self.mapView.showsUserLocation = true;
+    self.mapView.delegate = self;
+    self.mapView.zoomEnabled = true;
+    self.mapView.scrollEnabled = true;
+    self.mapView.userInteractionEnabled = true; 
+    self.mapView.mapType = MKMapTypeSatellite;
     
     //set the mapview segment selected index.
     myMapViewTypeSegmentControl.selectedSegmentIndex = 1;
@@ -148,7 +155,7 @@
     mySpan.longitudeDelta = 0.006;
     myRegion.span = mySpan;
     myRegion.center = myLocationCoordinate;
-    [mapView setRegion:myRegion animated:true];  
+    [self.mapView setRegion:myRegion animated:true];  
     
     //segment annotation select action
     [self SegmentAnnotationSelect: nil];
@@ -156,7 +163,7 @@
 
 - (void)viewDidUnload
 {
-    mapView = nil;
+    self.mapView = nil;
     myLocationManager = nil;
     myMapViewTypeSegmentControl = nil;
     myMapAnnotationSegmentControl = nil;
@@ -181,18 +188,18 @@
     
     //map view choice
     if(myMapViewTypeSegmentControl.selectedSegmentIndex == 0){
-        mapView.mapType = MKMapTypeStandard;
+        self.mapView.mapType = MKMapTypeStandard;
     }
     
     //satalite choice
     if(myMapViewTypeSegmentControl.selectedSegmentIndex == 1){
-        mapView.mapType = MKMapTypeSatellite;
+        self.mapView.mapType = MKMapTypeSatellite;
         
     }
     
     //hybred choice
     if(myMapViewTypeSegmentControl.selectedSegmentIndex == 2){
-        mapView.mapType = MKMapTypeHybrid;
+        self.mapView.mapType = MKMapTypeHybrid;
         
     }
 }
@@ -206,7 +213,7 @@
     distanceLabel.hidden = true;
     
     //we can auto call option 2 to remove annotations befor another needs to be drawn.
-    [mapView removeAnnotations:mapView.annotations];
+    [self.mapView removeAnnotations:self.mapView.annotations];
     
     //add the current location to the map fly to area.
     MKMapRect flyTo = MKMapRectNull; //map bounding rectangle for classes.
@@ -233,22 +240,35 @@
 
             MapAnnotation* tmpMapAnn = [[MapAnnotation alloc] initWithCourseModel:tmpClass];
             
-            annotationPoint = MKMapPointForCoordinate(tmpMapAnn.coordinate);
-            pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
-            
-            //sets up the map annotation
-            [mapView addAnnotation: tmpMapAnn];
-            [mapView selectAnnotation: tmpMapAnn animated:YES];
-            
-            //NSLog(@"Annotation set %@ Lon:%f Lat%f",tmpMapAnn.title, tmpMapAnn.coordinate.latitude, tmpMapAnn.coordinate.longitude);
-            //ensure all annotations are visible in window.
-            
-            if (MKMapRectIsNull(flyTo)) {
-                flyTo = pointRect;
-            } else {
-                flyTo = MKMapRectUnion(flyTo, pointRect);
+            bool matchFound = false;
+            for(MapAnnotation *loopAnn in self.mapView.annotations)
+            {
+                if(tmpMapAnn.coordinate.latitude == loopAnn.coordinate.latitude && tmpMapAnn.coordinate.longitude == loopAnn.coordinate.longitude)
+                {
+                    [loopAnn.annObjectArray addObject:tmpMapAnn];
+                    matchFound = true;
+                    
+                }
             }
             
+            //no match add annotation
+            if(matchFound == false)
+            {
+                
+                annotationPoint = MKMapPointForCoordinate(tmpMapAnn.coordinate);
+                pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+                
+                //sets up the map annotation
+                [self.mapView addAnnotation: tmpMapAnn];
+                [self.mapView selectAnnotation: tmpMapAnn animated:YES];
+
+                //ensure all annotations are visible in window.                
+                if (MKMapRectIsNull(flyTo)) {
+                    flyTo = pointRect;
+                } else {
+                    flyTo = MKMapRectUnion(flyTo, pointRect);
+                }
+            }
         }//end for
         
     }
@@ -267,8 +287,8 @@
         MKMapPoint annotationPoint = MKMapPointForCoordinate(tmpNextAnnotation.coordinate);
 
         //place the annotation on the map.
-        [mapView addAnnotation:tmpNextAnnotation];
-        [mapView selectAnnotation:tmpNextAnnotation animated:YES];
+        [self.mapView addAnnotation:tmpNextAnnotation];
+        [self.mapView selectAnnotation:tmpNextAnnotation animated:YES];
       
         //define the bounding rectangle and set visible area to include annotation point.
         MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
@@ -285,19 +305,19 @@
     //clear map button event
     if(myMapAnnotationSegmentControl.selectedSegmentIndex != 2){
         //focus map to fly to area only if an annotation point is set.
-        mapView.visibleMapRect = flyTo;
+        self.mapView.visibleMapRect = flyTo;
         
         
         if(myMapAnnotationSegmentControl.selectedSegmentIndex == 0){
             
             //expand fly to area a little if viewing all classes.
             MKCoordinateRegion myRegion;
-            MKCoordinateSpan mySpan = mapView.region.span;
+            MKCoordinateSpan mySpan = self.mapView.region.span;
             mySpan.latitudeDelta = mySpan.latitudeDelta + .0002;
             mySpan.longitudeDelta = mySpan.longitudeDelta + .0002;
             myRegion.span = mySpan;
             myRegion.center = myLocationCoordinate;
-            [mapView setRegion:myRegion animated:true];  
+            [self.mapView setRegion:myRegion animated:true];  
         }
         
  
@@ -341,14 +361,14 @@
         //find heading.
         CLLocationDirection theHeading = newHeading.magneticHeading;
 
-        if(mapView.annotations.count == 2){ 
+        if(self.mapView.annotations.count == 2){ 
             CLLocation* startCord;
             CLLocation* destCord;
             int annotationAngle = 0;
             
-            for(id<MKAnnotation> annotation in mapView.annotations)
+            for(id<MKAnnotation> annotation in self.mapView.annotations)
             {
-                if(annotation != mapView.userLocation) //set the destination cord.
+                if(annotation != self.mapView.userLocation) //set the destination cord.
                 {
                     destCord = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
                 }
@@ -381,8 +401,6 @@
             int diffAngle = annotationAngle - theNewHeading;
 
             float diffRad = degreesToRadians(diffAngle);
-            
-            //NSLog(@"Heading: %f, Annotation: %i, Difference: %i DifRad: %f", theNewHeading, annotationAngle, diffAngle, diffRad);
             DirectionCompas.transform = CGAffineTransformMakeRotation(diffRad);  
             
         }
@@ -402,10 +420,10 @@
     //identify the destinate annotation.
     CLLocation* destCord = newLocation;
     CLLocation* startCord = oldLocation;
-    if(mapView.annotations.count == 2){    
-        for(id<MKAnnotation> annotation in mapView.annotations)
+    if(self.mapView.annotations.count == 2){    
+        for(id<MKAnnotation> annotation in self.mapView.annotations)
         {
-            if(annotation != mapView.userLocation)
+            if(annotation != self.mapView.userLocation)
             {
                 startCord = newLocation;
                 destCord = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
@@ -419,7 +437,6 @@
                 {
                     if ([annotation isKindOfClass:[MapAnnotation class]])
                     {
-                        //NSLog(@"distance is %f away from %i", distance, [(MapAnnotation*)annotation radius]);
                         if(distance <= [(MapAnnotation*)annotation radius])
                         {
                             [(MapAnnotation*)annotation setArrived:true];
@@ -473,13 +490,8 @@
             else if (headingAngle < annotationAngle) {
                 diffAngle = headingAngle - annotationAngle;
             }
-
-            
             float diffRad = degreesToRadians(diffAngle);
-            
-            //NSLog(@"Direction: %i, Destination: %i, Difference: %i DifRad: %f", headingAngle, annotationAngle, diffAngle, diffRad);
             DirectionCompas.transform = CGAffineTransformMakeRotation(diffRad);  
-       
         }
         
     }
@@ -498,34 +510,31 @@
         }
         
         float newDirAngRad = degreesToRadians(directionAngle);
-        //NSLog(@"DirAng: %i DirAngRad: %f", directionAngle, directionAngleRad);
-        
         DirectionCompas.transform = CGAffineTransformMakeRotation(newDirAngRad);    
     }
 
 
     
     //if navigating to a class make sure both person and class are in map window.
-    if(mapView.annotations.count == 2){
+    if(self.mapView.annotations.count == 2){
         //define the bounding rectangle and set visible area.
         MKMapPoint annotationPoint = MKMapPointForCoordinate(newLocation.coordinate);
         MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
-        flyTo = mapView.visibleMapRect;
+        flyTo = self.mapView.visibleMapRect;
         
         if (MKMapRectIsNull(flyTo)) {
             flyTo = pointRect;
         } else {
             flyTo = MKMapRectUnion(flyTo, pointRect);
         }
-        mapView.visibleMapRect = flyTo;
+        self.mapView.visibleMapRect = flyTo;
     }   
     
     //only one annotation, center map here as this is usually the users location
-    if(mapView.annotations.count == 1)
+    if(self.mapView.annotations.count == 1)
     {
         //location updated so center to that location.
         MKCoordinateRegion myRegion;
-        
         
         //set how zoomed in we are.
         MKCoordinateSpan mySpan;
@@ -533,12 +542,40 @@
         mySpan.longitudeDelta = 0.006;
         myRegion.span = mySpan;
         myRegion.center = myLocationCoordinate;
-        [mapView setRegion:myRegion animated:true];  
+        [self.mapView setRegion:myRegion animated:true];  
     } 
 }
 
+- (void)mapView:(MKMapView *)mapView 
+ annotationView:(MKAnnotationView *)view 
+calloutAccessoryControlTapped:(UIControl *)control {
+    annotationButtonActionTag = (long int)[control tag];
+    
+    //perform action for annotation.
+    [self performSegueWithIdentifier:@"MapToCourseDetail" sender:self];    
+}
 
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    if ([view.annotation isKindOfClass:[MapAnnotation class]])
+    {
+        if(self.calloutAnnotation == nil)
+        {
+            self.calloutAnnotation = [[MapAnnotationCallout alloc] initWithMapAnnotation:view.annotation];
+            
+        }
+        else 
+        {
+            [self.calloutAnnotation setMapAnnotation: view.annotation];
+            
+        }
+        [self.mapView addAnnotation:self.calloutAnnotation];
+		selectedAnnotationView = view;
+    }
+}
 
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
+    [self.mapView removeAnnotation: self.calloutAnnotation];
+}
 
 
 
@@ -546,14 +583,32 @@
 - (MKAnnotationView *)mapView:(MKMapView *)map viewForAnnotation:(id <MKAnnotation>)annotation
 {
     //if the annotation is the users location than return nil
-    if (annotation == mapView.userLocation) return nil;
+    if (annotation == self.mapView.userLocation) return nil;
 
-    if ([annotation isKindOfClass:[MapAnnotation class]])
+    
+    if (annotation == self.calloutAnnotation) {
+        MapAnnotationView *calloutMapAnnotationView = (MapAnnotationView *)[self.mapView dequeueReusableAnnotationViewWithIdentifier:@"CalloutAnnotation"];
+		if (!calloutMapAnnotationView) {
+			calloutMapAnnotationView = [[MapAnnotationView alloc] initWithAnnotation:annotation 
+                                                                                         reuseIdentifier:@"CalloutAnnotation"];
+
+			
+		}
+		calloutMapAnnotationView.parentAnnotationView = selectedAnnotationView;
+		calloutMapAnnotationView.mapView = self.mapView;
+        [calloutMapAnnotationView clearAnnotations];
+        
+        [calloutMapAnnotationView addAnnotationModel:annotation];
+        
+		return calloutMapAnnotationView;
+
+    }    
+    else if ([annotation isKindOfClass:[MapAnnotation class]])
     {
         
         //define the annotation pin
-        MKPinAnnotationView *pin = (MKPinAnnotationView *) [mapView dequeueReusableAnnotationViewWithIdentifier: @"mapPin"];
-    
+        MKPinAnnotationView *pin = (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier: @"mapPin"];
+        
         //ensure the annotation pin is correctly defined.
         if (pin == nil)
         {
@@ -563,55 +618,26 @@
         {
             pin.annotation = annotation;
         }
-    
-        //Only show button for Classes
-        if(([(MapAnnotation*)annotation annotationType] == @"myCourse"))
-        {
-            //define the annotation button type to add to the annotation.
-            UIButton *annotationButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        
+        MapAnnotation* tmpAnnRef = (MapAnnotation*) annotation;
+        if ( tmpAnnRef.annObjectArray.count > 1) {
+            pin.pinColor = MKPinAnnotationColorGreen;
+        }
 
-            //set the identifying atribute to the annotation
-            [annotationButton setTag: [(MapAnnotation*)annotation keyVal]];
-            
-            //add an event to the button
-            [annotationButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
-            //define the button on the pin annotation
-            pin.rightCalloutAccessoryView = annotationButton;
-            
-        }
-        else if ([(MapAnnotation*)annotation annotationType] == @"mySearchCourse") {
-            //define the annotation button type to add to the annotation.
-            UIButton *annotationButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-            
-            //set the identifying atribute to the annotation
-            [annotationButton setTag: [(MapAnnotation*)annotation keyVal]];
-            
-            //add an event to the button
-            [annotationButton addTarget:self action:@selector(buttonSearchClicked:) forControlEvents:UIControlEventTouchUpInside];
-            
-            //define the button on the pin annotation
-            pin.rightCalloutAccessoryView = annotationButton;
-        }
-        else {
-            pin.rightCalloutAccessoryView = nil;
-        }
-        //set pin atributes.
-        pin.pinColor = MKPinAnnotationColorRed;
-        pin.animatesDrop = YES;
+        pin.rightCalloutAccessoryView = nil;
+
         [pin setEnabled:YES];
-        [pin setCanShowCallout:YES];
+        [pin setCanShowCallout:NO];
         return pin;
         
     }
+
     return nil;
 }
 
 //action for annotation object click event.
 -(void) buttonClicked:(UIButton*) button
 {
-
-    //NSLog(@"Button %ld clicked.", (long int)[button tag]);
     annotationButtonActionTag = (long int)[button tag];
     
     //perform action for annotation.
@@ -623,8 +649,6 @@
 //action for annotation object click event.
 -(void) buttonSearchClicked:(UIButton*) button
 {
-    
-    //NSLog(@"Button %ld clicked.", (long int)[button tag]);
     annotationButtonActionTag = (long int)[button tag];
     
     //perform action for annotation.
@@ -670,7 +694,7 @@
     BuildingModel* newBuilding = [[self theAppDataObject].buildings objectAtIndex:newBuildingIndex];
     
     //we can auto call option 2 to remove annotations befor another needs to be drawn.
-    [mapView removeAnnotations:mapView.annotations];
+    [self.mapView removeAnnotations:self.mapView.annotations];
     
     tmpAnn = [[MapAnnotation alloc] initWithBuildingModel:newBuilding];
     
@@ -688,8 +712,8 @@
     annotationPoint = MKMapPointForCoordinate(tmpAnn.coordinate);
     
     //place the annotation on the map.
-    [mapView addAnnotation:tmpAnn];
-    [mapView selectAnnotation:tmpAnn animated:YES];
+    [self.mapView addAnnotation:tmpAnn];
+    [self.mapView selectAnnotation:tmpAnn animated:YES];
 
     //define the bounding rectangle and set visible area to include annotation point.
     pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
@@ -701,7 +725,7 @@
     
     
     //set visible rectngle
-    mapView.visibleMapRect = flyTo;
+    self.mapView.visibleMapRect = flyTo;
     
     //show the distance label
     distanceLabel.hidden = false;
@@ -710,7 +734,7 @@
 -(void)showCourseAnnotation: (NSObject*) tmpClass
 {
     //we can auto call option 2 to remove annotations befor another needs to be drawn.
-    [mapView removeAnnotations:mapView.annotations];
+    [self.mapView removeAnnotations:self.mapView.annotations];
     
     MKMapRect flyTo = MKMapRectNull; //map bounding rectangle for classes.
     
@@ -725,8 +749,8 @@
         MKMapPoint annotationPoint = MKMapPointForCoordinate(tmpNextAnnotation.coordinate);
         
         //place the annotation on the map.
-        [mapView addAnnotation:tmpNextAnnotation];
-        [mapView selectAnnotation:tmpNextAnnotation animated:YES];
+        [self.mapView addAnnotation:tmpNextAnnotation];
+        [self.mapView selectAnnotation:tmpNextAnnotation animated:YES];
         
         //define the bounding rectangle and set visible area to include annotation point.
         MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
@@ -738,7 +762,6 @@
         
         //show the distance label
         distanceLabel.hidden = false;
-        NSLog(@"show course");
     }
 }
 

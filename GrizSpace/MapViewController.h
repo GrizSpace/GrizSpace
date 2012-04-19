@@ -16,7 +16,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "BuildingModel.h"
 #import "MapAnnotation.h"
-
+#import "MapAnnotationCallout.h"
 //used for accing and setting the map properties
 @protocol MapViewControllerDelegate
 -(void)setAnnotationsSegmentIndex: (int) newSegmentIndex; //sets map annotation segment index
@@ -27,14 +27,17 @@
 
 @interface MapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UITabBarControllerDelegate, MapViewControllerDelegate> 
 {
-    __weak IBOutlet MKMapView *mapView; //reference to the private mapview
     MapAnnotation* tmpAnn;
     long int annotationButtonActionTag; //the action tag associated with the page button annotation action.
     
     NSObject* annotationObject; //the current set annotation object.
     
+   	MapAnnotationCallout *_calloutAnnotation;
+    MKAnnotationView *selectedAnnotationView;
+    MKMapView *_mapView;
 }
 
+@property (nonatomic, retain) IBOutlet MKMapView *mapView;
 
 @property (nonatomic, weak) id<CourseDetailControllerDelegate> delegate; //delegate used to call course details 
 

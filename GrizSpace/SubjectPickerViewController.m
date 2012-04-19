@@ -288,9 +288,9 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
     if(searching)
-        return @"Filtered Sections";
+        return @"Filtered Subjects";
     else 
-        return @"Select a Section";
+        return @"Select a Subject";
 }
 
 

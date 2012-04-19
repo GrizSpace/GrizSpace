@@ -74,6 +74,8 @@
 		D83ADE1015031F76003733BE /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = D83ADE0F15031F76003733BE /* MapAnnotation.m */; };
 		D83AEA26152657850087ABAD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52A226A152296F200507580 /* Parse.framework */; };
 		D860ADD415052C5700EB030A /* GrizSpaceTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */; };
+		D8BE010C153D2D90007FAF35 /* MapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BE010B153D2D90007FAF35 /* MapAnnotationView.m */; };
+		D8BE0113153DD012007FAF35 /* MapAnnotationCallout.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BE0112153DD011007FAF35 /* MapAnnotationCallout.m */; };
 		D8E53BC81505BC3400D59A52 /* Location2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = D8E53BC71505BC3400D59A52 /* Location2.gpx */; };
 		D8FE67A215048EE600D09F31 /* Direction_Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D8FE67A115048EE600D09F31 /* Direction_Arrow.png */; };
 		E637A2A71515131C001E0E2D /* BuildingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E637A2A41515131C001E0E2D /* BuildingModel.m */; };
@@ -183,6 +185,10 @@
 		D83ADE0F15031F76003733BE /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrizSpaceTabBarController.h; sourceTree = "<group>"; };
 		D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrizSpaceTabBarController.m; sourceTree = "<group>"; };
+		D8BE010A153D2D90007FAF35 /* MapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotationView.h; sourceTree = "<group>"; };
+		D8BE010B153D2D90007FAF35 /* MapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotationView.m; sourceTree = "<group>"; };
+		D8BE0111153DD011007FAF35 /* MapAnnotationCallout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotationCallout.h; sourceTree = "<group>"; };
+		D8BE0112153DD011007FAF35 /* MapAnnotationCallout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotationCallout.m; sourceTree = "<group>"; };
 		D8DCED431506CFB100E111DC /* Location3.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location3.gpx; sourceTree = "<group>"; };
 		D8E53BC71505BC3400D59A52 /* Location2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Location2.gpx; sourceTree = "<group>"; };
 		D8FE67A115048EE600D09F31 /* Direction_Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Direction_Arrow.png; sourceTree = "<group>"; };
@@ -372,6 +378,10 @@
 			children = (
 				D83ADE0E15031F76003733BE /* MapAnnotation.h */,
 				D83ADE0F15031F76003733BE /* MapAnnotation.m */,
+				D8BE0111153DD011007FAF35 /* MapAnnotationCallout.h */,
+				D8BE0112153DD011007FAF35 /* MapAnnotationCallout.m */,
+				D8BE010A153D2D90007FAF35 /* MapAnnotationView.h */,
+				D8BE010B153D2D90007FAF35 /* MapAnnotationView.m */,
 			);
 			name = MapSpace;
 			sourceTree = "<group>";
@@ -404,6 +414,8 @@
 		D83F9727151C3AF100BAA16E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C562FD06150035A700ADA1C8 /* MapViewController.h */,
+				C562FD07150035A700ADA1C8 /* MapViewController.m */,
 				C5757037153A500B00285BE1 /* ModalAlertDelegate.h */,
 				C5757038153A500B00285BE1 /* ModalAlertDelegate.m */,
 				C596D01C153709BD00DF25EC /* PhotoViewController.h */,
@@ -425,8 +437,6 @@
 				D860ADD215052C5700EB030A /* GrizSpaceTabBarController.h */,
 				D860ADD315052C5700EB030A /* GrizSpaceTabBarController.m */,
 				5A59DB3115000D7300CE4FC6 /* MainStoryboard.storyboard */,
-				C562FD06150035A700ADA1C8 /* MapViewController.h */,
-				C562FD07150035A700ADA1C8 /* MapViewController.m */,
 				C596D018153707AA00DF25EC /* PhotoDetailViewController.h */,
 				C596D019153707AA00DF25EC /* PhotoDetailViewController.m */,
 				E6D43CFD152AAB4D00976AF6 /* ScheduleTableViewController.h */,
@@ -607,6 +617,8 @@
 				C596D01A153707AA00DF25EC /* PhotoDetailViewController.m in Sources */,
 				C596D01E153709BD00DF25EC /* PhotoViewController.m in Sources */,
 				C5757039153A500B00285BE1 /* ModalAlertDelegate.m in Sources */,
+				D8BE010C153D2D90007FAF35 /* MapAnnotationView.m in Sources */,
+				D8BE0113153DD012007FAF35 /* MapAnnotationCallout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
