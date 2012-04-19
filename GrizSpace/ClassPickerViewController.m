@@ -9,22 +9,24 @@
 #import "ClassPickerViewController.h"
 
 @interface ClassPickerViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *tf2;
+
 @property (strong, nonatomic) IBOutlet UILabel *subjectLabel;
 @property (strong, nonatomic) IBOutlet UILabel *daysLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timesLabel;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
 @property (strong, nonatomic) IBOutlet UIButton *selectSectionButton;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
 @implementation ClassPickerViewController
-@synthesize tf2;
+
 @synthesize subjectLabel;
 @synthesize daysLabel;
 @synthesize timesLabel;
 @synthesize locationLabel;
 @synthesize selectSectionButton;
+@synthesize titleLabel;
 @synthesize coursePicker;
 @synthesize selectCourseButton;
 @synthesize selectedSubject;
@@ -55,6 +57,7 @@
     timesLabel.text = [NSString stringWithFormat:@"%@: %@", self.selectedCourse.section.startTime, self.selectedCourse.section.endTime];
     
     locationLabel.text = [NSString stringWithFormat:@"%@ %@", self.selectedCourse.section.building, self.selectedCourse.section.room];
+    titleLabel.text = self.selectedCourse.section.courseTitle;
     selectSectionButton.titleLabel.text = self.selectedCourse.section.getNumberString;
 }
 
@@ -152,6 +155,7 @@
     
     locationLabel.text = [NSString stringWithFormat:@"%@ %@", self.selectedCourse.section.building, self.selectedCourse.section.room];
     selectSectionButton.titleLabel.text = self.selectedCourse.section.getNumberString;
+    titleLabel.text = self.selectedCourse.section.courseTitle;
 
     
     
@@ -160,7 +164,7 @@
 - (void)viewDidUnload
 {
     [self setCoursePicker:nil];
-    [self setTf2:nil];
+    
     [self setSelectCourseButton:nil];
     [self setSubjectLabel:nil];
     [self setAddButton:nil];
@@ -168,6 +172,7 @@
     [self setTimesLabel:nil];
     [self setLocationLabel:nil];
     [self setSelectSectionButton:nil];
+    [self setTitleLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

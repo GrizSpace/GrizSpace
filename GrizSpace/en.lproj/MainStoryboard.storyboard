@@ -3,7 +3,7 @@
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1179"/>
     </dependencies>
     <scenes>
         <!--Griz Space Tab Bar Controller-->
@@ -119,7 +119,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ad7-bs-YQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="CP5-FD-hMa" customClass="SubjectPickerViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gVB-lx-iYY">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="z4z-NU-arb">
@@ -318,6 +318,7 @@
                         <outlet property="selectSectionButton" destination="9Yo-Ec-lzO" id="JlG-ts-huB"/>
                         <outlet property="subjectLabel" destination="L3X-v3-w4H" id="Hyd-U9-wp4"/>
                         <outlet property="timesLabel" destination="G8E-rZ-EP8" id="4vG-GP-gnj"/>
+                        <outlet property="titleLabel" destination="Vlf-nz-1zk" id="fsc-rp-83L"/>
                     </connections>
                 </viewController>
             </objects>
@@ -603,7 +604,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="diQ-lh-GIe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Yk1-PS-6Qc" customClass="ScheduleTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Yv5-cM-sbC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -1068,8 +1069,8 @@
                 <relationship kind="outlet" name="selectCourseButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="selectSectionButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="subjectLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tf2" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="timesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="CourseDetailVewController" superclassName="UIViewController">
@@ -1161,6 +1162,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="g2G-Ff-FKd"/>
+        <segue reference="uld-Og-tri"/>
     </inferredMetricsTieBreakers>
 </document>
