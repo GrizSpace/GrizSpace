@@ -58,7 +58,7 @@
         
         int alCount = annotationsList.count;
         int yOffset = 2;
-        int annHeight = 55;
+        int annHeight = 45;
         int annWidth = self.mapView.frame.size.width - 50;
         if(alCount > 1)
         {
@@ -77,6 +77,25 @@
         annText.textColor = [UIColor whiteColor];
         annText.editable = NO;                     // added to make annotation not editable
         
+        NSLog(@"adding sub text: %@", tmpMA.subtitle);
+        if(tmpMA.subtitle != nil)
+        {
+            if(tmpMA.subtitle != @"")
+            {
+                
+                CGRect subframe = CGRectMake(5, yOffset + 12, annWidth, annHeight - 10);
+                UITextView* subannText = [[UITextView alloc] initWithFrame:subframe];
+                UIFont* subfont = [UIFont fontWithName:@"Arial" size:10];
+                subannText.text = tmpMA.subtitle;
+                subannText.backgroundColor = [UIColor clearColor];
+                subannText.textColor = [UIColor whiteColor];
+                subannText.font = subfont;
+                subannText.editable = NO;
+                [self.contentView addSubview:subannText];
+            }
+        }
+        
+        
         if(tmpMA.annotationType != @"Building")
         {
             UIButton* accessory = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
@@ -86,10 +105,10 @@
                           action: @selector(calloutAccessoryTapped) 
                 forControlEvents: UIControlEventTouchUpInside | UIControlEventTouchCancel];
             accessory.tag = tmpMA.keyVal;
-            accessory.frame = CGRectMake(annWidth, 
-                                         (yOffset - 10), 
-                                         25, 
-                                         annHeight);   
+            accessory.frame = CGRectMake(annWidth - 5, 
+                                         (yOffset), 
+                                         45, 
+                                         45);   
             [self.contentView addSubview: accessory];
             [buttonList addObject:accessory];
         }
