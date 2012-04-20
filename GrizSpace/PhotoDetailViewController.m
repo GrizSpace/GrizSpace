@@ -9,16 +9,27 @@
 #import "PhotoDetailViewController.h"
 
 @implementation PhotoDetailViewController
-@synthesize photoImageView, selectedImage, imageName, objectID;
+@synthesize photoImageView, selectedImage, imageName, objectID, hollaBack;
 
 - (IBAction)flag:(id)sender 
 {
     PFQuery *query = [PFQuery queryWithClassName:@"UserPhoto"];
-    PFObject *gameScore = [query getObjectWithId:self.objectID];
+    PFObject *flagedPhoto = [query getObjectWithId:self.objectID];
     
-    [gameScore incrementKey:@"flags"];
-    [gameScore save];
+    if ([[flagedPhoto objectForKey:@"flags"] intValue] > 1)
+    {
+        [flagedPhoto incrementKey:@"flags"];
+        [flagedPhoto save];
+        [hollaBack refresh:nil];
+        [self dismissModalViewControllerAnimated:YES];
+    }
+    else 
+    {
+        
     
+    [flagedPhoto incrementKey:@"flags"];
+    [flagedPhoto save];
+    }
 }
 
 - (IBAction)close:(id)sender

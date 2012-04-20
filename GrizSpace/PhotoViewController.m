@@ -241,6 +241,8 @@
     
     pdvc.selectedImage = selectedPhoto;
     pdvc.objectID = [theObject objectId];
+    [pdvc setHollaBack:self];
+    
     [self presentModalViewController:pdvc animated:YES];
 }
 
@@ -255,6 +257,11 @@
    // allImages = [[NSMutableArray alloc] init];
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+   // [self refresh:nil];
+}
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -262,10 +269,7 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
