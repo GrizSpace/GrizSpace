@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BoredEvent.h"
+#import "BoredTableViewController.h"
 
 
 @interface EventDetailsViewController : UIViewController
@@ -21,4 +22,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *whenLabel;
 
 @property (strong, nonatomic) BoredEvent* selectedEvent;
+//@property (strong, nonatomic) BoredTableViewController* hollaBack;
 @end

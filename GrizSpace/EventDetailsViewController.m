@@ -21,6 +21,7 @@
 @synthesize titleLabel;
 @synthesize whenLabel;
 @synthesize selectedEvent;
+//@synthesize hollaBack;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,13 +31,10 @@
     }
     return self;
 }
-- (IBAction)selectCancel:(id)sender 
-{
-    [self dismissModalViewControllerAnimated:YES];
-}
 - (IBAction)selectFlag:(id)sender 
 {
     [BoredEvent flagEvent:self.selectedEvent];
+    [self.navigationController popViewControllerAnimated:YES];
 
 }
 

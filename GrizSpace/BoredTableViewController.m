@@ -32,7 +32,7 @@
     
     [self setEvents:[BoredEvent getBoredEvents]];
     
-     
+     [self.tableView reloadData];
   //  }
     
     // Uncomment the following line to preserve selection between presentations.
@@ -56,6 +56,10 @@
     // e.g. self.myOutlet = nil;
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self viewDidLoad];
+}
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
