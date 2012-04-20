@@ -65,6 +65,7 @@
     Schedule* sched   = [[Schedule alloc] initFromCourseList:myCourses];
     coursesByDayArray = [sched toDayArray];
 
+    [self.tableView reloadData];
     //allow the custom background to be seen
     //self.tableView.backgroundColor = [UIColor clearColor];
     
@@ -78,10 +79,34 @@
 
 - (void)viewDidUnload
 {
+    
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
+
+
+
+-(void) viewWillAppear:(BOOL)animated
+{
+   // [self viewDidLoad];
+    
+    CourseList* myCourseListObject = [[CourseList alloc] init];
+    
+    [self setMyCourses:[myCourseListObject getCourseListFromParse]];
+    Schedule* sched   = [[Schedule alloc] initFromCourseList:myCourses];
+    coursesByDayArray = [sched toDayArray];
+
+    [self.tableView reloadData];
+}
+
+
+//-(void) viewDidAppear:(BOOL)animated
+//{
+//    [self viewDidLoad];
+    
+//}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
