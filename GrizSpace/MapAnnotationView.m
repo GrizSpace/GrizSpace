@@ -448,8 +448,6 @@
 - (void)dealloc {
 	self.parentAnnotationView = nil;
 	self.mapView = nil;
-	//[_contentView release];
-    //[super dealloc];
 }
 
 @end
