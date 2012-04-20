@@ -58,7 +58,7 @@
         
         int alCount = annotationsList.count;
         int yOffset = 2;
-        int annHeight = 45;
+        int annHeight = 40;
         int annWidth = self.mapView.frame.size.width - 50;
         if(alCount > 1)
         {
@@ -67,7 +67,7 @@
         
         self.contentHeight = (annHeight * alCount);
         UIFont* font = [UIFont fontWithName:@"Arial" size:12];
-        CGRect frame = CGRectMake(5, yOffset, annWidth, annHeight);
+        CGRect frame = CGRectMake(5, yOffset - 5, annWidth, annHeight - 18);
         
         UITextView* annText = [[UITextView alloc] initWithFrame: frame];
         
@@ -83,7 +83,7 @@
             if(tmpMA.subtitle != @"")
             {
                 
-                CGRect subframe = CGRectMake(5, yOffset + 12, annWidth, annHeight - 10);
+                CGRect subframe = CGRectMake(5, yOffset + 11, annWidth, annHeight - 17);
                 UITextView* subannText = [[UITextView alloc] initWithFrame:subframe];
                 UIFont* subfont = [UIFont fontWithName:@"Arial" size:10];
                 subannText.text = tmpMA.subtitle;
@@ -105,10 +105,10 @@
                           action: @selector(calloutAccessoryTapped) 
                 forControlEvents: UIControlEventTouchUpInside | UIControlEventTouchCancel];
             accessory.tag = tmpMA.keyVal;
-            accessory.frame = CGRectMake(annWidth - 5, 
-                                         (yOffset), 
-                                         45, 
-                                         45);   
+            accessory.frame = CGRectMake(annWidth - 10, 
+                                         (yOffset- 10), 
+                                         55, 
+                                         55);   
             [self.contentView addSubview: accessory];
             [buttonList addObject:accessory];
         }
