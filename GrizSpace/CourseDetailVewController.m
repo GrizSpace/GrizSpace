@@ -56,6 +56,17 @@
     }
 
 }
+
+//used to store global information.
+- (GrizSpaceDataObjects*) theAppDataObject
+{
+	id<AppDelegateProtocol> theDelegate = (id<AppDelegateProtocol>) [UIApplication sharedApplication].delegate;
+	GrizSpaceDataObjects* theDataObject;
+	theDataObject = (GrizSpaceDataObjects*) theDelegate.theAppDataObject;
+	return theDataObject;
+}
+
+
 - (IBAction)selectCancel:(id)sender 
 {
     [self dismissModalViewControllerAnimated:YES];
@@ -67,13 +78,6 @@
     selectedCourse = selectedCourseFromPicker;
 }
 
-- (GrizSpaceDataObjects*) theAppDataObject
-{
-	id<AppDelegateProtocol> theDelegate = (id<AppDelegateProtocol>) [UIApplication sharedApplication].delegate;
-	GrizSpaceDataObjects* theDataObject;
-	theDataObject = (GrizSpaceDataObjects*) theDelegate.theAppDataObject;
-	return theDataObject;
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -153,6 +157,19 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (NSString*) GetBuildingName: (NSString*) buildAbr
+{
+    NSMutableArray *buildings = [self theAppDataObject].buildings;
+    
+    for(BuildingModel* tmpBld in buildings)
+    {
+        if([tmpBld.idBuilding isEqualToString: buildAbr])
+        {
+            return tmpBld.name;
+        }
+    }
+    return buildAbr;
+}
 
 -(void) LoadCourseDetails
 {
@@ -177,7 +194,12 @@
         
         //courseRoom.text = [tmpCM buildingAndRoom];
         
-        courseRoom.text = [NSString stringWithFormat:@"%@ %@", selectedCourse.section.building, selectedCourse.section.room];
+        
+        NSString* buildName = [self GetBuildingName: selectedCourse.section.building];
+        
+        courseRoom.text = [NSString stringWithFormat:@"%@ %@", buildName, selectedCourse.section.room];
+
+        //courseRoom.text = [NSString stringWithFormat:@"%@ %@", selectedCourse.section.building, selectedCourse.section.room];
     }
 }
 
@@ -239,4 +261,6 @@ else
 }
 
 }
+
+
 @end
