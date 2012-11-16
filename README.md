@@ -1,6 +1,18 @@
-# Where's My Class?
+# Dude, Where's My Class?
 
 ...where's my code?
+
+GrizSpace is a cloud-based, class scheduling, social photo sharing,
+navigation, and productivity iPhone app. We developed it as our final projects
+in our human-computer interaction and mobile application development courses
+at the University of Montana-Missoula.
+
+# Authors
+
+- [William J. Lyon](http://www.williamlyon.org/)
+- [Jon-Michael Deldin](http://www.jmdeldin.com)
+- Kevin Scott
+- Jaylene Naylor
 
 # Setup
 
