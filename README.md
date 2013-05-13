@@ -9,7 +9,7 @@ at the University of Montana-Missoula.
 
 # Authors
 
-- [William J. Lyon](http://www.williamlyon.org/)
+- [William J. Lyon](http://www.lyonwj.com/)
 - [Jon-Michael Deldin](http://www.jmdeldin.com)
 - Kevin Scott
 - Jaylene Naylor
